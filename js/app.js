@@ -527,7 +527,7 @@ console.log('App.js carregado - iniciando execução');
       resultsContainer.innerHTML = '';
       
       players.slice(0, 50).forEach(p => {
-        const slug = normalizeClub(p.clube);
+        const slug = p.clubeSlug || normalizeClub(p.clube);
         const card = document.createElement('div');
         card.className = 'card';
         
@@ -754,7 +754,7 @@ console.log('App.js carregado - iniciando execução');
      
      resultsRow.innerHTML='';
      availablePlayers.slice(0,300).forEach(p => {
-       const slug = normalizeClub(p.clube);
+       const slug = p.clubeSlug || normalizeClub(p.clube);
        const card = document.createElement('div');
        card.className='card';
        
@@ -814,7 +814,7 @@ console.log('App.js carregado - iniciando execução');
      selectedRow.innerHTML = '';
      
      selected.forEach(p => {
-       const slug = normalizeClub(p.clube);
+       const slug = p.clubeSlug || normalizeClub(p.clube);
        
        // Usar o mesmo layout da barra de pesquisa para todas as posições
        const card = document.createElement('div');

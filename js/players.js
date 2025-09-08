@@ -409,7 +409,7 @@ function renderSelected(pos){
   const row = document.getElementById('selectedRow');
   row.innerHTML='';
   STATE.selected[pos].forEach((p,idx)=>{
-    const slug = normalizeClub(p.clube);
+    const slug = p.clubeSlug || normalizeClub(p.clube);
     const card = document.createElement('div');
     card.className = 'card';
     const chip = document.createElement('div');
