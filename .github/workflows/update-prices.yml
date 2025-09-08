@@ -1,0 +1,54 @@
+name: Atualizar Preços Cartola FC
+
+on:
+  schedule:
+    # Executa a cada 6 horas (00:00, 06:00, 12:00, 18:00 UTC)
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Permite execução manual
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Update player prices
+      run: |
+        python update_prices.py
+    
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add cartola_jogadores_time_posicao_preco.csv
+        git commit -m "🤖 Atualização automática dos preços - $(date +'%d/%m/%Y %H:%M')"
+        git push
+    
+    - name: Trigger Netlify deploy
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        echo "✅ Arquivo CSV atualizado. Netlify fará deploy automaticamente."

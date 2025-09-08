@@ -1,0 +1,47 @@
+{
+  "name": "cartola-montagem-live",
+  "version": "1.0.0",
+  "description": "Aplicação web interativa para montar escalações do Cartola FC com dados em tempo real",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8002",
+    "dev": "python -m http.server 8002",
+    "serve": "npx serve . -p 8002",
+    "build": "echo 'Site estático - não requer build'",
+    "deploy:netlify": "netlify deploy --prod",
+    "deploy:vercel": "vercel --prod",
+    "test": "echo 'Testes não configurados ainda'"
+  },
+  "keywords": [
+    "cartola",
+    "futebol",
+    "fantasy",
+    "escalacao",
+    "drag-drop",
+    "javascript",
+    "web-app"
+  ],
+  "author": "Desenvolvedor Cartola FC",
+  "license": "MIT",
+  "homepage": "https://github.com/usuario/cartola-montagem-live",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usuario/cartola-montagem-live.git"
+  },
+  "bugs": {
+    "url": "https://github.com/usuario/cartola-montagem-live/issues"
+  },
+  "devDependencies": {
+    "serve": "^14.0.0",
+    "netlify-cli": "^17.0.0",
+    "vercel": "^32.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
