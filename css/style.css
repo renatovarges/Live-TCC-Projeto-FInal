@@ -486,3 +486,105 @@ cursor:pointer;transition:all 0.3s ease;
     height: 32px !important;
   }
 }
+
+/* Jogadores na Teoria do Muro */
+.muro-player {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 4px 6px;
+  margin-bottom: 4px;
+  position: relative;
+  cursor: grab;
+  transition: all 0.2s ease;
+  min-height: 32px;
+}
+
+.muro-player:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.02);
+}
+
+.muro-player .player-chip {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.muro-player .player-chip img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+}
+
+.muro-player .player-name {
+  color: white;
+  font-size: 11px;
+  font-weight: 500;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.muro-player .remove-player {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  background: var(--red);
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+
+.muro-player:hover .remove-player {
+  opacity: 1;
+}
+
+/* Responsividade para jogadores no muro */
+@media (max-width: 768px) {
+  .muro-player {
+    min-height: 28px;
+    padding: 3px 5px;
+    gap: 4px;
+  }
+  
+  .muro-player .player-chip {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .muro-player .player-name {
+    font-size: 10px;
+  }
+  
+  .muro-player .remove-player {
+    width: 14px;
+    height: 14px;
+    font-size: 9px;
+  }
+}

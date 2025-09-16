@@ -881,7 +881,7 @@ console.log('App.js carregado - iniciando execução');
      
      muroSections.forEach((section, index) => {
        console.log(`🏆 Configurando seção ${index + 1}: ${section.dataset.muro}`);
-       DND.setupDropzone(section, (data) => {
+       DND.setupDropzone(section, (data, ev) => {
          console.log('🏆 Drop recebido na Teoria do Muro:', data);
          if (!data || data.type !== 'club') {
            console.log('🏆 Dados inválidos ou não é um clube');
@@ -889,46 +889,223 @@ console.log('App.js carregado - iniciando execução');
          }
          
          const muroType = section.dataset.muro;
-         const shieldsContainer = section.querySelector('.muro-shields');
+         console.log(`🏆 Abrindo seleção de jogadores para ${data.name} no muro ${muroType}`);
          
-         // Verificar se o escudo já existe nesta seção
-         const existingShield = shieldsContainer.querySelector(`[data-slug="${data.slug}"]`);
-         if (existingShield) return; // Não adicionar duplicatas
-         
-         // Criar escudo menor para o muro
-         const shield = document.createElement('div');
-         shield.className = 'team-shield';
-         shield.dataset.slug = data.slug;
-         shield.title = `${data.name} - ${getMuroDescription(muroType)}`;
-         
-         const img = document.createElement('img');
-         img.src = shieldPath(data.slug);
-         img.alt = data.name;
-         shield.appendChild(img);
-         
-         // Botão de remoção
-         const removeBtn = document.createElement('button');
-         removeBtn.className = 'remove-shield';
-         removeBtn.textContent = '×';
-         removeBtn.title = 'Remover';
-         removeBtn.onclick = (e) => {
-           e.stopPropagation();
-           shield.remove();
+         // Usar a mesma função de seleção de jogadores do campo
+         // Passar dados extras para identificar que é para o muro
+         const teamDataWithMuro = {
+           ...data,
+           targetMuro: muroType,
+           targetSection: section
          };
-         shield.appendChild(removeBtn);
          
-         // Permitir arrastar de volta
-         DND.makeDraggable(shield, data);
-         
-         shieldsContainer.appendChild(shield);
-         
-         console.log(`🏆 Escudo ${data.name} adicionado ao muro ${muroType}`);
+         openTeamPlayerSelectionForMuro(teamDataWithMuro);
        });
      });
-   }, 100); // Aguardar 100ms para garantir que o DOM está pronto
+   }, 100); // Aguardar 100ms para garantir que o DOM está pro   }
+
+   // Função para abrir seleção de jogadores específica para o muro
+   function openTeamPlayerSelectionForMuro(teamData) {
+     // Primeiro carrega o CSV se ainda não foi carregado
+     if(PLAYERS_API.STATE.players.length === 0) {
+       // Tenta carregar o CSV automaticamente
+       fetch('cartola_jogadores_time_posicao_preco.csv')
+         .then(response => response.text())
+         .then(csvText => {
+           const rows = PLAYERS_API.parseCSV(csvText);
+           const mapped = rows.map(r => ({
+             nome: r.nome || r.name || '',
+             clube: r.clube || r.time || r.clube_time || '',
+             posicao: (r.posicao || r.pos || '').toUpperCase(),
+             preco: r.preco || r.price || ''
+           }));
+           PLAYERS_API.STATE.players = mapped;
+           showTeamPlayersModalForMuro(teamData);
+         })
+         .catch(() => {
+           alert('Carregue o arquivo CSV primeiro para selecionar jogadores!');
+         });
+     } else {
+       showTeamPlayersModalForMuro(teamData);
+     }
+   }
+
+   // Modal para mostrar jogadores do time específico para o muro
+   function showTeamPlayersModalForMuro(teamData) {
+     console.log('🏆 showTeamPlayersModalForMuro chamada para:', teamData);
+     const teamName = teamData.name;
+     const muroType = teamData.targetMuro;
+     const targetSection = teamData.targetSection;
+     const players = window.PLAYERS_API.STATE.players;
+     
+     // Verificar se há dados carregados
+     if (!players || players.length === 0) {
+       alert('Dados dos jogadores não foram carregados ainda. Aguarde um momento.');
+       return;
+     }
+     
+     // Filtrar jogadores do time (mesma lógica do campo)
+     const teamPlayers = players.filter(player => {
+         if (!player.clubeSlug) return false;
+         
+         const playerSlug = player.clubeSlug.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+         const teamSlug = teamData.slug.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+         
+         if (teamSlug === 'internacional') {
+             return playerSlug === 'internacional' || 
+                    player.clubeSlug === 'internacional' ||
+                    (player.originalClub && player.originalClub.toLowerCase() === 'int') ||
+                    player.clube === 'INT';
+         }
+         
+         return playerSlug === teamSlug;
+     });
+
+     if(teamPlayers.length === 0) {
+       alert(`Nenhum jogador encontrado para ${teamName}`);
+       return;
+     }
+
+     // Criar modal (mesmo estilo do campo)
+     const modal = document.createElement('div');
+     modal.style.cssText = `
+       position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+       background: rgba(0,0,0,0.8); z-index: 1000;
+       display: flex; align-items: center; justify-content: center;
+     `;
+
+     const content = document.createElement('div');
+     content.style.cssText = `
+       background: #0d1a14; border: 2px solid #21c35c;
+       border-radius: 16px; padding: 20px; max-width: 600px;
+       max-height: 80vh; overflow-y: auto;
+     `;
+
+     const title = document.createElement('h3');
+     title.textContent = `Selecionar jogador - ${teamName} (${getMuroDescription(muroType)})`;
+     title.style.cssText = 'color: #21c35c; margin-bottom: 16px; text-align: center;';
+
+     const playersList = document.createElement('div');
+     playersList.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;';
+
+     // Agrupar por posição (mesma lógica do campo)
+     const positions = [
+       {name: 'Goleiro', keys: ['GOLEIRO', 'GOL']},
+       {name: 'Lateral', keys: ['LATERAL', 'LAT']},
+       {name: 'Zagueiro', keys: ['ZAGUEIRO', 'ZAG']},
+       {name: 'Meio-campo', keys: ['MEIO-CAMPO', 'MEIA', 'MEI']},
+       {name: 'Atacante', keys: ['ATACANTE', 'ATA']},
+       {name: 'Técnico', keys: ['TÉCNICO', 'TECNICO', 'TEC']}
+     ];
+     
+     positions.forEach(pos => {
+       const posPlayers = teamPlayers.filter(p => 
+         pos.keys.some(key => p.posicao.toUpperCase().includes(key))
+       );
+
+       if(posPlayers.length > 0) {
+         const posSection = document.createElement('div');
+         posSection.style.cssText = 'margin-bottom: 16px;';
+         
+         const posTitle = document.createElement('h4');
+         posTitle.textContent = pos.name;
+         posTitle.style.cssText = 'color: #fff; margin-bottom: 8px; font-size: 14px;';
+         
+         posPlayers.forEach(player => {
+           const playerBtn = document.createElement('button');
+           playerBtn.textContent = player.nome;
+           playerBtn.style.cssText = `
+             display: block; width: 100%; padding: 8px 12px;
+             background: #104a2f; border: 1px solid #21c35c;
+             color: #fff; border-radius: 8px; margin-bottom: 4px;
+             cursor: pointer; text-align: left;
+           `;
+           playerBtn.onmouseover = () => playerBtn.style.background = '#21c35c';
+           playerBtn.onmouseout = () => playerBtn.style.background = '#104a2f';
+           playerBtn.onclick = () => {
+             // Adicionar jogador ao muro em vez do campo
+             addPlayerToMuro({
+               type: 'player',
+               name: player.nome,
+               club: player.clube,
+               slug: teamData.slug
+             }, muroType, targetSection);
+             modal.remove(); // Fechar modal após seleção
+           };
+           posSection.appendChild(playerBtn);
+         });
+         
+         posSection.appendChild(posTitle);
+         playersList.appendChild(posSection);
+       }
+     });
+
+     const closeBtn = document.createElement('button');
+     closeBtn.textContent = 'Fechar';
+     closeBtn.style.cssText = `
+       background: #ef4444; color: #fff; border: none;
+       padding: 10px 20px; border-radius: 8px; cursor: pointer;
+       margin-top: 16px; width: 100%;
+     `;
+     closeBtn.onclick = () => modal.remove();
+
+     content.appendChild(title);
+     content.appendChild(playersList);
+     content.appendChild(closeBtn);
+     modal.appendChild(content);
+     document.body.appendChild(modal);
+   }
+
+   // Função para adicionar jogador ao muro
+   function addPlayerToMuro(playerData, muroType, targetSection) {
+     console.log(`🏆 Adicionando jogador ${playerData.name} ao muro ${muroType}`);
+     
+     const shieldsContainer = targetSection.querySelector('.muro-shields');
+     
+     // Criar elemento do jogador (similar ao campo, mas menor)
+     const playerElement = document.createElement('div');
+     playerElement.className = 'muro-player';
+     playerElement.dataset.playerName = playerData.name;
+     playerElement.dataset.club = playerData.club;
+     playerElement.title = `${playerData.name} (${playerData.club})`;
+     
+     // Chip com uniforme
+     const chip = document.createElement('div');
+     chip.className = 'player-chip';
+     const uniformImg = document.createElement('img');
+     uniformImg.src = kitPath(playerData.slug);
+     uniformImg.alt = playerData.club;
+     uniformImg.onerror = () => {
+       uniformImg.src = shieldPath(playerData.slug);
+     };
+     chip.appendChild(uniformImg);
+     
+     // Nome do jogador
+     const nameDiv = document.createElement('div');
+     nameDiv.className = 'player-name';
+     nameDiv.textContent = playerData.name;
+     
+     // Botão de remoção
+     const removeBtn = document.createElement('button');
+     removeBtn.className = 'remove-player';
+     removeBtn.textContent = '×';
+     removeBtn.title = 'Remover jogador';
+     removeBtn.onclick = (e) => {
+       e.stopPropagation();
+       playerElement.remove();
+     };
+     
+     playerElement.appendChild(chip);
+     playerElement.appendChild(nameDiv);
+     playerElement.appendChild(removeBtn);
+     
+     // Permitir arrastar de volta
+     DND.makeDraggable(playerElement, playerData);
+     
+     shieldsContainer.appendChild(playerElement);
+   }
 
   initializeApp();
-
 })();
 
 // Event listener para o botão de atualização manual
