@@ -59,57 +59,7 @@ console.log('App.js carregado - iniciando execução');
       });
     });
 
-    // TEORIA DO MURO: Configurar dropzones
-    console.log('🏆 Configurando dropzones da Teoria do Muro...');
-    const muroSections = document.querySelectorAll('.muro-section');
-    console.log(`🏆 Encontradas ${muroSections.length} seções do muro`);
-    
-    muroSections.forEach((section, index) => {
-      console.log(`🏆 Configurando seção ${index + 1}: ${section.dataset.muro}`);
-      DND.setupDropzone(section, (data) => {
-        console.log('🏆 Drop recebido na Teoria do Muro:', data);
-        if (!data || data.type !== 'club') {
-          console.log('🏆 Dados inválidos ou não é um clube');
-          return;
-        }
-        
-        const muroType = section.dataset.muro;
-        const shieldsContainer = section.querySelector('.muro-shields');
-        
-        // Verificar se o escudo já existe nesta seção
-        const existingShield = shieldsContainer.querySelector(`[data-slug="${data.slug}"]`);
-        if (existingShield) return; // Não adicionar duplicatas
-        
-        // Criar escudo menor para o muro
-        const shield = document.createElement('div');
-        shield.className = 'team-shield';
-        shield.dataset.slug = data.slug;
-        shield.title = `${data.name} - ${getMuroDescription(muroType)}`;
-        
-        const img = document.createElement('img');
-        img.src = shieldPath(data.slug);
-        img.alt = data.name;
-        shield.appendChild(img);
-        
-        // Botão de remoção
-        const removeBtn = document.createElement('button');
-        removeBtn.className = 'remove-shield';
-        removeBtn.textContent = '×';
-        removeBtn.title = 'Remover';
-        removeBtn.onclick = (e) => {
-          e.stopPropagation();
-          shield.remove();
-        };
-        shield.appendChild(removeBtn);
-        
-        // Permitir arrastar de volta
-        DND.makeDraggable(shield, data);
-        
-        shieldsContainer.appendChild(shield);
-        
-        console.log(`🏆 Escudo ${data.name} adicionado ao muro ${muroType}`);
-      });
-    });
+
 
   // Campo: drop livre e itens posicionáveis
     const field = document.getElementById('field');
@@ -913,6 +863,70 @@ console.log('App.js carregado - iniciando execução');
      });
    }
 
+   // Função auxiliar para descrição do muro
+   function getMuroDescription(muroType) {
+     switch(muroType) {
+       case 'negativo': return 'Uso Negativo (máximo 1 jogador)';
+       case 'centro': return 'Uso Equilibrado (2 jogadores)';
+       case 'positivo': return 'Uso Positivo (3-4 jogadores)';
+       default: return 'Teoria do Muro';
+     }
+   }
+
+   // TEORIA DO MURO: Configurar dropzones (no final da inicialização)
+   setTimeout(() => {
+     console.log('🏆 Configurando dropzones da Teoria do Muro...');
+     const muroSections = document.querySelectorAll('.muro-section');
+     console.log(`🏆 Encontradas ${muroSections.length} seções do muro`);
+     
+     muroSections.forEach((section, index) => {
+       console.log(`🏆 Configurando seção ${index + 1}: ${section.dataset.muro}`);
+       DND.setupDropzone(section, (data) => {
+         console.log('🏆 Drop recebido na Teoria do Muro:', data);
+         if (!data || data.type !== 'club') {
+           console.log('🏆 Dados inválidos ou não é um clube');
+           return;
+         }
+         
+         const muroType = section.dataset.muro;
+         const shieldsContainer = section.querySelector('.muro-shields');
+         
+         // Verificar se o escudo já existe nesta seção
+         const existingShield = shieldsContainer.querySelector(`[data-slug="${data.slug}"]`);
+         if (existingShield) return; // Não adicionar duplicatas
+         
+         // Criar escudo menor para o muro
+         const shield = document.createElement('div');
+         shield.className = 'team-shield';
+         shield.dataset.slug = data.slug;
+         shield.title = `${data.name} - ${getMuroDescription(muroType)}`;
+         
+         const img = document.createElement('img');
+         img.src = shieldPath(data.slug);
+         img.alt = data.name;
+         shield.appendChild(img);
+         
+         // Botão de remoção
+         const removeBtn = document.createElement('button');
+         removeBtn.className = 'remove-shield';
+         removeBtn.textContent = '×';
+         removeBtn.title = 'Remover';
+         removeBtn.onclick = (e) => {
+           e.stopPropagation();
+           shield.remove();
+         };
+         shield.appendChild(removeBtn);
+         
+         // Permitir arrastar de volta
+         DND.makeDraggable(shield, data);
+         
+         shieldsContainer.appendChild(shield);
+         
+         console.log(`🏆 Escudo ${data.name} adicionado ao muro ${muroType}`);
+       });
+     });
+   }, 100); // Aguardar 100ms para garantir que o DOM está pronto
+
   initializeApp();
 
 })();
@@ -937,13 +951,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Função auxiliar para descrição do muro
-    function getMuroDescription(muroType) {
-      switch(muroType) {
-        case 'negativo': return 'Uso Negativo (máximo 1 jogador)';
-        case 'centro': return 'Uso Equilibrado (2 jogadores)';
-        case 'positivo': return 'Uso Positivo (3-4 jogadores)';
-        default: return 'Teoria do Muro';
-      }
-    }
+
 });
