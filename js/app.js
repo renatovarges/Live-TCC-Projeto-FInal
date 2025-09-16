@@ -58,6 +58,50 @@ console.log('App.js carregado - iniciando execução');
         box.appendChild(chip);
       });
     });
+
+    // TEORIA DO MURO: Configurar dropzones
+    document.querySelectorAll('.muro-section').forEach(section => {
+      DND.setupDropzone(section, (data) => {
+        if (!data || data.type !== 'club') return;
+        
+        const muroType = section.dataset.muro;
+        const shieldsContainer = section.querySelector('.muro-shields');
+        
+        // Verificar se o escudo já existe nesta seção
+        const existingShield = shieldsContainer.querySelector(`[data-slug="${data.slug}"]`);
+        if (existingShield) return; // Não adicionar duplicatas
+        
+        // Criar escudo menor para o muro
+        const shield = document.createElement('div');
+        shield.className = 'team-shield';
+        shield.dataset.slug = data.slug;
+        shield.title = `${data.name} - ${getMuroDescription(muroType)}`;
+        
+        const img = document.createElement('img');
+        img.src = shieldPath(data.slug);
+        img.alt = data.name;
+        shield.appendChild(img);
+        
+        // Botão de remoção
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'remove-shield';
+        removeBtn.textContent = '×';
+        removeBtn.title = 'Remover';
+        removeBtn.onclick = (e) => {
+          e.stopPropagation();
+          shield.remove();
+        };
+        shield.appendChild(removeBtn);
+        
+        // Permitir arrastar de volta
+        DND.makeDraggable(shield, data);
+        
+        shieldsContainer.appendChild(shield);
+        
+        console.log(`🏆 Escudo ${data.name} adicionado ao muro ${muroType}`);
+      });
+    });
+
   // Campo: drop livre e itens posicionáveis
     const field = document.getElementById('field');
     DND.setupDropzone(field, (data, ev)=>{
@@ -882,5 +926,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 3000);
             }
         });
+    }
+
+    // Função auxiliar para descrição do muro
+    function getMuroDescription(muroType) {
+      switch(muroType) {
+        case 'negativo': return 'Uso Negativo (máximo 1 jogador)';
+        case 'centro': return 'Uso Equilibrado (2 jogadores)';
+        case 'positivo': return 'Uso Positivo (3-4 jogadores)';
+        default: return 'Teoria do Muro';
+      }
     }
 });
