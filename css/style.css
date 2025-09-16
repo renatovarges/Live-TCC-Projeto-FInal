@@ -316,25 +316,25 @@ cursor:pointer;transition:all 0.3s ease;
 /* Seção Negativa (Esquerda) */
 .muro-negativo {
   background: linear-gradient(145deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.08));
-  border-right: 2px solid rgba(239, 68, 68, 0.4);
   border-top-left-radius: 14px;
   border-bottom-left-radius: 14px;
-  border-left: 3px solid rgba(239, 68, 68, 0.7);
+  border-left: 4px solid #ef4444;
   border-top: 2px solid rgba(239, 68, 68, 0.3);
   border-bottom: 2px solid rgba(239, 68, 68, 0.3);
 }
 
 .muro-negativo:hover {
   background: linear-gradient(145deg, rgba(239, 68, 68, 0.25), rgba(239, 68, 68, 0.15));
-  border-left-color: rgba(239, 68, 68, 0.9);
+  border-left-color: #dc2626;
 }
 
 /* Seção Centro */
 .muro-centro {
   background: linear-gradient(145deg, rgba(156, 163, 175, 0.12), rgba(156, 163, 175, 0.06));
-  border-right: 2px solid rgba(156, 163, 175, 0.3);
   border-top: 2px solid rgba(156, 163, 175, 0.3);
   border-bottom: 2px solid rgba(156, 163, 175, 0.3);
+  border-left: 1px solid rgba(156, 163, 175, 0.2);
+  border-right: 1px solid rgba(156, 163, 175, 0.2);
 }
 
 .muro-centro:hover {
@@ -346,36 +346,48 @@ cursor:pointer;transition:all 0.3s ease;
   background: linear-gradient(145deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.08));
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
-  border-right: 3px solid rgba(34, 197, 94, 0.7);
+  border-right: 4px solid #22c55e;
   border-top: 2px solid rgba(34, 197, 94, 0.3);
   border-bottom: 2px solid rgba(34, 197, 94, 0.3);
 }
 
 .muro-positivo:hover {
   background: linear-gradient(145deg, rgba(34, 197, 94, 0.25), rgba(34, 197, 94, 0.15));
-  border-right-color: rgba(34, 197, 94, 0.9);
+  border-right-color: #16a34a;
 }
 
-/* Símbolos */
+/* Símbolos - Círculos coloridos com símbolos brancos */
 .muro-symbol {
-  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 8px;
-  opacity: 0.8;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  text-shadow: none;
 }
 
 .muro-negativo .muro-symbol {
-  color: rgba(239, 68, 68, 0.9);
+  background: #ef4444;
+  border: 2px solid #dc2626;
 }
 
 .muro-centro .muro-symbol {
-  color: rgba(156, 163, 175, 0.7);
-  font-size: 20px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  width: auto;
+  height: auto;
 }
 
 .muro-positivo .muro-symbol {
-  color: rgba(34, 197, 94, 0.9);
+  background: #22c55e;
+  border: 2px solid #16a34a;
 }
 
 /* Container dos escudos */

@@ -60,9 +60,18 @@ console.log('App.js carregado - iniciando execução');
     });
 
     // TEORIA DO MURO: Configurar dropzones
-    document.querySelectorAll('.muro-section').forEach(section => {
+    console.log('🏆 Configurando dropzones da Teoria do Muro...');
+    const muroSections = document.querySelectorAll('.muro-section');
+    console.log(`🏆 Encontradas ${muroSections.length} seções do muro`);
+    
+    muroSections.forEach((section, index) => {
+      console.log(`🏆 Configurando seção ${index + 1}: ${section.dataset.muro}`);
       DND.setupDropzone(section, (data) => {
-        if (!data || data.type !== 'club') return;
+        console.log('🏆 Drop recebido na Teoria do Muro:', data);
+        if (!data || data.type !== 'club') {
+          console.log('🏆 Dados inválidos ou não é um clube');
+          return;
+        }
         
         const muroType = section.dataset.muro;
         const shieldsContainer = section.querySelector('.muro-shields');
