@@ -312,19 +312,27 @@ async function loadData() {
     console.log(`🎯 Total final: ${STATE.players.length} jogadores (API + CSV)`);
     
     lastUpdateTime = new Date();
-    // Tentar obter status do mercado
+    // Tentar obter status do mercado via proxy
      let marketStatus = '';
      try {
-       const statusResponse = await fetch('https://api.cartola.globo.com/mercado/status', {
-         signal: AbortSignal.timeout(5000)
+       console.log('📊 Verificando status do mercado...');
+       const statusResponse = await fetch('/api/cartola/mercado/status', {
+         signal: AbortSignal.timeout(8000),
+         headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+         }
        });
        if (statusResponse.ok) {
          const statusData = await statusResponse.json();
          const isMarketOpen = statusData.status_mercado === 1;
          marketStatus = isMarketOpen ? '🟢 Mercado Aberto' : '🔴 Mercado Fechado';
+         console.log(`✅ Status do mercado: ${marketStatus} (rodada ${statusData.rodada_atual})`);
+       } else {
+         console.warn('⚠️ Erro ao obter status do mercado:', statusResponse.status);
        }
      } catch (error) {
-       console.log('Não foi possível obter status do mercado');
+       console.log('❌ Não foi possível obter status do mercado:', error.message);
      }
      
      if (updateElement) {
@@ -499,33 +507,45 @@ if (document.readyState === 'loading') {
 
 // Função para buscar dados da API do Cartola
 async function fetchCartolaAPI() {
+  console.log('🔄 Iniciando busca de dados da API do Cartola via proxy...');
+  
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
     
-    const response = await fetch('https://api.cartola.globo.com/atletas/mercado', {
+    // Usar a função Netlify como proxy para evitar problemas de CORS
+    const response = await fetch('/api/cartola/atletas/mercado', {
       signal: controller.signal,
       headers: {
         'Accept': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        'Content-Type': 'application/json'
       }
     });
     
     clearTimeout(timeoutId);
     
+    console.log(`📊 Response status: ${response.status} ${response.statusText}`);
+    
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('❌ Erro na resposta da API:', errorText);
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
     
     const data = await response.json();
-    console.log('✅ Dados da API carregados com sucesso');
+    console.log('✅ Dados da API carregados com sucesso via proxy!', {
+      atletas: Object.keys(data.atletas || {}).length,
+      clubes: Object.keys(data.clubes || {}).length,
+      posicoes: Object.keys(data.posicoes || {}).length
+    });
+    
     return data;
     
   } catch (error) {
     if (error.name === 'AbortError') {
-      console.warn('⏱️ Timeout na API do Cartola (>10s)');
+      console.warn('⏱️ Timeout na API do Cartola (>15s), usando CSV como fallback');
     } else {
-      console.warn('⚠️ Erro na API do Cartola:', error.message);
+      console.warn('⚠️ Erro na API do Cartola via proxy:', error.message);
     }
     return null;
   }
