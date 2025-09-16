@@ -551,16 +551,47 @@ async function fetchCartolaAPI() {
   }
 }
 
-// Função para fazer merge dos dados da API com CSV
+// Função para fazer merge dos dados da API com CSV (eliminando duplicatas)
 function mergePlayerData(apiPlayers, csvPlayers) {
-  const merged = [...apiPlayers]; // Começar com dados da API
-  const apiPlayerKeys = new Set(apiPlayers.map(p => `${p.nome}-${p.clube}`));
+  console.log(`🔄 Fazendo merge: ${apiPlayers.length} da API + ${csvPlayers.length} do CSV`);
   
-  // Adicionar jogadores do CSV que não estão na API
+  // Usar Map para garantir unicidade por nome+clube
+  const playerMap = new Map();
+  
+  // Primeiro, adicionar jogadores da API (prioridade)
+  apiPlayers.forEach(player => {
+    const key = `${player.nome.toLowerCase().trim()}-${player.clube.toLowerCase().trim()}`;
+    playerMap.set(key, {
+      ...player,
+      source: 'API' // Marcar origem para debugging
+    });
+  });
+  
+  // Depois, adicionar jogadores do CSV apenas se não existirem na API
   csvPlayers.forEach(csvPlayer => {
-    const key = `${csvPlayer.nome}-${csvPlayer.clube}`;
-    if (!apiPlayerKeys.has(key)) {
-      merged.push(csvPlayer);
+    const key = `${csvPlayer.nome.toLowerCase().trim()}-${csvPlayer.clube.toLowerCase().trim()}`;
+    if (!playerMap.has(key)) {
+      playerMap.set(key, {
+        ...csvPlayer,
+        source: 'CSV' // Marcar origem para debugging
+      });
+    }
+  });
+  
+  // Converter Map de volta para array
+  const merged = Array.from(playerMap.values());
+  
+  console.log(`✅ Merge concluído: ${merged.length} jogadores únicos`);
+  console.log(`📊 API: ${apiPlayers.length}, CSV: ${csvPlayers.length}, Final: ${merged.length}`);
+  
+  // Verificar se há duplicatas (debugging)
+  const duplicateCheck = new Map();
+  merged.forEach(player => {
+    const key = `${player.nome}-${player.clube}`;
+    if (duplicateCheck.has(key)) {
+      console.warn(`⚠️ Duplicata encontrada: ${key}`);
+    } else {
+      duplicateCheck.set(key, true);
     }
   });
   

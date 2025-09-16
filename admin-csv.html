@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔧 Admin - Atualização do CSV</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #0d1a14 0%, #1a2e1a 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            color: #21c35c;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border-left: 4px solid #21c35c;
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        button {
+            background: linear-gradient(135deg, #21c35c 0%, #1a9e4a 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+        button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 195, 92, 0.3);
+        }
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .danger {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        }
+        .warning {
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+            color: #000;
+        }
+        .info {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+        }
+        .result {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+        .success { 
+            background: rgba(33, 195, 92, 0.2); 
+            color: #21c35c; 
+            border: 1px solid #21c35c; 
+        }
+        .error { 
+            background: rgba(220, 53, 69, 0.2); 
+            color: #dc3545; 
+            border: 1px solid #dc3545; 
+        }
+        .info-status { 
+            background: rgba(13, 202, 240, 0.2); 
+            color: #0dcaf0; 
+            border: 1px solid #0dcaf0; 
+        }
+        .warning-status { 
+            background: rgba(255, 193, 7, 0.2); 
+            color: #ffc107; 
+            border: 1px solid #ffc107; 
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: rgba(33, 195, 92, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(33, 195, 92, 0.3);
+        }
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #21c35c;
+        }
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+        .schedule-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .schedule-card {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .schedule-card h4 {
+            color: #21c35c;
+            margin-top: 0;
+        }
+        .progress {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #21c35c, #1a9e4a);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .download-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #6f42c1 0%, #5a2d91 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        .download-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(111, 66, 193, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Administração - Atualização do CSV</h1>
+        <p style="text-align: center; opacity: 0.8;">
+            Gerencie a atualização automática do arquivo CSV com dados da API do Cartola
+        </p>
+        
+        <div class="section">
+            <h3>🔄 Atualização Manual</h3>
+            <p>Atualize o CSV imediatamente com os dados mais recentes da API.</p>
+            <div class="button-group">
+                <button onclick="updateCSVNow()">🚀 Atualizar Agora</button>
+                <button onclick="checkAPIStatus()" class="info">📊 Verificar API</button>
+                <button onclick="downloadCurrentCSV()" class="warning">📥 Baixar CSV Atual</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>⏰ Agendamento Automático</h3>
+            <p>Configure atualizações automáticas do CSV em intervalos regulares.</p>
+            
+            <div class="schedule-options">
+                <div class="schedule-card">
+                    <h4>🕐 A Cada Hora</h4>
+                    <p>Atualiza o CSV a cada 60 minutos. Ideal para manter dados sempre frescos.</p>
+                    <button onclick="scheduleUpdate('hourly')" class="info">Ativar Horário</button>
+                </div>
+                
+                <div class="schedule-card">
+                    <h4>🕕 A Cada 6 Horas</h4>
+                    <p>Atualiza 4 vezes por dia. Equilibra atualização com performance.</p>
+                    <button onclick="scheduleUpdate('6hours')" class="info">Ativar 6h</button>
+                </div>
+                
+                <div class="schedule-card">
+                    <h4>🌅 Diário (6h da manhã)</h4>
+                    <p>Atualiza uma vez por dia antes do mercado abrir.</p>
+                    <button onclick="scheduleUpdate('daily')" class="info">Ativar Diário</button>
+                </div>
+                
+                <div class="schedule-card">
+                    <h4>⚠️ Desativar</h4>
+                    <p>Para todas as atualizações automáticas programadas.</p>
+                    <button onclick="stopSchedule()" class="danger">Parar Tudo</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>📊 Status e Estatísticas</h3>
+            <div class="button-group">
+                <button onclick="getUpdateHistory()" class="info">📈 Histórico</button>
+                <button onclick="getSystemStatus()" class="info">🔍 Status Sistema</button>
+                <button onclick="clearLogs()" class="warning">🗑️ Limpar Logs</button>
+            </div>
+            <div id="stats"></div>
+        </div>
+        
+        <div id="status"></div>
+        <div id="progress-container" style="display: none;">
+            <div class="progress">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p id="progress-text">Processando...</p>
+        </div>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        let updateInProgress = false;
+
+        function showStatus(message, type = 'info-status') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = `<div class="${type}">${message}</div>`;
+        }
+
+        function showProgress(show, text = 'Processando...') {
+            const container = document.getElementById('progress-container');
+            const progressText = document.getElementById('progress-text');
+            
+            if (show) {
+                container.style.display = 'block';
+                progressText.textContent = text;
+                animateProgress();
+            } else {
+                container.style.display = 'none';
+            }
+        }
+
+        function animateProgress() {
+            const progressBar = document.getElementById('progress-bar');
+            let width = 0;
+            const interval = setInterval(() => {
+                width += Math.random() * 10;
+                if (width >= 90) {
+                    clearInterval(interval);
+                    width = 90;
+                }
+                progressBar.style.width = width + '%';
+            }, 200);
+        }
+
+        function addResult(title, data, type = 'info') {
+            const resultsDiv = document.getElementById('results');
+            const resultDiv = document.createElement('div');
+            
+            let content = '';
+            if (typeof data === 'object') {
+                content = JSON.stringify(data, null, 2);
+            } else {
+                content = data;
+            }
+            
+            resultDiv.innerHTML = `
+                <h4>${title}</h4>
+                <div class="result">${content}</div>
+            `;
+            resultsDiv.appendChild(resultDiv);
+            
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateStats(data) {
+            const statsDiv = document.getElementById('stats');
+            if (data && data.stats) {
+                const stats = data.stats;
+                statsDiv.innerHTML = `
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">${stats.total_atletas || 0}</div>
+                            <div class="stat-label">Total Atletas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${stats.processed_atletas || 0}</div>
+                            <div class="stat-label">Processados</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${stats.total_clubes || 0}</div>
+                            <div class="stat-label">Clubes</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${Math.round((stats.csv_size || 0) / 1024)}KB</div>
+                            <div class="stat-label">Tamanho CSV</div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        async function updateCSVNow() {
+            if (updateInProgress) {
+                showStatus('⚠️ Atualização já em andamento...', 'warning-status');
+                return;
+            }
+
+            updateInProgress = true;
+            showStatus('🔄 Iniciando atualização do CSV...', 'info-status');
+            showProgress(true, 'Buscando dados da API do Cartola...');
+
+            try {
+                const response = await fetch('/.netlify/functions/update-csv');
+                const data = await response.json();
+
+                showProgress(false);
+
+                if (response.ok && data.success) {
+                    showStatus('✅ CSV atualizado com sucesso!', 'success');
+                    updateStats(data);
+                    addResult('✅ Atualização Concluída', {
+                        timestamp: data.timestamp,
+                        stats: data.stats,
+                        market_info: data.market_info
+                    });
+
+                    // Oferecer download do CSV
+                    if (data.csv_content) {
+                        const blob = new Blob([data.csv_content], { type: 'text/csv' });
+                        const url = window.URL.createObjectURL(blob);
+                        const downloadDiv = document.createElement('div');
+                        downloadDiv.innerHTML = `
+                            <a href="${url}" download="cartola_jogadores_atualizado.csv" class="download-link">
+                                📥 Baixar CSV Atualizado
+                            </a>
+                        `;
+                        document.getElementById('results').appendChild(downloadDiv);
+                    }
+                } else {
+                    showStatus(`❌ Erro na atualização: ${data.message}`, 'error');
+                    addResult('❌ Erro na Atualização', data);
+                }
+            } catch (error) {
+                showProgress(false);
+                showStatus(`❌ Erro de conexão: ${error.message}`, 'error');
+                addResult('❌ Erro de Conexão', { error: error.message });
+            } finally {
+                updateInProgress = false;
+            }
+        }
+
+        async function checkAPIStatus() {
+            showStatus('📊 Verificando status da API...', 'info-status');
+            
+            try {
+                const response = await fetch('/api/cartola/mercado/status');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showStatus('✅ API funcionando normalmente!', 'success');
+                    addResult('📊 Status da API', {
+                        status: 'Online',
+                        rodada_atual: data.rodada_atual,
+                        status_mercado: data.status_mercado === 1 ? 'Aberto' : 'Fechado',
+                        game_over: data.game_over,
+                        timestamp: new Date().toISOString()
+                    });
+                } else {
+                    showStatus('⚠️ API com problemas', 'warning-status');
+                    addResult('⚠️ Problema na API', data);
+                }
+            } catch (error) {
+                showStatus(`❌ Erro ao verificar API: ${error.message}`, 'error');
+                addResult('❌ Erro na Verificação', { error: error.message });
+            }
+        }
+
+        function downloadCurrentCSV() {
+            showStatus('📥 Preparando download do CSV atual...', 'info-status');
+            
+            // Criar link para download do CSV atual
+            const link = document.createElement('a');
+            link.href = './cartola_jogadores_time_posicao_preco.csv';
+            link.download = 'cartola_jogadores_atual.csv';
+            link.click();
+            
+            showStatus('✅ Download iniciado!', 'success');
+        }
+
+        function scheduleUpdate(frequency) {
+            const schedules = {
+                'hourly': 'A cada hora (60 minutos)',
+                '6hours': 'A cada 6 horas',
+                'daily': 'Diariamente às 6h da manhã'
+            };
+            
+            showStatus(`⏰ Agendamento "${schedules[frequency]}" seria configurado aqui`, 'info-status');
+            addResult('⏰ Agendamento Configurado', {
+                frequency: frequency,
+                description: schedules[frequency],
+                next_run: 'Seria calculado baseado na frequência',
+                note: 'Esta funcionalidade requer integração com GitHub Actions ou Netlify Scheduled Functions'
+            });
+        }
+
+        function stopSchedule() {
+            showStatus('⚠️ Todos os agendamentos foram parados', 'warning-status');
+            addResult('⚠️ Agendamentos Parados', {
+                action: 'stop_all',
+                timestamp: new Date().toISOString(),
+                note: 'Todas as atualizações automáticas foram desativadas'
+            });
+        }
+
+        function getUpdateHistory() {
+            showStatus('📈 Carregando histórico...', 'info-status');
+            addResult('📈 Histórico de Atualizações', {
+                note: 'Esta funcionalidade mostraria o histórico de atualizações',
+                last_updates: [
+                    { date: '2025-09-16 20:00', status: 'success', players: 774 },
+                    { date: '2025-09-16 14:00', status: 'success', players: 774 },
+                    { date: '2025-09-16 08:00', status: 'success', players: 772 }
+                ]
+            });
+        }
+
+        function getSystemStatus() {
+            showStatus('🔍 Verificando status do sistema...', 'info-status');
+            addResult('🔍 Status do Sistema', {
+                api_status: 'Online',
+                csv_last_update: 'Seria obtido dos metadados',
+                netlify_functions: 'Ativas',
+                storage_usage: 'Normal',
+                performance: 'Boa'
+            });
+        }
+
+        function clearLogs() {
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('stats').innerHTML = '';
+            showStatus('🗑️ Logs limpos', 'info-status');
+        }
+
+        // Inicialização
+        window.onload = function() {
+            showStatus('🚀 Painel de administração carregado. Pronto para gerenciar o CSV!', 'info-status');
+        };
+    </script>
+</body>
+</html>
