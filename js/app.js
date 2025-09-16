@@ -871,9 +871,7 @@ console.log('App.js carregado - iniciando execução');
        case 'positivo': return 'Uso Positivo (3-4 jogadores)';
        default: return 'Teoria do Muro';
      }
-   }
-
-   // TEORIA DO MURO: Configurar dropzones (no final da inicialização)
+      // TEORIA DO MURO: Configurar dropzones (no final da inicialização)
    setTimeout(() => {
      console.log('🏆 Configurando dropzones da Teoria do Muro...');
      const muroSections = document.querySelectorAll('.muro-section');
@@ -889,20 +887,100 @@ console.log('App.js carregado - iniciando execução');
          }
          
          const muroType = section.dataset.muro;
-         console.log(`🏆 Abrindo seleção de jogadores para ${data.name} no muro ${muroType}`);
+         const rect = section.getBoundingClientRect();
+         const x = ev.clientX - rect.left;
+         const y = ev.clientY - rect.top;
          
-         // Usar a mesma função de seleção de jogadores do campo
-         // Passar dados extras para identificar que é para o muro
-         const teamDataWithMuro = {
-           ...data,
-           targetMuro: muroType,
-           targetSection: section
-         };
+         console.log(`🏆 Adicionando escudo ${data.name} no muro ${muroType} na posição (${x}, ${y})`);
          
-         openTeamPlayerSelectionForMuro(teamDataWithMuro);
+         // Adicionar escudo livre no muro (como no campo)
+         addShieldToMuro(data, muroType, section, x, y);
        });
      });
-   }, 100); // Aguardar 100ms para garantir que o DOM está pro   }
+   }, 100); // Aguardar 100ms para garantir que o DOM está pronto   }
+
+   // Função para adicionar escudo livre ao muro
+   function addShieldToMuro(teamData, muroType, targetSection, x, y) {
+     console.log(`🏆 Adicionando escudo ${teamData.name} ao muro ${muroType}`);
+     
+     // Criar escudo livre posicionável
+     const shieldElement = document.createElement('div');
+     shieldElement.className = 'muro-shield-free';
+     shieldElement.dataset.teamSlug = teamData.slug;
+     shieldElement.dataset.teamName = teamData.name;
+     shieldElement.title = `${teamData.name} - ${getMuroDescription(muroType)}`;
+     
+     // Posicionar onde foi solto
+     shieldElement.style.left = Math.max(0, Math.min(x - 20, targetSection.offsetWidth - 40)) + 'px';
+     shieldElement.style.top = Math.max(0, Math.min(y - 20, targetSection.offsetHeight - 40)) + 'px';
+     
+     // Imagem do escudo
+     const img = document.createElement('img');
+     img.src = shieldPath(teamData.slug);
+     img.alt = teamData.name;
+     shieldElement.appendChild(img);
+     
+     // Botão de remoção
+     const removeBtn = document.createElement('button');
+     removeBtn.className = 'remove-shield';
+     removeBtn.textContent = '×';
+     removeBtn.title = 'Remover escudo';
+     removeBtn.onclick = (e) => {
+       e.stopPropagation();
+       shieldElement.remove();
+     };
+     shieldElement.appendChild(removeBtn);
+     
+     // Permitir arrastar livremente dentro da seção
+     DND.makeDraggable(shieldElement, teamData);
+     
+     // Configurar movimento livre dentro da seção
+     let isDragging = false;
+     let startX, startY, initialX, initialY;
+     
+     shieldElement.addEventListener('mousedown', (e) => {
+       if (e.target === removeBtn) return;
+       isDragging = true;
+       startX = e.clientX;
+       startY = e.clientY;
+       initialX = parseInt(shieldElement.style.left) || 0;
+       initialY = parseInt(shieldElement.style.top) || 0;
+       shieldElement.style.cursor = 'grabbing';
+       e.preventDefault();
+     });
+     
+     document.addEventListener('mousemove', (e) => {
+       if (!isDragging) return;
+       
+       const deltaX = e.clientX - startX;
+       const deltaY = e.clientY - startY;
+       
+       const newX = Math.max(0, Math.min(initialX + deltaX, targetSection.offsetWidth - 40));
+       const newY = Math.max(0, Math.min(initialY + deltaY, targetSection.offsetHeight - 40));
+       
+       shieldElement.style.left = newX + 'px';
+       shieldElement.style.top = newY + 'px';
+     });
+     
+     document.addEventListener('mouseup', () => {
+       if (isDragging) {
+         isDragging = false;
+         shieldElement.style.cursor = 'grab';
+       }
+     });
+     
+     // Duplo clique para abrir seleção de jogadores
+     shieldElement.addEventListener('dblclick', () => {
+       const teamDataWithMuro = {
+         ...teamData,
+         targetMuro: muroType,
+         targetSection: targetSection
+       };
+       openTeamPlayerSelectionForMuro(teamDataWithMuro);
+     });
+     
+     targetSection.appendChild(shieldElement);
+   }
 
    // Função para abrir seleção de jogadores específica para o muro
    function openTeamPlayerSelectionForMuro(teamData) {
@@ -1062,14 +1140,14 @@ console.log('App.js carregado - iniciando execução');
      
      const shieldsContainer = targetSection.querySelector('.muro-shields');
      
-     // Criar elemento do jogador (similar ao campo, mas menor)
+     // Criar elemento do jogador (apenas círculo com uniforme)
      const playerElement = document.createElement('div');
      playerElement.className = 'muro-player';
      playerElement.dataset.playerName = playerData.name;
      playerElement.dataset.club = playerData.club;
      playerElement.title = `${playerData.name} (${playerData.club})`;
      
-     // Chip com uniforme
+     // Chip com uniforme (maior, sem nome)
      const chip = document.createElement('div');
      chip.className = 'player-chip';
      const uniformImg = document.createElement('img');
@@ -1079,11 +1157,6 @@ console.log('App.js carregado - iniciando execução');
        uniformImg.src = shieldPath(playerData.slug);
      };
      chip.appendChild(uniformImg);
-     
-     // Nome do jogador
-     const nameDiv = document.createElement('div');
-     nameDiv.className = 'player-name';
-     nameDiv.textContent = playerData.name;
      
      // Botão de remoção
      const removeBtn = document.createElement('button');
@@ -1096,7 +1169,6 @@ console.log('App.js carregado - iniciando execução');
      };
      
      playerElement.appendChild(chip);
-     playerElement.appendChild(nameDiv);
      playerElement.appendChild(removeBtn);
      
      // Permitir arrastar de volta
