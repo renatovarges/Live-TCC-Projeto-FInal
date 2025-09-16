@@ -459,8 +459,12 @@ function renderSelected(pos){
 }
 
 function searchPlayers(pos, q){
+  console.log(`🔍 Buscando jogadores: posição=${pos}, query="${q}"`);
+  
   const needle = (q||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-  return STATE.players.filter(p => {
+  
+  // Primeiro, filtrar por posição e busca
+  let filteredPlayers = STATE.players.filter(p => {
     // Se posição específica for solicitada, filtrar por ela
     if (pos && pos !== 'ALL') {
       return p.posicao === pos;
@@ -471,11 +475,61 @@ function searchPlayers(pos, q){
     if (!needle) return true;
     const playerText = `${p.nome} ${p.clube}`.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
     return playerText.includes(needle);
-  }).sort((a, b) => {
-    // Ordenar por média de pontos (decrescente) e depois por nome
+  });
+  
+  console.log(`📊 Jogadores antes da deduplicação: ${filteredPlayers.length}`);
+  
+  // ELIMINAR DUPLICATAS: Usar Map para garantir unicidade por nome+clube
+  const uniquePlayersMap = new Map();
+  
+  filteredPlayers.forEach(player => {
+    const key = `${player.nome.toLowerCase().trim()}-${player.clube.toLowerCase().trim()}`;
+    
+    // Se já existe um jogador com essa chave
+    if (uniquePlayersMap.has(key)) {
+      const existingPlayer = uniquePlayersMap.get(key);
+      
+      // Priorizar jogador da API (que tem source: 'API')
+      if (player.source === 'API' && existingPlayer.source !== 'API') {
+        console.log(`🔄 Substituindo ${player.nome} (${existingPlayer.source}) por versão da API`);
+        uniquePlayersMap.set(key, player);
+      }
+      // Se ambos são da mesma fonte, manter o primeiro (que já está no Map)
+    } else {
+      // Primeira ocorrência deste jogador
+      uniquePlayersMap.set(key, player);
+    }
+  });
+  
+  // Converter Map de volta para array
+  const uniquePlayers = Array.from(uniquePlayersMap.values());
+  
+  console.log(`✅ Jogadores após deduplicação: ${uniquePlayers.length}`);
+  console.log(`📈 Removidas ${filteredPlayers.length - uniquePlayers.length} duplicatas`);
+  
+  // Verificar duplicatas restantes (debugging)
+  const duplicateCheck = new Map();
+  uniquePlayers.forEach(player => {
+    const key = `${player.nome}-${player.clube}`;
+    if (duplicateCheck.has(key)) {
+      console.warn(`⚠️ DUPLICATA AINDA PRESENTE: ${key}`);
+    } else {
+      duplicateCheck.set(key, true);
+    }
+  });
+  
+  // Ordenar por prioridade: API primeiro, depois por média de pontos
+  return uniquePlayers.sort((a, b) => {
+    // Primeiro critério: priorizar jogadores da API
+    if (a.source === 'API' && b.source !== 'API') return -1;
+    if (b.source === 'API' && a.source !== 'API') return 1;
+    
+    // Segundo critério: ordenar por média de pontos (decrescente)
     const mediaA = parseFloat(a.media) || 0;
     const mediaB = parseFloat(b.media) || 0;
     if (mediaA !== mediaB) return mediaB - mediaA;
+    
+    // Terceiro critério: ordenar por nome
     return a.nome.localeCompare(b.nome);
   });
 }
