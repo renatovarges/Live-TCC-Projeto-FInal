@@ -536,7 +536,67 @@ function searchPlayers(pos, q){
 
 // Função para obter jogadores por clube
 function getPlayersByClub(clubSlug) {
-  return STATE.players.filter(p => p.clubeSlug === clubSlug);
+  console.log(`🏆 Buscando jogadores do clube: ${clubSlug}`);
+  
+  // Filtrar jogadores do clube
+  const clubPlayers = STATE.players.filter(p => p.clubeSlug === clubSlug);
+  
+  console.log(`📊 Jogadores encontrados antes da deduplicação: ${clubPlayers.length}`);
+  
+  // ELIMINAR DUPLICATAS: Usar Map para garantir unicidade por nome+posição
+  const uniquePlayersMap = new Map();
+  
+  clubPlayers.forEach(player => {
+    const key = `${player.nome.toLowerCase().trim()}-${player.posicao}`;
+    
+    // Se já existe um jogador com essa chave
+    if (uniquePlayersMap.has(key)) {
+      const existingPlayer = uniquePlayersMap.get(key);
+      
+      // Priorizar jogador da API (que tem source: 'API')
+      if (player.source === 'API' && existingPlayer.source !== 'API') {
+        console.log(`🔄 Substituindo ${player.nome} (${existingPlayer.source}) por versão da API`);
+        uniquePlayersMap.set(key, player);
+      }
+      // Se ambos são da mesma fonte, manter o primeiro (que já está no Map)
+    } else {
+      // Primeira ocorrência deste jogador
+      uniquePlayersMap.set(key, player);
+    }
+  });
+  
+  // Converter Map de volta para array
+  const uniquePlayers = Array.from(uniquePlayersMap.values());
+  
+  console.log(`✅ Jogadores após deduplicação: ${uniquePlayers.length}`);
+  console.log(`📈 Removidas ${clubPlayers.length - uniquePlayers.length} duplicatas`);
+  
+  // Verificar duplicatas restantes (debugging)
+  const duplicateCheck = new Map();
+  uniquePlayers.forEach(player => {
+    const key = `${player.nome}-${player.posicao}`;
+    if (duplicateCheck.has(key)) {
+      console.warn(`⚠️ DUPLICATA AINDA PRESENTE: ${key}`);
+    } else {
+      duplicateCheck.set(key, true);
+    }
+  });
+  
+  // Ordenar por prioridade: API primeiro, depois por posição e nome
+  return uniquePlayers.sort((a, b) => {
+    // Primeiro critério: priorizar jogadores da API
+    if (a.source === 'API' && b.source !== 'API') return -1;
+    if (b.source === 'API' && a.source !== 'API') return 1;
+    
+    // Segundo critério: ordenar por posição
+    const positionOrder = { 'Goleiro': 1, 'Lateral': 2, 'Zagueiro': 3, 'Meia': 4, 'Atacante': 5, 'Técnico': 6 };
+    const posA = positionOrder[a.posicao] || 7;
+    const posB = positionOrder[b.posicao] || 7;
+    if (posA !== posB) return posA - posB;
+    
+    // Terceiro critério: ordenar por nome
+    return a.nome.localeCompare(b.nome);
+  });
 }
 
 // Função para obter estatísticas dos jogadores
