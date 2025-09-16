@@ -938,7 +938,7 @@ console.log('App.js carregado - iniciando execução');
      // Permitir arrastar livremente dentro da seção
      DND.makeDraggable(shieldElement, teamData);
      
-     // Configurar movimento livre dentro da seção
+     // Configurar movimento livre entre TODAS as áreas do muro
      let isDragging = false;
      let startX, startY, initialX, initialY;
      
@@ -950,6 +950,7 @@ console.log('App.js carregado - iniciando execução');
        initialX = parseInt(shieldElement.style.left) || 0;
        initialY = parseInt(shieldElement.style.top) || 0;
        shieldElement.style.cursor = 'grabbing';
+       shieldElement.style.zIndex = '20'; // Trazer para frente durante o drag
        e.preventDefault();
      });
      
@@ -959,17 +960,67 @@ console.log('App.js carregado - iniciando execução');
        const deltaX = e.clientX - startX;
        const deltaY = e.clientY - startY;
        
-       const newX = Math.max(0, Math.min(initialX + deltaX, targetSection.offsetWidth - 40));
-       const newY = Math.max(0, Math.min(initialY + deltaY, targetSection.offsetHeight - 40));
+       // Obter container principal da teoria do muro
+       const muroContainer = document.querySelector('.teoria-muro-container');
+       const containerRect = muroContainer.getBoundingClientRect();
+       const currentSectionRect = targetSection.getBoundingClientRect();
        
-       shieldElement.style.left = newX + 'px';
-       shieldElement.style.top = newY + 'px';
+       // Calcular posição relativa ao container principal
+       const relativeX = initialX + deltaX + (currentSectionRect.left - containerRect.left);
+       const relativeY = initialY + deltaY + (currentSectionRect.top - containerRect.top);
+       
+       // Limitar aos bounds do container principal
+       const newX = Math.max(0, Math.min(relativeX, muroContainer.offsetWidth - 40));
+       const newY = Math.max(0, Math.min(relativeY, muroContainer.offsetHeight - 40));
+       
+       // Verificar em qual seção o escudo está agora
+       const sections = document.querySelectorAll('.muro-section');
+       let newTargetSection = targetSection;
+       
+       sections.forEach(section => {
+         const sectionRect = section.getBoundingClientRect();
+         const mouseX = e.clientX;
+         const mouseY = e.clientY;
+         
+         if (mouseX >= sectionRect.left && mouseX <= sectionRect.right &&
+             mouseY >= sectionRect.top && mouseY <= sectionRect.bottom) {
+           newTargetSection = section;
+         }
+       });
+       
+       // Se mudou de seção, mover o elemento
+       if (newTargetSection !== shieldElement.parentElement) {
+         // Calcular nova posição relativa à nova seção
+         const newSectionRect = newTargetSection.getBoundingClientRect();
+         const newRelativeX = newX - (newSectionRect.left - containerRect.left);
+         const newRelativeY = newY - (newSectionRect.top - containerRect.top);
+         
+         shieldElement.style.left = Math.max(0, Math.min(newRelativeX, newTargetSection.offsetWidth - 40)) + 'px';
+         shieldElement.style.top = Math.max(0, Math.min(newRelativeY, newTargetSection.offsetHeight - 40)) + 'px';
+         
+         // Mover para nova seção
+         newTargetSection.appendChild(shieldElement);
+         targetSection = newTargetSection;
+         
+         // Atualizar tooltip com nova descrição
+         const newMuroType = newTargetSection.dataset.muro;
+         shieldElement.title = `${teamData.name} - ${getMuroDescription(newMuroType)}`;
+       } else {
+         // Mesma seção, apenas atualizar posição
+         const sectionRect = targetSection.getBoundingClientRect();
+         const sectionRelativeX = newX - (sectionRect.left - containerRect.left);
+         const sectionRelativeY = newY - (sectionRect.top - containerRect.top);
+         
+         shieldElement.style.left = Math.max(0, Math.min(sectionRelativeX, targetSection.offsetWidth - 40)) + 'px';
+         shieldElement.style.top = Math.max(0, Math.min(sectionRelativeY, targetSection.offsetHeight - 40)) + 'px';
+       }
      });
      
      document.addEventListener('mouseup', () => {
        if (isDragging) {
          isDragging = false;
          shieldElement.style.cursor = 'grab';
+         shieldElement.style.zIndex = '10'; // Voltar z-index normal
        }
      });
      
