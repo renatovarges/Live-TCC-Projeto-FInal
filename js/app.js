@@ -871,7 +871,9 @@ console.log('App.js carregado - iniciando execução');
        case 'positivo': return 'Uso Positivo (3-4 jogadores)';
        default: return 'Teoria do Muro';
      }
-      // TEORIA DO MURO: Configurar dropzones (no final da inicialização)
+   }
+
+   // TEORIA DO MURO: Configurar dropzones (no final da inicialização)
    setTimeout(() => {
      console.log('🏆 Configurando dropzones da Teoria do Muro...');
      const muroSections = document.querySelectorAll('.muro-section');
@@ -897,7 +899,9 @@ console.log('App.js carregado - iniciando execução');
          addShieldToMuro(data, muroType, section, x, y);
        });
      });
-   }, 100); // Aguardar 100ms para garantir que o DOM está pronto   }
+   }, 100); // Aguardar 100ms para garantir que o DOM está pronto
+
+  initializeApp();
 
    // Função para adicionar escudo livre ao muro
    function addShieldToMuro(teamData, muroType, targetSection, x, y) {
@@ -1177,7 +1181,6 @@ console.log('App.js carregado - iniciando execução');
      shieldsContainer.appendChild(playerElement);
    }
 
-  initializeApp();
 })();
 
 // Event listener para o botão de atualização manual
