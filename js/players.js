@@ -312,19 +312,27 @@ async function loadData() {
     console.log(`🎯 Total final: ${STATE.players.length} jogadores (API + CSV)`);
     
     lastUpdateTime = new Date();
-    // Tentar obter status do mercado
+    // Tentar obter status do mercado via proxy
      let marketStatus = '';
      try {
-       const statusResponse = await fetch('https://api.cartola.globo.com/mercado/status', {
-         signal: AbortSignal.timeout(5000)
+       console.log('📊 Verificando status do mercado...');
+       const statusResponse = await fetch('/api/cartola/mercado/status', {
+         signal: AbortSignal.timeout(8000),
+         headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+         }
        });
        if (statusResponse.ok) {
          const statusData = await statusResponse.json();
          const isMarketOpen = statusData.status_mercado === 1;
          marketStatus = isMarketOpen ? '🟢 Mercado Aberto' : '🔴 Mercado Fechado';
+         console.log(`✅ Status do mercado: ${marketStatus} (rodada ${statusData.rodada_atual})`);
+       } else {
+         console.warn('⚠️ Erro ao obter status do mercado:', statusResponse.status);
        }
      } catch (error) {
-       console.log('Não foi possível obter status do mercado');
+       console.log('❌ Não foi possível obter status do mercado:', error.message);
      }
      
      if (updateElement) {
@@ -451,8 +459,12 @@ function renderSelected(pos){
 }
 
 function searchPlayers(pos, q){
+  console.log(`🔍 Buscando jogadores: posição=${pos}, query="${q}"`);
+  
   const needle = (q||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-  return STATE.players.filter(p => {
+  
+  // Primeiro, filtrar por posição e busca
+  let filteredPlayers = STATE.players.filter(p => {
     // Se posição específica for solicitada, filtrar por ela
     if (pos && pos !== 'ALL') {
       return p.posicao === pos;
@@ -463,18 +475,137 @@ function searchPlayers(pos, q){
     if (!needle) return true;
     const playerText = `${p.nome} ${p.clube}`.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
     return playerText.includes(needle);
-  }).sort((a, b) => {
-    // Ordenar por média de pontos (decrescente) e depois por nome
+  });
+  
+  console.log(`📊 Jogadores antes da deduplicação: ${filteredPlayers.length}`);
+  
+  // ELIMINAR DUPLICATAS: Usar Map para garantir unicidade por nome+clube
+  const uniquePlayersMap = new Map();
+  
+  filteredPlayers.forEach(player => {
+    const key = `${player.nome.toLowerCase().trim()}-${player.clube.toLowerCase().trim()}`;
+    
+    // Se já existe um jogador com essa chave
+    if (uniquePlayersMap.has(key)) {
+      const existingPlayer = uniquePlayersMap.get(key);
+      
+      // Priorizar jogador da API (que tem source: 'API')
+      if (player.source === 'API' && existingPlayer.source !== 'API') {
+        console.log(`🔄 Substituindo ${player.nome} (${existingPlayer.source}) por versão da API`);
+        uniquePlayersMap.set(key, player);
+      }
+      // Se ambos são da mesma fonte, manter o primeiro (que já está no Map)
+    } else {
+      // Primeira ocorrência deste jogador
+      uniquePlayersMap.set(key, player);
+    }
+  });
+  
+  // Converter Map de volta para array
+  const uniquePlayers = Array.from(uniquePlayersMap.values());
+  
+  console.log(`✅ Jogadores após deduplicação: ${uniquePlayers.length}`);
+  console.log(`📈 Removidas ${filteredPlayers.length - uniquePlayers.length} duplicatas`);
+  
+  // Verificar duplicatas restantes (debugging)
+  const duplicateCheck = new Map();
+  uniquePlayers.forEach(player => {
+    const key = `${player.nome}-${player.clube}`;
+    if (duplicateCheck.has(key)) {
+      console.warn(`⚠️ DUPLICATA AINDA PRESENTE: ${key}`);
+    } else {
+      duplicateCheck.set(key, true);
+    }
+  });
+  
+  // Ordenar por prioridade: API primeiro, depois por média de pontos
+  return uniquePlayers.sort((a, b) => {
+    // Primeiro critério: priorizar jogadores da API
+    if (a.source === 'API' && b.source !== 'API') return -1;
+    if (b.source === 'API' && a.source !== 'API') return 1;
+    
+    // Segundo critério: ordenar por média de pontos (decrescente)
     const mediaA = parseFloat(a.media) || 0;
     const mediaB = parseFloat(b.media) || 0;
     if (mediaA !== mediaB) return mediaB - mediaA;
+    
+    // Terceiro critério: ordenar por nome
     return a.nome.localeCompare(b.nome);
   });
 }
 
 // Função para obter jogadores por clube
 function getPlayersByClub(clubSlug) {
-  return STATE.players.filter(p => p.clubeSlug === clubSlug);
+  console.log(`🏆 Buscando jogadores do clube: ${clubSlug}`);
+  
+  // Filtrar jogadores do clube
+  const clubPlayers = STATE.players.filter(p => p.clubeSlug === clubSlug);
+  
+  console.log(`📊 Jogadores encontrados antes da deduplicação: ${clubPlayers.length}`);
+  
+  // ELIMINAR DUPLICATAS: Usar Map para garantir unicidade APENAS por nome
+  const uniquePlayersMap = new Map();
+  
+  clubPlayers.forEach(player => {
+    // Usar apenas o nome como chave (sem posição) para eliminar duplicatas mais eficientemente
+    const key = player.nome.toLowerCase().trim();
+    
+    // Se já existe um jogador com esse nome
+    if (uniquePlayersMap.has(key)) {
+      const existingPlayer = uniquePlayersMap.get(key);
+      
+      // SEMPRE priorizar jogador da API (dados mais atualizados)
+      if (player.source === 'API' && existingPlayer.source !== 'API') {
+        console.log(`🔄 Substituindo ${player.nome} (${existingPlayer.source}) por versão da API`);
+        uniquePlayersMap.set(key, player);
+      }
+      // Se ambos são da API ou ambos são do CSV, manter o primeiro
+      else if (player.source === existingPlayer.source) {
+        // Manter o primeiro encontrado
+        console.log(`📝 Mantendo primeira ocorrência de ${player.nome} (${player.source})`);
+      }
+      // Se o existente é da API e o novo é do CSV, manter o da API
+      else {
+        console.log(`📝 Mantendo ${existingPlayer.nome} da API, ignorando versão CSV`);
+      }
+    } else {
+      // Primeira ocorrência deste jogador
+      uniquePlayersMap.set(key, player);
+    }
+  });
+  
+  // Converter Map de volta para array
+  const uniquePlayers = Array.from(uniquePlayersMap.values());
+  
+  console.log(`✅ Jogadores após deduplicação: ${uniquePlayers.length}`);
+  console.log(`📈 Removidas ${clubPlayers.length - uniquePlayers.length} duplicatas`);
+  
+  // Verificar duplicatas restantes (debugging)
+  const duplicateCheck = new Map();
+  uniquePlayers.forEach(player => {
+    const key = player.nome.toLowerCase().trim();
+    if (duplicateCheck.has(key)) {
+      console.warn(`⚠️ DUPLICATA AINDA PRESENTE: ${player.nome} (${player.source})`);
+    } else {
+      duplicateCheck.set(key, true);
+    }
+  });
+  
+  // Ordenar por prioridade: API primeiro, depois por posição e nome
+  return uniquePlayers.sort((a, b) => {
+    // Primeiro critério: priorizar jogadores da API
+    if (a.source === 'API' && b.source !== 'API') return -1;
+    if (b.source === 'API' && a.source !== 'API') return 1;
+    
+    // Segundo critério: ordenar por posição
+    const positionOrder = { 'Goleiro': 1, 'Lateral': 2, 'Zagueiro': 3, 'Meia': 4, 'Atacante': 5, 'Técnico': 6 };
+    const posA = positionOrder[a.posicao] || 7;
+    const posB = positionOrder[b.posicao] || 7;
+    if (posA !== posB) return posA - posB;
+    
+    // Terceiro critério: ordenar por nome
+    return a.nome.localeCompare(b.nome);
+  });
 }
 
 // Função para obter estatísticas dos jogadores
@@ -499,48 +630,91 @@ if (document.readyState === 'loading') {
 
 // Função para buscar dados da API do Cartola
 async function fetchCartolaAPI() {
+  console.log('🔄 Iniciando busca de dados da API do Cartola via proxy...');
+  
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
     
-    const response = await fetch('https://api.cartola.globo.com/atletas/mercado', {
+    // Usar a função Netlify como proxy para evitar problemas de CORS
+    const response = await fetch('/api/cartola/atletas/mercado', {
       signal: controller.signal,
       headers: {
         'Accept': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        'Content-Type': 'application/json'
       }
     });
     
     clearTimeout(timeoutId);
     
+    console.log(`📊 Response status: ${response.status} ${response.statusText}`);
+    
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('❌ Erro na resposta da API:', errorText);
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
     
     const data = await response.json();
-    console.log('✅ Dados da API carregados com sucesso');
+    console.log('✅ Dados da API carregados com sucesso via proxy!', {
+      atletas: Object.keys(data.atletas || {}).length,
+      clubes: Object.keys(data.clubes || {}).length,
+      posicoes: Object.keys(data.posicoes || {}).length
+    });
+    
     return data;
     
   } catch (error) {
     if (error.name === 'AbortError') {
-      console.warn('⏱️ Timeout na API do Cartola (>10s)');
+      console.warn('⏱️ Timeout na API do Cartola (>15s), usando CSV como fallback');
     } else {
-      console.warn('⚠️ Erro na API do Cartola:', error.message);
+      console.warn('⚠️ Erro na API do Cartola via proxy:', error.message);
     }
     return null;
   }
 }
 
-// Função para fazer merge dos dados da API com CSV
+// Função para fazer merge dos dados da API com CSV (eliminando duplicatas)
 function mergePlayerData(apiPlayers, csvPlayers) {
-  const merged = [...apiPlayers]; // Começar com dados da API
-  const apiPlayerKeys = new Set(apiPlayers.map(p => `${p.nome}-${p.clube}`));
+  console.log(`🔄 Fazendo merge: ${apiPlayers.length} da API + ${csvPlayers.length} do CSV`);
   
-  // Adicionar jogadores do CSV que não estão na API
+  // Usar Map para garantir unicidade por nome+clube
+  const playerMap = new Map();
+  
+  // Primeiro, adicionar jogadores da API (prioridade)
+  apiPlayers.forEach(player => {
+    const key = `${player.nome.toLowerCase().trim()}-${player.clube.toLowerCase().trim()}`;
+    playerMap.set(key, {
+      ...player,
+      source: 'API' // Marcar origem para debugging
+    });
+  });
+  
+  // Depois, adicionar jogadores do CSV apenas se não existirem na API
   csvPlayers.forEach(csvPlayer => {
-    const key = `${csvPlayer.nome}-${csvPlayer.clube}`;
-    if (!apiPlayerKeys.has(key)) {
-      merged.push(csvPlayer);
+    const key = `${csvPlayer.nome.toLowerCase().trim()}-${csvPlayer.clube.toLowerCase().trim()}`;
+    if (!playerMap.has(key)) {
+      playerMap.set(key, {
+        ...csvPlayer,
+        source: 'CSV' // Marcar origem para debugging
+      });
+    }
+  });
+  
+  // Converter Map de volta para array
+  const merged = Array.from(playerMap.values());
+  
+  console.log(`✅ Merge concluído: ${merged.length} jogadores únicos`);
+  console.log(`📊 API: ${apiPlayers.length}, CSV: ${csvPlayers.length}, Final: ${merged.length}`);
+  
+  // Verificar se há duplicatas (debugging)
+  const duplicateCheck = new Map();
+  merged.forEach(player => {
+    const key = `${player.nome}-${player.clube}`;
+    if (duplicateCheck.has(key)) {
+      console.warn(`⚠️ Duplicata encontrada: ${key}`);
+    } else {
+      duplicateCheck.set(key, true);
     }
   });
   

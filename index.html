@@ -9,6 +9,7 @@
   <title>ESTRATÉGIAS DE ESCALAÇÃO • TCC</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=59"/>
+  <link rel="stylesheet" href="css/escudos-fix.css"/>
 </head>
 <body>
   <header class="header">
@@ -42,12 +43,12 @@
   <main class="grid">
     <!-- Coluna esquerda -->
     <section class="panel left" aria-label="Caixas de estratégia">
-      <h2 class="box-title">LINHA DEFENSIVA</h2>
+      <h2 class="box-title">LINHA OFENSIVA</h2>
       <div class="analysis-rectangle green droptarget" id="def-green" data-track="defensivo-estatistico" data-label="Estatístico" aria-label="Estatístico (defensivo)"></div>
       <div class="analysis-rectangle yellow droptarget" id="def-yellow" data-track="defensivo-estrategico" data-label="Estratégico" aria-label="Estratégico (defensivo)"></div>
       <div class="analysis-rectangle red droptarget" id="def-red" data-track="defensivo-especulativo" data-label="Especulativo" aria-label="Especulativo (defensivo)"></div>
 
-      <h2 class="box-title">LINHA OFENSIVA</h2>
+      <h2 class="box-title">LINHA DEFENSIVA</h2>
       <div class="analysis-rectangle green droptarget" id="off-green" data-track="ofensivo-estatistico" data-label="Estatístico" aria-label="Estatístico (ofensivo)"></div>
       <div class="analysis-rectangle yellow droptarget" id="off-yellow" data-track="ofensivo-estrategico" data-label="Estratégico" aria-label="Estratégico (ofensivo)"></div>
       <div class="analysis-rectangle red droptarget" id="off-red" data-track="ofensivo-especulativo" data-label="Especulativo" aria-label="Especulativo (ofensivo)"></div>
@@ -97,9 +98,20 @@
 
     <!-- Coluna direita -->
     <aside class="panel right" aria-label="Renato Varges e Reservas de Luxo">
-      <h2 class="box-title">RENATO VARGES</h2>
-      <div class="webcam-box" role="img" aria-label="Webcam placeholder">
-        <span class="webcam-icon">📷</span>
+      <h2 class="box-title">TEORIA DO MURO</h2>
+      <div class="teoria-muro-container">
+        <div class="muro-section muro-negativo droptarget" id="muro-negativo" data-muro="negativo" title="Arrastar escudos aqui - Uso Negativo (máximo 1 jogador)">
+          <div class="muro-symbol">−</div>
+          <div class="muro-shields" id="shields-negativo"></div>
+        </div>
+        <div class="muro-section muro-centro droptarget" id="muro-centro" data-muro="centro" title="Arrastar escudos aqui - Uso Equilibrado (2 jogadores)">
+          <div class="muro-symbol"></div>
+          <div class="muro-shields" id="shields-centro"></div>
+        </div>
+        <div class="muro-section muro-positivo droptarget" id="muro-positivo" data-muro="positivo" title="Arrastar escudos aqui - Uso Positivo (3-4 jogadores)">
+          <div class="muro-symbol">+</div>
+          <div class="muro-shields" id="shields-positivo"></div>
+        </div>
       </div>
 
       <h2 class="box-title">RESERVAS DE LUXO</h2>
