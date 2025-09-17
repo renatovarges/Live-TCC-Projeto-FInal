@@ -1,0 +1,38 @@
+/* CSS ESPECÍFICO PARA FORÇAR TAMANHO DOS ESCUDOS */
+
+/* Escudos no cabeçalho - múltiplos seletores para garantir prioridade */
+.teams-bar .team-pill img,
+.team-pill > img,
+button.team-pill img,
+.team-pill img {
+  width: 98% !important;
+  height: 98% !important;
+  object-fit: contain !important;
+  max-width: 98% !important;
+  max-height: 98% !important;
+  min-width: 98% !important;
+  min-height: 98% !important;
+}
+
+/* Escudos na teoria do muro */
+.teoria-muro-container .muro-shield-free img,
+.muro-shield-free > img,
+.muro-shield-free img {
+  width: 98% !important;
+  height: 98% !important;
+  object-fit: contain !important;
+  max-width: 98% !important;
+  max-height: 98% !important;
+  min-width: 98% !important;
+  min-height: 98% !important;
+}
+
+/* Forçar para todos os elementos img dentro de containers de escudos */
+[class*="team-pill"] img,
+[class*="muro-shield"] img {
+  width: 98% !important;
+  height: 98% !important;
+  object-fit: contain !important;
+  max-width: 98% !important;
+  max-height: 98% !important;
+}

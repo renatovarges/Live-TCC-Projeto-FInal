@@ -24,7 +24,9 @@ body { min-height: 100vh !important; margin: 0 !important; background: var(--bg)
 .teams-bar::-webkit-scrollbar{height:8px !important;}.teams-bar::-webkit-scrollbar-thumb{background:#1b372c !important;border-radius:8px !important;}
 .team-pill{width:60px !important;height:60px !important;border-radius:50% !important;flex-shrink:0 !important;background:#fff !important;display:flex !important;align-items:center !important;justify-content:center !important;border:3px solid #ffffff !important;box-shadow:0 4px 16px rgba(0,0,0,.25) !important;cursor:grab !important;position:relative !important;overflow:hidden !important;}
 
-.team-pill img{width:98% !important;height:98% !important;object-fit:contain !important;}
+.teams-bar .team-pill img{width:98% !important;height:98% !important;object-fit:contain !important;max-width:98% !important;max-height:98% !important;}
+.team-pill > img{width:98% !important;height:98% !important;object-fit:contain !important;max-width:98% !important;max-height:98% !important;}
+button.team-pill img{width:98% !important;height:98% !important;object-fit:contain !important;max-width:98% !important;max-height:98% !important;}
 
 .team-pill:focus{outline:3px solid var(--accent)}
 .grid{max-width:1300px !important;margin:0 auto !important;padding:0 14px 18px !important;display:grid !important;grid-template-columns:minmax(300px, 320px) 1fr minmax(340px, 360px) !important;gap:16px !important;align-items:start !important;min-height:400px !important;}
@@ -580,10 +582,20 @@ cursor:pointer;transition:all 0.3s ease;
 }
 
 .muro-shield-free img {
-  width: 98%;
-  height: 98%;
-  object-fit: contain;
+  width: 98% !important;
+  height: 98% !important;
+  object-fit: contain !important;
   pointer-events: none;
+  max-width: 98% !important;
+  max-height: 98% !important;
+}
+
+.teoria-muro-container .muro-shield-free img {
+  width: 98% !important;
+  height: 98% !important;
+  object-fit: contain !important;
+  max-width: 98% !important;
+  max-height: 98% !important;
 }
 
 .muro-shield-free .remove-shield {
