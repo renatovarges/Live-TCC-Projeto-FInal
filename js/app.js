@@ -949,9 +949,16 @@ console.log('App.js carregado - iniciando execução');
        startY = e.clientY;
        initialX = parseInt(shieldElement.style.left) || 0;
        initialY = parseInt(shieldElement.style.top) || 0;
+       
+       // Melhorar fluidez visual
+       shieldElement.classList.add('dragging');
        shieldElement.style.cursor = 'grabbing';
-       shieldElement.style.zIndex = '20'; // Trazer para frente durante o drag
+       shieldElement.style.zIndex = '25';
+       document.body.style.cursor = 'grabbing';
+       document.body.style.userSelect = 'none';
+       
        e.preventDefault();
+       e.stopPropagation();
      });
      
      document.addEventListener('mousemove', (e) => {
@@ -1019,8 +1026,15 @@ console.log('App.js carregado - iniciando execução');
      document.addEventListener('mouseup', () => {
        if (isDragging) {
          isDragging = false;
+         
+         // Restaurar estado visual
+         shieldElement.classList.remove('dragging');
          shieldElement.style.cursor = 'grab';
-         shieldElement.style.zIndex = '10'; // Voltar z-index normal
+         shieldElement.style.zIndex = '10';
+         document.body.style.cursor = '';
+         document.body.style.userSelect = '';
+         
+         console.log(`🏆 Escudo ${teamData.name} posicionado na área ${targetSection.dataset.muro}`);
        }
      });
      
