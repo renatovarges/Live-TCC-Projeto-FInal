@@ -134,38 +134,11 @@ console.log('App.js carregado - iniciando execução');
     }
     
     
-    // Filtrar jogadores do time
-    console.log('DEBUG: Filtrando jogadores para:', teamData.slug);
+    // Usar função dedicada com deduplicação automática
+    console.log('DEBUG: Buscando jogadores para:', teamData.slug);
     console.log('DEBUG: Total de jogadores carregados:', players.length);
     
-    // Debug específico para Internacional
-    if (teamData.slug === 'internacional') {
-        console.log('DEBUG: Procurando jogadores do Internacional...');
-        const intPlayers = players.filter(p => {
-            console.log('DEBUG: Jogador:', p.nome, 'Clube:', p.clube, 'ClubSlug:', p.clubeSlug, 'OriginalClub:', p.originalClub);
-            return p.clube === 'INT' || p.clubeSlug === 'internacional' || (p.originalClub && p.originalClub === 'INT');
-        });
-        console.log('DEBUG: Jogadores do Internacional encontrados:', intPlayers.length);
-    }
-    
-    const teamPlayers = players.filter(player => {
-        if (!player.clubeSlug) return false;
-        
-        // Solução alternativa: verificar múltiplas formas de identificar o time
-        const playerSlug = player.clubeSlug.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        const teamSlug = teamData.slug.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        
-        // Verificação direta para Internacional
-        if (teamSlug === 'internacional') {
-            return playerSlug === 'internacional' || 
-                   player.clubeSlug === 'internacional' ||
-                   (player.originalClub && player.originalClub.toLowerCase() === 'int') ||
-                   player.clube === 'INT';
-        }
-        
-        // Usar comparação robusta para outros times
-        return playerSlug === teamSlug;
-    });
+    const teamPlayers = window.PLAYERS_API.getPlayersByClub(teamData.slug);
     
 
 
@@ -1099,22 +1072,8 @@ console.log('App.js carregado - iniciando execução');
        return;
      }
      
-     // Filtrar jogadores do time (mesma lógica do campo)
-     const teamPlayers = players.filter(player => {
-         if (!player.clubeSlug) return false;
-         
-         const playerSlug = player.clubeSlug.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-         const teamSlug = teamData.slug.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-         
-         if (teamSlug === 'internacional') {
-             return playerSlug === 'internacional' || 
-                    player.clubeSlug === 'internacional' ||
-                    (player.originalClub && player.originalClub.toLowerCase() === 'int') ||
-                    player.clube === 'INT';
-         }
-         
-         return playerSlug === teamSlug;
-     });
+     // Usar função dedicada com deduplicação automática
+     const teamPlayers = window.PLAYERS_API.getPlayersByClub(teamData.slug);
 
      if(teamPlayers.length === 0) {
        alert(`Nenhum jogador encontrado para ${teamName}`);
