@@ -1,0 +1,287 @@
+name: 🔄 Atualização Automática do CSV
+
+on:
+  # Executar a cada 6 horas (horário principal - 00:00, 06:00, 12:00, 18:00 UTC)
+  # O workflow update-prices.yml executa 30 minutos depois para evitar conflitos
+  schedule:
+    - cron: '0 */6 * * *'  # A cada 6 horas
+    # - cron: '0 6 * * *'   # Diariamente às 6h (descomente para usar)
+    # - cron: '0 * * * *'   # A cada hora (descomente para usar)
+  
+  # Permitir execução manual
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Forçar atualização mesmo se não houver mudanças'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  update-csv:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10  # Timeout de 10 minutos
+    
+    steps:
+    - name: 🔄 Checkout do repositório
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: 🐍 Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: 📦 Instalar dependências
+      run: |
+        pip install requests pandas
+    
+    - name: 🎯 Buscar dados da API do Cartola (com retry)
+      id: fetch-data
+      run: |
+        python << 'EOF'
+        import requests
+        import json
+        import csv
+        import os
+        import time
+        from datetime import datetime
+        
+        def fetch_with_retry(url, headers, max_retries=3, delay=5):
+            """Função para fazer requisições com retry automático"""
+            for attempt in range(max_retries):
+                try:
+                    print(f"🔄 Tentativa {attempt + 1}/{max_retries} para {url}")
+                    response = requests.get(url, headers=headers, timeout=45)
+                    response.raise_for_status()
+                    return response
+                except Exception as e:
+                    print(f"❌ Tentativa {attempt + 1} falhou: {str(e)}")
+                    if attempt < max_retries - 1:
+                        print(f"⏳ Aguardando {delay} segundos antes da próxima tentativa...")
+                        time.sleep(delay)
+                        delay *= 2  # Backoff exponencial
+                    else:
+                        raise e
+        
+        print("🔄 Iniciando atualização do CSV...")
+        
+        # Headers mais robustos para simular navegador real
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'application/json, text/plain, */*',
+            'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Referer': 'https://cartola.globo.com/',
+            'Origin': 'https://cartola.globo.com',
+            'Connection': 'keep-alive',
+            'Sec-Fetch-Dest': 'empty',
+            'Sec-Fetch-Mode': 'cors',
+            'Sec-Fetch-Site': 'same-site'
+        }
+        
+        try:
+            # Buscar dados dos atletas com retry
+            print("📊 Buscando dados dos atletas...")
+            response = fetch_with_retry('https://api.cartola.globo.com/atletas/mercado', headers)
+            data = response.json()
+            
+            # Buscar status do mercado com retry (não crítico se falhar)
+            print("📈 Buscando status do mercado...")
+            market_status = {}
+            try:
+                status_response = fetch_with_retry('https://api.cartola.globo.com/mercado/status', headers, max_retries=2)
+                market_status = status_response.json()
+            except Exception as e:
+                print(f"⚠️ Aviso: Não foi possível buscar status do mercado: {str(e)}")
+                market_status = {'rodada_atual': 'N/A', 'status_mercado': 'N/A'}
+            
+            # Validar dados recebidos
+            if not data or 'atletas' not in data:
+                raise ValueError("Dados da API inválidos ou vazios")
+            
+            atletas_count = len(data.get('atletas', {}))
+            if atletas_count < 100:  # Validação básica
+                raise ValueError(f"Poucos atletas retornados ({atletas_count}), possível problema na API")
+            
+            # Mapeamento de clubes (atualizado)
+            club_mapping = {
+                263: 'Botafogo', 264: 'Corinthians', 265: 'Bahia', 266: 'Fluminense', 267: 'Vasco',
+                275: 'Palmeiras', 276: 'São Paulo', 277: 'Santos', 285: 'Atlético-MG',
+                293: 'Grêmio', 294: 'Internacional', 356: 'Fortaleza', 373: 'Cruzeiro',
+                1371: 'Juventude', 1372: 'Ceará', 1373: 'Sport', 1376: 'Vitória',
+                1377: 'Red Bull Bragantino', 2305: 'Mirassol'
+            }
+            
+            # Mapeamento de posições
+            position_mapping = {
+                1: 'Goleiro', 2: 'Lateral', 3: 'Zagueiro', 4: 'Meia', 5: 'Atacante', 6: 'Técnico'
+            }
+            
+            # Processar dados
+            csv_data = []
+            processed_count = 0
+            skipped_count = 0
+            
+            for atleta in data.get('atletas', {}).values():
+                clube_id = atleta.get('clube_id')
+                clube_nome = club_mapping.get(clube_id)
+                
+                if clube_nome and clube_id in data.get('clubes', {}):
+                    posicao = position_mapping.get(atleta.get('posicao_id'), 'Meia')
+                    nome = (atleta.get('apelido') or atleta.get('nome', '')).replace(',', '').strip()
+                    preco = f"{atleta.get('preco_num', 0):.2f}"
+                    
+                    if nome:  # Só adicionar se tiver nome válido
+                        csv_data.append([nome, clube_nome, posicao, preco])
+                        processed_count += 1
+                    else:
+                        skipped_count += 1
+                else:
+                    skipped_count += 1
+            
+            # Validar dados processados
+            if processed_count < 50:
+                raise ValueError(f"Poucos jogadores processados ({processed_count}), possível problema nos dados")
+            
+            # Escrever CSV
+            print(f"💾 Salvando {processed_count} jogadores no CSV...")
+            with open('cartola_jogadores_time_posicao_preco.csv', 'w', newline='', encoding='utf-8') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(['Nome', 'Clube', 'Posicao', 'Preco'])
+                writer.writerows(csv_data)
+            
+            # Criar arquivo de log detalhado
+            log_data = {
+                'timestamp': datetime.now().isoformat(),
+                'total_atletas': len(data.get('atletas', {})),
+                'processed_atletas': processed_count,
+                'skipped_atletas': skipped_count,
+                'total_clubes': len(data.get('clubes', {})),
+                'rodada_atual': market_status.get('rodada_atual', 'N/A'),
+                'status_mercado': market_status.get('status_mercado', 'N/A'),
+                'success': True,
+                'api_response_size': len(str(data)),
+                'clubs_found': len([c for c in club_mapping.values() if any(atleta.get('clube_id') == club_id for atleta in data.get('atletas', {}).values() for club_id in [c])])
+            }
+            
+            with open('update_log.json', 'w') as logfile:
+                json.dump(log_data, logfile, indent=2)
+            
+            print(f"✅ CSV atualizado com sucesso!")
+            print(f"📊 Estatísticas:")
+            print(f"   - Total de atletas na API: {len(data.get('atletas', {}))}")
+            print(f"   - Atletas processados: {processed_count}")
+            print(f"   - Atletas ignorados: {skipped_count}")
+            print(f"   - Clubes: {len(data.get('clubes', {}))}")
+            print(f"   - Rodada atual: {market_status.get('rodada_atual', 'N/A')}")
+            print(f"   - Status do mercado: {market_status.get('status_mercado', 'N/A')}")
+            
+            # Definir outputs para o GitHub Actions
+            with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                f.write(f"success=true\n")
+                f.write(f"processed_count={processed_count}\n")
+                f.write(f"total_atletas={len(data.get('atletas', {}))}\n")
+                f.write(f"skipped_count={skipped_count}\n")
+                f.write(f"rodada_atual={market_status.get('rodada_atual', 'N/A')}\n")
+                f.write(f"status_mercado={market_status.get('status_mercado', 'N/A')}\n")
+            
+        except Exception as e:
+            print(f"❌ Erro crítico: {str(e)}")
+            print(f"🔍 Tipo do erro: {type(e).__name__}")
+            
+            # Log de erro detalhado
+            error_log = {
+                'timestamp': datetime.now().isoformat(),
+                'error': str(e),
+                'error_type': type(e).__name__,
+                'success': False
+            }
+            
+            with open('update_log.json', 'w') as logfile:
+                json.dump(error_log, logfile, indent=2)
+            
+            with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                f.write(f"success=false\n")
+                f.write(f"error={str(e)}\n")
+                f.write(f"error_type={type(e).__name__}\n")
+            
+            # Não fazer exit(1) para permitir que o workflow continue e faça log
+            print("⚠️ Continuando execução para logging...")
+        EOF
+    
+    - name: 📝 Verificar mudanças no CSV
+      id: check-changes
+      if: steps.fetch-data.outputs.success == 'true'
+      run: |
+        if git diff --quiet cartola_jogadores_time_posicao_preco.csv; then
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "📊 Nenhuma mudança detectada no CSV"
+        else
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "🔄 Mudanças detectadas no CSV"
+        fi
+    
+    - name: 💾 Commit e Push das mudanças
+      if: steps.fetch-data.outputs.success == 'true' && (steps.check-changes.outputs.changes == 'true' || github.event.inputs.force_update == 'true')
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action - CSV Update"
+        
+        # Adicionar arquivos modificados
+        git add cartola_jogadores_time_posicao_preco.csv
+        git add update_log.json
+        
+        # Criar commit com informações detalhadas
+        COMMIT_MSG="🔄 Atualização automática do CSV
+        
+        📊 Estatísticas:
+        - Atletas processados: ${{ steps.fetch-data.outputs.processed_count }}
+        - Total de atletas: ${{ steps.fetch-data.outputs.total_atletas }}
+        - Atletas ignorados: ${{ steps.fetch-data.outputs.skipped_count }}
+        - Rodada atual: ${{ steps.fetch-data.outputs.rodada_atual }}
+        - Status do mercado: ${{ steps.fetch-data.outputs.status_mercado }}
+        - Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")
+        
+        🤖 Atualização automática via GitHub Actions"
+        
+        git commit -m "$COMMIT_MSG"
+        git push
+        
+        echo "✅ CSV atualizado e enviado para o repositório!"
+    
+    - name: 📊 Resumo da execução
+      if: always()
+      run: |
+        echo "## 📊 Resumo da Atualização do CSV" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ "${{ steps.fetch-data.outputs.success }}" == "true" ]; then
+          echo "✅ **Status**: Sucesso" >> $GITHUB_STEP_SUMMARY
+          echo "📊 **Atletas processados**: ${{ steps.fetch-data.outputs.processed_count }}" >> $GITHUB_STEP_SUMMARY
+          echo "🏆 **Total de atletas**: ${{ steps.fetch-data.outputs.total_atletas }}" >> $GITHUB_STEP_SUMMARY
+          echo "⚠️ **Atletas ignorados**: ${{ steps.fetch-data.outputs.skipped_count }}" >> $GITHUB_STEP_SUMMARY
+          echo "🎯 **Rodada atual**: ${{ steps.fetch-data.outputs.rodada_atual }}" >> $GITHUB_STEP_SUMMARY
+          echo "📈 **Status do mercado**: ${{ steps.fetch-data.outputs.status_mercado }}" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then
+            echo "🔄 **Mudanças**: CSV foi atualizado" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "📊 **Mudanças**: Nenhuma mudança detectada" >> $GITHUB_STEP_SUMMARY
+          fi
+        else
+          echo "❌ **Status**: Erro" >> $GITHUB_STEP_SUMMARY
+          echo "🚨 **Erro**: ${{ steps.fetch-data.outputs.error }}" >> $GITHUB_STEP_SUMMARY
+          echo "🔍 **Tipo do erro**: ${{ steps.fetch-data.outputs.error_type }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "💡 **Possíveis soluções**:" >> $GITHUB_STEP_SUMMARY
+          echo "- API do Cartola pode estar temporariamente indisponível" >> $GITHUB_STEP_SUMMARY
+          echo "- Execute novamente manualmente em alguns minutos" >> $GITHUB_STEP_SUMMARY
+          echo "- Verifique se o mercado está aberto" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "⏰ **Timestamp**: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+        echo "🤖 **Executado por**: GitHub Actions" >> $GITHUB_STEP_SUMMARY
+        echo "🔄 **Próxima execução**: A cada 6 horas" >> $GITHUB_STEP_SUMMARY

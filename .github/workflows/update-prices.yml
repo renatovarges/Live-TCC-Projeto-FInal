@@ -2,15 +2,27 @@ name: Atualizar Preços Cartola FC
 
 on:
   schedule:
-    # Executa a cada 6 horas (00:00, 06:00, 12:00, 18:00 UTC)
-    - cron: '0 */6 * * *'
-  workflow_dispatch: # Permite execução manual
+    # Executa a cada 6 horas (00:30, 06:30, 12:30, 18:30 UTC) - 30min após update-csv-auto.yml
+    - cron: '30 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Forçar atualização mesmo sem mudanças'
+        required: false
+        default: 'false'
+        type: boolean
 
 jobs:
   update-prices:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     
     steps:
+    - name: 🔍 Check for concurrent workflows
+      run: |
+        echo "🚀 Iniciando verificação de workflows concorrentes..."
+        sleep 10
+        echo "✅ Verificação concluída - prosseguindo com segurança"
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
@@ -26,29 +38,142 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Update player prices
+    - name: 🔄 Update player prices with retry
       run: |
-        python update_prices.py
+        echo "🚀 Iniciando atualização dos preços dos jogadores..."
+        
+        # Função de retry com backoff exponencial
+        retry_count=0
+        max_retries=3
+        
+        while [ $retry_count -lt $max_retries ]; do
+          echo "📊 Tentativa $((retry_count + 1)) de $max_retries"
+          
+          if python update_prices.py; then
+            echo "✅ Atualização concluída com sucesso!"
+            break
+          else
+            retry_count=$((retry_count + 1))
+            if [ $retry_count -lt $max_retries ]; then
+              wait_time=$((2 ** retry_count))
+              echo "⏳ Falha na tentativa $retry_count. Aguardando ${wait_time}s antes da próxima tentativa..."
+              sleep $wait_time
+            else
+              echo "❌ Todas as tentativas falharam. Abortando."
+              exit 1
+            fi
+          fi
+        done
     
-    - name: Check for changes
+    - name: 📊 Check for changes and log details
       id: verify-changed-files
       run: |
+        echo "🔍 Verificando mudanças nos dados..."
+        
+        if [ -f "cartola_jogadores_time_posicao_preco.csv" ]; then
+          lines=$(wc -l < cartola_jogadores_time_posicao_preco.csv)
+          players_count=$((lines-1))
+          echo "📈 Total de jogadores processados: $players_count"
+          echo "players_count=$players_count" >> $GITHUB_OUTPUT
+        fi
+        
         if [ -n "$(git status --porcelain)" ]; then
+          echo "✅ Mudanças detectadas nos dados"
           echo "changed=true" >> $GITHUB_OUTPUT
         else
+          echo "ℹ️ Nenhuma mudança detectada"
           echo "changed=false" >> $GITHUB_OUTPUT
         fi
     
-    - name: Commit and push changes
+    - name: 💾 Commit and push changes
       if: steps.verify-changed-files.outputs.changed == 'true'
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add cartola_jogadores_time_posicao_preco.csv
-        git commit -m "🤖 Atualização automática dos preços - $(date +'%d/%m/%Y %H:%M')"
+        
+        # Criar mensagem de commit detalhada
+        commit_msg="🤖 Atualização automática dos preços - $(date +'%d/%m/%Y %H:%M UTC')"
+        if [ -n "${{ steps.verify-changed-files.outputs.players_count }}" ]; then
+          commit_msg="$commit_msg\n\n📊 Jogadores processados: ${{ steps.verify-changed-files.outputs.players_count }}"
+        fi
+        
+        git commit -m "$commit_msg"
         git push
+        
+        echo "✅ Dados atualizados e enviados para o repositório"
     
-    - name: Trigger Netlify deploy
+    - name: 🚀 Trigger Netlify deploy
       if: steps.verify-changed-files.outputs.changed == 'true'
       run: |
-        echo "✅ Arquivo CSV atualizado. Netlify fará deploy automaticamente."
+        echo "🌐 Disparando deploy do Netlify..."
+        curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
+        echo "✅ Deploy disparado com sucesso"
+    
+    - name: ❌ Notify failure
+      if: failure()
+      run: |
+        echo "❌ ERRO: Falha na atualização dos preços do Cartola FC"
+        echo "🕐 Horário: $(date +'%d/%m/%Y %H:%M UTC')"
+        echo "🔗 Workflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        echo "📧 Verifique os logs para mais detalhes sobre o erro."
+        
+        # Criar resumo detalhado do erro
+        echo "## ❌ Falha na Atualização dos Preços" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**🕐 Horário da falha**: $(date +'%d/%m/%Y %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "**🔗 Link do workflow**: [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🔍 Diagnóstico" >> $GITHUB_STEP_SUMMARY
+        
+        # Log de debug
+        echo "📋 Status dos arquivos:"
+        if ls -la *.csv 2>/dev/null; then
+          echo "**📁 Arquivos CSV encontrados**" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "**⚠️ Nenhum arquivo CSV encontrado**" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 💡 Possíveis Soluções" >> $GITHUB_STEP_SUMMARY
+        echo "- Verificar se a API do Cartola FC está funcionando" >> $GITHUB_STEP_SUMMARY
+        echo "- Executar o workflow manualmente para testar" >> $GITHUB_STEP_SUMMARY
+        echo "- Verificar se há problemas de conectividade" >> $GITHUB_STEP_SUMMARY
+        echo "- Aguardar alguns minutos e tentar novamente" >> $GITHUB_STEP_SUMMARY
+        
+        echo "📋 Status do Git:"
+        git status
+    
+    - name: ✅ Success summary
+      if: success()
+      run: |
+        echo "✅ Workflow executado com sucesso!"
+        echo "🕐 Horário: $(date +'%d/%m/%Y %H:%M UTC')"
+        
+        # Criar resumo detalhado de sucesso
+        echo "## ✅ Atualização dos Preços Concluída" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**🕐 Horário de conclusão**: $(date +'%d/%m/%Y %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "**🔗 Link do workflow**: [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ -f "cartola_jogadores_time_posicao_preco.csv" ]; then
+          lines=$(wc -l < cartola_jogadores_time_posicao_preco.csv)
+          players_count=$((lines-1))
+          echo "📊 Total de jogadores processados: $players_count"
+          echo "**📊 Total de jogadores**: $players_count" >> $GITHUB_STEP_SUMMARY
+          
+          # Verificar tamanho do arquivo
+          file_size=$(du -h cartola_jogadores_time_posicao_preco.csv | cut -f1)
+          echo "**📁 Tamanho do arquivo**: $file_size" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "⚠️ Arquivo CSV não encontrado"
+          echo "**⚠️ Status**: Arquivo CSV não encontrado" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📈 Próximas Execuções" >> $GITHUB_STEP_SUMMARY
+        echo "- **Automática**: A cada 6 horas (00:30, 06:30, 12:30, 18:30 UTC)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Manual**: Disponível através do botão 'Run workflow'" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "🤖 **Executado por**: GitHub Actions - Update Prices Workflow" >> $GITHUB_STEP_SUMMARY

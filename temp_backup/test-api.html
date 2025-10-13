@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Teste da API do Cartola - Proxy Netlify</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #0d1a14 0%, #1a2e1a 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            color: #21c35c;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border-left: 4px solid #21c35c;
+        }
+        button {
+            background: linear-gradient(135deg, #21c35c 0%, #1a9e4a 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 195, 92, 0.3);
+        }
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .result {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .status {
+            padding: 12px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+        .success { 
+            background: rgba(33, 195, 92, 0.2); 
+            color: #21c35c; 
+            border: 1px solid #21c35c; 
+        }
+        .error { 
+            background: rgba(220, 53, 69, 0.2); 
+            color: #dc3545; 
+            border: 1px solid #dc3545; 
+        }
+        .info { 
+            background: rgba(13, 202, 240, 0.2); 
+            color: #0dcaf0; 
+            border: 1px solid #0dcaf0; 
+        }
+        .warning { 
+            background: rgba(255, 193, 7, 0.2); 
+            color: #ffc107; 
+            border: 1px solid #ffc107; 
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: rgba(33, 195, 92, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(33, 195, 92, 0.3);
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #21c35c;
+        }
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Teste da API do Cartola</h1>
+        <p style="text-align: center; opacity: 0.8;">
+            Esta página testa se a função Netlify está funcionando corretamente como proxy para a API do Cartola.
+        </p>
+        
+        <div class="test-section">
+            <h3>🔧 Testes Básicos</h3>
+            <div class="button-group">
+                <button onclick="testStatus()">📊 Status do Mercado</button>
+                <button onclick="testAtletas()">👥 Dados dos Atletas</button>
+                <button onclick="testDirect()">🔗 Função Direta</button>
+                <button onclick="clearResults()">🗑️ Limpar</button>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h3>⚡ Testes Avançados</h3>
+            <div class="button-group">
+                <button onclick="testPerformance()">⏱️ Performance</button>
+                <button onclick="testMultiple()">🔄 Múltiplas Chamadas</button>
+                <button onclick="testErrorHandling()">❌ Tratamento de Erro</button>
+            </div>
+        </div>
+        
+        <div id="status"></div>
+        <div id="stats"></div>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        let testResults = [];
+
+        function showStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = `<div class="${type}">${message}</div>`;
+        }
+
+        function updateStats(data) {
+            const statsDiv = document.getElementById('stats');
+            if (data && data.atletas) {
+                const atletas = Object.keys(data.atletas).length;
+                const clubes = Object.keys(data.clubes || {}).length;
+                const posicoes = Object.keys(data.posicoes || {}).length;
+                
+                statsDiv.innerHTML = `
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-number">${atletas}</div>
+                            <div class="stat-label">Atletas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${clubes}</div>
+                            <div class="stat-label">Clubes</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">${posicoes}</div>
+                            <div class="stat-label">Posições</div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function addResult(title, data, duration = null) {
+            const resultsDiv = document.getElementById('results');
+            const resultDiv = document.createElement('div');
+            const durationText = duration ? ` (${duration}ms)` : '';
+            
+            resultDiv.innerHTML = `
+                <h4>${title}${durationText}</h4>
+                <div class="result">${JSON.stringify(data, null, 2)}</div>
+            `;
+            resultsDiv.appendChild(resultDiv);
+            
+            // Scroll para o resultado
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        async function testStatus() {
+            showStatus('📊 Testando status do mercado...', 'info');
+            const startTime = Date.now();
+            
+            try {
+                const response = await fetch('/api/cartola/mercado/status');
+                const duration = Date.now() - startTime;
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showStatus('✅ Status do mercado obtido com sucesso!', 'success');
+                    addResult('📊 Status do Mercado', data, duration);
+                } else {
+                    showStatus(`❌ Erro ${response.status}: ${response.statusText}`, 'error');
+                    addResult('❌ Erro no Status', data, duration);
+                }
+            } catch (error) {
+                const duration = Date.now() - startTime;
+                showStatus(`❌ Erro na requisição: ${error.message}`, 'error');
+                addResult('❌ Erro de Conexão', { error: error.message }, duration);
+            }
+        }
+
+        async function testAtletas() {
+            showStatus('👥 Testando dados dos atletas...', 'info');
+            const startTime = Date.now();
+            
+            try {
+                const response = await fetch('/api/cartola/atletas/mercado');
+                const duration = Date.now() - startTime;
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showStatus('✅ Dados dos atletas obtidos com sucesso!', 'success');
+                    updateStats(data);
+                    
+                    // Mostrar apenas um resumo dos dados
+                    const summary = {
+                        total_atletas: Object.keys(data.atletas || {}).length,
+                        total_clubes: Object.keys(data.clubes || {}).length,
+                        total_posicoes: Object.keys(data.posicoes || {}).length,
+                        primeiro_atleta: Object.values(data.atletas || {})[0] || 'Nenhum',
+                        clubes_disponiveis: Object.values(data.clubes || {}).slice(0, 5).map(c => c.nome || c.abreviacao) || []
+                    };
+                    
+                    addResult('👥 Resumo dos Atletas', summary, duration);
+                } else {
+                    showStatus(`❌ Erro ${response.status}: ${response.statusText}`, 'error');
+                    addResult('❌ Erro nos Atletas', data, duration);
+                }
+            } catch (error) {
+                const duration = Date.now() - startTime;
+                showStatus(`❌ Erro na requisição: ${error.message}`, 'error');
+                addResult('❌ Erro de Conexão', { error: error.message }, duration);
+            }
+        }
+
+        async function testDirect() {
+            showStatus('🔗 Testando função direta...', 'info');
+            const startTime = Date.now();
+            
+            try {
+                const response = await fetch('/.netlify/functions/cartola-api?endpoint=mercado/status');
+                const duration = Date.now() - startTime;
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showStatus('✅ Função direta funcionando!', 'success');
+                    addResult('🔗 Função Direta', data, duration);
+                } else {
+                    showStatus(`❌ Erro ${response.status}: ${response.statusText}`, 'error');
+                    addResult('❌ Erro na Função Direta', data, duration);
+                }
+            } catch (error) {
+                const duration = Date.now() - startTime;
+                showStatus(`❌ Erro na requisição: ${error.message}`, 'error');
+                addResult('❌ Erro de Conexão', { error: error.message }, duration);
+            }
+        }
+
+        async function testPerformance() {
+            showStatus('⏱️ Testando performance...', 'info');
+            const tests = [];
+            
+            for (let i = 0; i < 3; i++) {
+                const startTime = Date.now();
+                try {
+                    const response = await fetch('/api/cartola/mercado/status');
+                    const duration = Date.now() - startTime;
+                    tests.push({ test: i + 1, duration, status: response.status });
+                } catch (error) {
+                    const duration = Date.now() - startTime;
+                    tests.push({ test: i + 1, duration, error: error.message });
+                }
+            }
+            
+            const avgDuration = tests.reduce((sum, test) => sum + test.duration, 0) / tests.length;
+            showStatus(`⏱️ Performance: ${avgDuration.toFixed(0)}ms em média`, 'info');
+            addResult('⏱️ Teste de Performance', { tests, average: `${avgDuration.toFixed(0)}ms` });
+        }
+
+        async function testMultiple() {
+            showStatus('🔄 Testando múltiplas chamadas simultâneas...', 'info');
+            const startTime = Date.now();
+            
+            try {
+                const promises = [
+                    fetch('/api/cartola/mercado/status'),
+                    fetch('/api/cartola/mercado/status'),
+                    fetch('/api/cartola/mercado/status')
+                ];
+                
+                const responses = await Promise.all(promises);
+                const duration = Date.now() - startTime;
+                
+                const results = await Promise.all(responses.map(r => r.json()));
+                
+                showStatus('✅ Múltiplas chamadas concluídas!', 'success');
+                addResult('🔄 Múltiplas Chamadas', {
+                    total_requests: 3,
+                    successful: responses.filter(r => r.ok).length,
+                    duration: `${duration}ms`,
+                    results: results.map((r, i) => ({ request: i + 1, status: responses[i].status }))
+                }, duration);
+            } catch (error) {
+                const duration = Date.now() - startTime;
+                showStatus(`❌ Erro nas múltiplas chamadas: ${error.message}`, 'error');
+                addResult('❌ Erro Múltiplas Chamadas', { error: error.message }, duration);
+            }
+        }
+
+        async function testErrorHandling() {
+            showStatus('❌ Testando tratamento de erro...', 'warning');
+            const startTime = Date.now();
+            
+            try {
+                const response = await fetch('/api/cartola/endpoint/inexistente');
+                const duration = Date.now() - startTime;
+                const data = await response.json();
+                
+                showStatus('✅ Tratamento de erro funcionando!', 'success');
+                addResult('❌ Teste de Erro', data, duration);
+            } catch (error) {
+                const duration = Date.now() - startTime;
+                showStatus(`✅ Erro capturado corretamente: ${error.message}`, 'success');
+                addResult('❌ Erro Capturado', { error: error.message }, duration);
+            }
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('status').innerHTML = '';
+            document.getElementById('stats').innerHTML = '';
+            testResults = [];
+        }
+
+        // Teste automático ao carregar a página
+        window.onload = function() {
+            showStatus('🚀 Página carregada. Clique nos botões para testar a API.', 'info');
+        };
+    </script>
+</body>
+</html>
