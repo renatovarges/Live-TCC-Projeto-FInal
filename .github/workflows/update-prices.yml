@@ -27,6 +27,7 @@ jobs:
         echo "🚀 Iniciando verificação de workflows concorrentes..."
         sleep 10
         echo "✅ Verificação concluída - prosseguindo com segurança"
+    
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
@@ -119,12 +120,14 @@ jobs:
           exit 1
         fi
     
-    - name: 🚀 Trigger Netlify deploy
-      if: steps.verify-changed-files.outputs.changed == 'true'
-      run: |
-        echo "🌐 Disparando deploy do Netlify..."
-        curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
-        echo "✅ Deploy disparado com sucesso"
+    # CORREÇÃO: Remover step do Netlify deploy que estava causando erro
+    # Se você precisar do deploy do Netlify, configure o secret NETLIFY_BUILD_HOOK primeiro
+    # - name: 🚀 Trigger Netlify deploy
+    #   if: steps.verify-changed-files.outputs.changed == 'true'
+    #   run: |
+    #     echo "🌐 Disparando deploy do Netlify..."
+    #     curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
+    #     echo "✅ Deploy disparado com sucesso"
     
     - name: ❌ Notify failure
       if: failure()
