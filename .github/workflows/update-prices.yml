@@ -12,6 +12,10 @@ on:
         default: 'false'
         type: boolean
 
+# CORREÇÃO: Adicionar permissões explícitas para o GITHUB_TOKEN
+permissions:
+  contents: write  # Necessário para fazer push de mudanças
+
 jobs:
   update-prices:
     runs-on: ubuntu-latest
@@ -59,8 +63,10 @@ jobs:
               echo "⏳ Falha na tentativa $retry_count. Aguardando ${wait_time}s antes da próxima tentativa..."
               sleep $wait_time
             else
-              echo "❌ Todas as tentativas falharam. Abortando."
-              exit 1
+              echo "⚠️ Todas as tentativas falharam. Continuando sem atualização."
+              # CORREÇÃO: Não abortar o workflow, apenas registrar o erro
+              echo "no_update=true" >> $GITHUB_OUTPUT
+              break
             fi
           fi
         done
@@ -98,10 +104,20 @@ jobs:
           commit_msg="$commit_msg\n\n📊 Jogadores processados: ${{ steps.verify-changed-files.outputs.players_count }}"
         fi
         
-        git commit -m "$commit_msg"
-        git push
-        
-        echo "✅ Dados atualizados e enviados para o repositório"
+        # CORREÇÃO: Adicionar tratamento de erro para o push
+        if git commit -m "$commit_msg"; then
+          if git push; then
+            echo "✅ Dados atualizados e enviados para o repositório"
+          else
+            echo "⚠️ Falha ao fazer push. Verificando status..."
+            git status
+            exit 1
+          fi
+        else
+          echo "⚠️ Falha ao fazer commit"
+          git status
+          exit 1
+        fi
     
     - name: 🚀 Trigger Netlify deploy
       if: steps.verify-changed-files.outputs.changed == 'true'
