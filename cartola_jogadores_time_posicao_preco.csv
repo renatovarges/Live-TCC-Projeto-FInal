@@ -97,7 +97,6 @@ Mosquito,CAM,Atacante,1.0,0.0,0.0,0
 Rony,CAM,Atacante,11.7,4.51,0.0,28
 Everson,CAM,Goleiro,8.91,4.75,0.0,29
 Gabriel Delfim,CAM,Goleiro,2.55,1.9,0.0,1
-Gabriel Átila,CAM,Goleiro,1.0,0.0,0.0,0
 Robert,CAM,Goleiro,1.0,0.0,0.0,0
 Caio Paulista,CAM,Lateral,6.27,3.24,0.0,16
 Guilherme Arana,CAM,Lateral,8.27,3.64,0.0,18
@@ -184,6 +183,7 @@ Carrillo,COR,Meia,5.73,2.36,0.0,21
 Charles,COR,Meia,3.08,1.48,0.0,16
 Dieguinho,COR,Meia,2.48,1.71,-0.01,12
 Garro,COR,Meia,12.25,3.67,0.0,19
+Guilherme Amorim,COR,Meia,1.0,0.0,0.0,0
 José Martínez,COR,Meia,3.3,1.59,0.29,23
 Maycon,COR,Meia,4.22,2.25,0.53,25
 Raniele,COR,Meia,6.18,4.2,-1.4,29
@@ -400,6 +400,7 @@ Edenílson,GRE,Meia,4.63,2.33,-0.18,27
 Monsalve,GRE,Meia,3.43,1.25,0.0,9
 Noriega,GRE,Meia,3.74,1.52,0.0,13
 Riquelme,GRE,Meia,2.62,1.86,0.0,9
+Tiaguinho,GRE,Meia,1.0,0.0,0.0,0
 Villasanti,GRE,Meia,9.45,3.93,0.0,15
 Willian,GRE,Meia,10.83,5.57,1.25,3
 Mano Menezes,GRE,Técnico,9.56,5.26,-0.07,30
@@ -738,6 +739,7 @@ Matheus França,VAS,Atacante,4.75,1.16,0.0,13
 Nuno Moreira,VAS,Atacante,7.27,4.26,-1.49,33
 Rayan,VAS,Atacante,9.87,7.3,-1.75,32
 Vegetti,VAS,Atacante,12.76,5.46,-0.23,31
+Allan,VAS,Goleiro,1.0,0.0,0.0,0
 Daniel Fuzato,VAS,Goleiro,2.04,-0.7,0.0,2
 Léo Jardim,VAS,Goleiro,7.08,3.8,-0.47,33
 Pablo,VAS,Goleiro,1.0,0.0,0.0,0
