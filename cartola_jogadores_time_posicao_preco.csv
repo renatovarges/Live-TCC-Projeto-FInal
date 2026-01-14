@@ -13,6 +13,7 @@ Victor Nascimento,BAH,Goleiro,1,0,0,0
 Gilberto,BAH,Lateral,7,0,0,0
 Iago,BAH,Lateral,4,0,0,0
 Luciano Juba,BAH,Lateral,7,0,0,0
+Román Gómez,BAH,Lateral,5,0,0,0
 Zé Guilherme,BAH,Lateral,3,0,0,0
 Acevedo,BAH,Meia,5,0,0,0
 Caio Alexandre,BAH,Meia,7,0,0,0
@@ -77,6 +78,7 @@ Bernard,CAM,Meia,6,0,0,0
 Gabriel Menino,CAM,Meia,6,0,0,0
 Gustavo Scarpa,CAM,Meia,10,0,0,0
 Igor Gomes,CAM,Meia,8,0,0,0
+Maycon,CAM,Meia,7,0,0,0
 Patrick,CAM,Meia,4,0,0,0
 Reinier,CAM,Meia,4,0,0,0
 Jorge Sampaoli,CAM,Técnico,9,0,0,0
@@ -141,7 +143,6 @@ Jean Gabriel,CFC,Meia,2,0,0,0
 Josué,CFC,Meia,6,0,0,0
 Matheus Dias,CFC,Meia,1,0,0,0
 Sebastián Gómez,CFC,Meia,4,0,0,0
-Thiago Santos,CFC,Meia,3,0,0,0
 Vini Paulista,CFC,Meia,3,0,0,0
 Wallisson,CFC,Meia,3,0,0,0
 Willian Oliveira,CFC,Meia,5,0,0,0
@@ -149,8 +150,10 @@ Fernando Seabra,CFC,Técnico,4,0,0,0
 Jacy,CFC,Zagueiro,3,0,0,0
 Maicon,CFC,Zagueiro,5,0,0,0
 Rodrigo Moledo,CFC,Zagueiro,3,0,0,0
+Thiago Santos,CFC,Zagueiro,3,0,0,0
 Tiago Cóser,CFC,Zagueiro,2,0,0,0
 Bolasie,CHA,Atacante,6,0,0,0
+João Bom,CHA,Atacante,2,0,0,0
 Mailson,CHA,Atacante,2,0,0,0
 Marcinho,CHA,Atacante,3,0,0,0
 Neto Pessoa,CHA,Atacante,3,0,0,0
@@ -162,6 +165,7 @@ Rubens,CHA,Atacante,2,0,0,0
 Anderson,CHA,Goleiro,3,0,0,0
 Léo Vieira,CHA,Goleiro,2,0,0,0
 Rafael Santos,CHA,Goleiro,3,0,0,0
+Bruno Pacheco,CHA,Lateral,6,0,0,0
 Everton,CHA,Lateral,3,0,0,0
 Gustavo Talles,CHA,Lateral,2,0,0,0
 Mancha,CHA,Lateral,3,0,0,0
@@ -408,6 +412,7 @@ Shaylon,MIR,Meia,5,0,0,0
 Yuri Lara,MIR,Meia,5,0,0,0
 Rafael Guanaes,MIR,Técnico,6,0,0,0
 João Victor,MIR,Zagueiro,6,0,0,0
+Lucas Oliveira,MIR,Zagueiro,4,0,0,0
 Luiz Otávio,MIR,Zagueiro,4,0,0,0
 Willian Machado,MIR,Zagueiro,5,0,0,0
 Bruno Rodrigues,PAL,Atacante,4,0,0,0
