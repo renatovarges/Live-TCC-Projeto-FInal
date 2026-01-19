@@ -205,6 +205,7 @@ Hugo Souza,COR,Goleiro,11,0,0,0
 Matheus Donelli,COR,Goleiro,3,0,0,0
 Angileri,COR,Lateral,4,0,0,0
 Hugo,COR,Lateral,4,0,0,0
+Jacaré,COR,Lateral,2,0,0,0
 Matheus Bidu,COR,Lateral,9,0,0,0
 Matheuzinho,COR,Lateral,12,0,0,0
 André,COR,Meia,4,0,0,0
@@ -220,7 +221,6 @@ Ryan,COR,Meia,3,0,0,0
 Dorival Júnior,COR,Técnico,11,0,0,0
 André Ramalho,COR,Zagueiro,6,0,0,0
 Cacá,COR,Zagueiro,5,0,0,0
-Félix Torres,COR,Zagueiro,4,0,0,0
 Gustavo Henrique,COR,Zagueiro,10,0,0,0
 João Pedro,COR,Zagueiro,5,0,0,0
 Arroyo,CRU,Atacante,7,0,0,0
@@ -392,6 +392,7 @@ Ronaldo,INT,Meia,3,0,0,0
 Thiago Maia,INT,Meia,6,0,0,0
 Paulo Pezzolano,INT,Técnico,6,0,0,0
 Clayton Sampaio,INT,Zagueiro,3,0,0,0
+Félix Torres,INT,Zagueiro,4,0,0,0
 Juninho,INT,Zagueiro,5,0,0,0
 Mercado,INT,Zagueiro,5,0,0,0
 Victor Gabriel,INT,Zagueiro,4,0,0,0
@@ -412,9 +413,9 @@ Felipe Jonatan,MIR,Lateral,5,0,0,0
 Igor Cariús,MIR,Lateral,3,0,0,0
 Lucas Ramon,MIR,Lateral,7,0,0,0
 Reinaldo,MIR,Lateral,17,0,0,0
-Aldo Filho,MIR,Meia,5,0,0,0
 Denilson,MIR,Meia,5,0,0,0
 Eduardo,MIR,Meia,6,0,0,0
+José Aldo,MIR,Meia,5,0,0,0
 Lucas Mugni,MIR,Meia,7,0,0,0
 Neto Moura,MIR,Meia,5,0,0,0
 Shaylon,MIR,Meia,5,0,0,0
@@ -519,6 +520,7 @@ Juan Carlos Osorio,REM,Técnico,6,0,0,0
 Cristian Tassano,REM,Zagueiro,3,0,0,0
 Kayky Almeida,REM,Zagueiro,2,0,0,0
 Klaus,REM,Zagueiro,4,0,0,0
+Léo Andrade,REM,Zagueiro,4,0,0,0
 Marllon,REM,Zagueiro,5,0,0,0
 Thalisson Gabriel,REM,Zagueiro,3,0,0,0
 Caballero,SAN,Atacante,4,0,0,0
@@ -558,6 +560,7 @@ Calleri,SAO,Atacante,14,0,0,0
 Ferreira,SAO,Atacante,8,0,0,0
 Lucca,SAO,Atacante,3,0,0,0
 Luciano,SAO,Atacante,18,0,0,0
+Paulinho,SAO,Atacante,2,0,0,0
 Ryan Francisco,SAO,Atacante,5,0,0,0
 Tapia,SAO,Atacante,6,0,0,0
 Coronel,SAO,Goleiro,5,0,0,0
