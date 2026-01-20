@@ -1,23 +1,23 @@
 // Listagem dos 20 clubes + util de normalização para encontrar os PNGs
 window.SLUG_MAP = {
   "atletico-mg":"atlético mg",
+  "athletico-pr":"athletico pr",
   "bahia":"bahia",
   "botafogo":"botafogo",
-  "ceara":"ceará",
+  "chapecoense":"chapecoense",
   "corinthians":"corinthians",
+  "coritiba":"coritiba",
   "cruzeiro":"cruzeiro",
   "flamengo":"flamengo",
   "fluminense":"fluminense",
-  "fortaleza":"fortaleza",
   "gremio":"gremio",
   "internacional":"internacional",
-  "juventude":"juventude",
   "mirassol":"mirassol",
   "palmeiras":"palmeiras",
   "red-bull-bragantino":"red bull bragantino",
+  "remo":"remo",
   "santos":"santos",
   "sao-paulo":"são paulo",
-  "sport":"sport",
   "vasco":"vasco",
   "vitoria":"vitória"
 };
@@ -32,13 +32,12 @@ function normalizeClub(name){
   if(n.includes("bragantino")) return "red-bull-bragantino";
   if(n === "sao-paulo" || n.includes("sao-paulo")) return "sao-paulo";
   if(n.includes("atletico-mg") || n.includes("atletico--mg")) return "atletico-mg";
+  if(n.includes("athletico") || n.includes("athletico-pr")) return "athletico-pr";
   if(n.includes("gremio")) return "gremio";
-  if(n.includes("ceara")) return "ceara";
   if(n.includes("vitoria")) return "vitoria";
   if(n.includes("internacional")) return "internacional";
   if(n.includes("mirassol")) return "mirassol";
   if(n.includes("fluminense")) return "fluminense";
-  if(n.includes("fortaleza")) return "fortaleza";
   if(n.includes("palmeiras")) return "palmeiras";
   if(n.includes("vasco")) return "vasco";
   if(n.includes("santos")) return "santos";
@@ -47,8 +46,9 @@ function normalizeClub(name){
   if(n.includes("bahia")) return "bahia";
   if(n.includes("botafogo")) return "botafogo";
   if(n.includes("flamengo")) return "flamengo";
-  if(n.includes("juventude")) return "juventude";
-  if(n.includes("sport")) return "sport";
+  if(n.includes("chapecoense")) return "chapecoense";
+  if(n.includes("coritiba")) return "coritiba";
+  if(n.includes("remo")) return "remo";
   return n;
 }
 
@@ -67,8 +67,8 @@ window.normalizeClub = normalizeClub;
 window.shieldPath = shieldPath;
 window.kitPath = kitPath;
 
-// lista base para o cabeçalho
+// lista base para o cabeçalho (ordem alfabética)
 window.CLUBS = [
-  "Atlético-MG","Bahia","Botafogo","Ceará","Corinthians","Cruzeiro","Flamengo","Fluminense","Fortaleza","Grêmio",
-  "Internacional","Juventude","Mirassol","Palmeiras","Red Bull Bragantino","Santos","São Paulo","Sport","Vasco","Vitória"
+  "Athletico-PR","Atlético-MG","Bahia","Botafogo","Chapecoense","Corinthians","Coritiba","Cruzeiro","Flamengo","Fluminense",
+  "Grêmio","Internacional","Mirassol","Palmeiras","Red Bull Bragantino","Remo","Santos","São Paulo","Vasco","Vitória"
 ].map(n => ({ name:n, slug: normalizeClub(n) }));
