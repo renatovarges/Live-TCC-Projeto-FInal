@@ -222,6 +222,7 @@ Charles,COR,Meia,4,0,0,0
 Dieguinho,COR,Meia,4,0,0,0
 Garro,COR,Meia,12,0,0,0
 José Martínez,COR,Meia,6,0,0,0
+Matheus Pereira,COR,Meia,6,0,0,0
 Raniele,COR,Meia,7,0,0,0
 Ryan,COR,Meia,3,0,0,0
 Dorival Júnior,COR,Técnico,11,0,0,0
@@ -355,7 +356,6 @@ Pavón,GRE,Atacante,6,0,0,0
 Tetê,GRE,Atacante,12,0,0,0
 Gabriel Grando,GRE,Goleiro,4,0,0,0
 Thiago Beltrame,GRE,Goleiro,2,0,0,0
-Tiago Volpi,GRE,Goleiro,8,0,0,0
 Weverton,GRE,Goleiro,9,0,0,0
 Caio Paulista,GRE,Lateral,5,0,0,0
 João Pedro,GRE,Lateral,5,0,0,0
@@ -477,6 +477,7 @@ Vinicinho,RBB,Atacante,5,0,0,0
 Cleiton,RBB,Goleiro,7,0,0,0
 Fabrício,RBB,Goleiro,2,0,0,0
 Lucão,RBB,Goleiro,4,0,0,0
+Tiago Volpi,RBB,Goleiro,8,0,0,0
 Andrés Hurtado,RBB,Lateral,4,0,0,0
 Cauê,RBB,Lateral,2,0,0,0
 Juninho Capixaba,RBB,Lateral,9,0,0,0
@@ -492,6 +493,7 @@ Marcelinho,RBB,Meia,1,0,0,0
 Matheus Fernandes,RBB,Meia,5,0,0,0
 Nathan Camargo,RBB,Meia,2,0,0,0
 Praxedes,RBB,Meia,4,0,0,0
+Rodriguinho,RBB,Meia,4,0,0,0
 Vagner Mancini,RBB,Técnico,5,0,0,0
 Alix Vinicius,RBB,Zagueiro,6,0,0,0
 Eduardo Santos,RBB,Zagueiro,5,0,0,0
@@ -594,7 +596,6 @@ Luan Vinícius,SAO,Meia,4,0,0,0
 Lucas Moura,SAO,Meia,12,0,0,0
 Marcos Antônio,SAO,Meia,8,0,0,0
 Pablo Maia,SAO,Meia,7,0,0,0
-Rodriguinho,SAO,Meia,4,0,0,0
 Hernán Crespo,SAO,Técnico,7,0,0,0
 Alan Franco,SAO,Zagueiro,7,0,0,0
 Arboleda,SAO,Zagueiro,10,0,0,0
@@ -634,9 +635,11 @@ Robert Renan,VAS,Zagueiro,8,0,0,0
 Saldivia,VAS,Zagueiro,6,0,0,0
 Erick,VIT,Atacante,7,0,0,0
 Kike Saverio,VIT,Atacante,5,0,0,0
+Marinho,VIT,Atacante,6,0,0,0
 Osvaldo,VIT,Atacante,5,0,0,0
 Renato Kayzer,VIT,Atacante,6,0,0,0
 Renzo López,VIT,Atacante,3,0,0,0
+Fintelman,VIT,Goleiro,2,0,0,0
 Gabriel,VIT,Goleiro,6,0,0,0
 Lucas Arcanjo,VIT,Goleiro,4,0,0,0
 Thiago Couto,VIT,Goleiro,3,0,0,0
@@ -660,5 +663,7 @@ Rúben Ismael,VIT,Meia,4,0,0,0
 Rúben Rodrigues,VIT,Meia,5,0,0,0
 Jair Ventura,VIT,Técnico,5,0,0,0
 Camutanga,VIT,Zagueiro,5,0,0,0
+Edu,VIT,Zagueiro,4,0,0,0
 Neris,VIT,Zagueiro,3,0,0,0
+Riccieli,VIT,Zagueiro,4,0,0,0
 Zé Marcos,VIT,Zagueiro,5,0,0,0
