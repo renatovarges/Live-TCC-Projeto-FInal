@@ -55,6 +55,7 @@ Danilo,BOT,Meia,10,0,0,0
 Montoro,BOT,Meia,9,0,0,0
 Newton,BOT,Meia,5,0,0,0
 Santiago Rodríguez,BOT,Meia,8,0,0,0
+Wallace Davi,BOT,Meia,4,0,0,0
 Martín Anselmi,BOT,Técnico,6,0,0,0
 Alexander Barboza,BOT,Zagueiro,11,0,0,0
 Bastos,BOT,Zagueiro,6,0,0,0
@@ -117,7 +118,6 @@ Bruninho,CAP,Meia,3,0,0,0
 Dudu,CAP,Meia,1,0,0,0
 Felipe Chiqueti,CAP,Meia,1,0,0,0
 Felipinho,CAP,Meia,4,0,0,0
-Giuliano,CAP,Meia,6,0,0,0
 Jadson,CAP,Meia,6,0,0,0
 João Cruz,CAP,Meia,5,0,0,0
 Luiz Gustavo,CAP,Meia,6,0,0,0
@@ -134,6 +134,7 @@ Léo,CAP,Zagueiro,5,0,0,0
 Marcão,CAP,Zagueiro,3,0,0,0
 Terán,CAP,Zagueiro,4,0,0,0
 Breno Lopes,CFC,Atacante,8,0,0,0
+Keno,CFC,Atacante,6,0,0,0
 Lavega,CFC,Atacante,3,0,0,0
 Lucas Ronier,CFC,Atacante,4,0,0,0
 Pedro Rocha,CFC,Atacante,7,0,0,0
@@ -301,6 +302,7 @@ Evertton Araújo,FLA,Meia,4,0,0,0
 Guilherme Gomes,FLA,Meia,3,0,0,0
 Jorginho,FLA,Meia,15,0,0,0
 Joshua,FLA,Meia,3,0,0,0
+Pablo Lúcio,FLA,Meia,2,0,0,0
 Saúl,FLA,Meia,7,0,0,0
 Filipe Luís,FLA,Técnico,12,0,0,0
 Da Mata,FLA,Zagueiro,2,0,0,0
@@ -314,7 +316,6 @@ Cano,FLU,Atacante,6,0,0,0
 Canobbio,FLU,Atacante,8,0,0,0
 Everaldo,FLU,Atacante,5,0,0,0
 John Kennedy,FLU,Atacante,6,0,0,0
-Keno,FLU,Atacante,6,0,0,0
 Lelê,FLU,Atacante,3,0,0,0
 Riquelme Felipe,FLU,Atacante,4,0,0,0
 Santi Moreno,FLU,Atacante,4,0,0,0
@@ -339,7 +340,6 @@ Martinelli,FLU,Meia,9,0,0,0
 Nonato,FLU,Meia,6,0,0,0
 Otávio,FLU,Meia,4,0,0,0
 Savarino,FLU,Meia,10,0,0,0
-Wallace Davi,FLU,Meia,4,0,0,0
 Luis Zubeldía,FLU,Técnico,9,0,0,0
 Freytes,FLU,Zagueiro,5,0,0,0
 Ignácio,FLU,Zagueiro,6,0,0,0
@@ -370,6 +370,7 @@ Edenílson,GRE,Meia,7,0,0,0
 Monsalve,GRE,Meia,5,0,0,0
 Riquelme,GRE,Meia,4,0,0,0
 Ronald,GRE,Meia,3,0,0,0
+Tiaguinho,GRE,Meia,1,0,0,0
 Villasanti,GRE,Meia,7,0,0,0
 Willian,GRE,Meia,6,0,0,0
 Luís Castro,GRE,Técnico,10,0,0,0
@@ -439,6 +440,7 @@ Lucas Oliveira,MIR,Zagueiro,4,0,0,0
 Luiz Otávio,MIR,Zagueiro,4,0,0,0
 Rodrigues,MIR,Zagueiro,4,0,0,0
 Willian Machado,MIR,Zagueiro,5,0,0,0
+Belé,PAL,Atacante,3,0,0,0
 Bruno Rodrigues,PAL,Atacante,4,0,0,0
 Flaco López,PAL,Atacante,16,0,0,0
 Luighi,PAL,Atacante,4,0,0,0
@@ -454,10 +456,10 @@ Piquerez,PAL,Lateral,10,0,0,0
 Allan,PAL,Meia,16,0,0,0
 Andreas Pereira,PAL,Meia,15,0,0,0
 Emiliano Martínez,PAL,Meia,5,0,0,0
-Facundo Torres,PAL,Meia,6,0,0,0
 Felipe Anderson,PAL,Meia,9,0,0,0
 Larson,PAL,Meia,3,0,0,0
 Lucas Evangelista,PAL,Meia,7,0,0,0
+Luis Pacheco,PAL,Meia,3,0,0,0
 Marlon Freitas,PAL,Meia,9,0,0,0
 Maurício,PAL,Meia,8,0,0,0
 Raphael Veiga,PAL,Meia,11,0,0,0
@@ -606,7 +608,7 @@ Sabino,SAO,Zagueiro,5,0,0,0
 Andrés Gómez,VAS,Atacante,9,0,0,0
 David,VAS,Atacante,5,0,0,0
 GB,VAS,Atacante,4,0,0,0
-Rayan,VAS,Atacante,9,0,0,0
+Marino Hinestroza,VAS,Atacante,9,0,0,0
 Vegetti,VAS,Atacante,11,0,0,0
 Daniel Fuzato,VAS,Goleiro,2,0,0,0
 Léo Jardim,VAS,Goleiro,11,0,0,0
