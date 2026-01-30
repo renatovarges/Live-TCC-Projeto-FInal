@@ -32,11 +32,13 @@ Gabriel Xavier,BAH,Zagueiro,5,0,0,0
 Kanu,BAH,Zagueiro,4,0,0,0
 Santiago Mingo,BAH,Zagueiro,6,0,0,0
 Arthur Cabral,BOT,Atacante,8,0,0,0
+Arthur Izaque,BOT,Atacante,1,0,0,0
 Artur,BOT,Atacante,8,0,0,0
 Chris Ramos,BOT,Atacante,7,0,0,0
 Jeffinho,BOT,Atacante,5,0,0,0
 Joaquín Correa,BOT,Atacante,8,0,0,0
 Kadir,BOT,Atacante,5,0,0,0
+Kauan Toledo,BOT,Atacante,1,0,0,0
 Matheus Martins,BOT,Atacante,5,0,0,0
 Nathan Fernandes,BOT,Atacante,5,0,0,0
 Villalba,BOT,Atacante,6,0,0,0
@@ -46,10 +48,12 @@ Neto,BOT,Goleiro,8,0,0,0
 Raul,BOT,Goleiro,3,0,0,0
 Alex Telles,BOT,Lateral,12,0,0,0
 Gabriel Abdias,BOT,Lateral,3,0,0,0
+Kadu,BOT,Lateral,1,0,0,0
 Marçal,BOT,Lateral,6,0,0,0
 Mateo Ponte,BOT,Lateral,5,0,0,0
 Vitinho,BOT,Lateral,9,0,0,0
 Allan,BOT,Meia,6,0,0,0
+Arthur Novaes,BOT,Meia,1,0,0,0
 Barrera,BOT,Meia,7,0,0,0
 Danilo,BOT,Meia,10,0,0,0
 Montoro,BOT,Meia,9,0,0,0
@@ -205,6 +209,7 @@ Kauan,CHA,Zagueiro,1,0,0,0
 Rafael Thyere,CHA,Zagueiro,4,0,0,0
 Victor Caetano,CHA,Zagueiro,3,0,0,0
 Gui Negão,COR,Atacante,5,0,0,0
+Kaio César,COR,Atacante,8,0,0,0
 Kayke,COR,Atacante,4,0,0,0
 Memphis Depay,COR,Atacante,17,0,0,0
 Pedro Raul,COR,Atacante,6,0,0,0
@@ -237,6 +242,7 @@ Gabriel Paulista,COR,Zagueiro,10,0,0,0
 Gustavo Henrique,COR,Zagueiro,10,0,0,0
 João Pedro,COR,Zagueiro,5,0,0,0
 Arroyo,CRU,Atacante,7,0,0,0
+Chico da Costa,CRU,Atacante,5,0,0,0
 Fernando,CRU,Atacante,1,0,0,0
 Kaio Jorge,CRU,Atacante,17,0,0,0
 Kaique Kenji,CRU,Atacante,3,0,0,0
@@ -618,10 +624,12 @@ Dória,SAO,Zagueiro,7,0,0,0
 Ferraresi,SAO,Zagueiro,8,0,0,0
 Rafael Tolói,SAO,Zagueiro,5,0,0,0
 Sabino,SAO,Zagueiro,5,0,0,0
+Andrey Fernandes,VAS,Atacante,1,0,0,0
 Andrés Gómez,VAS,Atacante,9,0,0,0
 Brenner,VAS,Atacante,8,0,0,0
 David,VAS,Atacante,5,0,0,0
 GB,VAS,Atacante,4,0,0,0
+João Vitor,VAS,Atacante,1,0,0,0
 Marino Hinestroza,VAS,Atacante,9,0,0,0
 Vegetti,VAS,Atacante,11,0,0,0
 Daniel Fuzato,VAS,Goleiro,2,0,0,0
@@ -636,6 +644,7 @@ Barros,VAS,Meia,5,0,0,0
 Garré,VAS,Meia,4,0,0,0
 Guilherme Estrella,VAS,Meia,3,0,0,0
 Hugo Moura,VAS,Meia,4,0,0,0
+JP,VAS,Meia,1,0,0,0
 Jair,VAS,Meia,6,0,0,0
 Johan Rojas,VAS,Meia,6,0,0,0
 Mateus Carvalho,VAS,Meia,4,0,0,0
