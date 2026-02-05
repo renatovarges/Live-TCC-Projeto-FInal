@@ -56,6 +56,7 @@ Allan,BOT,Meia,5.89,2.8,-0.11,1
 Arthur Novaes,BOT,Meia,1.0,0.0,0.0,0
 Barrera,BOT,Meia,5.73,0.0,-1.27,1
 Danilo,BOT,Meia,14.21,17.2,4.21,1
+Marquinhos,BOT,Meia,1.0,0.0,0.0,0
 Montoro,BOT,Meia,9.4,5.8,0.4,1
 Newton,BOT,Meia,4.79,2.0,-0.21,1
 Santiago Rodríguez,BOT,Meia,8.54,5.7,0.54,1
@@ -75,6 +76,7 @@ Júnior Santos,CAM,Atacante,5.0,0.0,0.0,0
 Minda,CAM,Atacante,9.0,0.0,0.0,0
 Everson,CAM,Goleiro,10.3,3.7,-0.7,1
 Gabriel Delfim,CAM,Goleiro,2.0,0.0,0.0,0
+Pedro Cobra,CAM,Goleiro,1.0,0.0,0.0,0
 Kauã Pascini,CAM,Lateral,1.0,0.0,0.0,0
 Natanael,CAM,Lateral,7.0,0.0,0.0,0
 Preciado,CAM,Lateral,8.0,0.0,0.0,0
@@ -116,7 +118,6 @@ Benavídez,CAP,Lateral,6.5,9.2,2.5,1
 Esquivel,CAP,Lateral,4.0,0.0,0.0,0
 Gilberto,CAP,Lateral,2.0,0.0,0.0,0
 Léo Derik,CAP,Lateral,5.14,10.0,3.14,1
-Madson,CAP,Lateral,5.0,0.0,0.0,0
 Alejandro García,CAP,Meia,4.0,0.0,0.0,0
 Bruninho,CAP,Meia,3.0,0.0,0.0,0
 Dudu,CAP,Meia,0.82,0.0,-0.18,1
@@ -374,6 +375,7 @@ Dodi,GRE,Meia,4.52,-1.1,-1.48,1
 Edenílson,GRE,Meia,6.6,2.5,-0.4,1
 Monsalve,GRE,Meia,5.0,0.0,0.0,0
 Riquelme,GRE,Meia,4.0,0.0,0.0,0
+Roger,GRE,Meia,1.0,0.0,0.0,0
 Ronald,GRE,Meia,3.0,0.0,0.0,0
 Tiaguinho,GRE,Meia,1.0,0.0,0.0,0
 Villasanti,GRE,Meia,7.0,0.0,0.0,0
@@ -393,6 +395,7 @@ João Victor,INT,Atacante,1.0,0.0,0.0,0
 Raykkonen,INT,Atacante,2.63,0.5,-0.37,1
 Vitinho,INT,Atacante,6.39,1.9,-0.61,1
 Anthoni,INT,Goleiro,3.0,0.0,0.0,0
+Diego,INT,Goleiro,1.0,0.0,0.0,0
 Rochet,INT,Goleiro,7.18,1.8,-0.82,1
 Aguirre,INT,Lateral,5.04,2.7,0.04,1
 Alan Benítez,INT,Lateral,4.0,0.0,0.0,0
@@ -434,6 +437,7 @@ Igor Cariús,MIR,Lateral,3.0,0.0,0.0,0
 Igor Formiga,MIR,Lateral,6.31,4.0,0.31,1
 Reinaldo,MIR,Lateral,14.19,0.8,-2.81,1
 Aldo Filho,MIR,Meia,3.88,-0.6,-1.12,1
+Chico Kim,MIR,Meia,4.0,0.0,0.0,0
 Denilson,MIR,Meia,5.0,0.0,0.0,0
 Eduardo,MIR,Meia,7.36,7.0,1.36,1
 Lucas Mugni,MIR,Meia,7.0,0.0,0.0,0
@@ -657,6 +661,7 @@ Erick,VIT,Atacante,10.11,12.5,3.11,1
 Fabri,VIT,Atacante,5.17,5.4,1.17,1
 Kike Saverio,VIT,Atacante,5.0,0.0,0.0,0
 Lawan,VIT,Atacante,1.0,0.0,0.0,0
+Luis Miguel,VIT,Atacante,1.0,0.0,0.0,0
 Marinho,VIT,Atacante,6.0,0.0,0.0,0
 Osvaldo,VIT,Atacante,4.37,0.8,-0.63,1
 Pedro Henrique,VIT,Atacante,3.0,0.0,0.0,0
@@ -682,6 +687,7 @@ Edenílson,VIT,Meia,3.0,0.0,0.0,0
 Emmanuel Martínez,VIT,Meia,5.0,0.0,0.0,0
 Felipe Cardoso,VIT,Meia,3.0,0.0,0.0,0
 Matheuzinho,VIT,Meia,6.31,4.0,0.31,1
+Pablo Baianinho,VIT,Meia,1.0,0.0,0.0,0
 Ronald Lopes,VIT,Meia,5.0,0.0,0.0,0
 Rúben Ismael,VIT,Meia,4.0,0.0,0.0,0
 Zé Breno,VIT,Meia,2.0,0.0,0.0,0
