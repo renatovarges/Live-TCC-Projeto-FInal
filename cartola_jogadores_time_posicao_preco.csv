@@ -66,6 +66,7 @@ Martín Anselmi,BOT,Técnico,8.85,8.03,0.07,2
 Alexander Barboza,BOT,Zagueiro,12.59,8.5,1.42,2
 Bastos,BOT,Zagueiro,6.0,0.0,0.0,0
 David Ricardo,BOT,Zagueiro,7.0,0.0,0.0,0
+Justino,BOT,Zagueiro,2.0,0.0,0.0,0
 Kaio,BOT,Zagueiro,7.0,0.0,0.0,0
 Ythallo,BOT,Zagueiro,4.0,0.0,0.0,0
 Cadu,CAM,Atacante,3.0,0.0,0.0,0
@@ -148,6 +149,7 @@ Keno,CFC,Atacante,4.86,-0.6,-1.14,1
 Lavega,CFC,Atacante,5.38,5.9,2.4,2
 Lucas Ronier,CFC,Atacante,6.43,6.4,1.4,2
 Pedro Rocha,CFC,Atacante,5.92,1.6,-0.79,2
+Rodrigo Rodrigues,CFC,Atacante,4.0,0.0,0.0,0
 Ruan Assis,CFC,Atacante,1.0,0.0,0.0,0
 Thiago Azaf,CFC,Atacante,1.0,0.0,0.0,0
 Benassi,CFC,Goleiro,1.0,0.0,0.0,0
@@ -159,7 +161,7 @@ Felipe Guimarães,CFC,Lateral,1.0,0.0,0.0,0
 João Almeida,CFC,Lateral,1.0,0.0,0.0,0
 Lucas Taverna,CFC,Lateral,1.0,0.0,0.0,0
 Tinga,CFC,Lateral,5.89,4.1,0.05,2
-Alejandro Ararat,CFC,Meia,4.0,0.0,0.0,0
+Ararat,CFC,Meia,4.0,0.0,0.0,0
 Fernando Sobral,CFC,Meia,5.32,3.0,0.32,1
 Gustavo,CFC,Meia,4.0,0.0,0.0,0
 Jean Gabriel,CFC,Meia,2.0,0.0,0.0,0
@@ -246,7 +248,6 @@ Gustavo Henrique,COR,Zagueiro,11.41,9.2,0.0,1
 João Pedro,COR,Zagueiro,5.0,0.0,0.0,0
 Arroyo,CRU,Atacante,5.63,1.1,-0.69,2
 Chico da Costa,CRU,Atacante,5.0,0.0,0.0,0
-Fernando,CRU,Atacante,1.0,0.0,0.0,0
 Kaio Jorge,CRU,Atacante,14.12,3.55,-0.56,2
 Kaique Kenji,CRU,Atacante,2.28,-0.5,0.0,1
 Marquinhos,CRU,Atacante,4.0,0.0,0.0,0
@@ -345,7 +346,6 @@ Bernal,FLU,Meia,3.49,-0.15,-0.5,2
 Ganso,FLU,Meia,4.92,-0.15,-0.7,2
 Hércules,FLU,Meia,7.0,0.0,0.0,0
 Lezcano,FLU,Meia,4.0,0.0,0.0,0
-Lima,FLU,Meia,4.61,-1.3,-1.39,1
 Lucho Acosta,FLU,Meia,10.9,9.1,-0.48,2
 Martinelli,FLU,Meia,7.44,1.8,-0.52,2
 Nonato,FLU,Meia,7.28,5.3,0.13,2
@@ -377,6 +377,7 @@ Cristaldo,GRE,Meia,6.0,0.0,0.0,0
 Cuéllar,GRE,Meia,5.0,0.0,0.0,0
 Dodi,GRE,Meia,4.3,0.05,-0.22,2
 Edenílson,GRE,Meia,7.9,5.25,1.3,2
+Leonel Pérez,GRE,Meia,5.0,0.0,0.0,0
 Monsalve,GRE,Meia,4.38,0.4,-0.62,1
 Nardoni,GRE,Meia,10.0,0.0,0.0,0
 Riquelme,GRE,Meia,4.0,0.0,0.0,0
