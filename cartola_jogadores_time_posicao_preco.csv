@@ -5,7 +5,6 @@ Dell,BAH,Atacante,1.88,0.75,-0.63,2
 Erick Pulga,BAH,Atacante,8.37,2.15,-1.0,2
 Everaldo,BAH,Atacante,4.41,0.9,0.0,1
 Kauê Furquim,BAH,Atacante,2.0,0.0,0.0,0
-Kayky,BAH,Atacante,5.0,0.0,0.0,0
 Ruan Pablo,BAH,Atacante,2.0,0.0,0.0,0
 Sanabria,BAH,Atacante,7.55,6.8,1.55,1
 Willian José,BAH,Atacante,11.54,5.15,-1.61,2
@@ -31,6 +30,7 @@ David Duarte,BAH,Zagueiro,5.01,2.6,0.6,2
 Fredi Lippert,BAH,Zagueiro,2.0,0.0,0.0,0
 Gabriel Xavier,BAH,Zagueiro,5.0,0.0,0.0,0
 Kanu,BAH,Zagueiro,4.0,0.0,0.0,0
+Luiz Gustavo,BAH,Zagueiro,1.0,0.0,0.0,0
 Santiago Mingo,BAH,Zagueiro,4.49,0.35,-0.59,2
 Arthur Cabral,BOT,Atacante,10.19,8.0,1.15,2
 Arthur Izaque,BOT,Atacante,1.0,0.0,0.0,0
@@ -190,6 +190,7 @@ Rubens,CHA,Atacante,1.69,0.0,-0.31,1
 Ênio,CHA,Atacante,4.0,0.0,0.0,0
 Ítalo,CHA,Atacante,2.24,1.4,-0.41,2
 Anderson,CHA,Goleiro,3.0,0.0,0.0,0
+Kainã,CHA,Goleiro,1.0,0.0,0.0,0
 Léo Vieira,CHA,Goleiro,5.6,7.6,3.19,2
 Rafael Santos,CHA,Goleiro,3.0,0.0,0.0,0
 Bruno Pacheco,CHA,Lateral,6.0,0.0,0.0,0
@@ -230,6 +231,7 @@ Jacaré,COR,Lateral,2.0,0.0,0.0,0
 Matheus Bidu,COR,Lateral,9.15,5.1,0.0,1
 Matheuzinho,COR,Lateral,11.5,4.8,0.0,1
 Milans,COR,Lateral,6.0,0.0,0.0,0
+Allan,COR,Meia,5.0,0.0,0.0,0
 André,COR,Meia,5.55,6.5,0.0,1
 Bahia,COR,Meia,2.0,0.0,0.0,0
 Breno Bidon,COR,Meia,13.34,14.7,0.0,1
@@ -305,7 +307,6 @@ Ayrton Lucas,FLA,Lateral,8.0,0.0,0.0,0
 Daniel Sales,FLA,Lateral,2.0,0.0,0.0,0
 Emerson Royal,FLA,Lateral,4.96,2.0,-0.04,1
 Varela,FLA,Lateral,6.86,3.2,-1.22,2
-Allan,FLA,Meia,5.0,0.0,0.0,0
 Arrascaeta,FLA,Meia,18.96,4.6,-0.14,2
 Carrascal,FLA,Meia,10.95,2.95,-0.81,2
 De la Cruz,FLA,Meia,7.9,3.1,-0.1,1
@@ -363,6 +364,7 @@ Aravena,GRE,Atacante,4.0,0.0,0.0,0
 Braithwaite,GRE,Atacante,13.0,0.0,0.0,0
 Carlos Vinícius,GRE,Atacante,22.18,18.05,4.06,2
 Enamorado,GRE,Atacante,7.78,1.2,0.0,1
+Gabriel Mec,GRE,Atacante,1.0,0.0,0.0,0
 Pavón,GRE,Atacante,5.13,1.45,-0.8,2
 Tetê,GRE,Atacante,12.61,7.3,1.63,2
 Gabriel Grando,GRE,Goleiro,4.0,0.0,0.0,0
@@ -398,6 +400,7 @@ Borré,INT,Atacante,8.78,5.55,1.39,2
 Carbonero,INT,Atacante,9.41,5.45,1.87,2
 João Bezerra,INT,Atacante,1.0,0.0,0.0,0
 João Victor,INT,Atacante,1.0,0.0,0.0,0
+Kayky,INT,Atacante,5.0,0.0,0.0,0
 Raykkonen,INT,Atacante,2.63,0.5,0.0,1
 Vitinho,INT,Atacante,6.37,2.45,-0.02,2
 Anthoni,INT,Goleiro,3.0,0.0,0.0,0
@@ -567,6 +570,7 @@ Fernando Pradella,SAN,Atacante,0.82,0.0,0.0,1
 Gabriel,SAN,Atacante,8.38,2.1,-0.62,1
 Lautaro Díaz,SAN,Atacante,6.1,3.15,-0.84,2
 Mateus Xavier,SAN,Atacante,2.0,0.0,0.0,0
+Moisés,SAN,Atacante,5.0,0.0,0.0,0
 Nadson,SAN,Atacante,1.0,0.0,0.0,0
 Robinho Jr.,SAN,Atacante,3.27,0.0,0.0,1
 Rony,SAN,Atacante,6.85,0.2,-1.15,1
