@@ -1,680 +1,676 @@
 Jogador,Time,Posição,Preço (C$),Média (pts),Variação última (C$),Jogos
-Ademir,BAH,Atacante,8.12,4.25,-0.25,2
-Cristian Olivera,BAH,Atacante,7.85,6.45,1.92,2
-Dell,BAH,Atacante,1.88,0.75,-0.63,2
-Erick Pulga,BAH,Atacante,8.37,2.15,-1.0,2
-Everaldo,BAH,Atacante,4.41,0.9,0.0,1
+Ademir,BAH,Atacante,7.76,3.83,-0.36,3
+Cristian Olivera,BAH,Atacante,7.81,6.2,-0.04,3
+Dell,BAH,Atacante,1.88,0.75,0.0,2
+Erick Pulga,BAH,Atacante,8.09,2.5,-0.28,3
+Everaldo,BAH,Atacante,4.62,1.8,0.21,2
 Kauê Furquim,BAH,Atacante,2.0,0.0,0.0,0
 Ruan Pablo,BAH,Atacante,2.0,0.0,0.0,0
-Sanabria,BAH,Atacante,7.55,6.8,1.55,1
-Willian José,BAH,Atacante,11.54,5.15,-1.61,2
+Sanabria,BAH,Atacante,7.55,6.8,0.0,1
+Willian José,BAH,Atacante,10.09,3.23,-1.45,3
 João Paulo,BAH,Goleiro,6.0,0.0,0.0,0
-Ronaldo,BAH,Goleiro,6.29,3.55,-0.09,2
+Ronaldo,BAH,Goleiro,7.68,5.43,1.39,3
 Victor Nascimento,BAH,Goleiro,1.0,0.0,0.0,0
-Gilberto,BAH,Lateral,7.31,4.1,0.04,2
+Gilberto,BAH,Lateral,7.31,4.1,0.0,2
 Iago,BAH,Lateral,4.0,0.0,0.0,0
-Luciano Juba,BAH,Lateral,8.37,6.0,0.47,2
-Román Gómez,BAH,Lateral,5.0,0.0,0.0,0
+Luciano Juba,BAH,Lateral,11.19,9.5,2.82,3
+Román Gómez,BAH,Lateral,8.87,12.5,3.87,1
 Zé Guilherme,BAH,Lateral,3.0,0.0,0.0,0
-Acevedo,BAH,Meia,6.63,5.55,1.87,2
-Caio Alexandre,BAH,Meia,6.11,0.5,-0.89,1
+Acevedo,BAH,Meia,6.08,4.67,-0.55,3
+Caio Alexandre,BAH,Meia,4.93,-0.4,-1.18,2
 Cauly,BAH,Meia,6.0,0.0,0.0,0
-Erick,BAH,Meia,5.06,0.1,-0.67,2
-Everton Ribeiro,BAH,Meia,8.07,1.65,-0.64,2
-Jean Lucas,BAH,Meia,8.85,4.25,-0.65,2
+Erick,BAH,Meia,4.5,0.23,-0.56,3
+Everton Ribeiro,BAH,Meia,10.45,5.87,2.38,3
+Jean Lucas,BAH,Meia,8.41,3.77,-0.44,3
 Michel Araújo,BAH,Meia,3.82,-3.1,0.0,1
 Rezende,BAH,Meia,3.0,0.0,0.0,0
 Rodrigo Nestor,BAH,Meia,5.73,0.0,0.0,1
-Rogério Ceni,BAH,Técnico,10.65,4.95,-0.17,2
-David Duarte,BAH,Zagueiro,5.01,2.6,0.6,2
+Rogério Ceni,BAH,Técnico,11.35,6.29,0.7,3
+David Duarte,BAH,Zagueiro,5.01,2.6,0.0,2
 Fredi Lippert,BAH,Zagueiro,2.0,0.0,0.0,0
-Gabriel Xavier,BAH,Zagueiro,5.0,0.0,0.0,0
-Kanu,BAH,Zagueiro,4.0,0.0,0.0,0
+Gabriel Xavier,BAH,Zagueiro,6.66,6.5,1.66,1
+Kanu,BAH,Zagueiro,4.67,3.4,0.67,1
 Luiz Gustavo,BAH,Zagueiro,1.0,0.0,0.0,0
-Santiago Mingo,BAH,Zagueiro,4.49,0.35,-0.59,2
-Arthur Cabral,BOT,Atacante,10.19,8.0,1.15,2
+Santiago Mingo,BAH,Zagueiro,5.48,2.4,0.99,3
+Arthur Cabral,BOT,Atacante,9.08,5.97,-1.11,3
 Arthur Izaque,BOT,Atacante,1.0,0.0,0.0,0
-Artur,BOT,Atacante,8.57,5.0,-0.78,2
+Artur,BOT,Atacante,8.57,4.7,0.0,3
 Chris Ramos,BOT,Atacante,7.0,0.0,0.0,0
 Jeffinho,BOT,Atacante,5.0,0.0,0.0,0
 Joaquín Correa,BOT,Atacante,8.0,0.0,0.0,0
-Kadir,BOT,Atacante,5.0,0.0,0.0,0
+Kadir,BOT,Atacante,4.9,1.7,-0.1,1
 Kauan Toledo,BOT,Atacante,1.0,0.0,0.0,0
-Matheus Martins,BOT,Atacante,6.79,5.6,-0.81,2
-Nathan Fernandes,BOT,Atacante,5.16,2.75,-0.86,2
-Villalba,BOT,Atacante,6.0,0.0,0.0,0
+Matheus Martins,BOT,Atacante,6.16,3.8,-0.63,3
+Nathan Fernandes,BOT,Atacante,5.61,3.17,0.45,3
+Villalba,BOT,Atacante,5.14,0.0,-0.86,1
 Cristhian Loor,BOT,Goleiro,2.0,0.0,0.0,0
 Léo Linck,BOT,Goleiro,6.0,0.0,0.0,0
-Neto,BOT,Goleiro,8.37,4.55,-1.75,2
+Neto,BOT,Goleiro,8.62,4.43,0.25,3
 Raul,BOT,Goleiro,3.0,0.0,0.0,0
-Alex Telles,BOT,Lateral,10.86,3.95,-1.76,2
+Alex Telles,BOT,Lateral,9.99,3.1,-0.87,3
 Gabriel Abdias,BOT,Lateral,3.0,0.0,0.0,0
 Jhoan Hernández,BOT,Lateral,4.0,0.0,0.0,0
 Kadu,BOT,Lateral,1.0,0.0,0.0,0
 Marçal,BOT,Lateral,7.71,8.0,0.0,1
-Mateo Ponte,BOT,Lateral,5.15,2.7,-1.12,2
-Vitinho,BOT,Lateral,10.24,6.75,0.18,2
-Allan,BOT,Meia,4.88,1.0,-1.01,2
+Mateo Ponte,BOT,Lateral,5.15,2.7,0.0,2
+Vitinho,BOT,Lateral,10.04,6.17,-0.2,3
+Allan,BOT,Meia,4.84,1.33,-0.04,3
 Arthur Novaes,BOT,Meia,1.0,0.0,0.0,0
-Barrera,BOT,Meia,5.79,1.45,0.06,2
-Danilo,BOT,Meia,16.61,16.85,2.4,2
-Marquinhos,BOT,Meia,0.85,0.0,-0.15,1
-Montoro,BOT,Meia,9.61,5.65,0.21,2
-Newton,BOT,Meia,5.35,3.2,0.56,2
-Santi Rodríguez,BOT,Meia,7.36,2.85,-1.18,2
+Barrera,BOT,Meia,5.74,2.13,-0.05,3
+Danilo,BOT,Meia,14.96,12.4,-1.65,3
+Marquinhos,BOT,Meia,0.85,0.0,0.0,1
+Montoro,BOT,Meia,8.45,4.07,-1.16,3
+Newton,BOT,Meia,5.76,3.87,0.41,3
+Santi Rodríguez,BOT,Meia,7.36,2.85,0.0,2
 Wallace Davi,BOT,Meia,4.0,0.0,0.0,0
-Martín Anselmi,BOT,Técnico,8.85,8.03,0.07,2
-Alexander Barboza,BOT,Zagueiro,12.59,8.5,1.42,2
+Martín Anselmi,BOT,Técnico,8.68,6.64,-0.17,3
+Alexander Barboza,BOT,Zagueiro,11.68,7.17,-0.91,3
 Bastos,BOT,Zagueiro,6.0,0.0,0.0,0
 David Ricardo,BOT,Zagueiro,7.0,0.0,0.0,0
 Justino,BOT,Zagueiro,2.0,0.0,0.0,0
 Kaio,BOT,Zagueiro,7.0,0.0,0.0,0
-Ythallo,BOT,Zagueiro,4.0,0.0,0.0,0
+Ythallo,BOT,Zagueiro,3.5,0.2,-0.5,1
 Cadu,CAM,Atacante,3.0,0.0,0.0,0
 Cassierra,CAM,Atacante,10.0,0.0,0.0,0
-Cuello,CAM,Atacante,6.89,3.4,0.53,2
-Dudu,CAM,Atacante,7.29,1.5,-0.95,2
-Hulk,CAM,Atacante,13.62,3.85,-1.33,2
+Cuello,CAM,Atacante,7.18,4.17,0.29,3
+Dudu,CAM,Atacante,9.3,5.0,2.01,3
+Hulk,CAM,Atacante,15.44,7.47,1.82,3
 Júnior Santos,CAM,Atacante,5.0,0.0,0.0,0
 Minda,CAM,Atacante,9.0,0.0,0.0,0
-Everson,CAM,Goleiro,10.08,3.95,-0.22,2
+Everson,CAM,Goleiro,8.86,2.93,-1.22,3
 Gabriel Delfim,CAM,Goleiro,2.0,0.0,0.0,0
 Pedro Cobra,CAM,Goleiro,1.0,0.0,0.0,0
 Kauã Pascini,CAM,Lateral,1.0,0.0,0.0,0
 Natanael,CAM,Lateral,7.0,0.0,0.0,0
-Preciado,CAM,Lateral,7.57,2.2,-0.43,1
-Renan Lodi,CAM,Lateral,11.84,6.95,-1.09,2
-Alan Franco,CAM,Meia,5.03,0.05,-0.66,2
+Preciado,CAM,Lateral,6.44,0.95,-1.13,2
+Renan Lodi,CAM,Lateral,11.04,5.43,-0.8,3
+Alan Franco,CAM,Meia,4.93,0.83,-0.1,3
 Alexsander,CAM,Meia,7.14,1.7,0.0,1
-Bernard,CAM,Meia,4.93,1.2,0.23,2
-Cissé,CAM,Meia,1.03,0.5,0.03,1
-Gustavo Scarpa,CAM,Meia,7.29,0.25,-1.07,2
-Igor Gomes,CAM,Meia,5.58,-0.25,-0.97,2
+Bernard,CAM,Meia,4.12,0.8,-0.81,3
+Cissé,CAM,Meia,1.03,0.5,0.0,1
+Gustavo Scarpa,CAM,Meia,8.54,3.17,1.25,3
+Igor Gomes,CAM,Meia,5.03,0.07,-0.55,3
 Mateus Iseppe,CAM,Meia,2.0,0.0,0.0,0
-Maycon,CAM,Meia,6.46,2.6,-0.14,2
+Maycon,CAM,Meia,6.13,2.53,-0.33,3
 Patrick,CAM,Meia,4.0,0.0,0.0,0
-Reinier,CAM,Meia,3.57,1.25,-0.3,2
-Victor Hugo,CAM,Meia,5.96,5.4,-0.64,2
+Reinier,CAM,Meia,4.06,2.13,0.49,3
+Victor Hugo,CAM,Meia,7.25,6.17,1.29,3
 Índio,CAM,Meia,1.0,0.0,0.0,0
-Jorge Sampaoli,CAM,Técnico,8.25,3.22,-0.45,2
 Iván Román,CAM,Zagueiro,5.0,0.0,0.0,0
-Junior Alonso,CAM,Zagueiro,6.53,4.0,0.39,2
+Junior Alonso,CAM,Zagueiro,5.79,3.0,-0.74,3
 Lyanco,CAM,Zagueiro,9.0,0.0,0.0,0
-Ruan,CAM,Zagueiro,3.75,-0.95,-0.7,2
+Ruan,CAM,Zagueiro,5.74,2.77,1.99,3
 Vitor Hugo,CAM,Zagueiro,7.0,0.0,0.0,0
 Vitão,CAM,Zagueiro,1.0,0.0,0.0,0
 Isaac,CAP,Atacante,2.0,0.0,0.0,0
-Julimar,CAP,Atacante,3.55,0.8,0.0,1
+Julimar,CAP,Atacante,7.09,7.6,3.54,2
 Leozinho,CAP,Atacante,3.0,0.0,0.0,0
-Luiz Fernando,CAP,Atacante,3.99,-0.3,0.0,1
 Mastriani,CAP,Atacante,4.0,0.0,0.0,0
-Mendoza,CAP,Atacante,7.78,8.2,0.0,1
+Mendoza,CAP,Atacante,7.5,5.5,-0.28,2
 Renan Peixoto,CAP,Atacante,4.0,0.0,0.0,0
 Renan Viana,CAP,Atacante,2.0,0.0,0.0,0
-Viveros,CAP,Atacante,9.3,10.2,0.0,1
+Viveros,CAP,Atacante,11.56,11.5,2.26,2
 Carlos Eduardo,CAP,Goleiro,1.0,0.0,0.0,0
 Matheus Soares,CAP,Goleiro,1.0,0.0,0.0,0
 Mycael,CAP,Goleiro,5.0,0.0,0.0,0
-Santos,CAP,Goleiro,10.58,11.5,0.0,1
+Santos,CAP,Goleiro,10.3,7.85,-0.28,2
 Batata,CAP,Lateral,1.0,0.0,0.0,0
-Benavídez,CAP,Lateral,6.5,9.2,0.0,1
-Esquivel,CAP,Lateral,4.0,0.0,0.0,0
+Benavídez,CAP,Lateral,5.41,4.3,-1.09,2
+Esquivel,CAP,Lateral,5.52,5.7,1.52,1
 Gilberto,CAP,Lateral,2.0,0.0,0.0,0
-Léo Derik,CAP,Lateral,5.14,10.0,0.0,1
+Léo Derik,CAP,Lateral,4.37,5.0,-0.77,2
 Alejandro García,CAP,Meia,4.0,0.0,0.0,0
-Bruninho,CAP,Meia,3.0,0.0,0.0,0
-Dudu,CAP,Meia,0.82,0.0,0.0,1
-Felipe Chiqueti,CAP,Meia,1.0,0.0,0.0,0
+Bruninho,CAP,Meia,2.57,0.0,-0.43,1
+Dudu,CAP,Meia,0.86,0.25,0.04,2
+Felipe Chiqueti,CAP,Meia,1.74,2.4,0.74,1
 Felipinho,CAP,Meia,4.0,0.0,0.0,0
-Jadson,CAP,Meia,5.08,0.5,0.0,1
+Jadson,CAP,Meia,5.03,1.25,-0.05,2
 João Cruz,CAP,Meia,5.0,0.0,0.0,0
-Luiz Gustavo,CAP,Meia,6.0,0.0,0.0,0
-Portilla,CAP,Meia,3.6,-1.4,0.0,1
+Luiz Gustavo,CAP,Meia,5.69,1.5,-0.31,1
+Portilla,CAP,Meia,3.45,-0.25,-0.15,2
 Raul,CAP,Meia,4.0,0.0,0.0,0
 Riquelme,CAP,Meia,0.71,-0.3,0.0,1
-Zapelli,CAP,Meia,5.79,2.5,0.0,1
+Zapelli,CAP,Meia,6.91,4.6,1.12,2
 Élan Ricardo,CAP,Meia,3.0,0.0,0.0,0
-Odair Hellmann,CAP,Técnico,6.93,8.09,0.0,1
+Odair Hellmann,CAP,Técnico,7.7,7.17,0.77,2
 Aguirre,CAP,Zagueiro,5.62,6.7,0.0,1
-Arthur Dias,CAP,Zagueiro,5.26,8.0,0.0,1
+Arthur Dias,CAP,Zagueiro,5.66,6.1,0.4,2
 Belezi,CAP,Zagueiro,3.0,0.0,0.0,0
 Habraão,CAP,Zagueiro,3.0,0.0,0.0,0
 Léo,CAP,Zagueiro,5.74,4.7,0.0,1
 Marcão,CAP,Zagueiro,3.0,0.0,0.0,0
-Terán,CAP,Zagueiro,5.97,7.7,0.0,1
+Terán,CAP,Zagueiro,5.19,3.95,-0.78,2
 Brayan,CFC,Atacante,1.0,0.0,0.0,0
-Breno Lopes,CFC,Atacante,9.08,6.15,2.15,2
-Enzo Vagner,CFC,Atacante,1.0,0.0,0.0,0
+Breno Lopes,CFC,Atacante,11.39,9.57,2.31,3
+Enzo Vagner,CFC,Atacante,1.04,0.5,0.04,1
 Fabinho,CFC,Atacante,3.0,0.0,0.0,0
-Keno,CFC,Atacante,4.86,-0.6,-1.14,1
-Lavega,CFC,Atacante,5.38,5.9,2.4,2
-Lucas Ronier,CFC,Atacante,6.43,6.4,1.4,2
-Pedro Rocha,CFC,Atacante,5.92,1.6,-0.79,2
+Keno,CFC,Atacante,4.22,-0.3,-0.64,2
+Lavega,CFC,Atacante,4.59,4.43,-0.79,3
+Lucas Ronier,CFC,Atacante,9.04,9.3,2.61,3
+Pedro Rocha,CFC,Atacante,8.32,5.33,2.4,3
 Rodrigo Rodrigues,CFC,Atacante,4.0,0.0,0.0,0
 Ruan Assis,CFC,Atacante,1.0,0.0,0.0,0
 Thiago Azaf,CFC,Atacante,1.0,0.0,0.0,0
 Benassi,CFC,Goleiro,1.0,0.0,0.0,0
 Gabriel Leite,CFC,Goleiro,3.0,0.0,0.0,0
-Pedro Morisco,CFC,Goleiro,8.46,7.3,-0.55,2
+Pedro Morisco,CFC,Goleiro,8.38,6.03,-0.08,3
 Pedro Rangel,CFC,Goleiro,3.0,0.0,0.0,0
-Bruno Melo,CFC,Lateral,4.72,3.35,0.71,2
+Bruno Melo,CFC,Lateral,4.13,2.5,-0.59,3
 Felipe Guimarães,CFC,Lateral,1.0,0.0,0.0,0
 João Almeida,CFC,Lateral,1.0,0.0,0.0,0
 Lucas Taverna,CFC,Lateral,1.0,0.0,0.0,0
-Tinga,CFC,Lateral,5.89,4.1,0.05,2
+Tinga,CFC,Lateral,5.83,3.73,-0.06,3
 Ararat,CFC,Meia,4.0,0.0,0.0,0
-Fernando Sobral,CFC,Meia,5.32,3.0,0.32,1
+Fernando Sobral,CFC,Meia,4.56,1.5,-0.76,2
 Gustavo,CFC,Meia,4.0,0.0,0.0,0
 Jean Gabriel,CFC,Meia,2.0,0.0,0.0,0
-Josué,CFC,Meia,4.56,-1.0,0.0,1
+Josué,CFC,Meia,4.02,-0.55,-0.54,2
 Matheus Dias,CFC,Meia,1.0,0.0,0.0,0
-Sebastián Gómez,CFC,Meia,3.76,1.6,-0.21,2
-Vini Paulista,CFC,Meia,3.59,2.65,1.14,2
+Sebastián Gómez,CFC,Meia,3.76,1.6,0.0,2
+Vini Paulista,CFC,Meia,3.59,2.77,0.0,3
 Wallisson,CFC,Meia,3.93,4.2,0.0,1
-Willian Oliveira,CFC,Meia,6.24,4.65,-0.62,2
-Fernando Seabra,CFC,Técnico,5.6,4.91,0.81,2
-Jacy,CFC,Zagueiro,2.37,0.35,-0.79,2
-Maicon,CFC,Zagueiro,4.07,0.85,-0.62,2
+Willian Oliveira,CFC,Meia,5.93,3.6,-0.31,3
+Fernando Seabra,CFC,Técnico,6.07,5.11,0.47,3
+Jacy,CFC,Zagueiro,2.54,0.73,0.17,3
+Maicon,CFC,Zagueiro,3.94,1.07,-0.13,3
 Rodrigo Moledo,CFC,Zagueiro,3.0,0.0,0.0,0
-Thiago Santos,CFC,Zagueiro,2.14,0.0,-0.31,2
-Tiago Cóser,CFC,Zagueiro,1.86,0.75,-0.3,2
-Bolasie,CHA,Atacante,5.33,1.2,0.0,1
-Garcez,CHA,Atacante,3.93,1.5,-0.07,1
+Thiago Santos,CFC,Zagueiro,2.14,0.0,0.0,2
+Tiago Cóser,CFC,Zagueiro,1.56,0.37,-0.3,3
+Bolasie,CHA,Atacante,4.91,1.0,-0.42,2
+Garcez,CHA,Atacante,4.29,2.4,0.36,2
 João Bom,CHA,Atacante,2.0,0.0,0.0,0
 Mailson,CHA,Atacante,2.0,0.0,0.0,0
-Marcinho,CHA,Atacante,3.1,1.7,0.08,2
+Marcinho,CHA,Atacante,3.62,2.47,0.52,3
 Neto Pessoa,CHA,Atacante,3.0,0.0,0.0,0
 Palacios,CHA,Atacante,2.0,0.0,0.0,0
 Perotti,CHA,Atacante,4.0,0.0,0.0,0
-Rubens,CHA,Atacante,1.69,0.0,-0.31,1
+Rubens,CHA,Atacante,3.67,4.0,1.98,2
 Ênio,CHA,Atacante,4.0,0.0,0.0,0
-Ítalo,CHA,Atacante,2.24,1.4,-0.41,2
+Ítalo,CHA,Atacante,2.35,1.37,0.11,3
 Anderson,CHA,Goleiro,3.0,0.0,0.0,0
 Kainã,CHA,Goleiro,1.0,0.0,0.0,0
-Léo Vieira,CHA,Goleiro,5.6,7.6,3.19,2
+Léo Vieira,CHA,Goleiro,4.21,4.93,-1.39,3
 Rafael Santos,CHA,Goleiro,3.0,0.0,0.0,0
 Bruno Pacheco,CHA,Lateral,6.0,0.0,0.0,0
-Everton,CHA,Lateral,3.8,2.95,0.4,2
+Everton,CHA,Lateral,4.78,4.1,0.98,3
 Gustavo Talles,CHA,Lateral,2.0,0.0,0.0,0
 Mancha,CHA,Lateral,3.0,0.0,0.0,0
 Marcos Vinícius,CHA,Lateral,2.0,-1.3,0.0,1
-Walter Clar,CHA,Lateral,5.6,4.75,-1.0,2
-Camilo,CHA,Meia,4.32,2.55,-0.5,2
-David,CHA,Meia,0.85,0.0,-0.15,1
-Giovanni Augusto,CHA,Meia,4.31,1.3,-0.38,2
-Higor Meritão,CHA,Meia,6.98,7.15,-0.99,2
-Jean Carlos,CHA,Meia,8.93,10.75,1.1,2
-João Vitor,CHA,Meia,3.0,0.0,0.0,0
-Rafael Carvalheira,CHA,Meia,5.9,5.3,-0.6,2
+Walter Clar,CHA,Lateral,8.79,8.17,3.19,3
+Camilo,CHA,Meia,4.69,2.87,0.37,3
+David,CHA,Meia,0.85,0.0,0.0,1
+Giovanni Augusto,CHA,Meia,4.31,1.3,0.0,2
+Higor Meritão,CHA,Meia,7.22,5.9,0.24,3
+Jean Carlos,CHA,Meia,9.91,10.17,0.98,3
+João Vitor,CHA,Meia,2.57,0.0,-0.43,1
+Rafael Carvalheira,CHA,Meia,5.67,4.03,-0.23,3
 Robert,CHA,Meia,3.51,3.0,0.0,1
-Gilmar Dal Pozzo,CHA,Técnico,5.44,5.81,0.2,2
-Bruno Leonardo,CHA,Zagueiro,2.72,0.5,-0.28,1
-Eduardo Doma,CHA,Zagueiro,3.11,3.0,0.42,2
+Gilmar Dal Pozzo,CHA,Técnico,6.35,6.04,0.91,3
+Bruno Leonardo,CHA,Zagueiro,3.64,2.6,0.92,2
+Eduardo Doma,CHA,Zagueiro,4.72,4.83,1.61,3
 João Paulo,CHA,Zagueiro,4.91,7.0,0.0,1
 Kauan,CHA,Zagueiro,1.0,0.0,0.0,0
 Rafael Thyere,CHA,Zagueiro,4.0,0.0,0.0,0
-Victor Caetano,CHA,Zagueiro,4.37,4.0,0.86,2
+Victor Caetano,CHA,Zagueiro,4.23,3.47,-0.14,3
 Vinicius,CHA,Zagueiro,2.0,0.0,0.0,0
-Gui Negão,COR,Atacante,4.09,0.0,0.0,1
+Gui Negão,COR,Atacante,3.61,0.0,-0.48,2
 Kaio César,COR,Atacante,8.0,0.0,0.0,0
-Kayke,COR,Atacante,4.0,0.0,0.0,0
-Memphis Depay,COR,Atacante,15.21,3.7,0.0,1
+Kayke,COR,Atacante,3.97,1.5,-0.03,1
+Memphis Depay,COR,Atacante,13.48,2.05,-1.73,2
 Pedro Raul,COR,Atacante,4.91,0.0,0.0,1
-Vitinho,COR,Atacante,5.51,1.7,0.0,1
-Yuri Alberto,COR,Atacante,15.79,0.7,0.0,1
+Vitinho,COR,Atacante,5.22,1.55,-0.29,2
+Yuri Alberto,COR,Atacante,14.76,1.85,-1.03,2
 Felipe Longo,COR,Goleiro,2.0,0.0,0.0,0
-Hugo Souza,COR,Goleiro,9.77,2.2,0.0,1
+Hugo Souza,COR,Goleiro,12.97,9.05,3.2,2
 Matheus Donelli,COR,Goleiro,3.0,0.0,0.0,0
 Angileri,COR,Lateral,4.0,0.0,0.0,0
 Hugo,COR,Lateral,4.0,0.0,0.0,0
 Jacaré,COR,Lateral,2.0,0.0,0.0,0
-Matheus Bidu,COR,Lateral,9.15,5.1,0.0,1
-Matheuzinho,COR,Lateral,11.5,4.8,0.0,1
+Matheus Bidu,COR,Lateral,13.22,12.05,4.07,2
+Matheuzinho,COR,Lateral,12.05,6.0,0.55,2
 Milans,COR,Lateral,6.0,0.0,0.0,0
-Allan,COR,Meia,5.0,0.0,0.0,0
+Allan,COR,Meia,4.46,0.5,-0.54,1
 André,COR,Meia,5.55,6.5,0.0,1
 Bahia,COR,Meia,2.0,0.0,0.0,0
 Breno Bidon,COR,Meia,13.34,14.7,0.0,1
-Carrillo,COR,Meia,6.85,3.2,0.0,1
-Charles,COR,Meia,4.0,0.0,0.0,0
+Carrillo,COR,Meia,6.93,3.3,0.08,2
+Charles,COR,Meia,4.12,1.9,0.12,1
 Dieguinho,COR,Meia,4.0,0.0,0.0,0
-Garro,COR,Meia,13.32,10.0,0.0,1
+Garro,COR,Meia,13.52,8.5,0.2,2
 José Martínez,COR,Meia,6.0,0.0,0.0,0
-Matheus Pereira,COR,Meia,4.8,-0.3,0.0,1
-Raniele,COR,Meia,9.72,11.4,0.0,1
+Matheus Pereira,COR,Meia,5.21,1.6,0.41,2
+Raniele,COR,Meia,8.39,5.7,-1.33,2
 Ryan,COR,Meia,3.0,0.0,0.0,0
-Dorival Júnior,COR,Técnico,11.31,6.6,0.0,1
+Dorival Júnior,COR,Técnico,12.29,7.69,0.98,2
 André Ramalho,COR,Zagueiro,6.0,0.0,0.0,0
 Cacá,COR,Zagueiro,5.0,0.0,0.0,0
-Gabriel Paulista,COR,Zagueiro,8.08,-0.3,0.0,1
-Gustavo Henrique,COR,Zagueiro,11.41,9.2,0.0,1
+Gabriel Paulista,COR,Zagueiro,11.71,8.15,3.63,2
+Gustavo Henrique,COR,Zagueiro,11.07,6.7,-0.34,2
 João Pedro,COR,Zagueiro,5.0,0.0,0.0,0
-Arroyo,CRU,Atacante,5.63,1.1,-0.69,2
+Arroyo,CRU,Atacante,5.63,1.1,0.0,2
 Chico da Costa,CRU,Atacante,5.0,0.0,0.0,0
-Kaio Jorge,CRU,Atacante,14.12,3.55,-0.56,2
-Kaique Kenji,CRU,Atacante,2.28,-0.5,0.0,1
+Kaio Jorge,CRU,Atacante,14.32,5.43,0.2,3
+Kaique Kenji,CRU,Atacante,2.16,0.0,-0.12,2
 Marquinhos,CRU,Atacante,4.0,0.0,0.0,0
 Rayan Lelis,CRU,Atacante,2.0,0.0,0.0,0
-Sinisterra,CRU,Atacante,6.0,0.0,0.0,0
+Sinisterra,CRU,Atacante,5.76,1.7,-0.24,1
 Tevis,CRU,Atacante,2.0,0.0,0.0,0
 Villarreal,CRU,Atacante,5.0,0.0,0.0,0
-Wanderson,CRU,Atacante,5.04,1.35,-0.18,2
-Cássio,CRU,Goleiro,7.97,-2.35,-1.72,2
+Wanderson,CRU,Atacante,6.56,3.97,1.52,3
+Cássio,CRU,Goleiro,9.1,1.4,1.13,3
 Marcelo Eráclito,CRU,Goleiro,1.0,0.0,0.0,0
 Matheus Cunha,CRU,Goleiro,3.0,0.0,0.0,0
 Otávio,CRU,Goleiro,2.0,0.0,0.0,0
-Fagner,CRU,Lateral,5.67,1.2,-0.37,2
-Kaiki Bruno,CRU,Lateral,11.52,2.7,-0.71,2
+Fagner,CRU,Lateral,5.97,2.3,0.3,3
+Kaiki Bruno,CRU,Lateral,10.8,3.03,-0.72,3
 Kauã Moraes,CRU,Lateral,3.0,0.0,0.0,0
-Kauã Prates,CRU,Lateral,3.39,0.0,-0.61,1
+Kauã Prates,CRU,Lateral,3.39,0.0,0.0,1
 Nicolas Pontes,CRU,Lateral,1.0,0.0,0.0,0
-William,CRU,Lateral,10.85,1.9,-1.15,1
+William,CRU,Lateral,9.29,0.8,-1.56,2
 William Fernando,CRU,Lateral,1.0,0.0,0.0,0
 Cauan Baptistella,CRU,Meia,2.0,0.0,0.0,0
-Christian,CRU,Meia,7.54,2.0,-0.24,2
-Gerson,CRU,Meia,10.79,2.7,-0.34,2
+Christian,CRU,Meia,7.83,3.23,0.29,3
+Gerson,CRU,Meia,9.25,1.87,-1.54,3
 Japa,CRU,Meia,3.0,0.0,0.0,0
-Lucas Romero,CRU,Meia,9.14,3.6,0.19,2
-Lucas Silva,CRU,Meia,6.49,0.1,-0.94,2
-Matheus Henrique,CRU,Meia,7.38,3.0,0.31,2
-Matheus Pereira,CRU,Meia,18.82,8.2,1.16,2
+Lucas Romero,CRU,Meia,9.59,4.9,0.45,3
+Lucas Silva,CRU,Meia,6.0,0.57,-0.49,3
+Matheus Henrique,CRU,Meia,6.59,2.5,-0.79,3
+Matheus Pereira,CRU,Meia,16.41,6.27,-2.41,3
 Murilo Rhikman,CRU,Meia,3.0,0.0,0.0,0
 Rhuan Gabriel,CRU,Meia,1.0,0.0,0.0,0
 Vitinho,CRU,Meia,2.0,0.0,0.0,0
 Walace,CRU,Meia,4.0,0.0,0.0,0
-Tite,CRU,Técnico,10.1,2.76,-0.2,2
+Tite,CRU,Técnico,9.9,3.62,-0.2,3
 Bruno Alves,CRU,Zagueiro,2.0,0.0,0.0,0
-Fabrício Bruno,CRU,Zagueiro,10.03,2.65,0.04,2
+Fabrício Bruno,CRU,Zagueiro,8.33,1.57,-1.7,3
 Janderson,CRU,Zagueiro,1.0,0.0,0.0,0
 Jonathan Jesus,CRU,Zagueiro,4.91,0.0,0.0,1
-João Marcelo,CRU,Zagueiro,3.49,-0.15,-0.5,2
+João Marcelo,CRU,Zagueiro,3.75,0.9,0.26,3
 Kaiquy Luiz,CRU,Zagueiro,1.0,0.0,0.0,0
 Villalba,CRU,Zagueiro,10.0,0.0,0.0,0
-Bruno Henrique,FLA,Atacante,7.29,1.55,-0.35,2
+Bruno Henrique,FLA,Atacante,7.29,1.55,0.0,2
 Douglas Telles,FLA,Atacante,2.0,0.0,0.0,0
-Everton,FLA,Atacante,8.29,3.3,-0.2,2
+Everton,FLA,Atacante,8.29,3.3,0.0,2
 Luiz Araújo,FLA,Atacante,10.0,0.0,0.0,0
-Pedro,FLA,Atacante,16.2,3.3,-2.41,2
+Pedro,FLA,Atacante,16.2,3.3,0.0,2
 Plata,FLA,Atacante,9.44,10.6,0.0,1
-Samuel Lino,FLA,Atacante,8.23,3.1,-1.41,2
+Samuel Lino,FLA,Atacante,8.23,3.1,0.0,2
 Wallace Yan,FLA,Atacante,5.0,0.0,0.0,0
 Andrew,FLA,Goleiro,3.0,0.0,0.0,0
 Dyogo Alves,FLA,Goleiro,3.0,0.0,0.0,0
 Léo Nannetti,FLA,Goleiro,2.0,0.0,0.0,0
-Rossi,FLA,Goleiro,7.39,1.75,-0.18,2
-Alex Sandro,FLA,Lateral,10.09,2.75,-0.08,2
+Rossi,FLA,Goleiro,7.39,1.75,0.0,2
+Alex Sandro,FLA,Lateral,10.09,2.75,0.0,2
 Ayrton Lucas,FLA,Lateral,8.0,0.0,0.0,0
 Daniel Sales,FLA,Lateral,2.0,0.0,0.0,0
-Emerson Royal,FLA,Lateral,4.96,2.0,-0.04,1
-Varela,FLA,Lateral,6.86,3.2,-1.22,2
-Arrascaeta,FLA,Meia,18.96,4.6,-0.14,2
-Carrascal,FLA,Meia,10.95,2.95,-0.81,2
-De la Cruz,FLA,Meia,7.9,3.1,-0.1,1
-Erick Pulgar,FLA,Meia,8.05,1.55,-1.36,2
-Evertton Araújo,FLA,Meia,3.3,0.75,-0.71,2
+Emerson Royal,FLA,Lateral,4.96,2.0,0.0,1
+Varela,FLA,Lateral,6.86,3.2,0.0,2
+Arrascaeta,FLA,Meia,18.96,4.6,0.0,2
+Carrascal,FLA,Meia,10.95,2.95,0.0,2
+De la Cruz,FLA,Meia,7.9,3.1,0.0,1
+Erick Pulgar,FLA,Meia,8.05,1.55,0.0,2
+Evertton Araújo,FLA,Meia,3.3,0.75,0.0,2
 Guilherme Gomes,FLA,Meia,3.0,0.0,0.0,0
 Jorginho,FLA,Meia,11.64,-1.8,0.0,1
 Joshua,FLA,Meia,3.0,0.0,0.0,0
-Lucas Paquetá,FLA,Meia,17.27,5.6,-0.73,1
+Lucas Paquetá,FLA,Meia,17.27,5.6,0.0,1
 Pablo Lúcio,FLA,Meia,2.0,0.0,0.0,0
 Saúl,FLA,Meia,7.0,0.0,0.0,0
-Filipe Luís,FLA,Técnico,10.61,3.61,-0.59,2
+Filipe Luís,FLA,Técnico,10.61,3.61,0.0,2
 Da Mata,FLA,Zagueiro,2.0,0.0,0.0,0
 Danilo,FLA,Zagueiro,8.0,0.0,0.0,0
 João Victor,FLA,Zagueiro,2.0,0.0,0.0,0
-Léo Ortiz,FLA,Zagueiro,9.22,1.2,-0.49,2
-Léo Pereira,FLA,Zagueiro,9.24,-0.1,-1.43,2
+Léo Ortiz,FLA,Zagueiro,9.22,1.2,0.0,2
+Léo Pereira,FLA,Zagueiro,9.24,-0.1,0.0,2
 Vitão,FLA,Zagueiro,9.0,0.0,0.0,0
 Cano,FLU,Atacante,6.0,0.0,0.0,0
-Canobbio,FLU,Atacante,8.04,4.1,-0.5,2
-John Kennedy,FLU,Atacante,7.99,6.75,2.52,2
+Canobbio,FLU,Atacante,7.26,3.07,-0.78,3
+John Kennedy,FLU,Atacante,8.27,7.03,0.28,3
 Matheus Reis,FLU,Atacante,1.0,0.0,0.0,0
 Riquelme Felipe,FLU,Atacante,4.0,0.0,0.0,0
-Santi Moreno,FLU,Atacante,2.77,-0.15,-0.4,2
-Serna,FLU,Atacante,7.26,1.5,-0.28,2
+Santi Moreno,FLU,Atacante,2.77,-0.15,0.0,2
+Serna,FLU,Atacante,7.17,2.33,-0.09,3
 Soteldo,FLU,Atacante,6.0,0.0,0.0,0
 Wesley Natã,FLU,Atacante,1.0,0.0,0.0,0
-Fábio,FLU,Goleiro,10.68,3.8,0.13,2
+Fábio,FLU,Goleiro,11.36,5.67,0.68,3
 Marcelo Pitaluga,FLU,Goleiro,3.0,0.0,0.0,0
 Vitor Eudes,FLU,Goleiro,2.0,0.0,0.0,0
 Gabriel Fuentes,FLU,Lateral,4.0,0.0,0.0,0
-Guga,FLU,Lateral,6.0,0.0,0.0,0
-Guilherme Arana,FLU,Lateral,8.76,0.8,-1.24,1
+Guga,FLU,Lateral,6.49,3.7,0.49,1
+Guilherme Arana,FLU,Lateral,9.37,3.65,0.61,2
 Júlio Fidelis,FLU,Lateral,2.0,0.0,0.0,0
-Renê,FLU,Lateral,8.66,7.8,1.16,2
-Samuel Xavier,FLU,Lateral,8.45,3.6,-0.21,2
-Bernal,FLU,Meia,3.49,-0.15,-0.5,2
-Ganso,FLU,Meia,4.92,-0.15,-0.7,2
-Hércules,FLU,Meia,7.0,0.0,0.0,0
+Renê,FLU,Lateral,9.58,8.27,0.92,3
+Samuel Xavier,FLU,Lateral,8.59,4.2,0.14,3
+Bernal,FLU,Meia,3.41,0.43,-0.08,3
+Ganso,FLU,Meia,4.62,0.4,-0.3,3
+Hércules,FLU,Meia,5.99,0.0,-1.01,1
 Lezcano,FLU,Meia,4.0,0.0,0.0,0
-Lucho Acosta,FLU,Meia,10.9,9.1,-0.48,2
-Martinelli,FLU,Meia,7.44,1.8,-0.52,2
-Nonato,FLU,Meia,7.28,5.3,0.13,2
+Lucho Acosta,FLU,Meia,12.22,9.6,1.32,3
+Martinelli,FLU,Meia,7.56,2.77,0.12,3
+Nonato,FLU,Meia,7.28,5.3,0.0,2
 Otávio,FLU,Meia,4.0,0.0,0.0,0
 Savarino,FLU,Meia,8.36,0.5,0.0,1
-Luis Zubeldía,FLU,Técnico,9.21,4.93,-0.1,2
-Freytes,FLU,Zagueiro,4.19,1.1,-0.32,2
+Luis Zubeldía,FLU,Técnico,9.93,6.0,0.72,3
+Freytes,FLU,Zagueiro,4.94,2.53,0.75,3
 Ignácio,FLU,Zagueiro,6.0,0.0,0.0,0
 Igor Rabello,FLU,Zagueiro,5.0,0.0,0.0,0
-Jemmes,FLU,Zagueiro,6.48,3.85,-0.36,2
+Jemmes,FLU,Zagueiro,7.62,5.23,1.14,3
 Luan Freitas,FLU,Zagueiro,3.0,0.0,0.0,0
-Amuzu,GRE,Atacante,7.83,6.45,2.32,2
-André,GRE,Atacante,3.14,0.55,0.22,2
+Amuzu,GRE,Atacante,6.67,4.8,-1.16,3
+André,GRE,Atacante,3.21,1.2,0.07,3
 Aravena,GRE,Atacante,4.0,0.0,0.0,0
 Braithwaite,GRE,Atacante,13.0,0.0,0.0,0
-Carlos Vinícius,GRE,Atacante,22.18,18.05,4.06,2
-Enamorado,GRE,Atacante,7.78,1.2,0.0,1
+Carlos Vinícius,GRE,Atacante,18.6,12.27,-3.58,3
+Enamorado,GRE,Atacante,7.79,2.3,0.01,2
 Gabriel Mec,GRE,Atacante,1.0,0.0,0.0,0
-Pavón,GRE,Atacante,5.13,1.45,-0.8,2
-Tetê,GRE,Atacante,12.61,7.3,1.63,2
+Pavón,GRE,Atacante,4.89,1.47,-0.24,3
+Tetê,GRE,Atacante,11.79,6.63,-0.82,3
 Gabriel Grando,GRE,Goleiro,4.0,0.0,0.0,0
 Thiago Beltrame,GRE,Goleiro,2.0,0.0,0.0,0
-Weverton,GRE,Goleiro,6.9,0.75,-1.59,2
+Weverton,GRE,Goleiro,7.2,1.93,0.3,3
 Caio Paulista,GRE,Lateral,5.0,0.0,0.0,0
-João Pedro,GRE,Lateral,4.07,0.9,-0.16,2
+João Pedro,GRE,Lateral,3.33,0.4,-0.74,3
 Marcos Rocha,GRE,Lateral,7.36,0.0,0.0,1
-Marlon,GRE,Lateral,8.25,4.5,0.09,2
-Arthur Melo,GRE,Meia,10.43,5.85,0.25,2
+Marlon,GRE,Lateral,7.29,3.3,-0.96,3
+Arthur Melo,GRE,Meia,9.87,5.2,-0.56,3
 Cristaldo,GRE,Meia,6.0,0.0,0.0,0
 Cuéllar,GRE,Meia,5.0,0.0,0.0,0
-Dodi,GRE,Meia,4.3,0.05,-0.22,2
-Edenílson,GRE,Meia,7.9,5.25,1.3,2
+Dodi,GRE,Meia,4.3,0.05,0.0,2
+Edenílson,GRE,Meia,6.91,4.0,-0.99,3
 Leonel Pérez,GRE,Meia,5.0,0.0,0.0,0
-Monsalve,GRE,Meia,4.38,0.4,-0.62,1
+Monsalve,GRE,Meia,4.38,0.4,0.0,1
 Nardoni,GRE,Meia,10.0,0.0,0.0,0
 Riquelme,GRE,Meia,4.0,0.0,0.0,0
 Roger,GRE,Meia,1.0,0.0,0.0,0
 Ronald,GRE,Meia,3.0,0.0,0.0,0
 Tiaguinho,GRE,Meia,1.0,0.0,0.0,0
 Villasanti,GRE,Meia,7.0,0.0,0.0,0
-Willian,GRE,Meia,5.62,2.45,0.82,2
-Luís Castro,GRE,Técnico,10.79,6.56,1.04,2
-Balbuena,GRE,Zagueiro,6.47,1.5,-0.53,1
-Gustavo Martins,GRE,Zagueiro,8.49,10.2,0.0,1
+Willian,GRE,Meia,4.62,1.63,-1.0,3
+Luís Castro,GRE,Técnico,9.83,5.4,-0.96,3
+Balbuena,GRE,Zagueiro,6.82,3.0,0.35,2
+Gustavo Martins,GRE,Zagueiro,7.04,4.6,-1.45,2
 Kannemann,GRE,Zagueiro,5.0,0.0,0.0,0
-Noriega,GRE,Zagueiro,5.69,4.0,0.69,1
+Noriega,GRE,Zagueiro,6.43,4.85,0.74,2
 Viery,GRE,Zagueiro,3.0,0.0,0.0,0
-Wagner Leonardo,GRE,Zagueiro,6.78,4.45,0.5,2
-Alerrandro,INT,Atacante,8.35,2.0,-0.65,1
-Borré,INT,Atacante,8.78,5.55,1.39,2
-Carbonero,INT,Atacante,9.41,5.45,1.87,2
+Wagner Leonardo,GRE,Zagueiro,5.73,2.93,-1.05,3
+Alerrandro,INT,Atacante,7.12,0.85,-1.23,2
+Borré,INT,Atacante,7.9,4.57,-0.88,3
+Carbonero,INT,Atacante,9.05,5.5,-0.36,3
 João Bezerra,INT,Atacante,1.0,0.0,0.0,0
 João Victor,INT,Atacante,1.0,0.0,0.0,0
-Kayky,INT,Atacante,5.0,0.0,0.0,0
+Kayky,INT,Atacante,4.28,0.0,-0.72,1
 Raykkonen,INT,Atacante,2.63,0.5,0.0,1
-Vitinho,INT,Atacante,6.37,2.45,-0.02,2
+Vitinho,INT,Atacante,6.9,3.63,0.53,3
 Anthoni,INT,Goleiro,3.0,0.0,0.0,0
 Diego,INT,Goleiro,1.0,0.0,0.0,0
-Rochet,INT,Goleiro,7.03,2.35,-0.15,2
-Aguirre,INT,Lateral,4.57,1.75,-0.47,2
+Rochet,INT,Goleiro,6.55,2.3,-0.48,3
+Aguirre,INT,Lateral,4.93,2.43,0.36,3
 Alan Benítez,INT,Lateral,4.0,0.0,0.0,0
 Alisson,INT,Lateral,1.0,0.0,0.0,0
-Bernabéi,INT,Lateral,8.31,0.8,-1.04,2
-Alan Patrick,INT,Meia,7.13,2.5,-0.47,2
-Alan Rodríguez,INT,Meia,6.0,0.0,0.0,0
+Bernabéi,INT,Lateral,7.94,1.53,-0.37,3
+Alan Patrick,INT,Meia,6.86,2.6,-0.27,3
+Alan Rodríguez,INT,Meia,5.14,0.0,-0.86,1
 Allex,INT,Meia,1.0,0.0,0.0,0
-Bruno Gomes,INT,Meia,6.69,4.25,-0.01,2
-Bruno Henrique,INT,Meia,5.31,1.8,-0.37,2
+Bruno Gomes,INT,Meia,8.23,6.17,1.54,3
+Bruno Henrique,INT,Meia,5.31,1.8,0.0,2
 Bruno Tabata,INT,Meia,4.27,0.5,0.0,1
 Gustavo Prado,INT,Meia,4.0,0.0,0.0,0
-Paulinho,INT,Meia,4.45,1.6,0.29,2
+Paulinho,INT,Meia,3.82,1.2,-0.63,3
 Richard,INT,Meia,4.0,0.0,0.0,0
-Ronaldo,INT,Meia,2.39,0.45,-0.13,2
-Thiago Maia,INT,Meia,5.62,1.5,-0.38,1
+Ronaldo,INT,Meia,5.44,4.93,3.05,3
+Thiago Maia,INT,Meia,5.62,1.5,0.0,1
 Villagra,INT,Meia,6.55,0.0,0.0,1
-Paulo Pezzolano,INT,Técnico,6.11,3.27,0.41,2
+Paulo Pezzolano,INT,Técnico,6.35,3.81,0.24,3
 Clayton Sampaio,INT,Zagueiro,3.0,0.0,0.0,0
-Félix Torres,INT,Zagueiro,2.83,-0.05,-0.41,2
+Félix Torres,INT,Zagueiro,2.45,-0.03,-0.38,3
 Juninho,INT,Zagueiro,5.0,0.0,0.0,0
-Mercado,INT,Zagueiro,4.96,2.0,-0.04,1
-Victor Gabriel,INT,Zagueiro,5.0,3.85,0.68,2
-Alesson,MIR,Atacante,9.03,7.1,-0.1,2
+Mercado,INT,Zagueiro,4.9,2.15,-0.06,2
+Victor Gabriel,INT,Zagueiro,4.57,3.07,-0.43,3
+Alesson,MIR,Atacante,8.97,6.2,-0.06,3
 André Luis,MIR,Atacante,5.0,0.0,0.0,0
-Carlos Eduardo,MIR,Atacante,4.52,0.8,-0.48,1
+Carlos Eduardo,MIR,Atacante,4.4,1.3,-0.12,2
 Edson Carioca,MIR,Atacante,5.0,0.0,0.0,0
-Everton Galdino,MIR,Atacante,3.33,0.85,-0.12,2
-Galeano,MIR,Atacante,6.39,1.2,-0.58,2
-Nathan Fogaça,MIR,Atacante,4.83,3.65,1.87,2
-Negueba,MIR,Atacante,7.17,5.15,0.58,2
+Everton Galdino,MIR,Atacante,2.84,0.57,-0.49,3
+Galeano,MIR,Atacante,5.79,1.17,-0.6,3
+Nathan Fogaça,MIR,Atacante,6.61,6.3,1.78,3
+Negueba,MIR,Atacante,9.39,7.93,2.22,3
 Renato Marques,MIR,Atacante,4.01,2.1,0.0,1
 Rodrigo Rodrigues,MIR,Atacante,4.0,0.0,0.0,0
 Alex Muralha,MIR,Goleiro,3.0,0.0,0.0,0
 Thomazella,MIR,Goleiro,2.0,0.0,0.0,0
-Walter,MIR,Goleiro,6.01,4.35,0.45,2
+Walter,MIR,Goleiro,5.26,3.1,-0.75,3
 Daniel Borges,MIR,Lateral,4.0,0.0,0.0,0
-Igor Cariús,MIR,Lateral,3.0,0.0,0.0,0
-Igor Formiga,MIR,Lateral,7.54,5.85,1.23,2
-Reinaldo,MIR,Lateral,12.93,1.4,-1.26,2
-Aldo Filho,MIR,Meia,4.41,1.55,0.53,2
+Igor Cariús,MIR,Lateral,2.94,1.0,-0.06,1
+Igor Formiga,MIR,Lateral,6.65,4.4,-0.89,3
+Reinaldo,MIR,Lateral,10.89,0.6,-2.04,3
+Aldo Filho,MIR,Meia,4.09,1.67,-0.32,3
 Chico Kim,MIR,Meia,4.0,0.0,0.0,0
-Denilson,MIR,Meia,4.74,1.4,-0.26,1
-Eduardo,MIR,Meia,6.99,4.75,-0.37,2
+Denilson,MIR,Meia,4.74,1.4,0.0,1
+Eduardo,MIR,Meia,6.9,4.2,-0.09,3
 Lucas Mugni,MIR,Meia,7.0,0.0,0.0,0
-Neto Moura,MIR,Meia,4.27,0.5,0.0,1
+Neto Moura,MIR,Meia,3.87,0.45,-0.4,2
 Shaylon,MIR,Meia,5.0,0.0,0.0,0
-Yuri Lara,MIR,Meia,6.36,4.95,0.34,2
-Rafael Guanaes,MIR,Técnico,7.16,5.13,0.57,2
-João Victor,MIR,Zagueiro,5.92,2.95,0.48,2
+Yuri Lara,MIR,Meia,4.65,2.2,-1.71,3
+Rafael Guanaes,MIR,Técnico,7.0,4.67,-0.16,3
+João Victor,MIR,Zagueiro,5.46,2.63,-0.46,3
 Lucas Oliveira,MIR,Zagueiro,4.0,0.0,0.0,0
-Luiz Otávio,MIR,Zagueiro,3.8,1.5,0.0,1
-Rodrigues,MIR,Zagueiro,4.11,2.0,0.11,1
-Willian Machado,MIR,Zagueiro,5.21,3.0,1.12,2
+Rodrigues,MIR,Zagueiro,4.11,2.0,0.0,1
+Willian Machado,MIR,Zagueiro,4.89,2.9,-0.32,3
 Belé,PAL,Atacante,3.0,0.0,0.0,0
-Bruno Rodrigues,PAL,Atacante,3.39,0.0,-0.61,1
-Flaco López,PAL,Atacante,17.43,10.5,-1.31,2
-Luighi,PAL,Atacante,2.86,0.0,-0.41,2
+Bruno Rodrigues,PAL,Atacante,3.39,0.0,0.0,1
+Flaco López,PAL,Atacante,15.18,6.8,-2.25,3
+Luighi,PAL,Atacante,2.89,0.57,0.03,3
 Paulinho,PAL,Atacante,15.0,0.0,0.0,0
-Ramón Sosa,PAL,Atacante,8.13,5.7,1.81,2
+Ramón Sosa,PAL,Atacante,6.64,3.8,-1.49,3
 Riquelme Fillipi,PAL,Atacante,0.71,-0.3,0.0,1
-Vitor Roque,PAL,Atacante,18.41,6.0,-1.44,2
-Carlos Miguel,PAL,Goleiro,7.16,1.35,0.04,2
+Vitor Roque,PAL,Atacante,19.39,8.67,0.98,3
+Carlos Miguel,PAL,Goleiro,6.98,2.2,-0.18,3
 Marcelo Lomba,PAL,Goleiro,4.0,0.0,0.0,0
 Arthur,PAL,Lateral,0.71,-0.3,0.0,1
-Giay,PAL,Lateral,5.9,0.5,0.0,1
-Jefté,PAL,Lateral,4.0,0.0,0.0,0
-Khellven,PAL,Lateral,5.77,1.4,-0.03,2
-Piquerez,PAL,Lateral,12.16,9.05,2.12,2
-Allan,PAL,Meia,15.31,7.05,1.55,2
-Andreas Pereira,PAL,Meia,17.15,11.6,2.53,2
+Giay,PAL,Lateral,5.12,0.1,-0.78,2
+Jefté,PAL,Lateral,3.42,0.0,-0.58,1
+Khellven,PAL,Lateral,5.37,1.6,-0.4,3
+Piquerez,PAL,Lateral,11.61,8.1,-0.55,3
+Allan,PAL,Meia,13.87,6.23,-1.44,3
+Andreas Pereira,PAL,Meia,17.92,12.7,0.77,3
 Arias,PAL,Meia,16.0,0.0,0.0,0
 Emiliano Martínez,PAL,Meia,5.0,0.0,0.0,0
 Felipe Anderson,PAL,Meia,9.0,0.0,0.0,0
-Larson,PAL,Meia,2.54,0.0,-0.46,1
-Lucas Evangelista,PAL,Meia,7.0,0.0,0.0,0
-Luis Pacheco,PAL,Meia,2.54,0.0,-0.46,1
-Marlon Freitas,PAL,Meia,7.16,1.3,-0.69,2
-Maurício,PAL,Meia,8.67,5.45,2.4,2
-Abel Ferreira,PAL,Técnico,12.48,7.05,1.38,2
+Larson,PAL,Meia,2.54,0.0,0.0,1
+Lucas Evangelista,PAL,Meia,7.83,5.0,0.83,1
+Luis Pacheco,PAL,Meia,2.54,0.0,0.0,1
+Marlon Freitas,PAL,Meia,6.85,1.77,-0.31,3
+Maurício,PAL,Meia,7.95,5.0,-0.72,3
+Abel Ferreira,PAL,Técnico,12.25,7.18,-0.23,3
 Benedetti,PAL,Zagueiro,3.0,0.0,0.0,0
 Bruno Fuchs,PAL,Zagueiro,8.0,0.0,0.0,0
-Gustavo Gómez,PAL,Zagueiro,12.15,5.2,0.85,2
-Murilo,PAL,Zagueiro,9.1,7.55,3.69,2
+Gustavo Gómez,PAL,Zagueiro,13.37,7.8,1.22,3
+Murilo,PAL,Zagueiro,7.03,4.93,-2.07,3
 Davi Gomes,RBB,Atacante,3.0,0.0,0.0,0
-Eduardo Sasha,RBB,Atacante,6.4,2.45,-0.69,2
-Fernando,RBB,Atacante,3.0,0.0,0.0,0
-Henry Mosquera,RBB,Atacante,5.0,3.85,0.71,2
-Herrera,RBB,Atacante,5.0,0.0,0.0,0
-Isidro Pitta,RBB,Atacante,5.71,-0.6,-1.29,1
-Lucas Barbosa,RBB,Atacante,7.77,3.65,-0.18,2
-Vinicinho,RBB,Atacante,4.09,0.0,0.0,1
-Cleiton,RBB,Goleiro,8.91,6.95,0.52,2
+Eduardo Sasha,RBB,Atacante,6.4,2.45,0.0,2
+Fernando,RBB,Atacante,2.46,-0.3,-0.54,1
+Henry Mosquera,RBB,Atacante,4.51,3.0,-0.49,3
+Herrera,RBB,Atacante,4.28,0.0,-0.72,1
+Isidro Pitta,RBB,Atacante,4.68,-0.8,-1.03,2
+Lucas Barbosa,RBB,Atacante,8.02,4.23,0.25,3
+Vinicinho,RBB,Atacante,3.75,0.25,-0.34,2
+Cleiton,RBB,Goleiro,7.86,4.93,-1.05,3
 Fabrício,RBB,Goleiro,2.0,0.0,0.0,0
 Lucão,RBB,Goleiro,4.0,0.0,0.0,0
 Tiago Volpi,RBB,Goleiro,8.0,0.0,0.0,0
-Andrés Hurtado,RBB,Lateral,5.57,4.85,0.82,2
+Andrés Hurtado,RBB,Lateral,4.54,3.03,-1.03,3
 Cauê,RBB,Lateral,2.0,0.0,0.0,0
-Juninho Capixaba,RBB,Lateral,13.54,12.55,0.5,2
+Juninho Capixaba,RBB,Lateral,12.85,9.83,-0.69,3
 Sant Anna,RBB,Lateral,5.45,6.2,0.0,1
 Vanderlan,RBB,Lateral,5.0,0.0,0.0,0
-Eric Ramires,RBB,Meia,4.23,0.0,-0.77,1
-Fabinho,RBB,Meia,3.28,-0.3,-0.72,1
-Gabriel,RBB,Meia,5.55,2.3,0.4,2
-Gustavinho,RBB,Meia,8.35,9.85,2.45,2
-Ignacio Sosa,RBB,Meia,4.05,-0.45,-1.0,2
+Eric Ramires,RBB,Meia,3.72,0.1,-0.51,2
+Fabinho,RBB,Meia,3.92,1.8,0.64,2
+Gabriel,RBB,Meia,4.92,1.9,-0.63,3
+Gustavinho,RBB,Meia,6.85,6.53,-1.5,3
+Ignacio Sosa,RBB,Meia,3.8,0.0,-0.25,3
 Marcelinho,RBB,Meia,3.03,6.3,0.0,1
-Matheus Fernandes,RBB,Meia,4.42,1.55,0.22,2
+Matheus Fernandes,RBB,Meia,4.42,1.55,0.0,2
 Praxedes,RBB,Meia,4.0,0.0,0.0,0
 Rodriguinho,RBB,Meia,4.0,0.0,0.0,0
 Yuri Leles,RBB,Meia,2.0,0.0,0.0,0
-Vagner Mancini,RBB,Técnico,7.8,7.51,0.88,2
-Alix Vinicius,RBB,Zagueiro,6.47,3.9,0.37,2
+Vagner Mancini,RBB,Técnico,7.08,5.59,-0.72,3
+Alix Vinicius,RBB,Zagueiro,6.47,3.9,0.0,2
 Eduardo Santos,RBB,Zagueiro,5.0,0.0,0.0,0
 Gustavo Henrique,RBB,Zagueiro,3.0,0.0,0.0,0
-Gustavo Marques,RBB,Zagueiro,7.4,9.35,1.54,2
+Gustavo Marques,RBB,Zagueiro,6.75,6.9,-0.65,3
 Guzmán Rodríguez,RBB,Zagueiro,6.0,0.0,0.0,0
 Lucas Cunha,RBB,Zagueiro,3.0,0.0,0.0,0
 Palacios,RBB,Zagueiro,3.0,0.0,0.0,0
-Pedro Henrique,RBB,Zagueiro,7.8,5.0,0.49,2
-Alef Manga,REM,Atacante,8.22,8.5,3.81,2
+Pedro Henrique,RBB,Zagueiro,6.75,3.5,-1.05,3
+Alef Manga,REM,Atacante,9.01,9.23,0.79,3
 Carlinhos,REM,Atacante,4.0,0.0,0.0,0
 Eduardo Melo,REM,Atacante,2.13,1.4,0.0,1
 Filipe Lima,REM,Atacante,1.0,0.0,0.0,0
-João Pedro,REM,Atacante,4.71,4.75,2.61,2
+João Pedro,REM,Atacante,3.34,2.87,-1.37,3
 Marrony,REM,Atacante,4.0,0.0,0.0,0
 Nicolás Ferreira,REM,Atacante,3.0,0.0,0.0,0
 Rafael Monti,REM,Atacante,4.0,0.0,0.0,0
 Tico,REM,Atacante,1.0,0.0,0.0,0
 Ivan,REM,Goleiro,4.0,0.0,0.0,0
 João Victor,REM,Goleiro,1.0,0.0,0.0,0
-Marcelo Rangel,REM,Goleiro,4.65,3.2,0.26,2
+Marcelo Rangel,REM,Goleiro,4.83,3.3,0.18,3
 Marcos Alexandre,REM,Goleiro,1.0,0.0,0.0,0
 Ygor Vinhas,REM,Goleiro,3.0,0.0,0.0,0
 Cufré,REM,Lateral,4.0,0.0,0.0,0
-João Lucas,REM,Lateral,4.81,2.2,-0.05,2
+João Lucas,REM,Lateral,4.4,1.83,-0.41,3
 Marcelinho,REM,Lateral,2.45,0.0,0.0,1
-Sávio,REM,Lateral,4.0,0.0,0.0,0
+Sávio,REM,Lateral,5.08,4.5,1.08,1
 Cantillo,REM,Meia,5.0,0.0,0.0,0
-Catarozzi,REM,Meia,5.41,0.9,-0.59,1
-Diego Hernández,REM,Meia,3.68,0.8,-0.32,1
+Catarozzi,REM,Meia,5.41,0.9,0.0,1
+Diego Hernández,REM,Meia,3.92,1.75,0.24,2
 Freitas,REM,Meia,1.0,0.0,0.0,0
 Giovanni Pavani,REM,Meia,2.98,1.5,0.0,1
-José Welison,REM,Meia,3.68,0.8,-0.32,1
+José Welison,REM,Meia,3.31,0.65,-0.37,2
 Jáderson,REM,Meia,3.87,1.7,0.0,1
 PH Gama,REM,Meia,2.0,0.0,0.0,0
 Panagiotis,REM,Meia,3.0,0.0,0.0,0
-Patrick,REM,Meia,4.36,1.4,-0.19,2
-Patrick de Paula,REM,Meia,5.35,3.2,0.63,2
-Picco,REM,Meia,5.54,3.6,0.54,1
+Patrick,REM,Meia,4.36,1.4,0.0,2
+Patrick de Paula,REM,Meia,7.89,6.8,2.54,3
+Picco,REM,Meia,6.39,4.8,0.85,2
 Rafael Soares,REM,Meia,1.0,0.0,0.0,0
-Vitor Bueno,REM,Meia,7.2,3.5,0.2,1
+Vitor Bueno,REM,Meia,8.71,6.35,1.51,2
 Yago Ferreira,REM,Meia,2.0,0.0,0.0,0
-Yago Pikachu,REM,Meia,5.99,1.75,-0.47,2
-Zé Ricardo,REM,Meia,3.92,3.25,1.43,2
-Juan Carlos Osorio,REM,Técnico,6.45,3.91,0.85,2
-Kayky Almeida,REM,Zagueiro,2.01,1.05,0.16,2
+Yago Pikachu,REM,Meia,7.14,3.83,1.15,3
+Zé Ricardo,REM,Meia,4.42,3.97,0.5,3
+Juan Carlos Osorio,REM,Técnico,7.06,4.91,0.61,3
+Kayky Almeida,REM,Zagueiro,2.69,2.07,0.68,3
 Klaus,REM,Zagueiro,4.0,0.0,0.0,0
-Léo Andrade,REM,Zagueiro,5.14,4.1,0.75,2
-Marllon,REM,Zagueiro,5.24,2.95,-0.08,2
+Léo Andrade,REM,Zagueiro,4.61,3.13,-0.53,3
+Marllon,REM,Zagueiro,5.99,3.97,0.75,3
 Tassano,REM,Zagueiro,3.0,0.0,0.0,0
 Thalisson Gabriel,REM,Zagueiro,3.0,0.0,0.0,0
 Fernando Pradella,SAN,Atacante,0.82,0.0,0.0,1
-Gabriel,SAN,Atacante,8.38,2.1,-0.62,1
-Lautaro Díaz,SAN,Atacante,6.1,3.15,-0.84,2
+Gabriel,SAN,Atacante,8.38,2.1,0.0,1
+Lautaro Díaz,SAN,Atacante,5.43,2.1,-0.67,3
 Mateus Xavier,SAN,Atacante,2.0,0.0,0.0,0
-Moisés,SAN,Atacante,5.0,0.0,0.0,0
+Moisés,SAN,Atacante,4.72,1.2,-0.28,1
 Nadson,SAN,Atacante,1.0,0.0,0.0,0
 Robinho Jr.,SAN,Atacante,3.27,0.0,0.0,1
-Rony,SAN,Atacante,6.85,0.2,-1.15,1
+Rony,SAN,Atacante,6.92,1.9,0.07,2
 Tiquinho Soares,SAN,Atacante,7.0,0.0,0.0,0
 Diógenes,SAN,Goleiro,2.0,0.0,0.0,0
-Gabriel Brazão,SAN,Goleiro,5.85,-2.2,-0.23,2
-Escobar,SAN,Lateral,6.97,5.2,0.97,1
-Igor Vinícius,SAN,Lateral,7.66,5.5,0.0,1
+Gabriel Brazão,SAN,Goleiro,5.71,-0.27,-0.14,3
+Escobar,SAN,Lateral,6.97,5.2,0.0,1
+Igor Vinícius,SAN,Lateral,7.63,4.5,-0.03,2
 JP Chermont,SAN,Lateral,2.0,0.0,0.0,0
-Mayke,SAN,Lateral,4.67,1.2,-0.33,1
+Mayke,SAN,Lateral,4.67,1.2,0.0,1
 Souza,SAN,Lateral,8.0,0.0,0.0,0
-Vinicius Lira,SAN,Lateral,3.68,3.5,0.0,1
-Barreal,SAN,Meia,13.75,9.1,-0.49,2
-Gabriel Bontempo,SAN,Meia,3.57,0.0,-0.52,2
-Gabriel Menino,SAN,Meia,9.77,9.55,-1.0,2
+Vinicius Lira,SAN,Lateral,3.66,2.6,-0.02,2
+Barreal,SAN,Meia,12.3,6.47,-1.45,3
+Gabriel Bontempo,SAN,Meia,3.88,1.07,0.31,3
+Gabriel Menino,SAN,Meia,10.27,8.33,0.5,3
 Gustavo Henrique,SAN,Meia,2.0,0.0,0.0,0
-João Schmidt,SAN,Meia,6.11,3.25,0.08,2
-Miguelito,SAN,Meia,3.82,1.65,-0.72,2
+João Schmidt,SAN,Meia,5.53,2.57,-0.58,3
+Miguelito,SAN,Meia,3.74,1.53,-0.08,3
 Neymar,SAN,Meia,19.0,0.0,0.0,0
 Rincón,SAN,Meia,4.0,0.0,0.0,0
-Rollheiser,SAN,Meia,7.16,1.25,-1.08,2
-Thaciano,SAN,Meia,6.0,0.0,0.0,0
+Rollheiser,SAN,Meia,6.27,0.83,-0.89,3
+Thaciano,SAN,Meia,8.81,10.0,2.81,1
 Willian Arão,SAN,Meia,7.0,0.0,0.0,0
-Zé Rafael,SAN,Meia,10.04,9.0,1.54,2
-Juan Vojvoda,SAN,Técnico,8.06,4.15,-0.31,2
-Adonis Frías,SAN,Zagueiro,5.04,-0.1,-0.96,1
+Zé Rafael,SAN,Meia,10.04,9.0,0.0,2
+Juan Vojvoda,SAN,Técnico,8.03,4.18,-0.03,3
+Adonis Frías,SAN,Zagueiro,5.04,-0.1,0.0,1
 Alexis Duarte,SAN,Zagueiro,3.64,-1.3,0.0,1
 João Ananias,SAN,Zagueiro,1.0,0.0,0.0,0
-João Basso,SAN,Zagueiro,4.22,2.3,0.22,1
-Luan Peres,SAN,Zagueiro,4.75,0.8,-0.76,2
-Zé Ivaldo,SAN,Zagueiro,6.0,0.0,0.0,0
+João Basso,SAN,Zagueiro,4.44,2.65,0.22,2
+Luan Peres,SAN,Zagueiro,4.52,1.0,-0.23,3
+Zé Ivaldo,SAN,Zagueiro,7.34,6.0,1.34,1
 André Silva,SAO,Atacante,8.0,0.0,0.0,0
-Calleri,SAO,Atacante,13.11,5.7,1.52,2
-Ferreira,SAO,Atacante,8.0,0.0,0.0,0
+Calleri,SAO,Atacante,13.87,7.9,0.76,3
+Ferreira,SAO,Atacante,6.96,0.3,-1.04,1
 Lucca,SAO,Atacante,3.0,0.0,0.0,0
-Luciano,SAO,Atacante,18.59,10.05,-1.5,2
+Luciano,SAO,Atacante,17.05,7.7,-1.54,3
 Paulinho,SAO,Atacante,2.0,0.0,0.0,0
 Ryan Francisco,SAO,Atacante,5.0,0.0,0.0,0
-Tapia,SAO,Atacante,5.46,2.1,0.02,2
+Tapia,SAO,Atacante,5.58,2.67,0.12,3
 Coronel,SAO,Goleiro,5.0,0.0,0.0,0
-Rafael,SAO,Goleiro,8.44,3.55,-0.4,2
+Rafael,SAO,Goleiro,8.84,4.47,0.4,3
 Young,SAO,Goleiro,3.0,0.0,0.0,0
 Cédric Soares,SAO,Lateral,5.72,2.3,0.0,1
-Enzo Díaz,SAO,Lateral,9.36,6.4,-0.41,2
-Lucas Ramon,SAO,Lateral,7.0,0.0,0.0,0
-Maik,SAO,Lateral,5.14,2.8,0.1,2
+Enzo Díaz,SAO,Lateral,11.33,8.53,1.97,3
+Lucas Ramon,SAO,Lateral,9.22,8.8,2.22,1
+Maik,SAO,Lateral,5.14,2.8,0.0,2
 Wendell,SAO,Lateral,7.0,0.0,0.0,0
 Alisson,SAO,Meia,6.0,0.0,0.0,0
-Bobadilla,SAO,Meia,10.33,5.65,-0.03,2
-Danielzinho,SAO,Meia,8.89,6.9,0.5,2
+Bobadilla,SAO,Meia,8.89,3.77,-1.44,3
+Danielzinho,SAO,Meia,8.07,5.2,-0.82,3
 Djhordney,SAO,Meia,1.0,0.0,0.0,0
 Felipe Negrucci,SAO,Meia,2.0,0.0,0.0,0
-Luan Vinícius,SAO,Meia,3.39,0.0,-0.61,1
-Lucas Moura,SAO,Meia,10.31,3.2,0.6,2
-Marcos Antônio,SAO,Meia,7.89,3.75,-1.29,2
-Pablo Maia,SAO,Meia,6.56,2.85,0.83,2
-Pedro Ferreira,SAO,Meia,1.0,0.0,0.0,0
-Hernán Crespo,SAO,Técnico,8.55,6.28,0.16,2
-Alan Franco,SAO,Zagueiro,5.49,0.8,-1.36,2
-Arboleda,SAO,Zagueiro,10.29,5.55,-0.52,2
+Luan Vinícius,SAO,Meia,3.39,0.0,0.0,1
+Lucas Moura,SAO,Meia,10.69,4.97,0.38,3
+Marcos Antônio,SAO,Meia,7.27,2.8,-0.62,3
+Pablo Maia,SAO,Meia,5.34,1.8,-1.22,3
+Pedro Ferreira,SAO,Meia,1.04,0.5,0.04,1
+Hernán Crespo,SAO,Técnico,9.46,7.01,0.91,3
+Alan Franco,SAO,Zagueiro,6.64,2.87,1.15,3
+Arboleda,SAO,Zagueiro,10.29,5.55,0.0,2
 Dória,SAO,Zagueiro,7.0,0.0,0.0,0
-Ferraresi,SAO,Zagueiro,6.67,-0.3,-1.33,1
+Ferraresi,SAO,Zagueiro,7.57,3.1,0.9,2
 Rafael Tolói,SAO,Zagueiro,5.0,0.0,0.0,0
-Sabino,SAO,Zagueiro,5.46,3.3,-0.45,2
+Sabino,SAO,Zagueiro,7.26,5.53,1.8,3
 Andrey Fernandes,VAS,Atacante,1.41,1.7,0.0,1
-Andrés Gómez,VAS,Atacante,11.73,9.55,2.26,2
-Brenner,VAS,Atacante,10.0,8.9,2.0,1
-David,VAS,Atacante,4.67,1.2,-0.33,1
-GB,VAS,Atacante,3.27,0.0,0.0,1
-João Vitor,VAS,Atacante,0.72,0.0,-0.1,2
-Marino Hinestroza,VAS,Atacante,8.35,2.0,-0.65,1
-Spinelli,VAS,Atacante,7.0,0.0,0.0,0
+Andrés Gómez,VAS,Atacante,11.26,8.47,-0.47,3
+Brenner,VAS,Atacante,9.01,5.35,-0.99,2
+David,VAS,Atacante,4.67,1.2,0.0,1
+GB,VAS,Atacante,2.89,0.0,-0.38,2
+João Vitor,VAS,Atacante,0.72,0.0,0.0,2
+Marino Hinestroza,VAS,Atacante,7.34,1.25,-1.01,2
+Spinelli,VAS,Atacante,6.73,2.0,-0.27,1
 Vegetti,VAS,Atacante,11.0,0.0,0.0,0
 Daniel Fuzato,VAS,Goleiro,2.0,0.0,0.0,0
-Léo Jardim,VAS,Goleiro,8.14,0.45,-1.53,2
+Léo Jardim,VAS,Goleiro,7.55,0.83,-0.59,3
 Phillipe Gabriel,VAS,Goleiro,1.0,0.0,0.0,0
 Cuiabano,VAS,Lateral,9.0,0.0,0.0,0
-Lucas Piton,VAS,Lateral,7.52,2.0,0.26,2
-Paulo Henrique,VAS,Lateral,10.0,0.0,0.0,0
-Puma Rodríguez,VAS,Lateral,7.85,7.65,1.51,2
-Victor Luis,VAS,Lateral,4.0,0.0,0.0,0
+Lucas Piton,VAS,Lateral,6.23,1.23,-1.29,3
+Paulo Henrique,VAS,Lateral,8.82,0.7,-1.18,1
+Puma Rodríguez,VAS,Lateral,7.13,5.87,-0.72,3
 Adson,VAS,Meia,6.0,0.0,0.0,0
-Barros,VAS,Meia,7.67,7.25,0.42,2
+Barros,VAS,Meia,8.85,7.83,1.18,3
 Guilherme Estrella,VAS,Meia,3.0,0.0,0.0,0
-Hugo Moura,VAS,Meia,3.39,0.0,-0.61,1
+Hugo Moura,VAS,Meia,3.39,0.0,0.0,1
 JP,VAS,Meia,1.0,0.0,0.0,0
 Jair,VAS,Meia,6.0,0.0,0.0,0
-Johan Rojas,VAS,Meia,4.78,0.85,-0.73,2
+Johan Rojas,VAS,Meia,4.12,0.47,-0.66,3
 Mateus Carvalho,VAS,Meia,4.0,0.0,0.0,0
 Matheus França,VAS,Meia,3.55,0.8,0.0,1
-Nuno Moreira,VAS,Meia,6.71,1.8,-0.08,2
-Philippe Coutinho,VAS,Meia,14.8,11.1,1.19,2
+Nuno Moreira,VAS,Meia,5.89,1.47,-0.82,3
+Philippe Coutinho,VAS,Meia,13.21,8.23,-1.59,3
 Tchê Tchê,VAS,Meia,6.0,0.0,0.0,0
-Thiago Mendes,VAS,Meia,7.39,4.25,0.08,2
-Fernando Diniz,VAS,Técnico,8.43,4.86,0.48,2
-Carlos Cuesta,VAS,Zagueiro,6.36,-0.1,-0.62,2
+Thiago Mendes,VAS,Meia,6.57,3.13,-0.82,3
+Fernando Diniz,VAS,Técnico,7.85,4.19,-0.58,3
+Carlos Cuesta,VAS,Zagueiro,6.0,0.7,-0.36,3
 Lucas Freitas,VAS,Zagueiro,4.0,0.0,0.0,0
-Robert Renan,VAS,Zagueiro,6.51,1.4,-0.7,2
+Robert Renan,VAS,Zagueiro,6.0,1.4,-0.51,3
 Saldivia,VAS,Zagueiro,6.0,0.0,0.0,0
-Erick,VIT,Atacante,8.75,6.5,-1.36,2
-Fabri,VIT,Atacante,6.52,6.55,1.35,2
+Erick,VIT,Atacante,8.75,6.5,0.0,2
+Fabri,VIT,Atacante,6.52,6.55,0.0,2
 Kike Saverio,VIT,Atacante,5.0,0.0,0.0,0
-Lawan,VIT,Atacante,0.74,-0.3,-0.26,1
+Lawan,VIT,Atacante,0.74,-0.3,0.0,1
 Lucas Silva,VIT,Atacante,4.0,0.0,0.0,0
 Luis Miguel,VIT,Atacante,1.0,0.0,0.0,0
 Marinho,VIT,Atacante,6.0,0.0,0.0,0
@@ -683,32 +679,32 @@ Pedro Henrique,VIT,Atacante,3.0,0.0,0.0,0
 Renato Kayzer,VIT,Atacante,8.56,10.4,0.0,1
 Renzo López,VIT,Atacante,3.0,0.0,0.0,0
 Fintelman,VIT,Goleiro,2.0,0.0,0.0,0
-Gabriel,VIT,Goleiro,5.6,2.2,-1.69,2
+Gabriel,VIT,Goleiro,5.6,2.2,0.0,2
 Lucas Arcanjo,VIT,Goleiro,4.0,0.0,0.0,0
 Thiago Couto,VIT,Goleiro,3.0,0.0,0.0,0
 Yuri Sena,VIT,Goleiro,1.0,0.0,0.0,0
 Claudinho,VIT,Lateral,4.0,0.0,0.0,0
 Jamerson,VIT,Lateral,5.55,6.5,0.0,1
-Luan Cândido,VIT,Lateral,4.56,0.9,-0.44,1
-Mateus Silva,VIT,Lateral,4.95,4.85,-0.91,2
-Nathan Mendes,VIT,Lateral,3.97,1.6,-0.03,1
+Luan Cândido,VIT,Lateral,4.56,0.9,0.0,1
+Mateus Silva,VIT,Lateral,4.95,4.85,0.0,2
+Nathan Mendes,VIT,Lateral,3.97,1.6,0.0,1
 Paulo Roberto,VIT,Lateral,3.0,0.0,0.0,0
-Ramon,VIT,Lateral,6.84,5.85,1.1,2
-Baralhas,VIT,Meia,8.17,6.8,-0.56,2
-Cantalapiedra,VIT,Meia,6.37,2.5,0.47,2
-Caíque,VIT,Meia,5.0,1.3,-0.05,2
-Dudu,VIT,Meia,5.01,3.95,1.84,2
+Ramon,VIT,Lateral,6.84,5.85,0.0,2
+Baralhas,VIT,Meia,8.17,6.8,0.0,2
+Cantalapiedra,VIT,Meia,6.37,2.5,0.0,2
+Caíque,VIT,Meia,5.0,1.3,0.0,2
+Dudu,VIT,Meia,5.01,3.95,0.0,2
 Edenílson,VIT,Meia,3.0,0.0,0.0,0
 Emmanuel Martínez,VIT,Meia,5.0,0.0,0.0,0
 Felipe Cardoso,VIT,Meia,3.0,0.0,0.0,0
-Matheuzinho,VIT,Meia,5.44,2.0,-0.87,2
+Matheuzinho,VIT,Meia,5.44,2.0,0.0,2
 Pablo Baianinho,VIT,Meia,1.0,0.0,0.0,0
 Ronald Lopes,VIT,Meia,5.0,0.0,0.0,0
 Rúben Ismael,VIT,Meia,4.0,0.0,0.0,0
 Zé Breno,VIT,Meia,2.0,0.0,0.0,0
-Jair Ventura,VIT,Técnico,7.18,6.33,-0.16,2
+Jair Ventura,VIT,Técnico,7.18,6.33,0.0,2
 Camutanga,VIT,Zagueiro,7.42,9.5,0.0,1
 Edu,VIT,Zagueiro,4.0,0.0,0.0,0
-Neris,VIT,Zagueiro,3.08,1.5,0.08,1
-Riccieli,VIT,Zagueiro,4.85,3.5,-0.18,2
-Zé Marcos,VIT,Zagueiro,5.14,2.75,-0.39,2
+Neris,VIT,Zagueiro,3.08,1.5,0.0,1
+Riccieli,VIT,Zagueiro,4.85,3.5,0.0,2
+Zé Marcos,VIT,Zagueiro,5.14,2.75,0.0,2
