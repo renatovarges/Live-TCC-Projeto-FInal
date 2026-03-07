@@ -36,6 +36,7 @@ Artur,BOT,Atacante,8.57,4.7,0.0,3
 Chris Ramos,BOT,Atacante,7.0,0.0,0.0,0
 Jeffinho,BOT,Atacante,5.0,0.0,0.0,0
 Joaquín Correa,BOT,Atacante,8.0,0.0,0.0,0
+Júnior Santos,BOT,Atacante,5.0,0.0,0.0,0
 Kadir,BOT,Atacante,4.9,1.7,0.0,1
 Kauan Toledo,BOT,Atacante,1.0,0.0,0.0,0
 Matheus Martins,BOT,Atacante,6.16,3.8,0.0,3
@@ -75,7 +76,6 @@ Cassierra,CAM,Atacante,9.21,0.8,-0.79,1
 Cuello,CAM,Atacante,8.38,5.43,1.2,4
 Dudu,CAM,Atacante,7.99,4.17,-1.31,4
 Hulk,CAM,Atacante,14.25,6.93,-1.19,4
-Júnior Santos,CAM,Atacante,5.0,0.0,0.0,0
 Minda,CAM,Atacante,8.59,1.5,-0.41,1
 Everson,CAM,Goleiro,10.28,4.57,1.42,4
 Gabriel Delfim,CAM,Goleiro,2.0,0.0,0.0,0
@@ -346,6 +346,7 @@ Guilherme Arana,FLU,Lateral,8.39,2.83,-0.98,3
 Júlio Fidelis,FLU,Lateral,2.0,0.0,0.0,0
 Renê,FLU,Lateral,9.58,8.27,0.0,3
 Samuel Xavier,FLU,Lateral,8.59,4.2,0.0,3
+Alisson,FLU,Meia,6.0,0.0,0.0,0
 Bernal,FLU,Meia,2.9,0.3,-0.51,4
 Ganso,FLU,Meia,4.53,0.85,-0.09,4
 Hércules,FLU,Meia,6.37,1.75,0.38,2
@@ -622,7 +623,6 @@ João Moreira,SAO,Lateral,4.0,0.0,0.0,0
 Lucas Ramon,SAO,Lateral,9.22,8.8,0.0,1
 Maik,SAO,Lateral,6.23,4.03,1.09,3
 Wendell,SAO,Lateral,8.9,7.0,1.9,1
-Alisson,SAO,Meia,6.0,0.0,0.0,0
 Bobadilla,SAO,Meia,8.18,2.83,-0.71,4
 Cauly,SAO,Meia,8.97,9.5,2.97,1
 Danielzinho,SAO,Meia,8.07,5.2,0.0,3
