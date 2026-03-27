@@ -10,6 +10,7 @@ Ruan Pablo,BAH,Atacante,2.0,0.0,0.0,0
 Sanabria,BAH,Atacante,6.01,2.3,0.0,4
 Willian José,BAH,Atacante,10.17,4.17,0.0,6
 João Paulo,BAH,Goleiro,6.19,1.7,0.19,1
+Léo Vieira,BAH,Goleiro,6.49,5.53,-0.7,7
 Ronaldo,BAH,Goleiro,7.57,5.03,-0.86,7
 Victor Nascimento,BAH,Goleiro,1.0,0.0,0.0,0
 Gilberto,BAH,Lateral,7.31,4.1,0.0,2
@@ -196,7 +197,7 @@ Rubens,CHA,Atacante,3.15,2.28,-0.08,5
 Ítalo,CHA,Atacante,3.24,2.27,-0.06,7
 Anderson,CHA,Goleiro,3.0,0.0,0.0,0
 Kainã,CHA,Goleiro,1.0,0.0,0.0,0
-Léo Vieira,CHA,Goleiro,6.49,5.53,-0.7,7
+Matheus Aurélio,CHA,Goleiro,2.0,0.0,0.0,0
 Rafael Santos,CHA,Goleiro,3.0,0.0,0.0,0
 Bruno Pacheco,CHA,Lateral,5.71,0.5,-0.29,1
 Everton,CHA,Lateral,4.03,2.74,-0.9,7
@@ -205,6 +206,7 @@ Mancha,CHA,Lateral,3.0,0.0,0.0,0
 Marcos Vinícius,CHA,Lateral,2.0,-1.3,0.0,1
 Walter Clar,CHA,Lateral,7.96,5.94,-0.98,7
 Camilo,CHA,Meia,4.86,2.88,-0.08,6
+Da Silva,CHA,Meia,3.0,0.0,0.0,0
 David,CHA,Meia,0.69,-0.15,0.0,2
 Giovanni Augusto,CHA,Meia,3.53,1.08,0.12,6
 Higor Meritão,CHA,Meia,7.97,5.12,0.5,6
@@ -341,7 +343,6 @@ Keven Samuel,FLU,Atacante,1.0,0.0,0.0,0
 Matheus Reis,FLU,Atacante,1.0,0.0,0.0,0
 Riquelme Felipe,FLU,Atacante,4.0,0.0,0.0,0
 Rodrigo Castillo,FLU,Atacante,8.48,3.58,1.66,4
-Santi Moreno,FLU,Atacante,2.49,-0.1,0.0,3
 Serna,FLU,Atacante,5.08,1.22,-0.24,8
 Soteldo,FLU,Atacante,4.52,0.88,-0.6,4
 Wesley Natã,FLU,Atacante,1.0,0.0,0.0,0
