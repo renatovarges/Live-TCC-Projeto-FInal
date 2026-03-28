@@ -191,7 +191,6 @@ Garcez,CHA,Atacante,4.29,2.4,0.0,2
 João Bom,CHA,Atacante,2.0,0.0,0.0,0
 Marcinho,CHA,Atacante,3.51,2.04,0.25,7
 Neto Pessoa,CHA,Atacante,3.48,1.65,-0.26,2
-Perotti,CHA,Atacante,3.37,0.2,0.0,2
 Rubens,CHA,Atacante,3.15,2.28,-0.08,5
 Ênio,CHA,Atacante,4.0,0.0,0.0,0
 Ítalo,CHA,Atacante,3.24,2.27,-0.06,7
@@ -560,9 +559,11 @@ Cufré,REM,Lateral,3.45,-0.3,0.0,1
 João Lucas,REM,Lateral,4.59,2.82,0.0,6
 Marcelinho,REM,Lateral,3.04,1.58,0.55,5
 Matheus Alexandre,REM,Lateral,4.0,0.0,0.0,0
+Mayk,REM,Lateral,5.0,0.0,0.0,0
 Sávio,REM,Lateral,4.66,2.47,0.0,3
 Cantillo,REM,Meia,5.0,0.0,0.0,0
 Catarozzi,REM,Meia,5.41,0.9,0.0,1
+David Braga,REM,Meia,3.0,0.0,0.0,0
 Diego Hernández,REM,Meia,3.92,1.75,0.0,2
 Freitas,REM,Meia,1.0,0.0,0.0,0
 Giovanni Pavani,REM,Meia,2.98,1.5,0.0,1
@@ -580,7 +581,6 @@ Yago Pikachu,REM,Meia,5.45,2.11,0.26,8
 Zé Ricardo,REM,Meia,5.55,3.85,1.03,8
 Léo Condé,REM,Técnico,8.16,4.06,1.15,4
 Kayky Almeida,REM,Zagueiro,2.81,1.89,0.0,7
-Klaus,REM,Zagueiro,4.0,0.0,0.0,0
 Léo Andrade,REM,Zagueiro,4.79,2.95,0.0,4
 Marllon,REM,Zagueiro,5.2,2.88,-0.54,8
 Tassano,REM,Zagueiro,3.0,0.0,0.0,0
@@ -698,6 +698,7 @@ Osvaldo,VIT,Atacante,4.37,0.8,0.0,1
 Pedro Henrique,VIT,Atacante,3.0,0.0,0.0,0
 Renato Kayzer,VIT,Atacante,7.27,3.72,-0.12,5
 Renzo López,VIT,Atacante,2.51,0.53,-0.06,3
+Renê,VIT,Atacante,5.0,0.0,0.0,0
 Tarzia,VIT,Atacante,2.72,0.45,-0.03,2
 Fintelman,VIT,Goleiro,2.0,0.0,0.0,0
 Gabriel,VIT,Goleiro,5.6,2.2,0.0,2
