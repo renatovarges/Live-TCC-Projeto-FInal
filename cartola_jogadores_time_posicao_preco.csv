@@ -38,7 +38,6 @@ Marcos Victor,BAH,Zagueiro,3.0,0.0,0.0,0
 Santiago Mingo,BAH,Zagueiro,4.8,2.45,-0.53,7
 Arthur Cabral,BOT,Atacante,8.64,4.65,0.0,4
 Arthur Izaque,BOT,Atacante,1.0,0.0,0.0,0
-Artur,BOT,Atacante,8.49,4.2,0.0,4
 Chris Ramos,BOT,Atacante,7.0,0.0,0.0,0
 Jeffinho,BOT,Atacante,5.0,0.0,0.0,0
 Joaquín Correa,BOT,Atacante,7.44,1.55,0.3,2
@@ -75,6 +74,7 @@ Santi Rodríguez,BOT,Meia,7.33,2.72,-0.25,4
 Wallace Davi,BOT,Meia,4.0,0.0,0.0,0
 Rodrigo Bellão,BOT,Técnico,9.18,0.0,0.0,0
 Alexander Barboza,BOT,Zagueiro,11.79,5.76,1.87,5
+Anthony,BOT,Zagueiro,3.0,0.0,0.0,0
 Bastos,BOT,Zagueiro,4.83,-0.05,0.0,2
 David Ricardo,BOT,Zagueiro,7.0,0.0,0.0,0
 Ferraresi,BOT,Zagueiro,6.79,3.02,-0.33,5
@@ -624,6 +624,7 @@ Luan Peres,SAN,Zagueiro,4.82,1.52,1.72,6
 Lucas Veríssimo,SAN,Zagueiro,9.36,5.1,1.36,1
 Zé Ivaldo,SAN,Zagueiro,6.32,2.63,0.0,3
 André Silva,SAO,Atacante,4.93,0.03,-1.11,4
+Artur,SAO,Atacante,8.49,4.2,0.0,4
 Calleri,SAO,Atacante,12.37,6.6,-0.56,8
 Ferreira,SAO,Atacante,5.02,0.9,-0.57,5
 Lucca,SAO,Atacante,3.0,0.0,0.0,0
