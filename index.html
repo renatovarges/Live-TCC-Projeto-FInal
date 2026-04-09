@@ -10,8 +10,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=60"/>
   <link rel="stylesheet" href="css/escudos-fix.css"/>
+  <link rel="stylesheet" href="css/auth.css"/>
 </head>
 <body>
+  <!-- Proteção por PIN -->
+  <div id="pin-overlay">
+    <div class="pin-container">
+      <img src="assets/TCCBRANCOTRANSPARENTE.png" class="pin-logo" alt="TCC Logo">
+      <h2 class="pin-title">ACESSO RESTRITO</h2>
+      <p class="pin-subtitle">Digite o PIN para acessar a plataforma</p>
+      
+      <div class="pin-display">
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+      </div>
+
+      <div class="pin-keypad">
+        <button class="pin-key" data-value="1">1</button>
+        <button class="pin-key" data-value="2">2</button>
+        <button class="pin-key" data-value="3">3</button>
+        <button class="pin-key" data-value="4">4</button>
+        <button class="pin-key" data-value="5">5</button>
+        <button class="pin-key" data-value="6">6</button>
+        <button class="pin-key" data-value="7">7</button>
+        <button class="pin-key" data-value="8">8</button>
+        <button class="pin-key" data-value="9">9</button>
+        <div class="pin-placeholder"></div>
+        <button class="pin-key" data-value="0">0</button>
+        <button class="pin-key backspace" data-value="delete">⌫</button>
+      </div>
+
+      <div id="pin-message" class="pin-message"></div>
+    </div>
+  </div>
+
   <header class="header">
     <h1 class="title">ESTRATÉGIAS DE ESCALAÇÃO</h1>
     <div class="update-controls">
@@ -149,6 +183,7 @@
     </div>
   </div>
 
+  <script src="js/auth.js"></script>
   <script src="js/shields-data.js?v=60"></script>
     <script src="js/players.js?v=60"></script>
     <script src="js/dnd.js?v=60"></script>
