@@ -89,6 +89,7 @@ Minda,CAM,Atacante,7.36,4.04,-1.94,9
 Everson,CAM,Goleiro,9.0,3.87,0.2,17
 Gabriel Delfim,CAM,Goleiro,2.0,0.0,0.0,0
 Pedro Cobra,CAM,Goleiro,1.0,0.0,0.0,0
+Robert,CAM,Goleiro,1.0,0.0,0.0,0
 Kauã Pascini,CAM,Lateral,2.64,2.17,0.0,3
 Natanael,CAM,Lateral,8.67,4.82,-0.67,10
 Preciado,CAM,Lateral,7.2,4.0,0.0,7
@@ -489,6 +490,7 @@ Lucas Oliveira,MIR,Zagueiro,5.82,3.73,0.43,6
 Rodrigues,MIR,Zagueiro,3.81,1.0,0.0,2
 Willian Machado,MIR,Zagueiro,6.67,3.92,0.47,13
 Belé,PAL,Atacante,3.0,0.0,0.0,0
+Eduardo,PAL,Atacante,1.0,0.0,0.0,0
 Flaco López,PAL,Atacante,14.91,6.74,0.72,17
 Luighi,PAL,Atacante,2.83,0.97,0.0,6
 Paulinho,PAL,Atacante,11.57,2.3,0.35,4
@@ -496,6 +498,7 @@ Ramón Sosa,PAL,Atacante,5.72,2.53,0.0,15
 Riquelme Fillipi,PAL,Atacante,0.71,-0.3,0.0,1
 Vitor Roque,PAL,Atacante,17.01,7.6,0.0,7
 Carlos Miguel,PAL,Goleiro,8.86,5.06,0.71,17
+Kauan Lima,PAL,Goleiro,1.0,0.0,0.0,0
 Marcelo Lomba,PAL,Goleiro,4.0,0.0,0.0,0
 Wanderson Aranha,PAL,Goleiro,1.0,0.0,0.0,0
 Arthur,PAL,Lateral,5.38,4.28,1.56,12
@@ -513,6 +516,8 @@ Lucas Evangelista,PAL,Meia,4.48,1.31,0.01,15
 Luis Pacheco,PAL,Meia,2.77,0.65,0.0,2
 Marlon Freitas,PAL,Meia,5.95,2.74,-0.15,16
 Maurício,PAL,Meia,6.14,2.59,-0.34,15
+Rafael Coutinho,PAL,Meia,1.0,0.0,0.0,0
+Victor Gabriel,PAL,Meia,1.0,0.0,0.0,0
 Abel Ferreira,PAL,Técnico,12.61,6.43,0.69,17
 Alexander Barboza,PAL,Zagueiro,10.68,5.12,0.0,11
 Benedetti,PAL,Zagueiro,4.62,4.7,0.0,1
