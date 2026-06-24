@@ -108,6 +108,7 @@ Victor Hugo,CAM,Meia,6.6,3.8,-0.12,15
 Eduardo Domínguez,CAM,Técnico,11.03,5.37,0.94,14
 Iván Román,CAM,Zagueiro,8.96,5.92,0.32,6
 Lyanco,CAM,Zagueiro,9.5,3.8,1.58,7
+Léo Duarte,CAM,Zagueiro,5.0,0.0,0.0,0
 Ruan,CAM,Zagueiro,4.79,2.67,0.0,15
 Vitor Hugo,CAM,Zagueiro,8.67,4.5,2.57,6
 Vitão,CAM,Zagueiro,1.0,0.0,0.0,0
@@ -204,7 +205,6 @@ Everton,CHA,Lateral,3.6,1.87,-0.11,14
 Gustavo Talles,CHA,Lateral,2.0,0.0,0.0,0
 Mancha,CHA,Lateral,3.0,0.0,0.0,0
 Marcos Vinícius,CHA,Lateral,2.78,1.48,0.0,9
-Walter Clar,CHA,Lateral,7.26,4.68,0.0,10
 Camilo,CHA,Meia,5.62,3.13,0.71,14
 Da Silva,CHA,Meia,3.0,0.0,0.0,0
 David,CHA,Meia,1.46,1.08,0.0,4
@@ -418,6 +418,7 @@ Luis Eduardo,GRE,Zagueiro,1.45,-0.3,0.0,2
 Noriega,GRE,Zagueiro,7.6,4.31,0.0,13
 Viery,GRE,Zagueiro,5.82,4.5,0.05,13
 Wagner Leonardo,GRE,Zagueiro,5.36,2.78,-0.75,9
+Wallace,GRE,Zagueiro,3.0,0.0,0.0,0
 Alerrandro,INT,Atacante,6.43,3.85,-0.65,17
 Borré,INT,Atacante,6.06,2.87,-0.65,18
 Carbonero,INT,Atacante,8.53,5.12,-3.19,17
