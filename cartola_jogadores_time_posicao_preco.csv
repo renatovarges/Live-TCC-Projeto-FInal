@@ -39,7 +39,6 @@ Santiago Mingo,BAH,Zagueiro,4.98,1.96,1.07,15
 Arthur Cabral,BOT,Atacante,10.58,6.69,0.46,14
 Arthur Izaque,BOT,Atacante,1.0,0.0,0.0,0
 Chris Ramos,BOT,Atacante,5.37,0.37,-0.75,3
-Jeffinho,BOT,Atacante,5.0,0.0,0.0,0
 Joaquín Correa,BOT,Atacante,5.11,1.17,0.0,6
 Júnior Santos,BOT,Atacante,4.55,2.24,0.0,8
 Kadir,BOT,Atacante,5.06,2.4,0.0,8
@@ -297,7 +296,6 @@ Artur Jorge,CRU,Técnico,11.87,6.32,-0.38,10
 Fabrício Bruno,CRU,Zagueiro,5.92,2.09,-0.8,17
 Jonathan Jesus,CRU,Zagueiro,6.74,4.34,0.25,10
 João Marcelo,CRU,Zagueiro,3.81,1.92,0.0,5
-Kaiquy Luiz,CRU,Zagueiro,1.0,0.0,0.0,0
 Villalba,CRU,Zagueiro,6.65,2.21,0.0,9
 Alan Santos,FLA,Atacante,1.0,0.0,0.0,0
 Bruno Henrique,FLA,Atacante,5.45,1.6,0.46,11
@@ -471,7 +469,6 @@ Chico Kim,MIR,Meia,3.63,0.6,-0.63,2
 Denilson,MIR,Meia,5.21,3.04,-0.79,10
 Eduardo,MIR,Meia,5.57,2.78,-0.5,11
 Gabriel Pires,MIR,Meia,5.77,3.63,0.0,6
-Lucas Mugni,MIR,Meia,7.0,0.0,0.0,0
 Neto Moura,MIR,Meia,3.31,1.56,-0.78,11
 Shaylon,MIR,Meia,4.23,1.85,0.35,13
 Rafael Guanaes,MIR,Técnico,7.04,4.16,-0.8,16
@@ -741,6 +738,7 @@ Edenílson,VIT,Meia,3.28,1.74,0.0,8
 Emmanuel Martínez,VIT,Meia,6.16,3.48,-0.5,13
 Matheuzinho,VIT,Meia,6.68,3.46,1.06,15
 Pablo Baianinho,VIT,Meia,1.0,0.0,0.0,0
+Pochettino,VIT,Meia,6.0,0.0,0.0,0
 Rúben Ismael,VIT,Meia,4.0,0.0,0.0,0
 Walace,VIT,Meia,4.0,0.0,0.0,0
 Wendell,VIT,Meia,2.0,0.0,0.0,0
