@@ -61,7 +61,7 @@ Allan,BOT,Meia,4.48,2.03,0.0,10
 Arthur Novaes,BOT,Meia,1.0,0.0,0.0,0
 Barrera,BOT,Meia,6.45,2.62,0.0,10
 Caio Valle,BOT,Meia,1.0,0.0,0.0,0
-Danilo Santos,BOT,Meia,15.14,9.08,0.0,12
+Danilo,BOT,Meia,15.14,9.08,0.0,12
 Edenílson,BOT,Meia,6.15,3.2,0.0,14
 Huguinho,BOT,Meia,6.02,5.13,2.09,3
 Marquinhos,BOT,Meia,0.85,0.0,0.0,1
@@ -226,7 +226,7 @@ Gui Negão,COR,Atacante,3.97,1.35,0.0,4
 Kaio César,COR,Atacante,10.33,5.43,1.19,6
 Kayke,COR,Atacante,3.64,1.65,0.0,6
 Lingard,COR,Atacante,4.63,1.95,0.0,9
-Memphis,COR,Atacante,9.56,1.99,0.0,7
+Memphis Depay,COR,Atacante,9.56,1.99,0.0,7
 Nícollas,COR,Atacante,1.0,0.0,0.0,0
 Pedro Raul,COR,Atacante,2.63,0.01,0.0,8
 Vitinho,COR,Atacante,5.06,2.13,0.0,7
@@ -282,7 +282,6 @@ Gabriel Rojas,CRU,Lateral,6.0,0.0,0.0,0
 Kauã Moraes,CRU,Lateral,7.33,5.07,0.0,9
 Nicolas Pontes,CRU,Lateral,1.0,0.0,0.0,0
 William,CRU,Lateral,8.51,3.57,0.0,8
-Christian,CRU,Meia,9.19,6.09,-0.65,17
 Gerson,CRU,Meia,8.98,4.21,0.47,17
 Lucas Romero,CRU,Meia,8.33,4.09,0.0,12
 Lucas Silva,CRU,Meia,3.62,0.3,0.0,13
@@ -473,6 +472,7 @@ Japa,MIR,Meia,5.93,5.2,0.0,3
 Neto Moura,MIR,Meia,3.31,1.56,-0.78,11
 Shaylon,MIR,Meia,4.23,1.85,0.35,13
 Rafael Guanaes,MIR,Técnico,7.04,4.16,-0.8,16
+Gabriel Knesowitsch,MIR,Zagueiro,3.0,0.0,0.0,0
 João Victor,MIR,Zagueiro,4.48,2.0,-0.61,16
 Lucas Oliveira,MIR,Zagueiro,5.2,3.41,-0.62,7
 Rodrigues,MIR,Zagueiro,3.81,1.0,0.0,2
@@ -596,7 +596,6 @@ Tchamba,REM,Zagueiro,5.11,2.08,1.05,14
 Thalisson Gabriel,REM,Zagueiro,3.0,0.0,0.0,0
 Fernando Pradella,SAN,Atacante,0.82,0.0,0.0,1
 Gabriel,SAN,Atacante,9.26,5.04,-1.31,11
-Lautaro Díaz,SAN,Atacante,5.26,2.28,0.0,8
 Mateus Xavier,SAN,Atacante,2.33,1.2,0.0,1
 Moisés,SAN,Atacante,4.78,2.35,0.0,13
 Nadson,SAN,Atacante,1.0,0.0,0.0,0
