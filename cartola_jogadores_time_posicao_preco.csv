@@ -193,6 +193,7 @@ Kevin Ramírez,CHA,Atacante,3.0,0.85,0.0,2
 Marcinho,CHA,Atacante,4.71,2.9,0.93,16
 Neto Pessoa,CHA,Atacante,4.7,3.73,-1.87,8
 Rubens,CHA,Atacante,2.66,1.63,-0.19,7
+Túlio Eduardo,CHA,Atacante,3.0,0.0,0.0,0
 Ênio,CHA,Atacante,5.61,3.62,-0.41,9
 Ítalo,CHA,Atacante,2.71,1.71,-0.71,15
 Anderson,CHA,Goleiro,5.87,3.45,-0.3,6
@@ -577,7 +578,6 @@ Mayk,REM,Lateral,6.54,3.15,0.85,10
 Catarozzi,REM,Meia,5.41,0.9,0.0,1
 David Braga,REM,Meia,3.11,1.52,-0.49,6
 Edson Fernando,REM,Meia,3.0,0.0,0.0,0
-Freitas,REM,Meia,1.0,0.0,0.0,0
 Giovanni Pavani,REM,Meia,2.82,0.75,0.0,2
 José Welison,REM,Meia,4.43,2.47,0.83,15
 Jáderson,REM,Meia,2.64,0.97,0.0,10
@@ -615,7 +615,7 @@ Igor Vinícius,SAN,Lateral,9.34,6.19,-0.34,12
 Mayke,SAN,Lateral,5.16,2.33,0.0,3
 Rafael Gonzaga,SAN,Lateral,2.79,2.4,0.0,1
 Souza,SAN,Lateral,8.0,0.0,0.0,0
-Vinicius Lira,SAN,Lateral,3.79,2.42,0.0,4
+Vini Lira,SAN,Lateral,3.79,2.42,0.0,4
 Barreal,SAN,Meia,11.27,4.55,1.79,14
 Gabriel Bontempo,SAN,Meia,4.71,3.54,-1.02,15
 Gabriel Menino,SAN,Meia,9.21,5.24,0.0,7
