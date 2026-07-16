@@ -44,6 +44,7 @@ Joaquín Correa,BOT,Atacante,5.11,1.17,0.0,6
 Júnior Santos,BOT,Atacante,4.55,2.24,0.0,8
 Kadir,BOT,Atacante,5.06,2.4,0.0,8
 Kauan Toledo,BOT,Atacante,1.95,1.77,-0.17,3
+Lucas Emanuel,BOT,Atacante,1.0,0.0,0.0,0
 Matheus Martins,BOT,Atacante,7.2,4.88,-0.12,14
 Nathan Fernandes,BOT,Atacante,5.61,3.17,0.0,3
 Villalba,BOT,Atacante,4.27,1.78,-0.5,8
@@ -68,7 +69,6 @@ Huguinho,BOT,Meia,6.02,5.13,2.09,3
 Marquinhos,BOT,Meia,0.85,0.0,0.0,1
 Medina,BOT,Meia,7.74,4.13,0.31,10
 Montoro,BOT,Meia,7.1,2.73,0.14,14
-Newton,BOT,Meia,4.18,1.94,-0.84,7
 Santi Rodríguez,BOT,Meia,6.04,2.4,-0.68,9
 Wallace Davi,BOT,Meia,4.0,0.0,0.0,0
 Franclim Carvalho,BOT,Técnico,11.21,5.07,-0.41,8
@@ -589,7 +589,6 @@ Yago Ferreira,REM,Meia,2.0,0.0,0.0,0
 Yago Pikachu,REM,Meia,5.25,2.44,0.13,17
 Zé Ricardo,REM,Meia,4.72,2.5,0.7,16
 Léo Condé,REM,Técnico,8.55,4.69,0.7,14
-Kayky Almeida,REM,Zagueiro,2.81,1.89,0.0,7
 Léo Andrade,REM,Zagueiro,4.79,2.95,0.0,4
 Marllon,REM,Zagueiro,6.15,3.08,0.64,18
 Matheus Felipe,REM,Zagueiro,3.0,0.0,0.0,0
@@ -599,6 +598,7 @@ Thalisson Gabriel,REM,Zagueiro,3.0,0.0,0.0,0
 Caballero,SAN,Atacante,3.83,1.6,0.0,1
 Fernando Pradella,SAN,Atacante,0.82,0.0,0.0,1
 Gabriel,SAN,Atacante,9.26,5.04,-1.31,11
+Lautaro Díaz,SAN,Atacante,5.26,2.28,0.0,8
 Mateus Xavier,SAN,Atacante,2.33,1.2,0.0,1
 Moisés,SAN,Atacante,4.78,2.35,0.0,13
 Nadson,SAN,Atacante,1.0,0.0,0.0,0
@@ -668,6 +668,7 @@ Hugo Leonardo,SAO,Meia,0.91,0.0,-0.09,1
 Luan,SAO,Meia,2.69,0.96,0.0,7
 Lucas Moura,SAO,Meia,7.5,2.32,0.0,8
 Marcos Antônio,SAO,Meia,6.14,2.6,-0.5,12
+Newton,SAO,Meia,4.18,1.94,-0.84,7
 Pablo Maia,SAO,Meia,4.14,1.27,-0.21,10
 Pedro Ferreira,SAO,Meia,1.51,1.2,0.0,2
 Dorival Júnior,SAO,Técnico,9.36,4.17,-0.54,11
@@ -753,4 +754,3 @@ Camutanga,VIT,Zagueiro,6.71,3.95,0.0,7
 Cauan Farias,VIT,Zagueiro,1.0,0.0,0.0,0
 Edu,VIT,Zagueiro,4.13,1.5,0.0,1
 Kauan Coutinho,VIT,Zagueiro,1.0,0.0,0.0,0
-Riccieli,VIT,Zagueiro,4.85,3.5,0.0,2
