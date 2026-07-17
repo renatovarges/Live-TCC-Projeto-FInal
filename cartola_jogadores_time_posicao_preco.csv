@@ -48,6 +48,7 @@ Lucas Emanuel,BOT,Atacante,1.0,0.0,0.0,0
 Matheus Martins,BOT,Atacante,7.2,4.88,-0.12,14
 Nathan Fernandes,BOT,Atacante,5.61,3.17,0.0,3
 Villalba,BOT,Atacante,4.27,1.78,-0.5,8
+Cléber Lucas,BOT,Goleiro,1.0,0.0,0.0,0
 Cristhian Loor,BOT,Goleiro,2.0,0.0,0.0,0
 Léo Linck,BOT,Goleiro,6.0,0.0,0.0,0
 Raul,BOT,Goleiro,5.49,3.71,0.94,7
@@ -70,11 +71,13 @@ Marquinhos,BOT,Meia,0.85,0.0,0.0,1
 Medina,BOT,Meia,7.74,4.13,0.31,10
 Montoro,BOT,Meia,7.1,2.73,0.14,14
 Santi Rodríguez,BOT,Meia,6.04,2.4,-0.68,9
+Victor Hugo,BOT,Meia,1.0,0.0,0.0,0
 Wallace Davi,BOT,Meia,4.0,0.0,0.0,0
 Franclim Carvalho,BOT,Técnico,11.21,5.07,-0.41,8
 Anthony,BOT,Zagueiro,3.0,0.0,0.0,0
 Bastos,BOT,Zagueiro,3.75,0.78,0.0,5
 Ferraresi,BOT,Zagueiro,5.26,2.5,-0.98,14
+Herick,BOT,Zagueiro,1.0,0.0,0.0,0
 Justino,BOT,Zagueiro,2.32,1.25,-0.24,6
 Kaio,BOT,Zagueiro,7.0,0.0,0.0,0
 Ythallo,BOT,Zagueiro,3.5,0.2,0.0,1
@@ -205,6 +208,7 @@ Everton,CHA,Lateral,3.6,1.87,-0.11,14
 Gustavo Talles,CHA,Lateral,2.0,0.0,0.0,0
 Mancha,CHA,Lateral,3.0,0.0,0.0,0
 Marcos Vinícius,CHA,Lateral,2.78,1.48,0.0,9
+Walter Clar,CHA,Lateral,7.26,4.68,0.0,10
 Bruno Matias,CHA,Meia,3.0,0.0,0.0,0
 Camilo,CHA,Meia,5.62,3.13,0.71,14
 Da Silva,CHA,Meia,3.0,0.0,0.0,0
@@ -594,6 +598,7 @@ Matheus Felipe,REM,Zagueiro,3.0,0.0,0.0,0
 Tassano,REM,Zagueiro,3.0,0.0,0.0,0
 Tchamba,REM,Zagueiro,5.11,2.08,1.05,14
 Thalisson Gabriel,REM,Zagueiro,3.0,0.0,0.0,0
+Zé Ivaldo,REM,Zagueiro,5.75,1.9,0.0,4
 Caballero,SAN,Atacante,3.83,1.6,0.0,1
 Fernando Pradella,SAN,Atacante,0.82,0.0,0.0,1
 Gabriel,SAN,Atacante,9.26,5.04,-1.31,11
@@ -634,7 +639,6 @@ João Alencar,SAN,Zagueiro,1.0,0.0,0.0,0
 João Ananias,SAN,Zagueiro,2.62,2.2,-0.06,3
 Luan Peres,SAN,Zagueiro,4.07,1.99,-0.16,14
 Lucas Veríssimo,SAN,Zagueiro,8.84,4.2,-0.27,11
-Zé Ivaldo,SAN,Zagueiro,5.75,1.9,0.0,4
 André Silva,SAO,Atacante,3.66,0.42,-0.59,10
 Artur,SAO,Atacante,9.24,5.62,-0.31,14
 Calleri,SAO,Atacante,11.7,5.87,-0.26,16
