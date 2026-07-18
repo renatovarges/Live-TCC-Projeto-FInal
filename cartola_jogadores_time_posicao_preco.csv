@@ -280,7 +280,6 @@ Wanderson,CRU,Atacante,4.07,1.29,0.0,14
 Cássio,CRU,Goleiro,6.89,1.32,0.0,5
 Léo Aragão,CRU,Goleiro,2.0,0.0,0.0,0
 Marcelo Eráclito,CRU,Goleiro,1.0,0.0,0.0,0
-Matheus Cunha,CRU,Goleiro,4.64,3.23,0.0,9
 Otávio,CRU,Goleiro,2.07,1.16,0.5,5
 Fagner,CRU,Lateral,5.28,2.46,0.3,12
 Gabriel Rojas,CRU,Lateral,6.0,0.0,0.0,0
@@ -424,6 +423,7 @@ Vitinho,INT,Atacante,7.38,4.5,-0.13,17
 Anthoni,INT,Goleiro,4.74,3.3,0.38,7
 Diego,INT,Goleiro,1.0,0.0,0.0,0
 Kauan Jesus,INT,Goleiro,1.0,0.0,0.0,0
+Matheus Cunha,INT,Goleiro,4.64,3.23,0.0,9
 Rochet,INT,Goleiro,6.28,3.33,0.0,11
 Aguirre,INT,Lateral,6.28,3.78,0.51,12
 Alisson,INT,Lateral,1.0,0.0,0.0,0
@@ -459,7 +459,6 @@ Fernandinho,MIR,Atacante,3.0,0.0,0.0,0
 Galeano,MIR,Atacante,4.42,1.19,0.0,10
 Nathan Fogaça,MIR,Atacante,4.85,2.88,0.0,9
 Negueba,MIR,Atacante,8.57,5.23,0.0,8
-Tiquinho Soares,MIR,Atacante,5.28,1.74,0.0,7
 Alex Muralha,MIR,Goleiro,2.64,-1.0,0.0,0
 Georgemy,MIR,Goleiro,3.0,0.0,0.0,0
 Thomazella,MIR,Goleiro,2.0,0.0,0.0,0
