@@ -39,14 +39,12 @@ Marcos Victor,BAH,Zagueiro,2.72,0.0,-0.28,1
 Santiago Mingo,BAH,Zagueiro,4.98,1.96,1.07,15
 Arthur Cabral,BOT,Atacante,10.58,6.69,0.46,14
 Arthur Izaque,BOT,Atacante,1.0,0.0,0.0,0
-Chris Ramos,BOT,Atacante,5.37,0.37,-0.75,3
 Joaquín Correa,BOT,Atacante,5.11,1.17,0.0,6
 Júnior Santos,BOT,Atacante,4.55,2.24,0.0,8
 Kadir,BOT,Atacante,5.06,2.4,0.0,8
 Kauan Toledo,BOT,Atacante,1.95,1.77,-0.17,3
 Lucas Emanuel,BOT,Atacante,1.0,0.0,0.0,0
 Matheus Martins,BOT,Atacante,7.2,4.88,-0.12,14
-Nathan Fernandes,BOT,Atacante,5.61,3.17,0.0,3
 Villalba,BOT,Atacante,4.27,1.78,-0.5,8
 Cléber Lucas,BOT,Goleiro,1.0,0.0,0.0,0
 Cristhian Loor,BOT,Goleiro,2.0,0.0,0.0,0
@@ -83,7 +81,7 @@ Ferraresi,BOT,Zagueiro,5.26,2.5,-0.98,14
 Herick,BOT,Zagueiro,1.0,0.0,0.0,0
 Justino,BOT,Zagueiro,2.32,1.25,-0.24,6
 Kaio,BOT,Zagueiro,7.0,0.0,0.0,0
-Monzón,BOT,Zagueiro,4.0,0.0,0.0,0
+Lucas Monzón,BOT,Zagueiro,4.0,0.0,0.0,0
 Ythallo,BOT,Zagueiro,3.5,0.2,0.0,1
 Cassierra,CAM,Atacante,5.4,2.08,0.0,14
 Cauã Soares,CAM,Atacante,1.24,0.64,-0.15,5
@@ -490,6 +488,7 @@ Belé,PAL,Atacante,3.0,0.0,0.0,0
 Eduardo,PAL,Atacante,1.0,0.0,0.0,0
 Flaco López,PAL,Atacante,14.91,6.74,0.0,17
 Luighi,PAL,Atacante,3.06,1.32,0.23,7
+Miguel Bilong,PAL,Atacante,2.0,0.0,0.0,0
 Paulinho,PAL,Atacante,11.1,3.44,-0.47,5
 Ramón Sosa,PAL,Atacante,5.72,2.53,0.0,15
 Riquelme Fillipi,PAL,Atacante,2.04,2.2,1.33,2
@@ -504,9 +503,9 @@ Khellven,PAL,Lateral,5.86,2.72,1.04,13
 Piquerez,PAL,Lateral,11.43,6.43,0.0,6
 Allan,PAL,Meia,12.0,6.2,-3.04,17
 Andreas Pereira,PAL,Meia,12.78,5.28,0.0,17
+Arias,PAL,Meia,13.77,6.49,0.0,13
 Emiliano Martínez,PAL,Meia,4.64,2.03,0.0,6
 Felipe Anderson,PAL,Meia,6.97,2.74,0.9,13
-Jhon Arias,PAL,Meia,13.77,6.49,0.0,13
 Larson,PAL,Meia,2.1,0.48,-0.34,4
 Lucas Evangelista,PAL,Meia,4.33,1.3,-0.15,16
 Luis Pacheco,PAL,Meia,1.98,0.0,-0.79,3
