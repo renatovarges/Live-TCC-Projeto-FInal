@@ -50,7 +50,6 @@ Villalba,BOT,Atacante,4.08,1.55,-0.19,9
 Cléber Lucas,BOT,Goleiro,1.0,0.0,0.0,0
 Cristhian Loor,BOT,Goleiro,2.0,0.0,0.0,0
 Gabriel Batista,BOT,Goleiro,3.0,0.0,0.0,0
-Léo Linck,BOT,Goleiro,6.0,0.0,0.0,0
 Raul,BOT,Goleiro,5.49,3.71,0.0,7
 Warleson,BOT,Goleiro,6.13,11.0,4.13,1
 Alex Telles,BOT,Lateral,10.07,4.11,0.99,15
@@ -170,7 +169,6 @@ Rodrigo Rodrigues,CFC,Atacante,4.0,0.0,0.0,0
 Ruan Assis,CFC,Atacante,1.0,0.0,0.0,0
 Thiago Azaf,CFC,Atacante,1.0,0.0,0.0,0
 Benassi,CFC,Goleiro,1.0,0.0,0.0,0
-Gabriel Leite,CFC,Goleiro,3.0,0.0,0.0,0
 Keiller,CFC,Goleiro,4.0,0.0,0.0,0
 Pedro Morisco,CFC,Goleiro,8.04,5.0,0.0,4
 Pedro Rangel,CFC,Goleiro,7.48,4.67,1.24,17
@@ -412,6 +410,7 @@ Vitor Ramon,GRE,Lateral,1.0,0.2,0.0,1
 Bernardo Zortea,GRE,Meia,0.77,0.13,0.0,3
 Dodi,GRE,Meia,3.04,0.13,0.0,6
 Jefinho,GRE,Meia,1.46,1.5,0.0,1
+Krovinovic,GRE,Meia,5.0,0.0,0.0,0
 Leonel Pérez,GRE,Meia,4.43,2.52,0.0,10
 Monsalve,GRE,Meia,3.12,0.64,0.0,7
 Nardoni,GRE,Meia,6.6,2.08,0.18,12
@@ -474,7 +473,6 @@ André Luis,MIR,Atacante,3.24,1.13,0.0,10
 Bruno Santos,MIR,Atacante,3.92,0.7,-0.08,1
 Carlos Eduardo,MIR,Atacante,5.04,3.2,-0.14,11
 Edson Carioca,MIR,Atacante,4.65,2.25,0.45,11
-Everton Galdino,MIR,Atacante,2.73,1.2,0.0,7
 Fernandinho,MIR,Atacante,4.11,3.5,1.11,1
 Galeano,MIR,Atacante,4.42,1.19,0.0,10
 Gustavo Mosquito,MIR,Atacante,4.64,0.2,-0.36,1
@@ -757,7 +755,6 @@ Mateus Silva,VIT,Lateral,4.95,4.85,0.0,2
 Nathan Mendes,VIT,Lateral,7.52,5.02,0.0,12
 Ramon,VIT,Lateral,8.17,5.17,-0.56,14
 Baralhas,VIT,Meia,9.5,5.34,0.34,14
-Cantalapiedra,VIT,Meia,4.26,1.09,0.0,7
 Caíque,VIT,Meia,4.94,2.26,0.65,15
 Dudu,VIT,Meia,5.01,3.95,0.0,2
 Edenílson,VIT,Meia,3.28,1.74,0.0,8
