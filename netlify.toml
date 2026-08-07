@@ -45,15 +45,19 @@
     Expires = "0"
 
 # Headers para arquivos estáticos
+# JS/CSS deste projeto mudam com frequência (lógica de times/jogadores) — cache de 1 ano
+# aqui já causou o navegador ficar rodando código antigo mesmo depois de um deploy novo.
+# max-age curto + must-revalidate: o navegador ainda usa o cache localmente, mas confere
+# com o servidor a cada acesso (barato, o servidor responde 304 se nada mudou).
 [[headers]]
   for = "*.js"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=300, must-revalidate"
 
 [[headers]]
   for = "*.css"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=300, must-revalidate"
 
 [[headers]]
   for = "*.png"
