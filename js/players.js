@@ -218,15 +218,19 @@ function processCartolaData(apiData) {
     const clube = apiData.clubes && apiData.clubes[clubeId];
 
     if (clube) {
-      // Deriva o slug pela abreviação/nome que a própria API já manda junto do jogador,
-      // em vez de uma tabela fixa de IDs — assim um clube recém-promovido (ou rebaixado)
-      // passa a funcionar automaticamente, sem precisar lembrar de atualizar um mapeamento manual.
-      const clubeSlug = CLUB_MAPPING[clube.abreviacao] || normalizeClub(clube.nome_fantasia || clube.nome);
+      // Deriva o slug pelo campo 'slug' que a própria API já manda (temporada 2026), com
+      // fallback pra abreviação/nome — em vez de uma tabela fixa de IDs, assim um clube
+      // recém-promovido (ou rebaixado) passa a funcionar automaticamente, sem precisar
+      // lembrar de atualizar um mapeamento manual.
+      const clubeSlug = clube.slug || CLUB_MAPPING[clube.abreviacao] || normalizeClub(clube.nome_fantasia || clube.nome);
+      // Na temporada 2026 a API passou a mandar só a sigla em nome/nome_fantasia (ex: "CFC"),
+      // então busca o nome de exibição de verdade na lista de clubes já usada no cabeçalho.
+      const clubeInfo = (window.CLUBS || []).find(c => c.slug === clubeSlug);
       const posicao = API_POSITION_MAPPING[atleta.posicao_id] || 'MEI';
 
       players.push({
         nome: atleta.apelido || atleta.nome,
-        clube: clube.nome_fantasia || clube.nome,
+        clube: clubeInfo ? clubeInfo.name : (clube.nome_fantasia || clube.nome),
         clubeSlug: clubeSlug,
         posicao: posicao,
         preco: atleta.preco_num.toFixed(2), // Preço já vem em reais
