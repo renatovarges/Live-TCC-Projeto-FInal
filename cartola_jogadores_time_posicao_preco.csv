@@ -15,7 +15,6 @@ Iuri,BAH,Goleiro,1.0,0.0,0.0,0
 Léo Vieira,BAH,Goleiro,6.82,5.02,0.0,16
 Ronaldo,BAH,Goleiro,9.57,5.39,2.65,11
 Victor Nascimento,BAH,Goleiro,1.0,0.0,0.0,0
-Iago,BAH,Lateral,4.5,2.2,0.0,4
 Luciano Juba,BAH,Lateral,11.92,7.45,1.0,17
 Román Gómez,BAH,Lateral,9.09,5.47,1.38,6
 Zé Guilherme,BAH,Lateral,3.68,1.7,0.0,3
@@ -273,8 +272,10 @@ Arroyo,CRU,Atacante,5.43,3.15,0.06,17
 Bruno Rodrigues,CRU,Atacante,2.81,1.49,-0.31,13
 Chico da Costa,CRU,Atacante,3.81,1.24,0.0,7
 Gabriel Pec,CRU,Atacante,7.94,4.1,0.0,1
+João Costa,CRU,Atacante,5.0,0.0,0.0,0
 Kaio Jorge,CRU,Atacante,10.7,4.61,-0.71,15
 Kaique Kenji,CRU,Atacante,2.36,1.26,-0.07,8
+Lucho Rodríguez,CRU,Atacante,7.0,0.0,0.0,0
 Marquinhos,CRU,Atacante,3.54,0.45,-0.7,2
 Rayan Lelis,CRU,Atacante,2.0,0.0,0.0,0
 Sinisterra,CRU,Atacante,5.85,3.27,0.0,8
@@ -616,8 +617,8 @@ Lautaro Díaz,SAN,Atacante,5.26,2.28,0.0,8
 Mateus Xavier,SAN,Atacante,2.33,1.2,0.0,1
 Moisés,SAN,Atacante,4.78,2.35,0.0,13
 Nadson,SAN,Atacante,1.0,0.0,0.0,0
+R. Rústico,SAN,Atacante,5.43,2.21,0.0,14
 Robinho Jr.,SAN,Atacante,2.76,0.62,0.0,4
-Rony,SAN,Atacante,5.43,2.21,0.0,14
 Diógenes,SAN,Goleiro,5.0,5.55,0.0,2
 Gabriel Brazão,SAN,Goleiro,5.25,2.49,0.0,16
 João Paulo,SAN,Goleiro,5.2,0.15,0.0,2
@@ -665,6 +666,7 @@ Young,SAO,Goleiro,3.0,0.0,0.0,0
 Buta,SAO,Lateral,5.0,0.0,0.0,0
 Cédric Soares,SAO,Lateral,3.73,0.94,0.0,8
 Enzo Díaz,SAO,Lateral,9.04,3.9,0.0,13
+Iago,SAO,Lateral,4.5,2.2,0.0,4
 Igor Felisberto,SAO,Lateral,1.0,0.0,0.0,0
 Lucas Ramon,SAO,Lateral,10.42,5.6,0.0,14
 Maik,SAO,Lateral,5.52,3.48,0.0,5
@@ -683,6 +685,7 @@ Pablo Maia,SAO,Meia,4.19,1.38,0.0,12
 Pedro Ferreira,SAO,Meia,1.51,1.2,0.0,2
 Dorival Júnior,SAO,Técnico,9.61,4.17,0.0,13
 Arboleda,SAO,Zagueiro,9.8,4.47,0.0,8
+Domingos Duarte,SAO,Zagueiro,5.0,0.0,0.0,0
 Isac,SAO,Zagueiro,1.0,0.0,0.0,0
 Osorio,SAO,Zagueiro,3.21,3.05,0.0,4
 Rafael Tolói,SAO,Zagueiro,6.92,4.1,0.0,6
