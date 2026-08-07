@@ -39,7 +39,6 @@ Santiago Mingo,BAH,Zagueiro,4.8,2.07,0.42,18
 Arthur Cabral,BOT,Atacante,10.19,6.45,0.0,15
 Arthur Izaque,BOT,Atacante,1.0,0.0,0.0,0
 Danilo Pereira,BOT,Atacante,5.0,0.0,0.0,0
-Joaquín Correa,BOT,Atacante,5.11,1.17,0.0,6
 Júnior Santos,BOT,Atacante,4.55,2.24,0.0,8
 Kadir,BOT,Atacante,4.15,2.12,0.0,9
 Kauan Toledo,BOT,Atacante,1.79,1.38,0.0,4
@@ -223,7 +222,6 @@ Rafael Carvalheira,CHA,Meia,5.7,2.72,0.0,14
 Robert,CHA,Meia,3.51,3.0,0.0,1
 Vinícius Balieiro,CHA,Meia,3.62,1.84,0.0,5
 Rafael Lacerda,CHA,Técnico,8.04,3.44,0.0,2
-Bruno Leonardo,CHA,Zagueiro,2.91,1.34,0.0,15
 Eduardo Doma,CHA,Zagueiro,4.09,2.39,0.0,17
 João Paulo,CHA,Zagueiro,4.8,3.3,0.0,6
 Kauan,CHA,Zagueiro,1.0,0.0,0.0,0
@@ -627,7 +625,6 @@ Rodrigo Falcão,SAN,Goleiro,1.0,0.0,0.0,0
 Davizinho,SAN,Lateral,0.81,0.0,0.0,2
 Escobar,SAN,Lateral,10.17,6.31,0.0,13
 Igor Vinícius,SAN,Lateral,9.33,5.82,0.0,13
-Mayke,SAN,Lateral,5.16,2.33,0.0,3
 Rafael Gonzaga,SAN,Lateral,2.79,2.4,0.0,1
 Vini Lira,SAN,Lateral,3.79,2.42,0.0,4
 Barreal,SAN,Meia,11.12,4.79,0.0,15
@@ -694,6 +691,7 @@ Andrey Fernandes,VAS,Atacante,1.41,1.7,0.0,1
 Andrés Gómez,VAS,Atacante,13.56,7.66,0.0,17
 Brenner,VAS,Atacante,7.07,2.98,0.0,13
 Bruno Lopes,VAS,Atacante,1.57,1.7,0.0,1
+Colidio,VAS,Atacante,7.0,0.0,0.0,0
 David,VAS,Atacante,4.17,2.19,0.0,16
 João Vitor,VAS,Atacante,3.49,3.13,0.0,4
 Marino Hinestroza,VAS,Atacante,5.76,1.93,0.0,8
