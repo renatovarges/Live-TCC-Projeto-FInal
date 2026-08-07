@@ -63,9 +63,16 @@ function kitPath(slug){
   return `assets/uniformes/${uniformName} uniforme.png`;
 }
 
+// Foto real do jogador via CDN público (provaveisdocartola.com.br), hotlink direto pelo ID do atleta.
+// Só existe para jogadores que vieram da API do Cartola (atletaId presente); CSV-only não tem ID.
+function playerPhotoPath(atletaId){
+  return atletaId ? `https://cdn.provaveisdocartola.com.br/atletas/${atletaId}.webp` : null;
+}
+
 window.normalizeClub = normalizeClub;
 window.shieldPath = shieldPath;
 window.kitPath = kitPath;
+window.playerPhotoPath = playerPhotoPath;
 
 // lista base para o cabeçalho (ordem alfabética)
 window.CLUBS = [

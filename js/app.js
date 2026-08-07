@@ -74,9 +74,13 @@ console.log('App.js carregado - iniciando execução');
       openTeamPlayerSelection(data, x, y);
     } else {
       // Verificar se o jogador já existe no campo para evitar duplicação
+      // IMPORTANTE: comparar nome E clube — vários jogadores têm o mesmo nome
+      // em clubes diferentes (ex: "Vitinho" no Botafogo, Athletico-PR, Corinthians
+      // e Internacional), então comparar só pelo nome move o jogador errado.
       const existingBadge = Array.from(field.querySelectorAll('.badge')).find(badge => {
-        return badge.dataset.type === 'player' && 
-               badge.querySelector('.name').textContent === data.name;
+        return badge.dataset.type === 'player' &&
+               badge.querySelector('.name').textContent === data.name &&
+               badge.dataset.club === (data.club || '');
       });
       
       if(existingBadge) {
@@ -92,24 +96,14 @@ console.log('App.js carregado - iniciando execução');
 
   // Função para abrir seleção de jogadores do time
   function openTeamPlayerSelection(teamData, x, y) {
-    // Primeiro carrega o CSV se ainda não foi carregado
+    // Se os dados ainda não terminaram de carregar (autoLoadData é assíncrono),
+    // reaproveita o carregador oficial (que preenche clubeSlug/posicao corretamente)
+    // em vez de reimplementar o parse do CSV aqui.
     if(PLAYERS_API.STATE.players.length === 0) {
-      // Tenta carregar o CSV automaticamente
-      fetch('cartola_jogadores_time_posicao_preco.csv')
-        .then(response => response.text())
-        .then(csvText => {
-          const rows = PLAYERS_API.parseCSV(csvText);
-          const mapped = rows.map(r => ({
-            nome: r.nome || r.name || '',
-            clube: r.clube || r.time || r.clube_time || '',
-            posicao: (r.posicao || r.pos || '').toUpperCase(),
-            preco: r.preco || r.price || ''
-          }));
-          PLAYERS_API.STATE.players = mapped;
-          showTeamPlayersModal(teamData, x, y);
-        })
+      PLAYERS_API.loadData()
+        .then(() => showTeamPlayersModal(teamData, x, y))
         .catch(() => {
-          alert('Carregue o arquivo CSV primeiro para selecionar jogadores!');
+          alert('Não foi possível carregar os dados dos jogadores. Tente novamente.');
         });
     } else {
       showTeamPlayersModal(teamData, x, y);
@@ -207,7 +201,8 @@ console.log('App.js carregado - iniciando execução');
               type: 'player',
               name: player.nome,
               club: player.clube,
-              slug: teamData.slug
+              slug: teamData.slug,
+              atletaId: player.atletaId
             }, x, y);
           };
           posSection.appendChild(playerBtn);
@@ -245,6 +240,7 @@ console.log('App.js carregado - iniciando execução');
     badge.style.left = x + 'px';
     badge.style.top = y + 'px';
     badge.dataset.type = data.type;
+    badge.dataset.club = data.club || '';
     badge.draggable = false; // Desabilitar HTML5 drag para evitar duplicação
 
     const circle = document.createElement('div');
@@ -252,12 +248,22 @@ console.log('App.js carregado - iniciando execução');
     const img = document.createElement('img');
     const slug = data.slug || normalizeClub(data.club || data.name);
     
-    // Sempre usar uniforme para jogadores
+    // Jogador: tenta a foto real (CDN, precisa do atletaId da API); se não tiver
+    // ou a foto falhar, cai pro uniforme e, em último caso, pro escudo do clube.
     if(data.type === 'player') {
-      img.src = kitPath(slug);
-      img.onerror = () => {
-        img.src = shieldPath(slug);
-      };
+      const photo = playerPhotoPath(data.atletaId);
+      if(photo){
+        img.src = photo;
+        img.onerror = () => {
+          img.onerror = () => { img.src = shieldPath(slug); };
+          img.src = kitPath(slug);
+        };
+      } else {
+        img.src = kitPath(slug);
+        img.onerror = () => {
+          img.src = shieldPath(slug);
+        };
+      }
     } else {
       img.src = shieldPath(slug);
     }
@@ -776,7 +782,7 @@ console.log('App.js carregado - iniciando execução');
        card.appendChild(add);
        
        // Tornar arrastável
-       DND.makeDraggable(card, {type:'player', name:p.nome, club:p.clube, slug, source:'search'});
+       DND.makeDraggable(card, {type:'player', name:p.nome, club:p.clube, slug, atletaId:p.atletaId, source:'search'});
        resultsRow.appendChild(card);
      });
    }
@@ -831,7 +837,7 @@ console.log('App.js carregado - iniciando execução');
        card.appendChild(remove);
        
        // Tornar arrastável para o campo
-       DND.makeDraggable(card, {type:'player', name:p.nome, club:p.clube, slug, source:'selected'});
+       DND.makeDraggable(card, {type:'player', name:p.nome, club:p.clube, slug, atletaId:p.atletaId, source:'selected'});
        selectedRow.appendChild(card);
      });
    }
@@ -1034,24 +1040,14 @@ console.log('App.js carregado - iniciando execução');
 
    // Função para abrir seleção de jogadores específica para o muro
    function openTeamPlayerSelectionForMuro(teamData) {
-     // Primeiro carrega o CSV se ainda não foi carregado
+     // Se os dados ainda não terminaram de carregar (autoLoadData é assíncrono),
+     // reaproveita o carregador oficial (que preenche clubeSlug/posicao corretamente)
+     // em vez de reimplementar o parse do CSV aqui.
      if(PLAYERS_API.STATE.players.length === 0) {
-       // Tenta carregar o CSV automaticamente
-       fetch('cartola_jogadores_time_posicao_preco.csv')
-         .then(response => response.text())
-         .then(csvText => {
-           const rows = PLAYERS_API.parseCSV(csvText);
-           const mapped = rows.map(r => ({
-             nome: r.nome || r.name || '',
-             clube: r.clube || r.time || r.clube_time || '',
-             posicao: (r.posicao || r.pos || '').toUpperCase(),
-             preco: r.preco || r.price || ''
-           }));
-           PLAYERS_API.STATE.players = mapped;
-           showTeamPlayersModalForMuro(teamData);
-         })
+       PLAYERS_API.loadData()
+         .then(() => showTeamPlayersModalForMuro(teamData))
          .catch(() => {
-           alert('Carregue o arquivo CSV primeiro para selecionar jogadores!');
+           alert('Não foi possível carregar os dados dos jogadores. Tente novamente.');
          });
      } else {
        showTeamPlayersModalForMuro(teamData);
@@ -1142,7 +1138,8 @@ console.log('App.js carregado - iniciando execução');
                type: 'player',
                name: player.nome,
                club: player.clube,
-               slug: teamData.slug
+               slug: teamData.slug,
+               atletaId: player.atletaId
              }, muroType, targetSection);
              modal.remove(); // Fechar modal após seleção
            };

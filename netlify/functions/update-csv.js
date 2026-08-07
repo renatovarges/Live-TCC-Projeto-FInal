@@ -46,15 +46,6 @@ exports.handler = async (event, context) => {
     const data = await response.json();
     console.log(`[CSV Update] Dados recebidos: ${Object.keys(data.atletas || {}).length} atletas`);
 
-    // Mapeamento de clubes da API
-    const API_CLUB_MAPPING = {
-      263: 'Botafogo', 264: 'Corinthians', 265: 'Bahia', 266: 'Fluminense', 267: 'Vasco',
-      275: 'Palmeiras', 276: 'São Paulo', 277: 'Santos', 285: 'Atlético-MG',
-      293: 'Grêmio', 294: 'Internacional', 356: 'Fortaleza', 373: 'Cruzeiro',
-      1371: 'Juventude', 1372: 'Ceará', 1373: 'Sport', 1376: 'Vitória',
-      1377: 'Red Bull Bragantino', 2305: 'Mirassol'
-    };
-
     // Mapeamento de posições da API
     const API_POSITION_MAPPING = {
       1: 'Goleiro', 2: 'Lateral', 3: 'Zagueiro', 4: 'Meia', 5: 'Atacante', 6: 'Técnico'
@@ -66,9 +57,12 @@ exports.handler = async (event, context) => {
 
     Object.values(data.atletas).forEach(atleta => {
       const clubeId = atleta.clube_id;
-      const clubeNome = API_CLUB_MAPPING[clubeId];
-      
-      if (clubeNome && data.clubes[clubeId]) {
+      const clube = data.clubes && data.clubes[clubeId];
+
+      // Usa o nome que a própria API já manda pra cada clube, em vez de uma tabela fixa de IDs
+      // (uma lista manual sempre fica desatualizada quando um time sobe/desce de divisão).
+      if (clube) {
+        const clubeNome = clube.nome_fantasia || clube.nome;
         const posicao = API_POSITION_MAPPING[atleta.posicao_id] || 'Meia';
         const nome = (atleta.apelido || atleta.nome).replace(/,/g, ''); // Remover vírgulas
         const preco = atleta.preco_num.toFixed(2);

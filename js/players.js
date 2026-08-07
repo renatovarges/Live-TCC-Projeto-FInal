@@ -197,30 +197,6 @@ async function fetchCartolaAPI() {
 
 
 
-// Mapeamento de IDs dos clubes da API para slugs locais
-const API_CLUB_MAPPING = {
-  262: 'flamengo',
-  263: 'botafogo', 
-  264: 'corinthians',
-  265: 'bahia',
-  266: 'fluminense',
-  267: 'vasco',
-  275: 'palmeiras',
-  276: 'sao-paulo',
-  277: 'santos',
-  285: 'atletico-mg',
-  293: 'gremio',
-  294: 'internacional',
-  356: 'fortaleza',
-  373: 'cruzeiro',
-  1371: 'juventude',
-  1372: 'ceara',
-  1373: 'sport',
-  1376: 'vitoria',
-  1377: 'red-bull-bragantino',
-  2305: 'mirassol'
-};
-
 // Mapeamento de posições da API
 const API_POSITION_MAPPING = {
   1: 'GOL', // Goleiro
@@ -239,12 +215,15 @@ function processCartolaData(apiData) {
   
   Object.values(apiData.atletas).forEach(atleta => {
     const clubeId = atleta.clube_id;
-    const clubeSlug = API_CLUB_MAPPING[clubeId];
-    
-    if (clubeSlug && apiData.clubes[clubeId]) {
-      const clube = apiData.clubes[clubeId];
+    const clube = apiData.clubes && apiData.clubes[clubeId];
+
+    if (clube) {
+      // Deriva o slug pela abreviação/nome que a própria API já manda junto do jogador,
+      // em vez de uma tabela fixa de IDs — assim um clube recém-promovido (ou rebaixado)
+      // passa a funcionar automaticamente, sem precisar lembrar de atualizar um mapeamento manual.
+      const clubeSlug = CLUB_MAPPING[clube.abreviacao] || normalizeClub(clube.nome_fantasia || clube.nome);
       const posicao = API_POSITION_MAPPING[atleta.posicao_id] || 'MEI';
-      
+
       players.push({
         nome: atleta.apelido || atleta.nome,
         clube: clube.nome_fantasia || clube.nome,
@@ -255,7 +234,8 @@ function processCartolaData(apiData) {
         variacao: atleta.variacao_num ? (atleta.variacao_num / 100).toFixed(2) : '0.00',
         jogos: atleta.jogos_num || 0,
         status: atleta.status_id,
-        foto: atleta.foto
+        foto: atleta.foto,
+        atletaId: atleta.atleta_id // usado para montar a URL da foto real (CDN provaveisdocartola.com.br)
       });
     }
   });
@@ -442,7 +422,7 @@ function renderSelected(pos){
     addBtn.className = 'btn-mini';
     addBtn.textContent = 'Arrastar';
     // torna arrastável pro campo/reservas
-    DND.makeDraggable(card, {type:'player', name:p.nome, club:p.clube, slug, source:'selected'});
+    DND.makeDraggable(card, {type:'player', name:p.nome, club:p.clube, slug, atletaId:p.atletaId, source:'selected'});
     // remover na barra
     const x = document.createElement('button');
     x.className = 'btn-mini';
@@ -751,6 +731,5 @@ window.PLAYERS_API = {
   STATE,
   CLUB_MAPPING,
   POSITION_MAPPING,
-  API_CLUB_MAPPING,
   API_POSITION_MAPPING
 };
