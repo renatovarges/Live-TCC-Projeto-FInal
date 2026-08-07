@@ -218,11 +218,13 @@ function processCartolaData(apiData) {
     const clube = apiData.clubes && apiData.clubes[clubeId];
 
     if (clube) {
-      // Deriva o slug pelo campo 'slug' que a própria API já manda (temporada 2026), com
-      // fallback pra abreviação/nome — em vez de uma tabela fixa de IDs, assim um clube
-      // recém-promovido (ou rebaixado) passa a funcionar automaticamente, sem precisar
-      // lembrar de atualizar um mapeamento manual.
-      const clubeSlug = clube.slug || CLUB_MAPPING[clube.abreviacao] || normalizeClub(clube.nome_fantasia || clube.nome);
+      // Deriva o slug pela abreviação (bate com os nomes de arquivo em assets/), com
+      // fallback pro campo 'slug' da própria API — em vez de uma tabela fixa de IDs, assim
+      // um clube recém-promovido (ou rebaixado) passa a funcionar automaticamente, sem
+      // precisar lembrar de atualizar um mapeamento manual.
+      // OBS: o 'slug' da API não é confiável como fonte primária — pra Athletico-PR ele
+      // vem como "atletico-pr" (sem "h"), diferente do nome usado nos nossos assets/escudos.
+      const clubeSlug = CLUB_MAPPING[clube.abreviacao] || clube.slug || normalizeClub(clube.nome_fantasia || clube.nome);
       // Na temporada 2026 a API passou a mandar só a sigla em nome/nome_fantasia (ex: "CFC"),
       // então busca o nome de exibição de verdade na lista de clubes já usada no cabeçalho.
       const clubeInfo = (window.CLUBS || []).find(c => c.slug === clubeSlug);
