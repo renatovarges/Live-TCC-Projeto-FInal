@@ -98,6 +98,7 @@ Alan Franco,CAM,Meia,4.88,2.34,-0.11,16
 Alexsander,CAM,Meia,4.85,0.84,0.0,5
 Bernard,CAM,Meia,5.6,3.28,0.78,18
 Cissé,CAM,Meia,2.29,1.71,-0.13,11
+Fred,CAM,Meia,9.0,0.0,0.0,0
 Gustavo Scarpa,CAM,Meia,7.06,3.09,0.0,10
 Gutte,CAM,Meia,1.0,0.0,0.0,0
 Igor Gomes,CAM,Meia,4.58,1.5,-1.04,7
@@ -135,7 +136,6 @@ Gilberto Junior,CAP,Lateral,6.14,4.62,0.0,6
 Léo Derik,CAP,Lateral,5.81,3.65,0.0,9
 Vitinho,CAP,Lateral,1.0,0.0,0.0,0
 Alejandro García,CAP,Meia,4.0,0.0,0.0,0
-Dantas,CAP,Meia,5.1,1.5,0.1,1
 Dudu,CAP,Meia,2.1,1.67,-0.26,13
 Felipe Chiqueti,CAP,Meia,2.07,1.35,0.0,7
 Felipinho,CAP,Meia,4.79,2.99,-0.78,8
@@ -149,6 +149,7 @@ Zapelli,CAP,Meia,4.23,1.37,0.0,13
 Odair Hellmann,CAP,Técnico,9.44,5.89,0.32,20
 Aguirre,CAP,Zagueiro,6.59,3.86,0.52,17
 Arthur Dias,CAP,Zagueiro,6.45,3.72,0.46,18
+Dantas,CAP,Zagueiro,5.1,1.5,0.1,1
 Léo,CAP,Zagueiro,6.77,4.9,0.0,2
 Terán,CAP,Zagueiro,6.98,4.09,0.0,13
 Breno Lopes,CFC,Atacante,9.19,5.33,0.1,19
@@ -579,7 +580,6 @@ Gabriel Poveda,REM,Atacante,2.68,0.66,0.0,11
 Gabriel Taliari,REM,Atacante,10.06,5.7,1.17,10
 Galeano,REM,Atacante,4.42,1.19,0.0,10
 Jajá,REM,Atacante,7.63,5.59,0.89,18
-Rafael Monti,REM,Atacante,3.56,0.0,0.0,1
 Tico,REM,Atacante,1.1,0.5,0.0,1
 Ivan,REM,Goleiro,7.58,10.2,0.0,1
 João Victor,REM,Goleiro,1.0,0.0,0.0,0
@@ -588,6 +588,7 @@ Marcos Alexandre,REM,Goleiro,1.0,0.0,0.0,0
 Ygor Vinhas,REM,Goleiro,3.0,0.0,0.0,0
 João Lucas,REM,Lateral,4.59,2.82,0.0,6
 Marcelinho,REM,Lateral,5.98,5.1,0.0,18
+Marlon,REM,Lateral,5.0,0.0,0.0,0
 Matheus Alexandre,REM,Lateral,4.19,1.92,0.06,11
 Mayk,REM,Lateral,5.75,3.27,-0.28,14
 Catarozzi,REM,Meia,5.41,0.9,0.0,1
