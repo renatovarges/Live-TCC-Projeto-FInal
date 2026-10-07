@@ -202,6 +202,7 @@ Rodrigo,CHA,Atacante,1.0,0.0,0.0,0
 Rubens,CHA,Atacante,2.38,1.24,0.0,10
 Túlio Eduardo,CHA,Atacante,7.13,4.43,1.26,7
 Anderson,CHA,Goleiro,6.72,3.72,1.37,13
+Gabriel Werner,CHA,Goleiro,2.0,0.0,0.0,0
 Kainã,CHA,Goleiro,1.0,0.0,0.0,0
 Matheus Aurélio,CHA,Goleiro,2.61,1.7,0.0,2
 Rafael Santos,CHA,Goleiro,4.94,3.75,0.0,4
@@ -311,6 +312,7 @@ Rhuan Gabriel,CRU,Meia,1.39,1.2,0.0,1
 Zé Lucas,CRU,Meia,4.87,2.13,-0.25,7
 Artur Jorge,CRU,Técnico,11.85,6.46,0.32,20
 Fabrício Bruno,CRU,Zagueiro,5.48,1.81,0.23,24
+Gustavo Inácio,CRU,Zagueiro,1.0,0.0,0.0,0
 Jonathan Jesus,CRU,Zagueiro,7.06,4.39,1.03,17
 João Marcelo,CRU,Zagueiro,3.77,2.14,-0.1,13
 Kelvin,CRU,Zagueiro,1.0,0.0,0.0,0
@@ -404,6 +406,7 @@ Thiago Beltrame,GRE,Goleiro,2.08,0.7,0.0,1
 Weverton,GRE,Goleiro,10.2,5.26,2.72,24
 Caio Paulista,GRE,Lateral,5.54,3.08,0.0,9
 Diego Caito,GRE,Lateral,6.68,4.55,0.0,6
+Emanuel,GRE,Lateral,1.0,0.0,0.0,0
 João Pedro,GRE,Lateral,3.25,1.0,0.52,7
 Marcos Rocha,GRE,Lateral,6.39,1.94,0.44,5
 Marlon,GRE,Lateral,8.13,4.68,0.0,10
@@ -413,6 +416,7 @@ Bernardo Zortea,GRE,Meia,1.72,1.17,0.0,4
 Danilo Barbosa,GRE,Meia,4.05,0.8,-0.56,4
 Dodi,GRE,Meia,2.3,-0.01,0.0,8
 Jefinho,GRE,Meia,1.46,1.5,0.0,1
+João Borne,GRE,Meia,1.0,0.0,0.0,0
 Krovinovic,GRE,Meia,4.71,2.14,0.0,5
 Nardoni,GRE,Meia,6.05,1.89,0.0,16
 Riquelme,GRE,Meia,2.42,-1.45,0.0,2
@@ -578,6 +582,7 @@ Gustavo Marques,RBB,Zagueiro,6.81,4.46,-0.57,23
 Guzmán Rodríguez,RBB,Zagueiro,5.58,1.5,-0.89,2
 Lucas Cunha,RBB,Zagueiro,3.0,0.0,0.0,0
 Weimar Palacios,RBB,Zagueiro,1.0,0.0,0.0,0
+Andrés González,REM,Atacante,1.0,0.0,0.0,0
 Eduardo Melo,REM,Atacante,2.13,1.4,0.0,1
 Filipe Lima,REM,Atacante,1.0,0.0,0.0,0
 Gabriel Poveda,REM,Atacante,1.97,0.43,-0.71,15
