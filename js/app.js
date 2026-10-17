@@ -423,6 +423,10 @@
   function buildRoster(){
     const root = $('#roster');
     const head = el('div', 'roster-head');
+    const hide = el('button', 'roster-hide', '›');
+    hide.type = 'button'; hide.title = 'Recolher a lista de jogadores';
+    hide.addEventListener('click', () => setRosterHidden(true));
+    head.appendChild(hide);
     head.appendChild(el('h2', 'box-title', 'JOGADORES'));
     const clear = el('button', 'btn-mini', 'Limpar lista');
     clear.type = 'button';
@@ -576,6 +580,15 @@
     if (pickerSlug && !e.target.closest('#picker, .team-pill, #roster')) closePicker();
   });
 
+  /* ---------- Recolher a lista de jogadores ---------- */
+  function applyRoster(){
+    $('#layout').classList.toggle('roster-off', !!S.rosterHidden);
+    $('#rosterTab').hidden = !S.rosterHidden;
+  }
+  function setRosterHidden(v){
+    S.rosterHidden = v; save(); applyRoster();
+  }
+
   /* ---------- Botões gerais ---------- */
   function wireButtons(){
     $('#spawnStar').addEventListener('click', () => {
@@ -594,6 +607,7 @@
       State.reset();
       commit(); renderTabs();
     });
+    $('#rosterTab').addEventListener('click', () => setRosterHidden(false));
     $('#force-update-btn').addEventListener('click', () => Data.load());
     window.addEventListener('data-loading', renderUpdateInfo);
     window.addEventListener('data-ready', () => {
@@ -610,6 +624,7 @@
     renderFields();
     renderStructure();
     renderRosterGrids();
+    applyRoster();
     if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
     Data.load();
     setInterval(() => Data.load(), 5 * 60 * 1000); // preços e mercado

@@ -177,3 +177,14 @@ button{font-family:inherit}
 .res-row .st{font-size:10px;font-weight:800;border-radius:6px;padding:1px 5px;background:#444;color:#fff}
 .res-row .st2{background:#eab308;color:#222}.res-row .st5,.res-row .st3{background:#ef4444}.res-row .st6{background:#6b7280}
 .pos-search .picker-opt{margin:6px 2px 0}
+
+/* Recolher a lista de jogadores (libera a tela para os campos) */
+.layout.roster-off{grid-template-columns:300px minmax(0,1fr)}
+.layout.compare.roster-off{grid-template-columns:minmax(0,1fr)}
+.layout.roster-off .roster{display:none}
+.roster-hide{background:#0e231a;border:1px solid #21c35c77;color:var(--accent);border-radius:8px;width:30px;height:30px;font-size:20px;font-weight:800;line-height:1;cursor:pointer;margin-right:8px}
+.roster-hide:hover{background:#15663f}
+.roster-head{justify-content:flex-start}.roster-head .box-title{flex:1}
+.roster-tab{position:fixed;right:0;top:45%;z-index:60;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:0;border-radius:12px 0 0 12px;padding:14px 8px;font-weight:800;font-size:13px;letter-spacing:1px;cursor:pointer;writing-mode:vertical-rl;box-shadow:-4px 4px 16px rgba(0,0,0,.4)}
+.roster-tab[hidden]{display:none}
+@media (max-width:1280px){.layout.roster-off .roster{display:none}}

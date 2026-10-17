@@ -13,6 +13,7 @@
       fields: [{ id: uid(), name: 'Campo 1', items: [] }],
       active: 0,
       compare: false,
+      rosterHidden: false,
       boxes: Object.fromEntries(BOXES.map(b => [b, []])), // linhas ofensiva/defensiva
       muro: { negativo: [], centro: [], positivo: [] },
       reserves: [null, null, null, null, null, null]
