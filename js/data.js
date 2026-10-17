@@ -141,12 +141,16 @@
               .slice(0, limit || 30);
   }
 
-  // Foto real do jogador (CDN público pelo ID do atleta); sem ID cai no uniforme/escudo.
-  function photoUrl(p){ return p && p.i ? window.playerPhotoPath(p.i) : null; }
+  // Fotos do jogador pelo ID do atleta: cópia local em assets/jogadores (rápida) e depois o CDN.
+  // Sem nenhuma das duas, a interface cai no uniforme/escudo.
+  function photoUrls(p){
+    if (!p || !p.i) return [];
+    return ['assets/jogadores/' + p.i + '.webp', window.playerPhotoPath(p.i)];
+  }
 
   // Snapshot guardado no estado salvo (leve, independe de a lista ter carregado)
   function snap(p){ return { k:p.k, n:p.n, s:p.s, c:p.c, p:p.p, i:p.i }; }
 
-  window.Data = { load, byClub, search, photoUrl, snap, clubName, info, POS_ORDER, POS_LABEL,
+  window.Data = { load, byClub, search, photoUrls, snap, clubName, info, POS_ORDER, POS_LABEL,
                   get all(){ return all; }, get(k){ return byKey.get(k); } };
 })();

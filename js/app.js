@@ -24,12 +24,10 @@
     const img = new Image();
     img.alt = P.n; img.draggable = false;
     img.referrerPolicy = 'no-referrer'; // o CDN das fotos devolve 403 quando recebe Referer de outro site
-    const chain = [];
-    const url = Data.photoUrl(P);
-    if (url) chain.push(url);
-    chain.push(kitPath(P.s), shieldPath(P.s));
+    const photos = Data.photoUrls(P);
+    const chain = [...photos, kitPath(P.s), shieldPath(P.s)];
     let i = 0;
-    const apply = () => { img.src = chain[i]; ph.classList.toggle('photo', !!url && i === 0); };
+    const apply = () => { img.src = chain[i]; ph.classList.toggle('photo', i < photos.length); };
     img.onerror = () => { if (++i < chain.length) apply(); else img.onerror = null; };
     apply();
     ph.appendChild(img);
