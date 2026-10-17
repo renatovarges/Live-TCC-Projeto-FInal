@@ -1,140 +1,43 @@
-# 🏆 Cartola FC - Montagem Live
+# Prancheta TCC — Estratégias de Escalação
 
-Uma aplicação web interativa para montar escalações do Cartola FC com dados em tempo real, interface drag-and-drop e preços atualizados automaticamente.
+Prancheta para as lives do TCC (Treinando Campeões de Cartola): o jogador é montado em campos, linhas estratégicas, Teoria do Muro e reservas de luxo, com dados do Cartola FC.
 
-## ✨ Funcionalidades
+## Como usar
 
-- 🎯 **Interface Drag & Drop**: Arraste escudos dos times para o campo e selecione jogadores
-- 💰 **Preços Atualizados**: Integração com API oficial do Cartola FC para preços em tempo real
-- 📊 **Dados Híbridos**: Combina API oficial + CSV local para cobertura completa de jogadores
-- 🟢 **Status do Mercado**: Mostra se o mercado está aberto ou fechado
-- 👕 **Uniformes e Escudos**: Visualização com uniformes dos times
-- 📱 **Responsivo**: Funciona em desktop e mobile
+1. **Montar a lista (direita):** arraste um escudo do topo para a lista (ou clique no escudo). Abre a escolha de jogadores do clube; clique nos jogadores para mandá-los para a lista, separados por posição. Também dá para usar **Buscar** em cada posição.
+2. **Campo (centro):** arraste os jogadores da lista para o campo. Arraste dentro do campo para reposicionar. Para tirar do campo: botão ×, ou arraste de volta para a lista. Duplo clique no jogador marca/desmarca a estrela de unanimidade.
+3. **Vários campos:** `+ Novo campo` (até 3). `Comparar lado a lado` mostra todos juntos; dá para arrastar jogadores de um campo para outro. Duplo clique na aba renomeia.
+4. **Estrutura (esquerda):** solte escudos ou jogadores nas linhas Ofensiva/Defensiva (Estatístico, Estratégico, Especulativo), na Teoria do Muro (posição livre) e nas Reservas de Luxo.
 
-## 🚀 Como Usar
+Tudo é **salvo automaticamente no navegador**: recarregar a página não perde a prancheta. `Limpar Tudo` zera.
 
-1. **Visualizar Times**: Os escudos dos times aparecem na lateral
-2. **Adicionar Jogadores**: Arraste um escudo para o campo
-3. **Selecionar Jogador**: Clique no jogador desejado na lista que aparece
-4. **Montar Escalação**: Continue adicionando jogadores até completar sua escalação
-5. **Remover Jogadores**: Clique no "×" sobre qualquer jogador no campo
-
-## 🛠️ Tecnologias
-
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **API**: Cartola FC API oficial
-- **Dados**: CSV local como fallback
-- **Deploy**: Netlify / Vercel ready
-
-## 📦 Instalação Local
+## Rodar localmente
 
 ```bash
-# Clone o repositório
-git clone [URL_DO_REPOSITORIO]
-
-# Entre na pasta
-cd PROJETO-MONTAGEM-LIVE
-
-# Inicie um servidor local
-python -m http.server 8002
-# ou
-npx serve .
-# ou
-live-server
-
-# Acesse http://localhost:8002
+python dev_server.py     # http://localhost:8002 (serve os arquivos e faz o proxy da API do Cartola)
 ```
 
-## 🌐 Deploy
+Não use `python -m http.server`: a API do Cartola bloqueia chamadas diretas do navegador (CORS), então o app depende do proxy (`/api/cartola/*`) — no Netlify é a função `netlify/functions/cartola-api.js`; localmente é o `dev_server.py`. Sem proxy o app usa o CSV.
 
-### Netlify
-1. Conecte seu repositório no [Netlify](https://netlify.com)
-2. Configure:
-   - **Build command**: `echo 'Site estático pronto'`
-   - **Publish directory**: `.`
-3. Deploy automático configurado!
+## Dados e fotos
 
-### Vercel
-1. Conecte seu repositório no [Vercel](https://vercel.com)
-2. Deploy automático com `vercel.json` incluído
+- **API do Cartola** (via proxy) é a fonte principal; `cartola_jogadores_time_posicao_preco.csv` é o fallback (atualizado por `update_prices.py` e pelos workflows em `.github/workflows`; inclui a coluna `ID` do atleta).
+- **Fotos:** `https://cdn.provaveisdocartola.com.br/atletas/<ID>.webp`. O CDN bloqueia requisições com `Referer`, por isso as imagens são carregadas com `referrerPolicy="no-referrer"`. Jogadores sem foto no CDN aparecem com o uniforme do time.
 
-### GitHub Pages
-1. Vá em Settings > Pages no seu repositório
-2. Selecione source: Deploy from a branch
-3. Branch: main, folder: / (root)
-
-## 📁 Estrutura do Projeto
+## Estrutura
 
 ```
-├── index.html              # Página principal
-├── css/
-│   └── style.css          # Estilos da aplicação
-├── js/
-│   ├── app.js             # Lógica principal e drag & drop
-│   ├── players.js         # Carregamento de dados (API + CSV)
-│   ├── dnd.js             # Sistema de drag and drop
-│   └── shields-data.js    # Dados dos escudos dos times
-├── assets/
-│   ├── shields/           # Escudos dos times (.png)
-│   └── uniformes/         # Uniformes dos times (.png)
-├── cartola_jogadores_time_posicao_preco.csv  # Dados locais
-├── netlify.toml           # Configuração Netlify
-├── vercel.json            # Configuração Vercel
-└── README.md              # Este arquivo
+index.html            página única
+css/style.css         estilos (campo escala por --u = 1% da largura do campo)
+js/state.js           estado + salvamento no localStorage
+js/data.js            carga de jogadores (API/CSV), busca, fotos
+js/app.js             interface: campos, lista, linhas, muro, reservas, arrastar e soltar
+js/shields-data.js    clubes, caminhos de escudos/uniformes
+js/auth.js            tela de PIN
+assets/               escudos e uniformes
+netlify/functions/    proxy da API do Cartola
+dev_server.py         servidor local com proxy
 ```
 
-## 🔧 Configuração
-
-### API do Cartola
-- **Endpoint**: `https://api.cartola.globo.com/atletas/mercado`
-- **Timeout**: 10 segundos
-- **Fallback**: CSV local quando API indisponível
-- **Atualização**: A cada 5 minutos
-
-### Dados Locais
-- **Arquivo**: `cartola_jogadores_time_posicao_preco.csv`
-- **Uso**: Fallback e jogadores não disponíveis na API
-- **Formato**: Nome, Time, Posição, Preço
-
-## 🎨 Personalização
-
-### Adicionar Novos Times
-1. Adicione escudo em `assets/shields/[slug-do-time].png`
-2. Adicione uniforme em `assets/uniformes/[nome-do-time] uniforme.png`
-3. Atualize `js/shields-data.js` com os dados do time
-
-### Modificar Estilos
-- Edite `css/style.css`
-- Cores principais: `#21c35c` (verde), `#0d1a14` (fundo escuro)
-
-## 🐛 Solução de Problemas
-
-### Jogadores não aparecem
-- Verifique se a API está respondendo
-- Confirme se o CSV está no formato correto
-- Veja o console do navegador para erros
-
-### Imagens não carregam
-- Verifique se os arquivos estão na pasta correta
-- Confirme se os nomes dos arquivos estão corretos
-- Use o console para ver erros 404
-
-### CORS errors
-- Use um servidor local (não abra o HTML diretamente)
-- Configure proxy se necessário
-
-## 📄 Licença
-
-Este projeto é de código aberto. Use livremente para fins educacionais e pessoais.
-
-## 🤝 Contribuição
-
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
-
----
-
-**Desenvolvido com ❤️ para a comunidade do Cartola FC**
+## Novos clubes
+Escudo em `assets/shields/<slug>.png`, uniforme em `assets/uniformes/<nome> uniforme.png`, e atualizar `js/shields-data.js` (`SLUG_MAP`, `CLUBS`) e `CODE_TO_SLUG` em `js/data.js`.

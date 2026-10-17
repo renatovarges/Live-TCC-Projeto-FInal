@@ -4,8 +4,8 @@
   "description": "Aplicação web interativa para montar escalações do Cartola FC com dados em tempo real",
   "main": "index.html",
   "scripts": {
-    "start": "python -m http.server 8002",
-    "dev": "python -m http.server 8002",
+    "start": "python dev_server.py",
+    "dev": "python dev_server.py",
     "serve": "npx serve . -p 8002",
     "build": "echo 'Site estático - não requer build'",
     "deploy:netlify": "netlify deploy --prod",

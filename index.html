@@ -3,13 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-  <meta http-equiv="Pragma" content="no-cache"/>
-  <meta http-equiv="Expires" content="0"/>
   <title>ESTRATÉGIAS DE ESCALAÇÃO • TCC</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=63"/>
-  <link rel="stylesheet" href="css/escudos-fix.css"/>
+  <link rel="stylesheet" href="css/style.css?v=70"/>
   <link rel="stylesheet" href="css/auth.css"/>
 </head>
 <body>
@@ -19,14 +15,9 @@
       <img src="assets/TCCBRANCOTRANSPARENTE.png" class="pin-logo" alt="TCC Logo">
       <h2 class="pin-title">ACESSO RESTRITO</h2>
       <p class="pin-subtitle">Digite o PIN para acessar a plataforma</p>
-      
       <div class="pin-display">
-        <div class="pin-dot"></div>
-        <div class="pin-dot"></div>
-        <div class="pin-dot"></div>
-        <div class="pin-dot"></div>
+        <div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
       </div>
-
       <div class="pin-keypad">
         <button class="pin-key" data-value="1">1</button>
         <button class="pin-key" data-value="2">2</button>
@@ -41,7 +32,6 @@
         <button class="pin-key" data-value="0">0</button>
         <button class="pin-key backspace" data-value="delete">⌫</button>
       </div>
-
       <div id="pin-message" class="pin-message"></div>
     </div>
   </div>
@@ -52,141 +42,51 @@
       <button id="force-update-btn" class="update-btn">🔄 Atualizar Preços</button>
       <div id="last-update" class="last-update">Carregando...</div>
     </div>
-    <div id="teamsBar" class="teams-bar" aria-label="Escudos dos clubes"><button class="team-pill" title="Athletico-PR" aria-label="Athletico-PR" data-slug="athletico-pr"><img src="assets/shields/athletico-pr.png" alt="Athletico-PR"></button>
-<button class="team-pill" title="Atlético-MG" aria-label="Atlético-MG" data-slug="atletico-mg"><img src="assets/shields/atletico-mg.png" alt="Atlético-MG"></button>
-<button class="team-pill" title="Bahia" aria-label="Bahia" data-slug="bahia"><img src="assets/shields/bahia.png" alt="Bahia"></button>
-<button class="team-pill" title="Botafogo" aria-label="Botafogo" data-slug="botafogo"><img src="assets/shields/botafogo.png" alt="Botafogo"></button>
-<button class="team-pill" title="Chapecoense" aria-label="Chapecoense" data-slug="chapecoense"><img src="assets/shields/chapecoense.png" alt="Chapecoense"></button>
-<button class="team-pill" title="Corinthians" aria-label="Corinthians" data-slug="corinthians"><img src="assets/shields/corinthians.png" alt="Corinthians"></button>
-<button class="team-pill" title="Coritiba" aria-label="Coritiba" data-slug="coritiba"><img src="assets/shields/coritiba.png" alt="Coritiba"></button>
-<button class="team-pill" title="Cruzeiro" aria-label="Cruzeiro" data-slug="cruzeiro"><img src="assets/shields/cruzeiro.png" alt="Cruzeiro"></button>
-<button class="team-pill" title="Flamengo" aria-label="Flamengo" data-slug="flamengo"><img src="assets/shields/flamengo.png" alt="Flamengo"></button>
-<button class="team-pill" title="Fluminense" aria-label="Fluminense" data-slug="fluminense"><img src="assets/shields/fluminense.png" alt="Fluminense"></button>
-<button class="team-pill" title="Grêmio" aria-label="Grêmio" data-slug="gremio"><img src="assets/shields/gremio.png" alt="Grêmio"></button>
-<button class="team-pill" title="Internacional" aria-label="Internacional" data-slug="internacional"><img src="assets/shields/internacional.png" alt="Internacional"></button>
-<button class="team-pill" title="Mirassol" aria-label="Mirassol" data-slug="mirassol"><img src="assets/shields/mirassol.png" alt="Mirassol"></button>
-<button class="team-pill" title="Palmeiras" aria-label="Palmeiras" data-slug="palmeiras"><img src="assets/shields/palmeiras.png" alt="Palmeiras"></button>
-<button class="team-pill" title="Red Bull Bragantino" aria-label="Red Bull Bragantino" data-slug="red-bull-bragantino"><img src="assets/shields/red-bull-bragantino.png" alt="Red Bull Bragantino"></button>
-<button class="team-pill" title="Remo" aria-label="Remo" data-slug="remo"><img src="assets/shields/remo.png" alt="Remo"></button>
-<button class="team-pill" title="Santos" aria-label="Santos" data-slug="santos"><img src="assets/shields/santos.png" alt="Santos"></button>
-<button class="team-pill" title="São Paulo" aria-label="São Paulo" data-slug="sao-paulo"><img src="assets/shields/sao-paulo.png" alt="São Paulo"></button>
-<button class="team-pill" title="Vasco" aria-label="Vasco" data-slug="vasco"><img src="assets/shields/vasco.png" alt="Vasco"></button>
-<button class="team-pill" title="Vitória" aria-label="Vitória" data-slug="vitoria"><img src="assets/shields/vitoria.png" alt="Vitória"></button></div>
+    <div id="teamsBar" class="teams-bar" aria-label="Escudos dos clubes"></div>
   </header>
 
-  <main class="grid">
-    <!-- Coluna esquerda -->
-    <section class="panel left" aria-label="Caixas de estratégia">
+  <main id="layout" class="layout">
+    <!-- Esquerda: estrutura de montagem -->
+    <aside class="panel structure" aria-label="Estrutura de montagem">
       <h2 class="box-title">LINHA OFENSIVA</h2>
-      <div class="analysis-rectangle green droptarget" id="def-green" data-track="defensivo-estatistico" data-label="Estatístico" aria-label="Estatístico (defensivo)"></div>
-      <div class="analysis-rectangle yellow droptarget" id="def-yellow" data-track="defensivo-estrategico" data-label="Estratégico" aria-label="Estratégico (defensivo)"></div>
-      <div class="analysis-rectangle red droptarget" id="def-red" data-track="defensivo-especulativo" data-label="Especulativo" aria-label="Especulativo (defensivo)"></div>
-
+      <div id="boxes-ofe"></div>
       <h2 class="box-title">LINHA DEFENSIVA</h2>
-      <div class="analysis-rectangle green droptarget" id="off-green" data-track="ofensivo-estatistico" data-label="Estatístico" aria-label="Estatístico (ofensivo)"></div>
-      <div class="analysis-rectangle yellow droptarget" id="off-yellow" data-track="ofensivo-estrategico" data-label="Estratégico" aria-label="Estratégico (ofensivo)"></div>
-      <div class="analysis-rectangle red droptarget" id="off-red" data-track="ofensivo-especulativo" data-label="Especulativo" aria-label="Especulativo (ofensivo)"></div>
-
+      <div id="boxes-def"></div>
       <div class="legend-inline">
         <span class="legend-inline-item"><i class="legend-dot g"></i>Estatístico</span>
         <span class="legend-inline-item"><i class="legend-dot y"></i>Estratégico</span>
         <span class="legend-inline-item"><i class="legend-dot r"></i>Especulativo</span>
       </div>
-    </section>
 
-    <!-- Campo (centro) -->
-    <section class="panel center" aria-label="Campo de jogo">
-      <div class="soccer-wrap">
-        <div id="field" class="soccer-field droptarget" aria-label="Gramado">
-          <!-- linhas oficiais -->
-          <div class="lines" aria-hidden="true">
-            <div class="field-border"></div>
-            <div class="center-line"></div>
-            <div class="center-circle"></div>
-            <div class="penalty top"></div>
-            <div class="goal-area top"></div>
-            <div class="penalty-spot top"></div>
-            <div class="penalty bot"></div>
-            <div class="goal-area bot"></div>
-            <div class="penalty-spot bot"></div>
-          </div>
-          <img src="assets/TCCBRANCOTRANSPARENTE.png" class="tcc-logo" alt="TCC" title="Treinando Campeões de Cartola"/>
-          <div id="fieldLayer" class="field-layer"></div>
-        </div>
-      </div>
-
-      <div class="toolbar" role="toolbar" aria-label="Seleção por posição">
-        <button class="pos-btn" data-pos="TEC" title="Técnicos">TEC</button>
-        <button class="pos-btn" data-pos="GOL" title="Goleiros">GOL</button>
-        <button class="pos-btn" data-pos="ZAG" title="Zagueiros">ZAG</button>
-        <button class="pos-btn" data-pos="LAT" title="Laterais">LAT</button>
-        <button class="pos-btn" data-pos="MEI" title="Meias">MEI</button>
-        <button class="pos-btn" data-pos="ATA" title="Atacantes">ATA</button>
-      </div>
-
-      <div class="actions">
-        <button id="clearField" class="btn">Limpar Campo</button>
-        <button id="clearAll" class="btn btn-outline">Limpar Tudo</button>
-      </div>
-    </section>
-
-    <!-- Coluna direita -->
-    <aside class="panel right" aria-label="Renato Varges e Reservas de Luxo">
       <h2 class="box-title">TEORIA DO MURO</h2>
-      <div class="teoria-muro-container">
-        <div class="muro-section muro-negativo droptarget" id="muro-negativo" data-muro="negativo" title="Arrastar escudos aqui - Uso Negativo (máximo 1 jogador)">
-          <div class="muro-symbol">−</div>
-          <div class="muro-shields" id="shields-negativo"></div>
-        </div>
-        <div class="muro-section muro-centro droptarget" id="muro-centro" data-muro="centro" title="Arrastar escudos aqui - Uso Equilibrado (2 jogadores)">
-          <div class="muro-symbol"></div>
-          <div class="muro-shields" id="shields-centro"></div>
-        </div>
-        <div class="muro-section muro-positivo droptarget" id="muro-positivo" data-muro="positivo" title="Arrastar escudos aqui - Uso Positivo (3-4 jogadores)">
-          <div class="muro-symbol">+</div>
-          <div class="muro-shields" id="shields-positivo"></div>
-        </div>
-      </div>
+      <div id="muro" class="muro"></div>
 
       <h2 class="box-title">RESERVAS DE LUXO</h2>
-      <div id="reserves" class="reserves-grid">
-        <div class="reserve-slot droptarget" data-slot="0" title="Solte aqui">+</div>
-        <div class="reserve-slot droptarget" data-slot="1" title="Solte aqui">+</div>
-        <div class="reserve-slot droptarget" data-slot="2" title="Solte aqui">+</div>
-        <div class="reserve-slot droptarget" data-slot="3" title="Solte aqui">+</div>
-        <div class="reserve-slot droptarget" data-slot="4" title="Solte aqui">+</div>
-        <div class="reserve-slot droptarget" data-slot="5" title="Solte aqui">+</div>
-      </div>
-
-      <div class="star-row">
-        <button id="spawnStar" class="btn btn-star" title="Gerar estrela arrastável">⭐ UNANIMIDADES</button>
-      </div>
+      <div id="reserves" class="reserves-grid"></div>
     </aside>
+
+    <!-- Centro: campo(s) -->
+    <section class="panel center" aria-label="Campo de jogo">
+      <div class="field-bar">
+        <div id="fieldTabs" class="field-tabs"></div>
+        <div class="field-actions">
+          <button id="spawnStar" class="btn btn-star" title="Gerar estrela arrastável">⭐ UNANIMIDADES</button>
+          <button id="clearField" class="btn" title="Tira todos do campo selecionado">Limpar Campo</button>
+          <button id="clearAll" class="btn btn-outline" title="Apaga toda a prancheta">Limpar Tudo</button>
+        </div>
+      </div>
+      <div id="fieldsArea" class="fields-area"></div>
+      <div id="picker" class="picker" hidden></div>
+    </section>
+
+    <!-- Direita: lista de jogadores por posição -->
+    <aside id="roster" class="panel roster" aria-label="Jogadores por posição"></aside>
   </main>
 
-  <!-- Drawer inferior -->
-  <div id="drawer" class="drawer" hidden>
-    <div class="drawer-inner">
-      <div class="drawer-left">
-        <div class="drawer-title"><span id="drawerPos">POSIÇÃO</span> — Selecionados</div>
-        <div id="selectedRow" class="scroll-row"></div>
-      </div>
-      <div class="drawer-right">
-        <div class="adder-wrap">
-          <button id="openSearch" class="btn">+</button>
-        </div>
-        <div id="searchPanel" class="search-panel" hidden>
-          <input id="searchInput" class="search" placeholder="Buscar jogador por nome..." aria-label="Buscar jogador"/>
-          <div id="resultsRow" class="scroll-row"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script src="js/auth.js"></script>
-  <script src="js/shields-data.js?v=63"></script>
-    <script src="js/players.js?v=63"></script>
-    <script src="js/dnd.js?v=63"></script>
-    <script src="js/app.js?v=63"></script>
+  <script src="js/shields-data.js?v=70"></script>
+  <script src="js/state.js?v=70"></script>
+  <script src="js/data.js?v=70"></script>
+  <script src="js/app.js?v=70"></script>
 </body>
 </html>

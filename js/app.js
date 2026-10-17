@@ -1,1236 +1,584 @@
-// App bootstrap
-console.log('App.js carregado - iniciando execução');
+// Prancheta TCC: interface e interações.
 (function(){
-  // Wait for DND to be available
-  function initializeApp() {
-    console.log('initializeApp chamada');
-    if (typeof window.DND === 'undefined' || typeof window.DND.makeDraggable !== 'function') {
-      setTimeout(initializeApp, 10);
-      return;
-    }
-    
+  'use strict';
+  const { S, save, uid, POS, MAX_FIELDS } = State;
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => [...(r || document).querySelectorAll(s)];
+  function el(tag, cls, text){
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const clubName = slug => Data.clubName(slug);
 
-    
-    // Cabeçalho - montar escudos
-    const bar = document.getElementById('teamsBar');
-    let pills = bar.querySelectorAll('.team-pill');
-    if(pills.length === 0 && window.CLUBS){
-      window.CLUBS.forEach(c => {
-        const pill = document.createElement('button');
-        pill.className = 'team-pill';
-        pill.title = c.name;
-        pill.setAttribute('aria-label', c.name);
-        pill.dataset.slug = c.slug;
-        const img = document.createElement('img');
-        img.src = shieldPath(c.slug);
-        img.alt = c.name;
-        pill.appendChild(img);
-        bar.appendChild(pill);
-      });
-      pills = bar.querySelectorAll('.team-pill');
-    }
+  // O que está sendo arrastado (HTML5 drag): {type:'club', slug} | {type:'player', P}
+  let drag = null;
 
-    pills.forEach(pill => {
-      const slug = pill.dataset.slug;
-      const name = pill.getAttribute('aria-label') || pill.title || slug;
-      DND.makeDraggable(pill, {type:'club', name, slug, source:'header'});
+  /* ---------- Avatares ---------- */
+  // Foto do jogador com escudo do time; se a foto falhar cai para uniforme e depois escudo.
+  function avatar(P, size){
+    const a = el('div', 'av ' + (size || ''));
+    const ph = el('div', 'ph');
+    const img = new Image();
+    img.alt = P.n; img.draggable = false;
+    img.referrerPolicy = 'no-referrer'; // o CDN das fotos devolve 403 quando recebe Referer de outro site
+    const chain = [];
+    const url = Data.photoUrl(P);
+    if (url) chain.push(url);
+    chain.push(kitPath(P.s), shieldPath(P.s));
+    let i = 0;
+    const apply = () => { img.src = chain[i]; ph.classList.toggle('photo', !!url && i === 0); };
+    img.onerror = () => { if (++i < chain.length) apply(); else img.onerror = null; };
+    apply();
+    ph.appendChild(img);
+    a.appendChild(ph);
+    const sh = new Image();
+    sh.src = shieldPath(P.s); sh.className = 'sh'; sh.alt = ''; sh.draggable = false;
+    a.appendChild(sh);
+    return a;
+  }
+  function shieldAvatar(slug, size){
+    const a = el('div', 'av club ' + (size || ''));
+    const ph = el('div', 'ph');
+    const img = new Image();
+    img.src = shieldPath(slug); img.alt = clubName(slug); img.draggable = false;
+    ph.appendChild(img); a.appendChild(ph);
+    return a;
+  }
+  function xBtn(title, fn){
+    const b = el('button', 'x', '×');
+    b.type = 'button'; b.title = title;
+    b.addEventListener('click', e => { e.stopPropagation(); fn(); });
+    b.addEventListener('pointerdown', e => e.stopPropagation());
+    return b;
+  }
+
+  /* ---------- Operações no estado ---------- */
+  function commit(){ save(); renderFields(); renderStructure(); renderRosterGrids(); }
+
+  function addToRoster(P){
+    const list = S.list[P.p] || (S.list[P.p] = []);
+    if (!list.some(x => x.k === P.k)) list.push(Data.snap(P));
+  }
+  function removeFromRoster(P){
+    S.list[P.p] = (S.list[P.p] || []).filter(x => x.k !== P.k);
+  }
+  function inRoster(P){ return (S.list[P.p] || []).some(x => x.k === P.k); }
+
+  function addToField(fi, P, x, y){
+    const f = S.fields[fi];
+    const existing = f.items.find(i => i.k === 'p' && i.P.k === P.k);
+    if (existing){ existing.x = x; existing.y = y; }
+    else f.items.push({ id: uid(), k: 'p', P: Data.snap(P), x, y });
+    S.active = fi;
+  }
+
+  function posIn(container, ev){
+    const r = container.getBoundingClientRect();
+    return {
+      x: clamp((ev.clientX - r.left) / r.width * 100, 3, 97),
+      y: clamp((ev.clientY - r.top) / r.height * 100, 3, 97)
+    };
+  }
+
+  /* ---------- Soltar em qualquer área (HTML5 drag e arraste de itens) ---------- */
+  const ZONES = '.field, #roster, .box, .muro-zone, .reserve-slot';
+
+  function handleDrop(zone, payload, ev){
+    if (!payload) return;
+    const isClub = payload.type === 'club';
+    if (zone.matches('.field')){
+      if (isClub) return openPicker(payload.slug);
+      const { x, y } = posIn(zone, ev);
+      addToField(+zone.dataset.fi, payload.P, x, y);
+    } else if (zone.matches('#roster')){
+      if (isClub) return openPicker(payload.slug);
+      addToRoster(payload.P);
+    } else if (zone.matches('.box')){
+      S.boxes[zone.dataset.box].push(isClub
+        ? { id: uid(), k: 'club', s: payload.slug }
+        : { id: uid(), k: 'p', P: Data.snap(payload.P) });
+    } else if (zone.matches('.muro-zone')){
+      const { x, y } = posIn(zone, ev);
+      S.muro[zone.dataset.muro].push(isClub
+        ? { id: uid(), k: 'club', s: payload.slug, x, y }
+        : { id: uid(), k: 'p', P: Data.snap(payload.P), x, y });
+    } else if (zone.matches('.reserve-slot')){
+      if (isClub) return;
+      S.reserves[+zone.dataset.slot] = Data.snap(payload.P);
+    }
+    commit();
+  }
+
+  function makeDraggable(node, payload){
+    node.draggable = true;
+    node.addEventListener('dragstart', e => {
+      drag = payload;
+      e.dataTransfer.setData('text/plain', payload.type);
+      e.dataTransfer.effectAllowed = 'copyMove';
     });
+    node.addEventListener('dragend', () => { drag = null; $$('.hot').forEach(h => h.classList.remove('hot')); });
+  }
 
-    // Dropzones: caixas de estratégia
-    document.querySelectorAll('.analysis-rectangle').forEach(box => {
-      DND.setupDropzone(box, (data)=>{
-      if(!data) return;
-      // cria chip centralizado e simétrico
-      const chip = document.createElement('div');
-      chip.className = 'chip';
-      const img = document.createElement('img');
-      if(data.type==='club') img.src = shieldPath(data.slug);
-      else img.src = shieldPath(normalizeClub(data.club || data.name));
-      chip.appendChild(img);
-      const x = document.createElement('button');
-      x.className = 'remove';
-      x.textContent = '×';
-      x.title = 'Remover';
-      x.onclick = ()=> chip.remove();
-      chip.appendChild(x);
-        // também permitir arrastar do box para o campo (clonar)
-        DND.makeDraggable(chip, data.type==='club' ? data : {type:'player', name:data.name, club:data.club, slug:data.slug});
+  document.addEventListener('dragover', e => {
+    if (!drag) return;
+    const z = e.target.closest && e.target.closest(ZONES);
+    $$('.hot').forEach(h => { if (h !== z) h.classList.remove('hot'); });
+    if (z){ e.preventDefault(); z.classList.add('hot'); }
+  });
+  document.addEventListener('drop', e => {
+    const z = e.target.closest && e.target.closest(ZONES);
+    $$('.hot').forEach(h => h.classList.remove('hot'));
+    if (!z || !drag) return;
+    e.preventDefault();
+    const p = drag; drag = null;
+    handleDrop(z, p, e);
+  });
+
+  // Itens já colocados (no campo ou no muro) se movem com o ponteiro; funciona com mouse e toque.
+  function movable(node, onPlace){
+    node.addEventListener('pointerdown', e => {
+      if (e.button !== 0 || e.target.closest('.x')) return;
+      const sx = e.clientX, sy = e.clientY;
+      const field = node.closest('.field');
+      const unit = field ? field.style.getPropertyValue('--u') : '';
+      let ghost = null;
+      node.setPointerCapture(e.pointerId);
+
+      const move = ev => {
+        if (!ghost){
+          if (Math.hypot(ev.clientX - sx, ev.clientY - sy) < 5) return;
+          ghost = node.cloneNode(true);
+          ghost.classList.add('ghost');
+          if (unit) ghost.style.setProperty('--u', unit);
+          document.body.appendChild(ghost);
+          node.style.opacity = '.3';
+        }
+        ghost.style.left = ev.clientX + 'px';
+        ghost.style.top = ev.clientY + 'px';
+        const z = document.elementFromPoint(ev.clientX, ev.clientY);
+        const zone = z && z.closest(ZONES);
+        $$('.hot').forEach(h => { if (h !== zone) h.classList.remove('hot'); });
+        if (zone) zone.classList.add('hot');
+      };
+      const up = ev => {
+        node.removeEventListener('pointermove', move);
+        node.removeEventListener('pointerup', up);
+        node.removeEventListener('pointercancel', up);
+        $$('.hot').forEach(h => h.classList.remove('hot'));
+        if (!ghost) return;
+        const t = document.elementFromPoint(ev.clientX, ev.clientY);
+        ghost.remove(); node.style.opacity = '';
+        if (t) onPlace(t, ev);
+      };
+      node.addEventListener('pointermove', move);
+      node.addEventListener('pointerup', up);
+      node.addEventListener('pointercancel', up);
+    });
+  }
+
+  /* ---------- Cabeçalho: escudos e atualização ---------- */
+  function renderTeamsBar(){
+    const bar = $('#teamsBar');
+    CLUBS.forEach(c => {
+      const b = el('button', 'team-pill');
+      b.type = 'button'; b.title = c.name; b.setAttribute('aria-label', c.name);
+      const img = new Image();
+      img.src = shieldPath(c.slug); img.alt = c.name; img.draggable = false;
+      b.appendChild(img);
+      makeDraggable(b, { type: 'club', slug: c.slug });
+      b.addEventListener('click', () => openPicker(c.slug));
+      bar.appendChild(b);
+    });
+  }
+
+  function renderUpdateInfo(){
+    const box = $('#last-update');
+    const i = Data.info;
+    if (i.loading){ box.textContent = '🔄 Carregando dados...'; return; }
+    if (!i.updatedAt){ box.textContent = 'Sem dados'; return; }
+    const hora = i.updatedAt.toLocaleTimeString('pt-BR');
+    const mercado = i.market ? (i.market === 'aberto' ? '🟢 Mercado Aberto' : '🔴 Mercado Fechado') : '';
+    box.replaceChildren();
+    if (mercado){ box.append(mercado, document.createElement('br')); }
+    const small = el('small', '', 'Atualizado às ' + hora + ' (' + i.source + ')');
+    box.appendChild(small);
+  }
+
+  /* ---------- Campos ---------- */
+  const unitObserver = new ResizeObserver(entries => entries.forEach(en => {
+    en.target.style.setProperty('--u', (en.contentRect.width / 100) + 'px');
+  }));
+
+  const FIELD_LINES =
+    '<div class="lines" aria-hidden="true"><div class="f-border"></div><div class="f-mid"></div><div class="f-circle"></div>' +
+    '<div class="f-pen top"></div><div class="f-goal top"></div><div class="f-spot top"></div>' +
+    '<div class="f-pen bot"></div><div class="f-goal bot"></div><div class="f-spot bot"></div></div>';
+
+  function buildItem(it, fi){
+    const f = S.fields[fi];
+    const n = el('div', it.k === 's' ? 'star-item' : 'badge');
+    n.style.left = it.x + '%'; n.style.top = it.y + '%';
+    if (it.k === 's') n.textContent = '⭐';
+    else {
+      n.appendChild(avatar(it.P, 'lg'));
+      n.appendChild(el('div', 'name', it.P.n));
+      if (it.star) n.appendChild(el('div', 'ustar', '⭐'));
+      n.title = 'Duplo clique: estrela de unanimidade';
+      n.addEventListener('dblclick', () => { it.star = !it.star; commit(); });
+    }
+    n.appendChild(xBtn('Remover do campo', () => { f.items = f.items.filter(i => i !== it); commit(); }));
+
+    movable(n, (t, ev) => {
+      const tf = t.closest('.field');
+      if (tf){
+        const tfi = +tf.dataset.fi;
+        const { x, y } = posIn(tf, ev);
+        if (tfi !== fi){ f.items = f.items.filter(i => i !== it); S.fields[tfi].items.push(it); }
+        it.x = x; it.y = y; S.active = tfi;
+      } else if (t.closest('#roster')){
+        f.items = f.items.filter(i => i !== it);            // devolver para a lista = tirar do campo
+      } else if (it.k === 'p'){
+        const z = t.closest(ZONES);
+        if (z) return handleDrop(z, { type: 'player', P: it.P }, ev); // copia para linhas/muro/reservas
+      }
+      commit();
+    });
+    return n;
+  }
+
+  function buildField(f, fi){
+    const wrap = el('div', 'field-wrap' + (fi === S.active ? ' active' : ''));
+    if (S.compare){
+      const t = el('button', 'field-title', f.name);
+      t.type = 'button';
+      t.addEventListener('click', () => { S.active = fi; save(); renderFields(); });
+      wrap.appendChild(t);
+    }
+    const field = el('div', 'field');
+    field.dataset.fi = fi;
+    field.innerHTML = FIELD_LINES;
+    const logo = new Image();
+    logo.src = 'assets/TCCBRANCOTRANSPARENTE.png'; logo.className = 'tcc-logo'; logo.alt = ''; logo.draggable = false;
+    field.appendChild(logo);
+    f.items.forEach(it => field.appendChild(buildItem(it, fi)));
+    wrap.appendChild(field);
+    unitObserver.observe(field);
+    return wrap;
+  }
+
+  function renderFields(){
+    const area = $('#fieldsArea');
+    unitObserver.disconnect();
+    area.replaceChildren();
+    const idx = S.compare ? S.fields.map((_, i) => i) : [S.active];
+    area.className = 'fields-area ' + (S.compare ? 'compare n' + S.fields.length : 'single');
+    idx.forEach(i => area.appendChild(buildField(S.fields[i], i)));
+    $('#layout').classList.toggle('compare', S.compare);
+    renderTabs();
+  }
+
+  function renderTabs(){
+    const box = $('#fieldTabs');
+    box.replaceChildren();
+    S.fields.forEach((f, i) => {
+      const t = el('button', 'tab' + (i === S.active ? ' on' : ''), f.name);
+      t.type = 'button';
+      t.title = 'Duplo clique para renomear';
+      t.addEventListener('click', () => { S.active = i; save(); renderFields(); });
+      t.addEventListener('dblclick', () => {
+        const nome = prompt('Nome do campo:', f.name);
+        if (nome && nome.trim()){ f.name = nome.trim().slice(0, 24); save(); renderTabs(); renderFields(); }
+      });
+      if (S.fields.length > 1){
+        const x = el('span', 'tab-x', '×');
+        x.title = 'Excluir este campo';
+        x.addEventListener('click', e => {
+          e.stopPropagation();
+          if (f.items.length && !confirm('Excluir "' + f.name + '" com ' + f.items.length + ' item(ns)?')) return;
+          S.fields.splice(i, 1);
+          S.active = Math.min(S.active, S.fields.length - 1);
+          if (S.fields.length < 2) S.compare = false;
+          save(); renderFields();
+        });
+        t.appendChild(x);
+      }
+      box.appendChild(t);
+    });
+    if (S.fields.length < MAX_FIELDS){
+      const add = el('button', 'tab add', '+ Novo campo');
+      add.type = 'button';
+      add.addEventListener('click', () => {
+        S.fields.push({ id: uid(), name: 'Campo ' + (S.fields.length + 1), items: [] });
+        S.active = S.fields.length - 1;
+        save(); renderFields();
+      });
+      box.appendChild(add);
+    }
+    if (S.fields.length > 1){
+      const cmp = el('button', 'tab cmp' + (S.compare ? ' on' : ''), S.compare ? '▣ Voltar para 1 campo' : '▥ Comparar lado a lado');
+      cmp.type = 'button';
+      cmp.addEventListener('click', () => { S.compare = !S.compare; save(); renderFields(); });
+      box.appendChild(cmp);
+    }
+  }
+
+  /* ---------- Estrutura (linhas, muro, reservas) ---------- */
+  const BOX_DEFS = [
+    { group: 'ofe', id: 'ofe-est',  cls: 'green',  label: 'Estatístico' },
+    { group: 'ofe', id: 'ofe-estr', cls: 'yellow', label: 'Estratégico' },
+    { group: 'ofe', id: 'ofe-esp',  cls: 'red',    label: 'Especulativo' },
+    { group: 'def', id: 'def-est',  cls: 'green',  label: 'Estatístico' },
+    { group: 'def', id: 'def-estr', cls: 'yellow', label: 'Estratégico' },
+    { group: 'def', id: 'def-esp',  cls: 'red',    label: 'Especulativo' }
+  ];
+  const MURO_DEFS = [
+    { id: 'negativo', sym: '−', tip: 'Uso Negativo (máximo 1 jogador)' },
+    { id: 'centro',   sym: '',  tip: 'Uso Equilibrado (2 jogadores)' },
+    { id: 'positivo', sym: '+', tip: 'Uso Positivo (3-4 jogadores)' }
+  ];
+
+  function chipFor(item){
+    return item.k === 'club' ? shieldAvatar(item.s, 'md') : avatar(item.P, 'md');
+  }
+
+  function renderStructure(){
+    ['ofe', 'def'].forEach(g => $('#boxes-' + g).replaceChildren());
+    BOX_DEFS.forEach(d => {
+      const box = el('div', 'box analysis-rectangle ' + d.cls);
+      box.dataset.box = d.id; box.title = d.label;
+      S.boxes[d.id].forEach(item => {
+        const chip = el('div', 'chip');
+        chip.appendChild(chipFor(item));
+        chip.title = item.k === 'club' ? clubName(item.s) : item.P.n;
+        chip.appendChild(xBtn('Remover', () => { S.boxes[d.id] = S.boxes[d.id].filter(i => i !== item); commit(); }));
+        makeDraggable(chip, item.k === 'club' ? { type: 'club', slug: item.s } : { type: 'player', P: item.P });
         box.appendChild(chip);
       });
+      $('#boxes-' + d.group).appendChild(box);
     });
 
-
-
-  // Campo: drop livre e itens posicionáveis
-    const field = document.getElementById('field');
-    DND.setupDropzone(field, (data, ev)=>{
-    if(!data) return;
-    const rect = field.getBoundingClientRect();
-    const x = ev.clientX - rect.left;
-    const y = ev.clientY - rect.top;
-    
-    // Se for um escudo de time, abrir seleção de jogadores
-    if(data.type === 'club') {
-      openTeamPlayerSelection(data, x, y);
-    } else {
-      // Verificar se o jogador já existe no campo para evitar duplicação
-      // IMPORTANTE: comparar nome E clube — vários jogadores têm o mesmo nome
-      // em clubes diferentes (ex: "Vitinho" no Botafogo, Athletico-PR, Corinthians
-      // e Internacional), então comparar só pelo nome move o jogador errado.
-      const existingBadge = Array.from(field.querySelectorAll('.badge')).find(badge => {
-        return badge.dataset.type === 'player' &&
-               badge.querySelector('.name').textContent === data.name &&
-               badge.dataset.club === (data.club || '');
-      });
-      
-      if(existingBadge) {
-        // Se já existe, apenas mover para nova posição
-        existingBadge.style.left = x + 'px';
-        existingBadge.style.top = y + 'px';
-      } else {
-        // Se não existe, criar novo
-        addBadgeToField(data, x, y);
-      }
-    }
-  });
-
-  // Função para abrir seleção de jogadores do time
-  function openTeamPlayerSelection(teamData, x, y) {
-    // Se os dados ainda não terminaram de carregar (autoLoadData é assíncrono),
-    // reaproveita o carregador oficial (que preenche clubeSlug/posicao corretamente)
-    // em vez de reimplementar o parse do CSV aqui.
-    if(PLAYERS_API.STATE.players.length === 0) {
-      PLAYERS_API.loadData()
-        .then(() => showTeamPlayersModal(teamData, x, y))
-        .catch(() => {
-          alert('Não foi possível carregar os dados dos jogadores. Tente novamente.');
-        });
-    } else {
-      showTeamPlayersModal(teamData, x, y);
-    }
-  }
-
-  // Modal para mostrar jogadores do time
-  function showTeamPlayersModal(teamData, x, y) {
-    console.log('showTeamPlayersModal chamada para:', teamData);
-    const teamName = teamData.name;
-    const players = window.PLAYERS_API.STATE.players;
-    
-    console.log('Players carregados:', players ? players.length : 'null/undefined');
-    console.log('TeamData slug:', teamData.slug);
-    
-
-    
-    // Verificar se há dados carregados
-    if (!players || players.length === 0) {
-      alert('Dados dos jogadores não foram carregados ainda. Aguarde um momento.');
-      return;
-    }
-    
-    
-    // Usar função dedicada com deduplicação automática
-    console.log('DEBUG: Buscando jogadores para:', teamData.slug);
-    console.log('DEBUG: Total de jogadores carregados:', players.length);
-    
-    const teamPlayers = window.PLAYERS_API.getPlayersByClub(teamData.slug);
-    
-
-
-    if(teamPlayers.length === 0) {
-      alert(`Nenhum jogador encontrado para ${teamName}`);
-      return;
-    }
-
-    // Criar modal
-    const modal = document.createElement('div');
-    modal.style.cssText = `
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.8); z-index: 1000;
-      display: flex; align-items: center; justify-content: center;
-    `;
-
-    const content = document.createElement('div');
-    content.style.cssText = `
-      background: #0d1a14; border: 2px solid #21c35c;
-      border-radius: 16px; padding: 20px; max-width: 600px;
-      max-height: 80vh; overflow-y: auto;
-    `;
-
-    const title = document.createElement('h3');
-    title.textContent = `Selecionar jogador - ${teamName}`;
-    title.style.cssText = 'color: #21c35c; margin-bottom: 16px; text-align: center;';
-
-    const playersList = document.createElement('div');
-    playersList.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;';
-
-    // Agrupar por posição
-     const positions = [
-       {name: 'Goleiro', keys: ['GOLEIRO', 'GOL']},
-       {name: 'Lateral', keys: ['LATERAL', 'LAT']},
-       {name: 'Zagueiro', keys: ['ZAGUEIRO', 'ZAG']},
-       {name: 'Meio-campo', keys: ['MEIO-CAMPO', 'MEIA', 'MEI']},
-       {name: 'Atacante', keys: ['ATACANTE', 'ATA']},
-       {name: 'Técnico', keys: ['TÉCNICO', 'TECNICO', 'TEC']}
-     ];
-     positions.forEach(pos => {
-       const posPlayers = teamPlayers.filter(p => 
-         pos.keys.some(key => p.posicao.toUpperCase().includes(key))
-       );
-
-      if(posPlayers.length > 0) {
-        const posSection = document.createElement('div');
-        posSection.style.cssText = 'margin-bottom: 16px;';
-        
-        const posTitle = document.createElement('h4');
-         posTitle.textContent = pos.name;
-         posTitle.style.cssText = 'color: #fff; margin-bottom: 8px; font-size: 14px;';
-        
-        posPlayers.forEach(player => {
-          const playerBtn = document.createElement('button');
-          playerBtn.textContent = player.nome;
-          playerBtn.style.cssText = `
-            display: block; width: 100%; padding: 8px 12px;
-            background: #104a2f; border: 1px solid #21c35c;
-            color: #fff; border-radius: 8px; margin-bottom: 4px;
-            cursor: pointer; text-align: left;
-          `;
-          playerBtn.onmouseover = () => playerBtn.style.background = '#21c35c';
-          playerBtn.onmouseout = () => playerBtn.style.background = '#104a2f';
-          playerBtn.onclick = () => {
-            addBadgeToField({
-              type: 'player',
-              name: player.nome,
-              club: player.clube,
-              slug: teamData.slug,
-              atletaId: player.atletaId
-            }, x, y);
-          };
-          posSection.appendChild(playerBtn);
-        });
-        
-        posSection.appendChild(posTitle);
-        playersList.appendChild(posSection);
-      }
-    });
-
-    const closeBtn = document.createElement('button');
-    closeBtn.textContent = 'Fechar';
-    closeBtn.style.cssText = `
-      background: #ef4444; border: none; color: #fff;
-      padding: 10px 20px; border-radius: 8px; cursor: pointer;
-      margin-top: 16px; display: block; margin-left: auto; margin-right: auto;
-    `;
-    closeBtn.onclick = () => modal.remove();
-
-    content.appendChild(title);
-    content.appendChild(playersList);
-    content.appendChild(closeBtn);
-    modal.appendChild(content);
-    document.body.appendChild(modal);
-
-    // Fechar ao clicar fora
-    modal.onclick = (e) => {
-      if(e.target === modal) modal.remove();
-    };
-  }
-
-  function addBadgeToField(data, x, y){
-    const badge = document.createElement('div');
-    badge.className = 'badge';
-    badge.style.left = x + 'px';
-    badge.style.top = y + 'px';
-    badge.dataset.type = data.type;
-    badge.dataset.club = data.club || '';
-    badge.draggable = false; // Desabilitar HTML5 drag para evitar duplicação
-
-    const circle = document.createElement('div');
-    circle.className = 'circle';
-    const img = document.createElement('img');
-    const slug = data.slug || normalizeClub(data.club || data.name);
-    
-    // Jogador: tenta a foto real (CDN, precisa do atletaId da API); se não tiver
-    // ou a foto falhar, cai pro uniforme e, em último caso, pro escudo do clube.
-    if(data.type === 'player') {
-      const photo = playerPhotoPath(data.atletaId);
-      if(photo){
-        img.src = photo;
-        img.onerror = () => {
-          img.onerror = () => { img.src = shieldPath(slug); };
-          img.src = kitPath(slug);
-        };
-      } else {
-        img.src = kitPath(slug);
-        img.onerror = () => {
-          img.src = shieldPath(slug);
-        };
-      }
-    } else {
-      img.src = shieldPath(slug);
-    }
-    
-    img.alt = data.name || data.club || 'Item';
-    circle.appendChild(img);
-
-    const name = document.createElement('div');
-    name.className = 'name';
-    name.textContent = data.type==='player' ? `${data.name}` : data.name;
-
-    const xbtn = document.createElement('button');
-    xbtn.className = 'remove';
-    xbtn.textContent = '×';
-    xbtn.title = 'Remover do campo';
-    xbtn.style.opacity = '0'; // Inicialmente invisível
-    xbtn.style.position = 'absolute';
-    xbtn.style.top = '-8px';
-    xbtn.style.right = '-8px';
-    xbtn.style.width = '20px';
-    xbtn.style.height = '20px';
-    xbtn.style.borderRadius = '50%';
-    xbtn.style.background = '#ef4444';
-    xbtn.style.color = 'white';
-    xbtn.style.border = 'none';
-    xbtn.style.cursor = 'pointer';
-    xbtn.style.fontSize = '12px';
-    xbtn.style.display = 'flex';
-    xbtn.style.alignItems = 'center';
-    xbtn.style.justifyContent = 'center';
-    xbtn.style.zIndex = '10';
-    xbtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-      console.log('Removendo badge:', badge);
-      badge.remove();
-    });
-    
-    xbtn.addEventListener('mousedown', (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-    });
-
-    // Mostrar/esconder botão X no hover
-    badge.addEventListener('mouseenter', () => {
-      xbtn.style.opacity = '1';
-    });
-    badge.addEventListener('mouseleave', () => {
-      xbtn.style.opacity = '0';
-    });
-
-    badge.appendChild(circle);
-    badge.appendChild(name);
-    badge.appendChild(xbtn);
-    field.appendChild(badge);
-
-    // Sistema de estrela de unanimidade - clique duplo para adicionar/remover
-    let clickTimeout;
-    badge.addEventListener('click', (e) => {
-      if(e.target === xbtn) return; // Não interferir com o botão de remover
-      
-      if(clickTimeout) {
-        clearTimeout(clickTimeout);
-        clickTimeout = null;
-        // Clique duplo - toggle estrela
-        toggleUnanimityStarOnBadge(badge);
-      } else {
-        clickTimeout = setTimeout(() => {
-          clickTimeout = null;
-          // Clique simples - não faz nada por enquanto
-        }, 300);
-      }
-    });
-
-    // Sistema de drag direto com mouse
-    let isDragging = false;
-    let dragOffset = { x: 0, y: 0 };
-    
-    badge.addEventListener('mousedown', (e) => {
-      // Não iniciar drag se clicou no botão X
-      if (e.target === xbtn) return;
-      
-      isDragging = true;
-      const rect = badge.getBoundingClientRect();
-      const fieldRect = field.getBoundingClientRect();
-      dragOffset.x = e.clientX - rect.left - rect.width/2;
-      dragOffset.y = e.clientY - rect.top - rect.height/2;
-      
-      badge.style.cursor = 'grabbing';
-      e.preventDefault();
-    });
-    
-    document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      
-      const fieldRect = field.getBoundingClientRect();
-      const x = e.clientX - fieldRect.left - dragOffset.x;
-      const y = e.clientY - fieldRect.top - dragOffset.y;
-      
-      // Limitar dentro do campo
-      const maxX = field.offsetWidth;
-      const maxY = field.offsetHeight;
-      const clampedX = Math.max(0, Math.min(maxX, x));
-      const clampedY = Math.max(0, Math.min(maxY, y));
-      
-      badge.style.left = clampedX + 'px';
-      badge.style.top = clampedY + 'px';
-    });
-    
-    document.addEventListener('mouseup', () => {
-      if (isDragging) {
-        isDragging = false;
-        badge.style.cursor = 'grab';
-      }
-    });
-  }
-
-  // Função para adicionar/remover estrela de unanimidade
-  function toggleUnanimityStarOnBadge(badge) {
-    const existingStar = badge.querySelector('.unanimity-star');
-    
-    if(existingStar) {
-      // Remove a estrela
-      existingStar.remove();
-    } else {
-      // Adiciona a estrela
-      const star = document.createElement('div');
-      star.className = 'unanimity-star';
-      star.innerHTML = '⭐';
-      star.style.cssText = `
-        position: absolute; top: -8px; left: -8px;
-        width: 24px; height: 24px; font-size: 16px;
-        display: flex; align-items: center; justify-content: center;
-        background: rgba(255,215,0,0.9); border-radius: 50%;
-        border: 2px solid #fff; z-index: 10;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-      `;
-      
-      // Botão para remover a estrela
-      const removeStarBtn = document.createElement('button');
-      removeStarBtn.innerHTML = '×';
-      removeStarBtn.style.cssText = `
-        position: absolute; top: -6px; right: -6px;
-        width: 14px; height: 14px; font-size: 10px;
-        background: #ef4444; border: none; color: #fff;
-        border-radius: 50%; cursor: pointer; opacity: 0;
-        transition: opacity 0.2s; display: flex;
-        align-items: center; justify-content: center;
-      `;
-      removeStarBtn.onclick = (e) => {
-        e.stopPropagation();
-        star.remove();
-      };
-      
-      star.appendChild(removeStarBtn);
-      star.addEventListener('mouseenter', () => removeStarBtn.style.opacity = '1');
-      star.addEventListener('mouseleave', () => removeStarBtn.style.opacity = '0');
-      
-      badge.appendChild(star);
-     }
-   }
-
-  // Reservas: 6 slots idênticos
-  document.querySelectorAll('.reserve-slot').forEach(slot => {
-    // Clique no slot vazio abre busca
-    slot.addEventListener('click', (e) => {
-      if(slot.textContent === '+') {
-        openReserveSearch(slot);
-      }
-    });
-    
-    DND.setupDropzone(slot, (data)=>{
-      if(!data) return;
-      fillReserveSlot(slot, data);
-    });
-  });
-  
-  function fillReserveSlot(slot, data) {
-    slot.innerHTML='';
-    const wrap = document.createElement('div');
-    wrap.className='slot-item';
-    const mini = document.createElement('div');
-    mini.className='mini';
-    const img = document.createElement('img');
-    const slug = data.slug || normalizeClub(data.club || data.name);
-    
-    // Para jogadores, usar uniforme; para outros, usar escudo
-    if(data.type === 'player') {
-      img.src = kitPath(slug);
-      img.onerror = () => {
-        img.src = shieldPath(slug);
-      };
-    } else {
-      img.src = shieldPath(slug);
-    }
-    
-    img.alt = data.name || data.club || 'Item';
-    mini.appendChild(img);
-    const nm = document.createElement('div');
-    nm.className='nm';
-    nm.textContent = data.type==='player' ? data.name : (data.name);
-    const x = document.createElement('button');
-    x.className='remove';
-    x.textContent='×';
-    x.title='Remover do slot';
-    x.onclick = ()=> { slot.innerHTML='+'; };
-    wrap.appendChild(mini); wrap.appendChild(nm); slot.appendChild(wrap); slot.appendChild(x);
-    
-    // Sistema de drag direto implementado abaixo
-  }
-  
-  function openReserveSearch(slot) {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.innerHTML = `
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Selecionar Jogadores para Reservas</h3>
-          <button class="modal-close">×</button>
-        </div>
-        <div class="modal-body">
-          <input type="text" class="search" placeholder="Buscar jogador..." id="reserveSearch">
-          <div class="results-container" id="reserveResults"></div>
-        </div>
-      </div>
-    `;
-    
-    document.body.appendChild(modal);
-    
-    const searchInput = modal.querySelector('#reserveSearch');
-    const resultsContainer = modal.querySelector('#reserveResults');
-    const closeBtn = modal.querySelector('.modal-close');
-    
-    // Função para encontrar o próximo slot vazio
-    function getNextEmptySlot() {
-      const allSlots = document.querySelectorAll('.reserve-slot');
-      return Array.from(allSlots).find(s => s.textContent === '+');
-    }
-    
-    function renderReserveResults() {
-      const query = searchInput.value;
-      const players = PLAYERS_API.searchPlayers('ALL', query).filter(p => p.posicao !== 'TEC');
-      resultsContainer.innerHTML = '';
-      
-      players.slice(0, 50).forEach(p => {
-        const slug = p.clubeSlug || normalizeClub(p.clube);
-        const card = document.createElement('div');
-        card.className = 'card';
-        
-        const chip = document.createElement('div');
-        chip.className = 'chip';
-        chip.style.position = 'relative';
-        const uniformImg = document.createElement('img');
-        uniformImg.src = kitPath(slug);
-        uniformImg.alt = p.clube;
-        uniformImg.onerror = () => {
-          uniformImg.src = shieldPath(slug);
-        };
-        chip.appendChild(uniformImg);
-        
-        // Iniciais removidas conforme solicitado
-        
-        const meta = document.createElement('div');
-        meta.className = 'meta';
-        const preco = p.preco ? `C$ ${p.preco}` : 'N/A';
-        meta.innerHTML = `
-          <div class="nm">${p.nome}</div>
-          <div class="sb">${p.clube} - ${p.posicao}</div>
-          <div class="price">${preco}</div>
-        `;
-        
-        const selectBtn = document.createElement('button');
-        selectBtn.className = 'btn-mini';
-        selectBtn.textContent = 'Selecionar';
-        selectBtn.onclick = (e) => {
-          e.stopPropagation();
-          
-          // Encontrar o próximo slot vazio para preencher
-          const targetSlot = getNextEmptySlot();
-          if (targetSlot) {
-            fillReserveSlot(targetSlot, {type:'player', name:p.nome, club:p.clube, slug});
-            
-            // Verificar se ainda há slots vazios
-            const remainingEmptySlots = getNextEmptySlot();
-            if (!remainingEmptySlots) {
-              // Se não há mais slots vazios, fechar o modal
-              modal.remove();
-            }
-          } else {
-            // Se não há slots vazios, mostrar alerta e fechar modal
-            alert('Todos os slots de reserva estão preenchidos!');
-            modal.remove();
+    const muro = $('#muro');
+    muro.replaceChildren();
+    MURO_DEFS.forEach(d => {
+      const zone = el('div', 'muro-zone ' + d.id);
+      zone.dataset.muro = d.id; zone.title = d.tip;
+      if (d.sym) zone.appendChild(el('div', 'muro-symbol', d.sym));
+      S.muro[d.id].forEach(item => {
+        const n = el('div', 'muro-item');
+        n.style.left = item.x + '%'; n.style.top = item.y + '%';
+        n.appendChild(chipFor(item));
+        n.title = item.k === 'club' ? clubName(item.s) : item.P.n;
+        n.appendChild(xBtn('Remover', () => { S.muro[d.id] = S.muro[d.id].filter(i => i !== item); commit(); }));
+        movable(n, (t, ev) => {
+          const tz = t.closest('.muro-zone');
+          if (tz){
+            const { x, y } = posIn(tz, ev);
+            S.muro[d.id] = S.muro[d.id].filter(i => i !== item);
+            item.x = x; item.y = y;
+            S.muro[tz.dataset.muro].push(item);
           }
-        };
-        
-        card.appendChild(chip);
-        card.appendChild(meta);
-        card.appendChild(selectBtn);
-        resultsContainer.appendChild(card);
-      });
-    }
-    
-    searchInput.addEventListener('input', renderReserveResults);
-    closeBtn.onclick = () => modal.remove();
-    modal.onclick = (e) => {
-      if(e.target === modal) modal.remove();
-    };
-    
-    searchInput.focus();
-    renderReserveResults();
-  }
-
-  // Estrelas (unanimidades) arrastáveis
-  document.getElementById('spawnStar').addEventListener('click', ()=>{
-    createUnanimityStar();
-  });
-  
-  function createUnanimityStar(x = '50%', y = '50%') {
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.left = x;
-    star.style.top = y;
-    star.innerHTML = '⭐';
-    star.style.cursor = 'grab';
-    star.style.userSelect = 'none';
-    
-    const removeBtn = document.createElement('button');
-    removeBtn.className = 'remove star-remove';
-    removeBtn.textContent = '×';
-    removeBtn.title = 'Remover estrela';
-    removeBtn.style.opacity = '0';
-    removeBtn.onclick = (e) => {
-      e.stopPropagation();
-      star.remove();
-    };
-    
-    star.appendChild(removeBtn);
-    field.appendChild(star);
-
-    // Sistema de arrastar melhorado
-    let isDragging = false;
-    let startX = 0;
-    let startY = 0;
-    let offsetX = 0;
-    let offsetY = 0;
-    
-    star.addEventListener('pointerdown', (e) => {
-      if(e.target === removeBtn) return;
-      isDragging = true;
-      star.style.cursor = 'grabbing';
-      star.setPointerCapture(e.pointerId);
-      
-      const rect = star.getBoundingClientRect();
-      const fieldRect = field.getBoundingClientRect();
-      offsetX = e.clientX - rect.left - rect.width/2;
-      offsetY = e.clientY - rect.top - rect.height/2;
-      
-      e.preventDefault();
-    });
-    
-    star.addEventListener('pointermove', (e) => {
-      if(!isDragging) return;
-      
-      const fieldRect = field.getBoundingClientRect();
-      let newX = e.clientX - fieldRect.left - offsetX;
-      let newY = e.clientY - fieldRect.top - offsetY;
-      
-      // Limitar ao campo
-      newX = Math.max(20, Math.min(fieldRect.width - 20, newX));
-      newY = Math.max(20, Math.min(fieldRect.height - 20, newY));
-      
-      star.style.left = newX + 'px';
-      star.style.top = newY + 'px';
-    });
-    
-    star.addEventListener('pointerup', () => {
-      isDragging = false;
-      star.style.cursor = 'grab';
-    });
-    
-    // Mostrar/esconder botão de remover
-    star.addEventListener('mouseenter', () => {
-      removeBtn.style.opacity = '1';
-    });
-    
-    star.addEventListener('mouseleave', () => {
-      removeBtn.style.opacity = '0';
-    });
-    
-    return star;
-  }
-  }
-
-
-
-  // Limpar Campo / Tudo
-  document.getElementById('clearField').addEventListener('click', ()=>{
-    // remove badges e estrelas
-    document.querySelectorAll('#field .badge, #field .star').forEach(el => el.remove());
-  });
-  document.getElementById('clearAll').addEventListener('click', ()=>{
-    document.getElementById('clearField').click();
-    document.querySelectorAll('.analysis-rectangle .chip').forEach(el => el.remove());
-    document.querySelectorAll('.reserve-slot').forEach(s => s.innerHTML = '+');
-    // não limpar selecionados deliberadamente (para manter fluxo da live)
-  });
-
-  // Drawer inferior (posições) - movido para dentro da initializeApp
-  const drawer = document.getElementById('drawer');
-  const drawerPos = document.getElementById('drawerPos');
-  const searchPanel = document.getElementById('searchPanel');
-  const searchInput = document.getElementById('searchInput');
-  const resultsRow = document.getElementById('resultsRow');
-  const selectedRow = document.getElementById('selectedRow');
-  
-
-
-  function closeDrawer(){ drawer.hidden = true; }
-  function closeSearchPanel(){ searchPanel.hidden = true; }
-
-  document.querySelectorAll('.pos-btn').forEach(b => {
-    b.addEventListener('click', ()=> {
-      const pos = b.dataset.pos;
-      drawerPos.textContent = pos;
-      drawer.hidden = false;
-      searchPanel.hidden = false;
-      searchInput.value = '';
-      searchInput.focus();
-      renderSelectedPlayers();
-      renderResults();
-    });
-  });
-
-  // fechar barra de pesquisa ao clicar fora dela, mas manter drawer aberto
-  document.addEventListener('click', (e)=>{
-    const insideDrawer = e.target.closest('#drawer');
-    const insideSearchPanel = e.target.closest('#searchPanel');
-    const isPosBtn = e.target.closest('.pos-btn');
-    const isOpenSearchBtn = e.target.closest('#openSearch');
-    const isMiniBtn = e.target.closest('.btn-mini');
-    
-    // Se clicou fora do drawer completamente, fechar drawer
-    if(!insideDrawer && !isPosBtn) {
-      closeDrawer();
-    }
-    // Se clicou dentro do drawer mas fora da barra de pesquisa (e não é botão +), recolher apenas a barra
-    else if(insideDrawer && !insideSearchPanel && !isOpenSearchBtn && !isMiniBtn && !searchPanel.hidden) {
-      closeSearchPanel();
-    }
-  });
-
-  document.getElementById('openSearch').addEventListener('click', ()=>{
-     searchPanel.hidden = false;
-     searchInput.focus();
-     renderResults();
-   });
-
-   function renderResults(){
-     const pos = drawerPos.textContent;
-     const q = searchInput.value;
-     const allPlayers = PLAYERS_API.searchPlayers(pos, q);
-     const selectedPlayers = PLAYERS_API.getSelected(pos);
-     
-     // Filtrar jogadores já selecionados
-     const availablePlayers = allPlayers.filter(p => 
-       !selectedPlayers.some(selected => 
-         selected.nome === p.nome && selected.clube === p.clube
-       )
-     );
-     
-     resultsRow.innerHTML='';
-     availablePlayers.slice(0,300).forEach(p => {
-       const slug = p.clubeSlug || normalizeClub(p.clube);
-       const card = document.createElement('div');
-       card.className='card';
-       
-       // Chip com uniforme
-       const chip = document.createElement('div'); 
-       chip.className='chip';
-       chip.style.position = 'relative';
-       const uniformImg = document.createElement('img'); 
-       uniformImg.src = kitPath(slug); 
-       uniformImg.alt = p.clube;
-       uniformImg.onerror = () => {
-         uniformImg.src = shieldPath(slug);
-       };
-       chip.appendChild(uniformImg);
-       
-       // Meta informações
-       const meta = document.createElement('div'); 
-       meta.className='meta';
-       
-       // Formatação do preço
-       const preco = parseFloat(p.preco) || 0;
-       const precoFormatado = preco > 0 ? `C$ ${preco.toFixed(2)}` : 'Preço não disponível';
-       
-       meta.innerHTML = `
-         <div class="nm">${p.nome}</div>
-         <div class="sb">${p.clube} - ${p.posicao}</div>
-         <div class="price" style="color: #28a745; font-weight: bold; font-size: 0.9em;">${precoFormatado}</div>
-       `;
-       
-       // Botão adicionar
-       const add = document.createElement('button'); 
-       add.className='btn-mini'; 
-       add.textContent='Adicionar';
-       add.onclick = (e)=> { 
-         e.stopPropagation(); // Impedir que o evento se propague e feche a barra
-         PLAYERS_API.addSelected(pos, p);
-         renderSelectedPlayers();
-         renderResults(); // Atualizar lista para remover jogador adicionado
-       };
-       
-       card.appendChild(chip); 
-       card.appendChild(meta); 
-       card.appendChild(add);
-       
-       // Tornar arrastável
-       DND.makeDraggable(card, {type:'player', name:p.nome, club:p.clube, slug, atletaId:p.atletaId, source:'search'});
-       resultsRow.appendChild(card);
-     });
-   }
-
-   searchInput.addEventListener('input', renderResults);
-
-   // Renderizar jogadores selecionados
-   function renderSelectedPlayers() {
-     const pos = drawerPos.textContent;
-     const selected = PLAYERS_API.getSelected(pos);
-     selectedRow.innerHTML = '';
-     
-     selected.forEach(p => {
-       const slug = p.clubeSlug || normalizeClub(p.clube);
-       
-       // Usar o mesmo layout da barra de pesquisa para todas as posições
-       const card = document.createElement('div');
-       card.className = 'card';
-       
-       // Chip com uniforme (mesmo tamanho da barra de pesquisa)
-       const chip = document.createElement('div');
-       chip.className = 'chip';
-       chip.style.position = 'relative';
-       const uniformImg = document.createElement('img');
-       uniformImg.src = kitPath(slug);
-       uniformImg.alt = p.clube;
-       uniformImg.onerror = () => {
-         uniformImg.src = shieldPath(slug);
-       };
-       chip.appendChild(uniformImg);
-       
-       // Meta informações (mesmo da barra de pesquisa)
-       const meta = document.createElement('div');
-       meta.className = 'meta';
-       meta.innerHTML = `
-         <div class="nm">${p.nome}</div>
-         <div class="sb">${p.clube} - ${p.posicao}</div>
-       `;
-       
-       // Botão remover
-       const remove = document.createElement('button');
-       remove.className = 'btn-mini';
-       remove.textContent = '×';
-       remove.onclick = (e) => {
-         e.stopPropagation(); // Impedir que o evento se propague e feche o painel
-         PLAYERS_API.removeSelected(pos, p);
-         renderSelectedPlayers();
-       };
-       
-       card.appendChild(chip);
-       card.appendChild(meta);
-       card.appendChild(remove);
-       
-       // Tornar arrastável para o campo
-       DND.makeDraggable(card, {type:'player', name:p.nome, club:p.clube, slug, atletaId:p.atletaId, source:'selected'});
-       selectedRow.appendChild(card);
-     });
-   }
-
-   // Função auxiliar para descrição do muro
-   function getMuroDescription(muroType) {
-     switch(muroType) {
-       case 'negativo': return 'Uso Negativo (máximo 1 jogador)';
-       case 'centro': return 'Uso Equilibrado (2 jogadores)';
-       case 'positivo': return 'Uso Positivo (3-4 jogadores)';
-       default: return 'Teoria do Muro';
-     }
-   }
-
-   // TEORIA DO MURO: Configurar dropzones (no final da inicialização)
-   setTimeout(() => {
-     console.log('🏆 Configurando dropzones da Teoria do Muro...');
-     const muroSections = document.querySelectorAll('.muro-section');
-     console.log(`🏆 Encontradas ${muroSections.length} seções do muro`);
-     
-     muroSections.forEach((section, index) => {
-       console.log(`🏆 Configurando seção ${index + 1}: ${section.dataset.muro}`);
-       DND.setupDropzone(section, (data, ev) => {
-         console.log('🏆 Drop recebido na Teoria do Muro:', data);
-         if (!data || data.type !== 'club') {
-           console.log('🏆 Dados inválidos ou não é um clube');
-           return;
-         }
-         
-         const muroType = section.dataset.muro;
-         const rect = section.getBoundingClientRect();
-         const x = ev.clientX - rect.left;
-         const y = ev.clientY - rect.top;
-         
-         console.log(`🏆 Adicionando escudo ${data.name} no muro ${muroType} na posição (${x}, ${y})`);
-         
-         // Adicionar escudo livre no muro (como no campo)
-         addShieldToMuro(data, muroType, section, x, y);
-       });
-     });
-   }, 100); // Aguardar 100ms para garantir que o DOM está pronto
-
-  initializeApp();
-
-   // Função para adicionar escudo livre ao muro
-   function addShieldToMuro(teamData, muroType, targetSection, x, y) {
-     console.log(`🏆 Adicionando escudo ${teamData.name} ao muro ${muroType}`);
-     
-     // Criar escudo livre posicionável
-     const shieldElement = document.createElement('div');
-     shieldElement.className = 'muro-shield-free';
-     shieldElement.dataset.teamSlug = teamData.slug;
-     shieldElement.dataset.teamName = teamData.name;
-     shieldElement.title = `${teamData.name} - ${getMuroDescription(muroType)}`;
-     
-     // Posicionar onde foi solto
-     shieldElement.style.left = Math.max(0, Math.min(x - 20, targetSection.offsetWidth - 40)) + 'px';
-     shieldElement.style.top = Math.max(0, Math.min(y - 20, targetSection.offsetHeight - 40)) + 'px';
-     
-     // Imagem do escudo
-     const img = document.createElement('img');
-     img.src = shieldPath(teamData.slug);
-     img.alt = teamData.name;
-     shieldElement.appendChild(img);
-     
-     // Botão de remoção
-     const removeBtn = document.createElement('button');
-     removeBtn.className = 'remove-shield';
-     removeBtn.textContent = '×';
-     removeBtn.title = 'Remover escudo';
-     removeBtn.onclick = (e) => {
-       e.stopPropagation();
-       shieldElement.remove();
-     };
-     shieldElement.appendChild(removeBtn);
-     
-     // Permitir arrastar livremente dentro da seção
-     DND.makeDraggable(shieldElement, teamData);
-     
-     // Configurar movimento livre entre TODAS as áreas do muro
-     let isDragging = false;
-     let startX, startY, initialX, initialY;
-     
-     shieldElement.addEventListener('mousedown', (e) => {
-       if (e.target === removeBtn) return;
-       isDragging = true;
-       startX = e.clientX;
-       startY = e.clientY;
-       initialX = parseInt(shieldElement.style.left) || 0;
-       initialY = parseInt(shieldElement.style.top) || 0;
-       
-       // Melhorar fluidez visual
-       shieldElement.classList.add('dragging');
-       shieldElement.style.cursor = 'grabbing';
-       shieldElement.style.zIndex = '25';
-       document.body.style.cursor = 'grabbing';
-       document.body.style.userSelect = 'none';
-       
-       e.preventDefault();
-       e.stopPropagation();
-     });
-     
-     document.addEventListener('mousemove', (e) => {
-       if (!isDragging) return;
-       
-       const deltaX = e.clientX - startX;
-       const deltaY = e.clientY - startY;
-       
-       // Calcular nova posição baseada no movimento do mouse
-       let newX = initialX + deltaX;
-       let newY = initialY + deltaY;
-       
-       // Limitar aos bounds da seção atual
-       newX = Math.max(0, Math.min(newX, targetSection.offsetWidth - 40));
-       newY = Math.max(0, Math.min(newY, targetSection.offsetHeight - 40));
-       
-       // Atualizar posição suavemente
-       shieldElement.style.left = newX + 'px';
-       shieldElement.style.top = newY + 'px';
-       
-       // Verificar se o mouse está sobre uma nova seção
-       const sections = document.querySelectorAll('.muro-section');
-       let newTargetSection = null;
-       
-       sections.forEach(section => {
-         const sectionRect = section.getBoundingClientRect();
-         const mouseX = e.clientX;
-         const mouseY = e.clientY;
-         
-         if (mouseX >= sectionRect.left && mouseX <= sectionRect.right &&
-             mouseY >= sectionRect.top && mouseY <= sectionRect.bottom) {
-           newTargetSection = section;
-         }
-       });
-       
-       // Se mudou de seção, mover o elemento suavemente
-       if (newTargetSection && newTargetSection !== targetSection) {
-         // Calcular posição relativa na nova seção
-         const currentRect = targetSection.getBoundingClientRect();
-         const newRect = newTargetSection.getBoundingClientRect();
-         
-         // Manter a posição visual do escudo
-         const globalX = currentRect.left + newX;
-         const globalY = currentRect.top + newY;
-         
-         const newRelativeX = globalX - newRect.left;
-         const newRelativeY = globalY - newRect.top;
-         
-         // Limitar aos bounds da nova seção
-         const finalX = Math.max(0, Math.min(newRelativeX, newTargetSection.offsetWidth - 40));
-         const finalY = Math.max(0, Math.min(newRelativeY, newTargetSection.offsetHeight - 40));
-         
-         // Mover para nova seção
-         newTargetSection.appendChild(shieldElement);
-         shieldElement.style.left = finalX + 'px';
-         shieldElement.style.top = finalY + 'px';
-         
-         // Atualizar referências
-         targetSection = newTargetSection;
-         initialX = finalX;
-         initialY = finalY;
-         startX = e.clientX;
-         startY = e.clientY;
-         
-         // Atualizar tooltip
-         const newMuroType = newTargetSection.dataset.muro;
-         shieldElement.title = `${teamData.name} - ${getMuroDescription(newMuroType)}`;
-         
-         console.log(`🏆 Escudo ${teamData.name} movido para área ${newMuroType}`);
-       }
-     });
-     
-     document.addEventListener('mouseup', () => {
-       if (isDragging) {
-         isDragging = false;
-         
-         // Restaurar estado visual
-         shieldElement.classList.remove('dragging');
-         shieldElement.style.cursor = 'grab';
-         shieldElement.style.zIndex = '10';
-         document.body.style.cursor = '';
-         document.body.style.userSelect = '';
-         
-         console.log(`🏆 Escudo ${teamData.name} posicionado na área ${targetSection.dataset.muro}`);
-       }
-     });
-     
-     // Duplo clique para abrir seleção de jogadores
-     shieldElement.addEventListener('dblclick', () => {
-       const teamDataWithMuro = {
-         ...teamData,
-         targetMuro: muroType,
-         targetSection: targetSection
-       };
-       openTeamPlayerSelectionForMuro(teamDataWithMuro);
-     });
-     
-     targetSection.appendChild(shieldElement);
-   }
-
-   // Função para abrir seleção de jogadores específica para o muro
-   function openTeamPlayerSelectionForMuro(teamData) {
-     // Se os dados ainda não terminaram de carregar (autoLoadData é assíncrono),
-     // reaproveita o carregador oficial (que preenche clubeSlug/posicao corretamente)
-     // em vez de reimplementar o parse do CSV aqui.
-     if(PLAYERS_API.STATE.players.length === 0) {
-       PLAYERS_API.loadData()
-         .then(() => showTeamPlayersModalForMuro(teamData))
-         .catch(() => {
-           alert('Não foi possível carregar os dados dos jogadores. Tente novamente.');
-         });
-     } else {
-       showTeamPlayersModalForMuro(teamData);
-     }
-   }
-
-   // Modal para mostrar jogadores do time específico para o muro
-   function showTeamPlayersModalForMuro(teamData) {
-     console.log('🏆 showTeamPlayersModalForMuro chamada para:', teamData);
-     const teamName = teamData.name;
-     const muroType = teamData.targetMuro;
-     const targetSection = teamData.targetSection;
-     const players = window.PLAYERS_API.STATE.players;
-     
-     // Verificar se há dados carregados
-     if (!players || players.length === 0) {
-       alert('Dados dos jogadores não foram carregados ainda. Aguarde um momento.');
-       return;
-     }
-     
-     // Usar função dedicada com deduplicação automática
-     const teamPlayers = window.PLAYERS_API.getPlayersByClub(teamData.slug);
-
-     if(teamPlayers.length === 0) {
-       alert(`Nenhum jogador encontrado para ${teamName}`);
-       return;
-     }
-
-     // Criar modal (mesmo estilo do campo)
-     const modal = document.createElement('div');
-     modal.style.cssText = `
-       position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-       background: rgba(0,0,0,0.8); z-index: 1000;
-       display: flex; align-items: center; justify-content: center;
-     `;
-
-     const content = document.createElement('div');
-     content.style.cssText = `
-       background: #0d1a14; border: 2px solid #21c35c;
-       border-radius: 16px; padding: 20px; max-width: 600px;
-       max-height: 80vh; overflow-y: auto;
-     `;
-
-     const title = document.createElement('h3');
-     title.textContent = `Selecionar jogador - ${teamName} (${getMuroDescription(muroType)})`;
-     title.style.cssText = 'color: #21c35c; margin-bottom: 16px; text-align: center;';
-
-     const playersList = document.createElement('div');
-     playersList.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;';
-
-     // Agrupar por posição (mesma lógica do campo)
-     const positions = [
-       {name: 'Goleiro', keys: ['GOLEIRO', 'GOL']},
-       {name: 'Lateral', keys: ['LATERAL', 'LAT']},
-       {name: 'Zagueiro', keys: ['ZAGUEIRO', 'ZAG']},
-       {name: 'Meio-campo', keys: ['MEIO-CAMPO', 'MEIA', 'MEI']},
-       {name: 'Atacante', keys: ['ATACANTE', 'ATA']},
-       {name: 'Técnico', keys: ['TÉCNICO', 'TECNICO', 'TEC']}
-     ];
-     
-     positions.forEach(pos => {
-       const posPlayers = teamPlayers.filter(p => 
-         pos.keys.some(key => p.posicao.toUpperCase().includes(key))
-       );
-
-       if(posPlayers.length > 0) {
-         const posSection = document.createElement('div');
-         posSection.style.cssText = 'margin-bottom: 16px;';
-         
-         const posTitle = document.createElement('h4');
-         posTitle.textContent = pos.name;
-         posTitle.style.cssText = 'color: #fff; margin-bottom: 8px; font-size: 14px;';
-         
-         posPlayers.forEach(player => {
-           const playerBtn = document.createElement('button');
-           playerBtn.textContent = player.nome;
-           playerBtn.style.cssText = `
-             display: block; width: 100%; padding: 8px 12px;
-             background: #104a2f; border: 1px solid #21c35c;
-             color: #fff; border-radius: 8px; margin-bottom: 4px;
-             cursor: pointer; text-align: left;
-           `;
-           playerBtn.onmouseover = () => playerBtn.style.background = '#21c35c';
-           playerBtn.onmouseout = () => playerBtn.style.background = '#104a2f';
-           playerBtn.onclick = () => {
-             // Adicionar jogador ao muro em vez do campo
-             addPlayerToMuro({
-               type: 'player',
-               name: player.nome,
-               club: player.clube,
-               slug: teamData.slug,
-               atletaId: player.atletaId
-             }, muroType, targetSection);
-             modal.remove(); // Fechar modal após seleção
-           };
-           posSection.appendChild(playerBtn);
-         });
-         
-         posSection.appendChild(posTitle);
-         playersList.appendChild(posSection);
-       }
-     });
-
-     const closeBtn = document.createElement('button');
-     closeBtn.textContent = 'Fechar';
-     closeBtn.style.cssText = `
-       background: #ef4444; color: #fff; border: none;
-       padding: 10px 20px; border-radius: 8px; cursor: pointer;
-       margin-top: 16px; width: 100%;
-     `;
-     closeBtn.onclick = () => modal.remove();
-
-     content.appendChild(title);
-     content.appendChild(playersList);
-     content.appendChild(closeBtn);
-     modal.appendChild(content);
-     document.body.appendChild(modal);
-   }
-
-   // Função para adicionar jogador ao muro
-   function addPlayerToMuro(playerData, muroType, targetSection) {
-     console.log(`🏆 Adicionando jogador ${playerData.name} ao muro ${muroType}`);
-     
-     const shieldsContainer = targetSection.querySelector('.muro-shields');
-     
-     // Criar elemento do jogador (apenas círculo com uniforme)
-     const playerElement = document.createElement('div');
-     playerElement.className = 'muro-player';
-     playerElement.dataset.playerName = playerData.name;
-     playerElement.dataset.club = playerData.club;
-     playerElement.title = `${playerData.name} (${playerData.club})`;
-     
-     // Chip com uniforme (maior, sem nome)
-     const chip = document.createElement('div');
-     chip.className = 'player-chip';
-     const uniformImg = document.createElement('img');
-     uniformImg.src = kitPath(playerData.slug);
-     uniformImg.alt = playerData.club;
-     uniformImg.onerror = () => {
-       uniformImg.src = shieldPath(playerData.slug);
-     };
-     chip.appendChild(uniformImg);
-     
-     // Botão de remoção
-     const removeBtn = document.createElement('button');
-     removeBtn.className = 'remove-player';
-     removeBtn.textContent = '×';
-     removeBtn.title = 'Remover jogador';
-     removeBtn.onclick = (e) => {
-       e.stopPropagation();
-       playerElement.remove();
-     };
-     
-     playerElement.appendChild(chip);
-     playerElement.appendChild(removeBtn);
-     
-     // Permitir arrastar de volta
-     DND.makeDraggable(playerElement, playerData);
-     
-     shieldsContainer.appendChild(playerElement);
-   }
-
-})();
-
-// Event listener para o botão de atualização manual
-document.addEventListener('DOMContentLoaded', function() {
-    const forceUpdateBtn = document.getElementById('force-update-btn');
-    if (forceUpdateBtn) {
-        forceUpdateBtn.addEventListener('click', function() {
-            this.disabled = true;
-            this.textContent = '🔄 Atualizando...';
-            
-            if (window.PLAYERS_API && window.PLAYERS_API.forceUpdate) {
-                window.PLAYERS_API.forceUpdate();
-                
-                // Reabilitar botão após 3 segundos
-                setTimeout(() => {
-                    this.disabled = false;
-                    this.textContent = '🔄 Atualizar Preços';
-                }, 3000);
-            }
+          commit();
         });
+        zone.appendChild(n);
+      });
+      muro.appendChild(zone);
+    });
+
+    const res = $('#reserves');
+    res.replaceChildren();
+    S.reserves.forEach((P, i) => {
+      const slot = el('div', 'reserve-slot' + (P ? ' filled' : ''));
+      slot.dataset.slot = i;
+      if (P){
+        slot.appendChild(avatar(P, 'md'));
+        slot.appendChild(el('div', 'nm', P.n));
+        slot.appendChild(xBtn('Remover', () => { S.reserves[i] = null; commit(); }));
+        makeDraggable(slot, { type: 'player', P });
+      } else {
+        slot.textContent = '+'; slot.title = 'Solte um jogador aqui';
+      }
+      res.appendChild(slot);
+    });
+  }
+
+  /* ---------- Lista de jogadores por posição (direita) ---------- */
+  const rosterUI = {};
+
+  function buildRoster(){
+    const root = $('#roster');
+    const head = el('div', 'roster-head');
+    head.appendChild(el('h2', 'box-title', 'JOGADORES'));
+    const clear = el('button', 'btn-mini', 'Limpar lista');
+    clear.type = 'button';
+    clear.addEventListener('click', () => {
+      if (!POS.some(p => S.list[p].length) || !confirm('Esvaziar a lista de jogadores?')) return;
+      POS.forEach(p => S.list[p] = []);
+      commit();
+    });
+    head.appendChild(clear);
+    root.appendChild(head);
+    root.appendChild(el('p', 'roster-hint', 'Arraste um escudo para cá (ou clique nele) para escolher jogadores. Depois arraste o jogador para o campo.'));
+
+    Data.POS_ORDER.forEach(pos => {
+      const sec = el('section', 'pos-sec');
+      const h = el('div', 'pos-head');
+      const title = el('span', 'pos-title', Data.POS_LABEL[pos]);
+      const count = el('span', 'pos-count', '0');
+      const add = el('button', 'btn-mini', '🔍 Buscar');
+      add.type = 'button';
+      h.append(title, count, add);
+      const searchBox = el('div', 'pos-search');
+      searchBox.hidden = true;
+      const input = el('input', 'search');
+      input.placeholder = 'Nome do jogador ou clube...';
+      input.setAttribute('aria-label', 'Buscar ' + Data.POS_LABEL[pos]);
+      const results = el('div', 'pos-results');
+      searchBox.append(input, results);
+      const grid = el('div', 'pos-grid');
+
+      const runSearch = () => {
+        results.replaceChildren();
+        if (!input.value.trim()) return;
+        Data.search(input.value, pos, 12).forEach(P => {
+          const row = el('button', 'res-row' + (inRoster(P) ? ' added' : ''));
+          row.type = 'button';
+          row.appendChild(avatar(P, 'xs'));
+          row.appendChild(el('span', 'res-name', P.n));
+          row.appendChild(el('span', 'res-club', P.c + (P.pr ? ' · C$ ' + P.pr.toFixed(2) : '')));
+          row.addEventListener('click', () => { addToRoster(P); commit(); runSearch(); });
+          results.appendChild(row);
+        });
+      };
+      input.addEventListener('input', runSearch);
+      add.addEventListener('click', () => {
+        searchBox.hidden = !searchBox.hidden;
+        if (!searchBox.hidden) input.focus();
+      });
+
+      sec.append(h, searchBox, grid);
+      root.appendChild(sec);
+      rosterUI[pos] = { grid, count, runSearch };
+    });
+  }
+
+  function renderRosterGrids(){
+    POS.forEach(pos => {
+      const ui = rosterUI[pos];
+      if (!ui) return;
+      ui.grid.replaceChildren();
+      ui.count.textContent = S.list[pos].length;
+      S.list[pos].forEach(P => {
+        const card = el('div', 'pcard');
+        card.title = P.n + ' (' + P.c + ') — arraste para o campo';
+        card.appendChild(avatar(P, 'md'));
+        card.appendChild(el('div', 'nm', P.n));
+        card.appendChild(xBtn('Tirar da lista', () => { removeFromRoster(P); commit(); }));
+        makeDraggable(card, { type: 'player', P });
+        ui.grid.appendChild(card);
+      });
+      ui.runSearch();
+    });
+  }
+
+  /* ---------- Escolha de jogadores de um clube ---------- */
+  let pickerSlug = null;
+
+  function openPicker(slug){
+    pickerSlug = slug;
+    renderPicker();
+  }
+  function closePicker(){ pickerSlug = null; $('#picker').hidden = true; }
+
+  function renderPicker(){
+    const box = $('#picker');
+    if (!pickerSlug){ box.hidden = true; return; }
+    box.hidden = false;
+    box.replaceChildren();
+    const head = el('div', 'picker-head');
+    head.appendChild(shieldAvatar(pickerSlug, 'sm'));
+    head.appendChild(el('h3', '', clubName(pickerSlug)));
+    head.appendChild(el('span', 'picker-tip', 'Clique nos jogadores para mandá-los para a lista'));
+    const done = el('button', 'btn', 'Concluir');
+    done.type = 'button'; done.addEventListener('click', closePicker);
+    head.appendChild(done);
+    box.appendChild(head);
+
+    const players = Data.byClub(pickerSlug);
+    if (!players.length){
+      box.appendChild(el('p', 'picker-empty', Data.info.updatedAt ? 'Nenhum jogador encontrado para este clube.' : 'Carregando jogadores...'));
+      return;
     }
+    const body = el('div', 'picker-body');
+    Data.POS_ORDER.forEach(pos => {
+      const group = players.filter(p => p.p === pos);
+      if (!group.length) return;
+      const sec = el('div', 'picker-sec');
+      sec.appendChild(el('h4', '', Data.POS_LABEL[pos]));
+      const grid = el('div', 'picker-grid');
+      group.forEach(P => {
+        const b = el('button', 'picker-p' + (inRoster(P) ? ' added' : ''));
+        b.type = 'button';
+        b.appendChild(avatar(P, 'sm'));
+        b.appendChild(el('span', 'nm', P.n));
+        if (P.pr) b.appendChild(el('span', 'pr', 'C$ ' + P.pr.toFixed(2)));
+        b.addEventListener('click', () => {
+          if (inRoster(P)) removeFromRoster(P); else addToRoster(P);
+          b.classList.toggle('added', inRoster(P));
+          save(); renderRosterGrids();
+        });
+        grid.appendChild(b);
+      });
+      sec.appendChild(grid);
+      body.appendChild(sec);
+    });
+    box.appendChild(body);
+  }
 
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePicker(); });
+  document.addEventListener('mousedown', e => {
+    if (pickerSlug && !e.target.closest('#picker, .team-pill, #roster')) closePicker();
+  });
 
-});
+  /* ---------- Botões gerais ---------- */
+  function wireButtons(){
+    $('#spawnStar').addEventListener('click', () => {
+      const f = S.fields[S.active];
+      f.items.push({ id: uid(), k: 's', x: 50 + (f.items.length % 5) * 3, y: 50 });
+      commit();
+    });
+    $('#clearField').addEventListener('click', () => {
+      const f = S.fields[S.active];
+      if (!f.items.length) return;
+      f.items = [];
+      commit();
+    });
+    $('#clearAll').addEventListener('click', () => {
+      if (!confirm('Apagar toda a prancheta (campos, linhas, muro, reservas e lista de jogadores)?')) return;
+      State.reset();
+      commit(); renderTabs();
+    });
+    $('#force-update-btn').addEventListener('click', () => Data.load());
+    window.addEventListener('data-loading', renderUpdateInfo);
+    window.addEventListener('data-ready', () => {
+      renderUpdateInfo();
+      if (pickerSlug) renderPicker();
+    });
+  }
+
+  /* ---------- Início ---------- */
+  function init(){
+    renderTeamsBar();
+    buildRoster();
+    wireButtons();
+    renderFields();
+    renderStructure();
+    renderRosterGrids();
+    Data.load();
+    setInterval(() => Data.load(), 5 * 60 * 1000); // preços e mercado
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();

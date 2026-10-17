@@ -120,7 +120,8 @@ def process_player_data(api_data):
                     'Preço (C$)': player.get('preco_num', 0),
                     'Média (pts)': player.get('media_num', 0),
                     'Variação última (C$)': player.get('variacao_num', 0),
-                    'Jogos': player.get('jogos_num', 0)
+                    'Jogos': player.get('jogos_num', 0),
+                    'ID': player.get('atleta_id', '')
                 }
                 
                 players_data.append(jogador_data)
@@ -152,7 +153,8 @@ def process_player_data(api_data):
                      'Preço (C$)': player.get('preco_num', 0),
                      'Média (pts)': player.get('media_num', 0),
                      'Variação última (C$)': player.get('variacao_num', 0),
-                     'Jogos': player.get('jogos_num', 0)
+                     'Jogos': player.get('jogos_num', 0),
+                     'ID': player.get('atleta_id', '')
                  }
                  
                  players_data.append(jogador_data)

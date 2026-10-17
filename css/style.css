@@ -1,645 +1,169 @@
-/* Core layout - FORCE LOAD v59 - CRITICAL FIX */
+/* Prancheta TCC — v70 */
 :root{
-  --bg:#0b1713 !important; --panel:#0e1f18 !important; --accent:#22c55e !important; --accent2:#16a34a !important; --yellow:#eab308 !important; --red:#ef4444 !important;
-  --text:#e8f6ee !important; --muted:#bfe8d4 !important;
+  --bg:#0b1713; --panel:#0e1f18; --accent:#22c55e; --accent2:#16a34a; --yellow:#eab308; --red:#ef4444;
+  --text:#e8f6ee; --muted:#bfe8d4; --line:#2ad3763a;
 }
+html{font-size:16px}
+*{box-sizing:border-box}
+body{min-height:100vh;margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+button{font-family:inherit}
 
-/* FORCE CRITICAL STYLES */
-html { font-size: 16px !important; }
-body { min-height: 100vh !important; margin: 0 !important; background: var(--bg) !important; color: var(--text) !important; font-family: Inter, system-ui, Arial, sans-serif !important; }
-* { box-sizing: border-box !important; }
-.header{max-width:1600px;margin:0 auto;padding:16px 14px;position:relative}
+/* ---------- Cabeçalho ---------- */
+.header{max-width:1760px;margin:0 auto;padding:12px 14px;position:relative}
+.title{font-family:"Bebas Neue","Arial Black",Arial,sans-serif;font-size:48px;text-align:center;letter-spacing:1.5px;margin:4px 0 12px;font-weight:400;text-transform:uppercase}
+.update-controls{position:absolute;top:16px;right:20px;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.update-btn{background:linear-gradient(135deg,#00ff88,#00cc6a);color:#1a1a1a;border:none;padding:8px 16px;border-radius:20px;font-weight:bold;cursor:pointer;font-size:14px;transition:transform .2s,box-shadow .2s}
+.update-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,255,136,.4)}
+.last-update{color:#9bb8aa;font-size:12px;text-align:right}
+.teams-bar{display:flex;align-items:center;gap:10px;overflow:auto;padding:10px 14px;border:2px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#0e241b,#0b1a14)}
+.teams-bar::-webkit-scrollbar{height:8px}.teams-bar::-webkit-scrollbar-thumb{background:#1b372c;border-radius:8px}
+.team-pill{width:60px;height:60px;flex:0 0 auto;border-radius:50%;background:#fff;border:2px solid #fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.25);cursor:grab;padding:0;overflow:hidden}
+.team-pill img{width:78%;height:78%;object-fit:contain;display:block;pointer-events:none}
+.team-pill:focus-visible{outline:3px solid var(--accent)}
 
-.update-controls{position:absolute;top:20px;right:20px;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+/* ---------- Layout ---------- */
+.layout{max-width:1760px;margin:0 auto;padding:0 14px 24px;display:grid;grid-template-columns:300px minmax(0,1fr) 390px;gap:14px;align-items:start}
+.layout.compare{grid-template-columns:minmax(0,1fr) 390px}
+.layout.compare .structure{display:none}
+.panel{background:linear-gradient(145deg,#0e241b,#0b1a14);border:2px solid var(--line);border-radius:18px;padding:12px;position:relative}
+.box-title{font-weight:800;color:var(--accent);text-align:center;margin:6px 0 8px;font-size:16px}
 
-.update-btn{background:linear-gradient(135deg,#00ff88 0%,#00cc6a 100%);color:#1a1a1a;border:none;padding:8px 16px;border-radius:20px;font-weight:bold;cursor:pointer;transition:all 0.3s ease;font-size:14px}
+/* ---------- Avatares (foto + escudo) ---------- */
+.av{--s:60px;position:relative;width:var(--s);height:var(--s);flex:0 0 auto}
+.av.xs{--s:30px}.av.sm{--s:44px}.av.md{--s:58px}.av.lg{--s:calc(var(--u,8.4px)*11)}
+.av .ph{width:100%;height:100%;border-radius:50%;background:#fff;border:2px solid #fff;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center}
+.av .ph img{width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none}
+.av .ph.photo{background:radial-gradient(circle at 50% 35%,#f4f7f5,#cfe0d6)}
+.av .ph.photo img{object-fit:cover;object-position:50% 10%}
+.av.club .ph img{width:82%;height:82%}
+.av .sh{position:absolute;right:-8%;bottom:-6%;width:40%;height:40%;border-radius:50%;background:#fff;border:2px solid #fff;object-fit:contain;padding:1px;box-shadow:0 2px 6px rgba(0,0,0,.4);pointer-events:none}
+.av.xs .sh{display:none}
+.av.club .sh{display:none}
 
-.update-btn:hover{background:linear-gradient(135deg,#00cc6a 0%,#00aa55 100%);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,255,136,0.4)}
+.x{position:absolute;top:-6px;right:-6px;width:20px;height:20px;padding:0;background:var(--red);border:2px solid #fff;color:#fff;border-radius:50%;cursor:pointer;font-size:13px;font-weight:700;line-height:1;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s;z-index:6}
+.badge:hover>.x,.star-item:hover>.x,.chip:hover>.x,.muro-item:hover>.x,.pcard:hover>.x,.reserve-slot:hover>.x{opacity:1}
 
-.update-btn:active{transform:translateY(0)}
-
-.last-update{color:#888;font-size:12px;text-align:right}
-.title{font-family:"Bebas Neue","Arial Black",Arial,sans-serif;font-size:56px;text-align:center;letter-spacing:1.5px;margin:10px 0 16px;font-weight:400;text-transform:uppercase}
-.teams-bar{display:flex !important;gap:10px !important;flex-wrap:nowrap !important;overflow:auto !important;padding:12px 14px !important;border:2px solid #2ad3763a !important;border-radius:18px !important;background:linear-gradient(145deg,#0e241b,#0b1a14) !important;}
-.teams-bar::-webkit-scrollbar{height:8px !important;}.teams-bar::-webkit-scrollbar-thumb{background:#1b372c !important;border-radius:8px !important;}
-.team-pill{width:60px !important;height:60px !important;border-radius:50% !important;flex-shrink:0 !important;background:#fff !important;display:flex !important;align-items:center !important;justify-content:center !important;border:3px solid #ffffff !important;box-shadow:0 4px 16px rgba(0,0,0,.25) !important;cursor:grab !important;position:relative !important;overflow:hidden !important;}
-
-.teams-bar .team-pill img{width:54px !important;height:54px !important;object-fit:contain !important;max-width:54px !important;max-height:54px !important;}
-.team-pill > img{width:54px !important;height:54px !important;object-fit:contain !important;max-width:54px !important;max-height:54px !important;}
-button.team-pill img{width:54px !important;height:54px !important;object-fit:contain !important;max-width:54px !important;max-height:54px !important;}
-
-.team-pill:focus{outline:3px solid var(--accent)}
-.grid{max-width:1600px !important;margin:0 auto !important;padding:0 14px 18px !important;display:grid !important;grid-template-columns:minmax(280px, 300px) 1fr minmax(320px, 340px) !important;gap:16px !important;align-items:start !important;min-height:400px !important;}
-.panel{background:linear-gradient(145deg,#0e241b,#0b1a14);border:2px solid #2ad3763a;border-radius:18px;padding:12px}
-
-/* Left boxes */
-.box-title{font-weight:800;color:var(--accent);text-align:center;margin:4px 0 10px}
-.analysis-rectangle{min-height:86px;border-radius:14px;margin:10px 6px;padding:8px 8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:linear-gradient(145deg,rgba(34,197,94,.12),rgba(34,197,94,.06));border:2px solid rgba(34,197,94,.65);box-shadow:0 0 0 3px rgba(34,197,94,.12) inset;position:relative;justify-content:center}
+/* ---------- Esquerda: linhas ---------- */
+.analysis-rectangle{min-height:84px;border-radius:14px;margin:8px 4px;padding:8px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center;position:relative;background:linear-gradient(145deg,rgba(34,197,94,.12),rgba(34,197,94,.06));border:2px solid rgba(34,197,94,.65);box-shadow:0 0 0 3px rgba(34,197,94,.12) inset}
 .analysis-rectangle.yellow{background:linear-gradient(145deg,rgba(234,179,8,.12),rgba(234,179,8,.06));border-color:rgba(234,179,8,.7);box-shadow:0 0 0 3px rgba(234,179,8,.12) inset}
 .analysis-rectangle.red{background:linear-gradient(145deg,rgba(239,68,68,.12),rgba(239,68,68,.06));border-color:rgba(239,68,68,.7);box-shadow:0 0 0 3px rgba(239,68,68,.12) inset}
-
-.chip{width:64px;height:64px;aspect-ratio:1/1;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;border:2px solid #ffffff;box-shadow:0 4px 12px rgba(0,0,0,.25);position:relative;margin:2px}
-.chip img{width:90%;height:90%;object-fit:contain}
-.chip .remove{position:absolute;top:-6px;right:-6px;width:18px;height:18px;background:var(--red);border:2px solid #fff;color:#fff;border-radius:50%;cursor:pointer;opacity:0;transition:opacity .15s;font-size:12px;font-weight:bold;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.3);z-index:5}
-.chip:hover .remove{opacity:1;transform:scale(1.1)}
-
-/* Field */
-.soccer-wrap{border:3px solid rgba(33,195,92,0.4);border-radius:24px;padding:24px;background:linear-gradient(135deg,#0e3b27,#0d2f22);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(33,195,92,0.1);backdrop-filter:blur(1px)}
-.soccer-field{position:relative;width:100%;height:1008px;max-width:840px;margin:0 auto;border-radius:20px;overflow:hidden;background:#1a7c54;box-shadow:inset 0 0 60px rgba(0,0,0,0.25),0 4px 20px rgba(0,0,0,0.3);border:2px solid rgba(255,255,255,0.1)}
-.field-layer{position:absolute;inset:0;pointer-events:none}
-.droptarget{}
-.lines .field-border{position:absolute;inset:28px;border:3px solid #ffffff;border-radius:8px;box-shadow:0 0 8px rgba(255,255,255,0.4)}
-
-.penalty{position:absolute;left:50%;transform:translateX(-50%);width:52%;height:140px;border:3px solid #ffffff;box-shadow:0 0 8px rgba(255,255,255,0.4)}
-.penalty.top{top:28px}
-.penalty.bot{bottom:28px}
-.goal-area{position:absolute;left:50%;transform:translateX(-50%);width:22%;height:70px;border:3px solid #ffffff;box-shadow:0 0 8px rgba(255,255,255,0.4)}
-.goal-area.top{top:28px}
-.goal-area.bot{bottom:28px}
-.penalty-spot{position:absolute;left:50%;width:8px;height:8px;background:#ffffff;border-radius:50%;transform:translateX(-50%);box-shadow:0 0 6px rgba(255,255,255,0.6)}
-.penalty-spot.top{top:151px}.penalty-spot.bot{bottom:151px}
-.tcc-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:504px;height:auto;filter:drop-shadow(0 2px 4px rgba(0,0,0,.45));z-index:1;opacity:0.25}
-
-.badge{position:absolute;transform:translate(-50%,-50%);cursor:grab;z-index:3}
-.badge .circle{width:84px;height:84px;border-radius:50%;background:#fff;border:3px solid #ffffff;box-shadow:0 6px 18px rgba(0,0,0,.3);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.3);position:relative}
-.badge .remove{transition:opacity 0.2s ease}
-/* FORCE SHIELDS SIZE - CRITICAL FIX v59 */
-.team-pill img, .team-pill > img, button.team-pill img {
-  width: 75% !important;
-  height: 75% !important;
-  object-fit: contain !important;
-  display: block !important;
-  max-width: 75% !important;
-  max-height: 75% !important;
-  min-width: 40px !important;
-  min-height: 40px !important;
-}
-
-/* Escudos maiores nos badges - v6 força bruta TOTAL */
-div.badge div.circle img, .badge .circle img, img[src*="shields"], .chip img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  min-width: 100% !important;
-  min-height: 100% !important;
-}
-.badge .name{position:absolute;top:100px;left:50%;transform:translateX(-50%);padding:4px 8px;background:rgba(9,32,22,.95);border:1px solid rgba(33,195,92,.7);border-radius:10px;font-size:12px;font-weight:800;white-space:nowrap}
-.badge .remove{position:absolute;top:-8px;right:-8px;width:20px;height:20px;background:var(--red);border:none;color:#fff;border-radius:50%;cursor:pointer}
-
-.toolbar{display:flex;gap:10px;justify-content:center;margin-top:10px;flex-wrap:wrap}
-.pos-btn{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;padding:10px 16px;border-radius:24px;font-weight:800;cursor:pointer;box-shadow:0 4px 15px rgba(34,197,94,.3)}
-.pos-btn:focus{outline:3px solid #89f7c1}
-
-
-.actions{display:flex;gap:8px;justify-content:center;margin:10px 0}
-.btn{background:#0e7b50;border:1px solid #21c35c;color:#fff;padding:8px 12px;border-radius:10px;font-weight:800;cursor:pointer}
-.btn-outline{background:#0e231a}
-.btn-star{border-color:#eab308;color:#f1c40f;background:#0e231a}
-
-/* Right column */
-.webcam-box{height:260px;border:2px solid #21c35c;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(16,185,129,.05))}
-.webcam-icon{font-size:64px;color:var(--accent)}
-
-/* Reservas de Luxo - v13 - Layout otimizado e balanceado */
-.panel.right .box-title:last-of-type{margin-top:16px;margin-bottom:12px}
-.reserves-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:18px 12px;min-height:240px;border:2px solid rgba(34,197,94,0.25);border-radius:14px;background:linear-gradient(135deg,rgba(34,197,94,0.06),rgba(34,197,94,0.03));margin:0 -3px;justify-items:center;align-items:center}
-.reserve-slot{width:95px;height:95px;border:2px solid transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--accent);position:relative;background:transparent;cursor:pointer;transition:all 0.3s ease}
-.reserve-slot:hover{border-color:var(--accent);background:rgba(34,197,94,0.15);transform:scale(1.05);box-shadow:0 6px 20px rgba(34,197,94,.25)}
-.reserve-slot .remove{position:absolute;top:4px;right:4px;width:18px;height:18px;background:var(--red);border:none;color:#fff;border-radius:50%;cursor:pointer;opacity:0;transition:opacity 0.2s}
-.reserve-slot:hover .remove{opacity:1}
-.slot-item{display:flex;flex-direction:column;align-items:center;gap:6px}
-.slot-item .mini{width:65px;height:65px;border-radius:50%;border:2px solid var(--accent);overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center}
-.slot-item .mini img{width:100%;height:100%;object-fit:contain}
-.slot-item .nm{font-size:11px;font-weight:800;max-width:95px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;color:var(--text);margin-top:4px}
-
-.star-row{display:flex;justify-content:center;margin-top:10px}
-.star{position:absolute;width:32px;height:32px;transform:translate(-50%,-50%);cursor:grab;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35));font-size:32px;text-shadow:2px 2px 4px rgba(0,0,0,0.5);transition:transform 0.2s ease;user-select:none;z-index:4}
-.star:hover{transform:translate(-50%,-50%) scale(1.1)}
-.star:active{cursor:grabbing}
-.star .remove,.star-remove{position:absolute;top:-8px;right:-8px;width:20px;height:20px;background:var(--red);border:none;color:#fff;border-radius:50%;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;line-height:1;transition:opacity 0.2s ease,background 0.2s ease}
-.star-remove:hover{background:#ff6666}
-
-/* Drawer */
-.drawer{position:fixed;left:0;right:0;bottom:0;background:#0d1a14f2;border-top:3px solid #21c35c88;padding:14px 0;backdrop-filter:saturate(1.2) blur(2px)}
-.drawer-inner{max-width:1300px;margin:0 auto;display:flex;gap:14px;align-items:flex-start;padding:0 14px}
-.drawer-left{flex:2}
-.drawer-right{flex:3;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-.drawer-title{font-weight:800;color:var(--accent);margin-bottom:6px}
-.scroll-row{display:flex;gap:10px;overflow:auto;padding:6px 0;max-width:100%}
-.search-panel{width:100%}
-.search{width:100%;background:#092016;border:1px solid #21c35c77;border-radius:10px;padding:10px 12px;color:#e6f6ea;margin-bottom:8px}
-.card{display:flex;flex-direction:column;align-items:center;gap:6px;background:#0e231a;border:1px solid #21c35c3a;padding:8px 10px;border-radius:12px;min-width:160px}
-
-.card .price{font-size:11px;color:#888;margin-top:2px}
-
-/* Mini cards para jogadores selecionados */
-.mini-card{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px;border:1px solid #444;border-radius:8px;background:#222;margin-right:8px;position:relative;min-width:60px;cursor:grab}
-
-.mini-card:active{cursor:grabbing}
-
-.mini-chip{width:64px;height:64px;border-radius:50%;overflow:hidden;border:2px solid #555;background:#333}
-
-.mini-chip img{width:100%;height:100%;object-fit:cover}
-
-.mini-name{font-size:10px;color:#fff;text-align:center;line-height:1.2;max-width:50px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-
-.btn-remove{position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#ff4444;color:white;border:none;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
-
-.btn-remove:hover{background:#ff6666}
-
-/* Modal para busca de reservas */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 500px;
-  max-height: 80vh;
-  overflow: hidden;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  border-bottom: 1px solid #333;
-}
-
-.modal-header h3 {
-  margin: 0;
-  color: #fff;
-  font-size: 16px;
-}
-
-.modal-close {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 0;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-close:hover {
-  color: #ff4444;
-}
-
-.modal-body {
-  padding: 16px;
-  max-height: 60vh;
-  overflow-y: auto;
-}
-
-.results-container {
-  max-height: 400px;
-  overflow-y: auto;
-  margin-top: 8px;
-}
-.card .chip{display:flex;align-items:center;gap:10px;background:#104a2f;border:2px solid #21c35c;border-radius:16px;padding:6px 8px}
-.kit{width:80px;height:80px;aspect-ratio:1/1;border-radius:50%;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;border:2px solid #21c35c88}
-.kit img{width:100%;height:100%;object-fit:contain}
-.meta{display:flex;flex-direction:column}.nm{font-weight:800;white-space:nowrap}.sb{font-size:12px;color:#c8ecd8}
-.btn-mini{background:#0e7b50;border:1px solid #21c35c;color:#fff;padding:6px 10px;border-radius:10px;font-weight:700;cursor:pointer;font-size:12px}
-.adder-wrap{display:flex;justify-content:flex-end;align-items:center;gap:10px}
-
-
-/* Responsive */
-@media (max-width: 1200px){
-  .grid{grid-template-columns: 1fr;gap:16px}
-}
-@media (max-width: 768px){
-  .soccer-field{height:450px;max-width:100%}
-  .soccer-wrap{padding:12px}
-}
-@media (max-width: 480px){
-  .soccer-field{height:380px}
-  .soccer-wrap{padding:8px}
-  .center-circle{width:80px;height:80px}
-  .penalty{height:80px;width:50%}
-  .goal-area{height:40px;width:20%}
-}
-
-
-.penalty.top{top:28px;border-top:none;}
-.penalty.bot{bottom:28px;border-bottom:none;}
-.goal-area.top{top:28px;border-top:none;}
-.goal-area.bot{bottom:28px;border-bottom:none;}
-
-
-.legend-inline{display:flex;justify-content:center;gap:10px;align-items:center;margin-top:6px;flex-wrap:wrap;}
-
-.legend-inline-item{display:flex;align-items:center;gap:8px;font-weight:700;color:#d6f5e6;font-size:12px;white-space:nowrap;}
+.chip{position:relative;margin:2px;cursor:grab}
+.chip .av.md{--s:50px}
+.legend-inline{display:flex;justify-content:center;gap:10px;margin:4px 0 6px;flex-wrap:wrap}
+.legend-inline-item{display:flex;align-items:center;gap:6px;font-weight:700;color:#d6f5e6;font-size:12px;white-space:nowrap}
 .legend-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
-.legend-dot.g{background:#22c55e}
-.legend-dot.y{background:#eab308}
-.legend-dot.r{background:#ef4444}
+.legend-dot.g{background:#22c55e}.legend-dot.y{background:#eab308}.legend-dot.r{background:#ef4444}
 
+/* ---------- Teoria do muro ---------- */
+.muro{display:flex;height:210px;border-radius:16px;overflow:hidden;margin:6px 0 10px;box-shadow:0 8px 24px rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.3)}
+.muro-zone{flex:1;position:relative;min-width:0;overflow:hidden;transition:box-shadow .2s}
+.muro-zone.negativo{background:linear-gradient(145deg,rgba(239,68,68,.16),rgba(239,68,68,.08))}
+.muro-zone.centro{background:linear-gradient(145deg,rgba(156,163,175,.13),rgba(156,163,175,.06));border-left:1px solid rgba(255,255,255,.2);border-right:1px solid rgba(255,255,255,.2)}
+.muro-zone.positivo{background:linear-gradient(145deg,rgba(34,197,94,.16),rgba(34,197,94,.08))}
+.muro-symbol{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;pointer-events:none}
+.muro-zone.negativo .muro-symbol{background:#ef4444;border:2px solid #dc2626}
+.muro-zone.positivo .muro-symbol{background:#22c55e;border:2px solid #16a34a}
+.muro-item{position:absolute;transform:translate(-50%,-50%);cursor:grab;touch-action:none;user-select:none;z-index:3}
+.muro-item .av.md{--s:42px}
 
-/* --- Hardening header shields --- */
-.teams-bar{display:flex;align-items:center;gap:10px;overflow:auto;padding:12px 14px;border:2px solid #2ad3763a;border-radius:18px;background:linear-gradient(145deg,#0e241b,#0b1a14)}
-.team-pill{
-  width:60px;height:60px;aspect-ratio:1/1;flex:0 0 auto;
-  border-radius:50%; background:#fff; border:3px solid #fff;
-  display:inline-flex; align-items:center; justify-content:center;
-  box-shadow:0 4px 16px rgba(0,0,0,.25); cursor:grab; position:relative; overflow:hidden;
+/* ---------- Reservas ---------- */
+.reserves-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px 6px;border:2px solid rgba(34,197,94,.25);border-radius:14px;background:rgba(34,197,94,.04);justify-items:center}
+.reserve-slot{width:84px;min-height:84px;border:2px dashed rgba(34,197,94,.35);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:22px;color:var(--accent);position:relative;padding:4px;transition:background .2s,border-color .2s}
+.reserve-slot.filled{border-style:solid;border-color:transparent;cursor:grab}
+.reserve-slot .nm{font-size:11px;font-weight:800;max-width:80px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
+
+/* ---------- Centro: barra e campos ---------- */
+.field-bar{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.field-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.field-actions{display:flex;gap:8px;flex-wrap:wrap}
+.tab{background:#0e231a;border:1px solid #21c35c55;color:var(--text);padding:8px 14px;border-radius:12px;font-weight:800;cursor:pointer;font-size:13px}
+.tab.on{background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent;color:#fff}
+.tab.add{border-style:dashed;color:var(--muted)}
+.tab.cmp{border-color:var(--yellow);color:var(--yellow)}
+.tab.cmp.on{background:var(--yellow);color:#1a1a1a}
+.tab-x{margin-left:8px;opacity:.7;font-weight:700}.tab-x:hover{opacity:1;color:#fecaca}
+.btn{background:#0e7b50;border:1px solid #21c35c;color:#fff;padding:8px 12px;border-radius:10px;font-weight:800;cursor:pointer;font-size:13px}
+.btn:hover{filter:brightness(1.15)}
+.btn-outline{background:#0e231a}
+.btn-star{border-color:var(--yellow);color:#f1c40f;background:#0e231a}
+.btn-mini{background:#0e7b50;border:1px solid #21c35c;color:#fff;padding:5px 9px;border-radius:9px;font-weight:700;cursor:pointer;font-size:12px}
+
+.fields-area{display:flex;gap:12px;justify-content:center;align-items:flex-start}
+.fields-area.compare .field-wrap{flex:1 1 0;min-width:0}
+.field-wrap{width:100%;max-width:860px;border:3px solid transparent;border-radius:24px;padding:6px;background:linear-gradient(135deg,#0e3b27,#0d2f22)}
+.fields-area.compare .field-wrap{max-width:none}
+.fields-area.compare .field-wrap.active{border-color:rgba(33,195,92,.7)}
+.field-title{display:block;width:100%;background:none;border:0;color:var(--accent);font-weight:800;font-size:15px;padding:2px 0 6px;cursor:pointer}
+.field{--u:8.4px;position:relative;width:100%;aspect-ratio:5/6;border-radius:18px;overflow:hidden;background:#1a7c54;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 8.33%,transparent 8.33% 16.66%);box-shadow:inset 0 0 60px rgba(0,0,0,.25);border:2px solid rgba(255,255,255,.1);transition:box-shadow .15s}
+.field.hot{box-shadow:inset 0 0 0 4px rgba(34,197,94,.8),inset 0 0 60px rgba(0,0,0,.25)}
+.lines{position:absolute;inset:0;pointer-events:none}
+.lines>div{position:absolute;border:calc(var(--u)*.36) solid #fff;box-shadow:0 0 8px rgba(255,255,255,.35)}
+.f-border{inset:3.3%;border-radius:6px}
+.f-mid{left:3.3%;right:3.3%;top:50%;height:0;border-width:calc(var(--u)*.36) 0 0 0!important}
+.f-circle{left:50%;top:50%;width:21%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%}
+.f-pen{left:24%;width:52%;height:14%}
+.f-pen.top{top:3.3%;border-top:0}.f-pen.bot{bottom:3.3%;border-bottom:0}
+.f-goal{left:39%;width:22%;height:6.5%}
+.f-goal.top{top:3.3%;border-top:0}.f-goal.bot{bottom:3.3%;border-bottom:0}
+.f-spot{left:50%;width:calc(var(--u)*.9);height:calc(var(--u)*.9);background:#fff;border-radius:50%;transform:translateX(-50%);border:0!important}
+.f-spot.top{top:12.4%}.f-spot.bot{bottom:12.4%}
+.tcc-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60%;height:auto;opacity:.22;pointer-events:none;filter:drop-shadow(0 2px 4px rgba(0,0,0,.45))}
+
+.badge{position:absolute;transform:translate(-50%,-50%);cursor:grab;z-index:3;touch-action:none;user-select:none;display:flex;flex-direction:column;align-items:center}
+.badge .name{margin-top:calc(var(--u)*.5);padding:calc(var(--u)*.35) calc(var(--u)*1);background:rgba(9,32,22,.95);border:1px solid rgba(33,195,92,.7);border-radius:10px;font-size:max(10px,calc(var(--u)*1.55));font-weight:800;white-space:nowrap;line-height:1.2}
+.badge .ustar,.ghost .ustar{position:absolute;top:calc(var(--u)*-.8);left:calc(var(--u)*-.8);width:calc(var(--u)*3.4);height:calc(var(--u)*3.4);font-size:calc(var(--u)*2.2);display:flex;align-items:center;justify-content:center;background:rgba(255,215,0,.95);border:2px solid #fff;border-radius:50%}
+.star-item{position:absolute;transform:translate(-50%,-50%);font-size:calc(var(--u)*3.8);cursor:grab;z-index:4;touch-action:none;user-select:none;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+.ghost{position:fixed!important;z-index:5000;pointer-events:none;opacity:.92;transform:translate(-50%,-50%) scale(1.05)}
+
+/* ---------- Direita: lista por posição ---------- */
+.roster{position:sticky;top:8px;max-height:calc(100vh - 16px);overflow:auto}
+.roster::-webkit-scrollbar{width:8px}.roster::-webkit-scrollbar-thumb{background:#1b372c;border-radius:8px}
+.roster.hot{box-shadow:0 0 0 4px rgba(34,197,94,.7)}
+.roster-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.roster-head .box-title{margin:0;font-size:18px}
+.roster-hint{font-size:12px;color:#8fb3a0;margin:6px 2px 4px}
+.pos-sec{border-top:1px solid #21c35c2a;padding:8px 0 4px}
+.pos-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.pos-title{font-weight:800;color:var(--accent);flex:1;text-transform:uppercase;letter-spacing:.5px;font-size:13px}
+.pos-count{background:#0e231a;border:1px solid #21c35c55;border-radius:999px;font-size:11px;font-weight:800;padding:1px 8px;color:var(--muted)}
+.pos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 4px;min-height:24px}
+.pos-grid:empty::after{content:'vazio';grid-column:1/-1;font-size:11px;color:#58796a}
+.pcard{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:grab;padding:4px 2px;border-radius:10px}
+.pcard:hover{background:rgba(34,197,94,.1)}
+.pcard .nm{font-size:11px;font-weight:700;max-width:74px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pos-search{margin-bottom:6px}
+.search{width:100%;background:#092016;border:1px solid #21c35c77;border-radius:10px;padding:8px 10px;color:#e6f6ea;font-size:13px}
+.pos-results{display:flex;flex-direction:column;gap:2px;margin-top:4px}
+.res-row{display:flex;align-items:center;gap:8px;background:#0e231a;border:1px solid transparent;border-radius:8px;padding:3px 6px;color:var(--text);cursor:pointer;text-align:left}
+.res-row:hover{border-color:#21c35c88}
+.res-row.added{opacity:.5}
+.res-name{font-weight:800;font-size:13px}
+.res-club{margin-left:auto;font-size:11px;color:#9bc4ae}
+
+/* ---------- Escolha de jogadores do clube ---------- */
+.picker{position:absolute;z-index:50;top:56px;left:12px;right:12px;max-height:calc(100% - 70px);display:flex;flex-direction:column;background:#0b1a14;border:2px solid var(--accent);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.65)}
+.picker[hidden]{display:none}
+.picker-head{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid #21c35c3a}
+.picker-head h3{margin:0;color:var(--accent);font-size:18px}
+.picker-tip{flex:1;font-size:12px;color:#8fb3a0}
+.picker-body{overflow:auto;padding:8px 14px 14px}
+.picker-sec h4{margin:10px 0 6px;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+.picker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:6px}
+.picker-p{display:flex;align-items:center;gap:8px;background:#104a2f;border:1px solid #21c35c;color:#fff;border-radius:10px;padding:5px 8px;cursor:pointer;text-align:left}
+.picker-p:hover{background:#15663f}
+.picker-p.added{background:#22c55e;color:#04210f;border-color:#fff}
+.picker-p .nm{font-weight:800;font-size:13px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.picker-p .pr{font-size:11px;opacity:.8}
+.picker-empty{padding:20px;text-align:center;color:#9bc4ae}
+
+/* ---------- Responsivo ---------- */
+@media (max-width:1280px){
+  .layout,.layout.compare{grid-template-columns:1fr}
+  .layout.compare .structure{display:block}
+  .roster{position:static;max-height:none}
+  .fields-area.compare{flex-direction:column}
 }
-
-/* Fallback: caso alguma imagem seja inserida diretamente na barra */
-.teams-bar > img{width:60px;height:60px;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,.25);background:#fff}
-
-
-
-/* --- Header shields ajustes v6 --- */
-.team-pill{
-  width:60px;height:60px;aspect-ratio:1/1;flex:0 0 auto;
-  border-radius:50%; background:#fff; border:2px solid #fff;
-  display:inline-flex; align-items:center; justify-content:center;
-  box-shadow:0 3px 10px rgba(0,0,0,.25); cursor:grab; position:relative; overflow:hidden;
-}
-.team-pill img{width:75%;height:75%;object-fit:contain;display:block}
-
-
-
-/* --- Reservas de luxo ajustes v13 - Layout otimizado e balanceado --- */
-.reserve-slot{
-width:95px;height:95px;border:2px solid transparent;border-radius:50%;
-background:transparent;
-display:flex;align-items:center;justify-content:center;
-cursor:pointer;transition:all 0.3s ease;
-}
-
-.reserve-slot img{max-width:85%;max-height:85%;object-fit:contain;border-radius:50%;}
-.reserve-slot.drag-over{border-color:var(--accent);background:rgba(34,197,94,0.2);transform:scale(1.1);box-shadow:0 8px 25px rgba(34,197,94,.35);}
-
-
-
-/* TEORIA DO MURO - Estilos */
-.teoria-muro-container {
-  display: flex;
-  height: 200px;
-  border-radius: 16px;
-  overflow: hidden;
-  margin: 8px 0 16px 0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.muro-section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 12px 8px;
-  position: relative;
-  transition: all 0.3s ease;
-  min-height: 100%;
-}
-
-/* Seção Negativa (Esquerda) */
-.muro-negativo {
-  background: linear-gradient(145deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.08));
-  border-top-left-radius: 14px;
-  border-bottom-left-radius: 14px;
-}
-
-.muro-negativo:hover {
-  background: linear-gradient(145deg, rgba(239, 68, 68, 0.25), rgba(239, 68, 68, 0.15));
-}
-
-/* Seção Centro */
-.muro-centro {
-  background: linear-gradient(145deg, rgba(156, 163, 175, 0.12), rgba(156, 163, 175, 0.06));
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.muro-centro:hover {
-  background: linear-gradient(145deg, rgba(156, 163, 175, 0.2), rgba(156, 163, 175, 0.12));
-}
-
-/* Seção Positiva (Direita) */
-.muro-positivo {
-  background: linear-gradient(145deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.08));
-  border-top-right-radius: 14px;
-  border-bottom-right-radius: 14px;
-}
-
-.muro-positivo:hover {
-  background: linear-gradient(145deg, rgba(34, 197, 94, 0.25), rgba(34, 197, 94, 0.15));
-}
-
-/* Símbolos - Círculos coloridos com símbolos brancos */
-.muro-symbol {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  color: white;
-  text-shadow: none;
-}
-
-.muro-negativo .muro-symbol {
-  background: #ef4444;
-  border: 2px solid #dc2626;
-}
-
-.muro-centro .muro-symbol {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  width: auto;
-  height: auto;
-}
-
-.muro-positivo .muro-symbol {
-  background: #22c55e;
-  border: 2px solid #16a34a;
-}
-
-/* Container dos escudos */
-.muro-shields {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: center;
-  width: 100%;
-  flex: 1;
-  overflow-y: auto;
-  padding: 4px;
-}
-
-.muro-shields::-webkit-scrollbar {
-  width: 4px;
-}
-
-.muro-shields::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
-}
-
-/* Escudos dentro do muro (menores) */
-.muro-shields .team-shield {
-  width: 36px !important;
-  height: 36px !important;
-  border-radius: 50%;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  cursor: grab;
-  position: relative;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-}
-
-.muro-shields .team-shield:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.muro-shields .team-shield img {
-  width: 85%;
-  height: 85%;
-  object-fit: contain;
-}
-
-/* Botão de remoção dos escudos no muro */
-.muro-shields .team-shield .remove-shield {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 14px;
-  height: 14px;
-  background: var(--red);
-  border: 1px solid #fff;
-  color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s;
-  font-size: 10px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  z-index: 5;
-}
-
-.muro-shields .team-shield:hover .remove-shield {
-  opacity: 1;
-}
-
-/* Estados de drag over */
-.muro-section.drag-over {
-  transform: scale(1.02);
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
-}
-
-.muro-negativo.drag-over {
-  box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
-}
-
-.muro-positivo.drag-over {
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .teoria-muro-container {
-    height: 160px;
-  }
-  
-  .muro-symbol {
-    font-size: 20px;
-    margin-bottom: 6px;
-  }
-  
-  .muro-shields .team-shield {
-    width: 32px !important;
-    height: 32px !important;
-  }
-}
-
-/* Jogadores na Teoria do Muro - Apenas círculos maiores */
-.muro-player {
-  position: relative;
-  cursor: grab;
-  transition: all 0.2s ease;
-  display: inline-block;
-  margin: 2px;
-}
-
-.muro-player:hover {
-  transform: scale(1.1);
-}
-
-.muro-player .player-chip {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  cursor: grab;
-}
-
-.muro-player .player-chip img {
-  width: 85%;
-  height: 85%;
-  object-fit: contain;
-}
-
-.muro-player .remove-player {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 16px;
-  height: 16px;
-  background: var(--red);
-  border: 1px solid #fff;
-  color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s;
-  font-size: 10px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  z-index: 5;
-}
-
-.muro-player:hover .remove-player {
-  opacity: 1;
-}
-
-/* Escudos livres na Teoria do Muro */
-.muro-shield-free {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  cursor: grab;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  z-index: 10;
-  user-select: none;
-}
-
-.muro-shield-free:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.muro-shield-free:active,
-.muro-shield-free.dragging {
-  cursor: grabbing;
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  z-index: 25;
-  transition: none;
-}
-
-.muro-shield-free img {
-  width: 98% !important;
-  height: 98% !important;
-  object-fit: contain !important;
-  pointer-events: none;
-  max-width: 98% !important;
-  max-height: 98% !important;
-}
-
-.teoria-muro-container .muro-shield-free img {
-  width: 98% !important;
-  height: 98% !important;
-  object-fit: contain !important;
-  max-width: 98% !important;
-  max-height: 98% !important;
-}
-
-.muro-shield-free .remove-shield {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 16px;
-  height: 16px;
-  background: var(--red);
-  border: 1px solid #fff;
-  color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s;
-  font-size: 10px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  z-index: 15;
-}
-
-.muro-shield-free:hover .remove-shield {
-  opacity: 1;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .muro-player .player-chip {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .muro-shield-free {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .muro-player .remove-player,
-  .muro-shield-free .remove-shield {
-    width: 14px;
-    height: 14px;
-    font-size: 9px;
-  }
+@media (max-width:700px){
+  .title{font-size:34px}
+  .update-controls{position:static;align-items:center;margin-bottom:8px}
 }
