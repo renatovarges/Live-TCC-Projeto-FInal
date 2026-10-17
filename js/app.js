@@ -314,6 +314,21 @@
         save(); renderFields();
       });
       box.appendChild(add);
+
+      const dup = el('button', 'tab add', '⧉ Duplicar campo');
+      dup.type = 'button';
+      dup.title = 'Cria um novo campo com os mesmos jogadores do campo selecionado';
+      dup.addEventListener('click', () => {
+        const src = S.fields[S.active];
+        S.fields.push({
+          id: uid(),
+          name: 'Campo ' + (S.fields.length + 1),
+          items: JSON.parse(JSON.stringify(src.items)).map(it => Object.assign(it, { id: uid() }))
+        });
+        S.active = S.fields.length - 1;
+        save(); renderFields();
+      });
+      box.appendChild(dup);
     }
     if (S.fields.length > 1){
       const cmp = el('button', 'tab cmp' + (S.compare ? ' on' : ''), S.compare ? '▣ Voltar para 1 campo' : '▥ Comparar lado a lado');
