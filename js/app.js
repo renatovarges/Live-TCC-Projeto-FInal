@@ -434,31 +434,40 @@
       input.placeholder = 'Nome do jogador ou clube...';
       input.setAttribute('aria-label', 'Buscar ' + Data.POS_LABEL[pos]);
       const results = el('div', 'pos-results');
-      searchBox.append(input, results);
       const grid = el('div', 'pos-grid');
 
+      const opt = el('label', 'picker-opt');
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      opt.append(cb, ' Incluir dúvida, nulos e outros');
+      cb.addEventListener('change', () => runSearch());
+
+      // Sem texto: lista os prováveis da posição; com texto: busca por nome/clube
       const runSearch = () => {
         results.replaceChildren();
-        if (!input.value.trim()) return;
-        Data.search(input.value, pos, 12).forEach(P => {
+        const found = Data.search(input.value, pos, 300).filter(P => cb.checked || Data.isProvavel(P));
+        if (!found.length){ results.appendChild(el('p', 'picker-empty', 'Nenhum jogador encontrado.')); return; }
+        found.forEach(P => {
           const row = el('button', 'res-row' + (inRoster(P) ? ' added' : ''));
           row.type = 'button';
           row.appendChild(avatar(P, 'xs'));
           row.appendChild(el('span', 'res-name', P.n));
+          if (!Data.isProvavel(P)) row.appendChild(el('span', 'st st' + P.st, Data.STATUS[P.st] || 'Outro'));
           row.appendChild(el('span', 'res-club', P.c + (P.pr ? ' · C$ ' + P.pr.toFixed(2) : '')));
-          row.addEventListener('click', () => { addToRoster(P); commit(); runSearch(); });
+          row.addEventListener('click', () => { addToRoster(P); commit(); });
           results.appendChild(row);
         });
       };
+      searchBox.append(input, opt, results);
       input.addEventListener('input', runSearch);
       add.addEventListener('click', () => {
         searchBox.hidden = !searchBox.hidden;
-        if (!searchBox.hidden) input.focus();
+        if (!searchBox.hidden){ input.focus(); runSearch(); }
       });
 
       sec.append(h, searchBox, grid);
       root.appendChild(sec);
-      rosterUI[pos] = { grid, count, runSearch };
+      rosterUI[pos] = { grid, count, runSearch, searchBox };
     });
   }
 
@@ -477,7 +486,7 @@
         makeDraggable(card, { type: 'player', P });
         ui.grid.appendChild(card);
       });
-      ui.runSearch();
+      if (!ui.searchBox.hidden) ui.runSearch(); // atualiza os marcados na busca aberta
     });
   }
 
@@ -586,6 +595,7 @@
     renderFields();
     renderStructure();
     renderRosterGrids();
+    if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
     Data.load();
     setInterval(() => Data.load(), 5 * 60 * 1000); // preços e mercado
   }

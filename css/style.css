@@ -173,3 +173,7 @@ button{font-family:inherit}
 .picker-opt input{accent-color:var(--accent);width:16px;height:16px}
 .picker-p .st{font-size:10px;font-weight:800;border-radius:6px;padding:1px 5px;background:#444;color:#fff}
 .picker-p .st2{background:#eab308;color:#222}.picker-p .st5,.picker-p .st3{background:#ef4444}.picker-p .st6{background:#6b7280}
+.pos-results{max-height:300px;overflow:auto}
+.res-row .st{font-size:10px;font-weight:800;border-radius:6px;padding:1px 5px;background:#444;color:#fff}
+.res-row .st2{background:#eab308;color:#222}.res-row .st5,.res-row .st3{background:#ef4444}.res-row .st6{background:#6b7280}
+.pos-search .picker-opt{margin:6px 2px 0}
