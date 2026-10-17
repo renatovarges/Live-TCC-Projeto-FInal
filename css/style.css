@@ -167,3 +167,9 @@ button{font-family:inherit}
   .title{font-size:34px}
   .update-controls{position:static;align-items:center;margin-bottom:8px}
 }
+
+/* Status do jogador no seletor de clube */
+.picker-opt{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap}
+.picker-opt input{accent-color:var(--accent);width:16px;height:16px}
+.picker-p .st{font-size:10px;font-weight:800;border-radius:6px;padding:1px 5px;background:#444;color:#fff}
+.picker-p .st2{background:#eab308;color:#222}.picker-p .st5,.picker-p .st3{background:#ef4444}.picker-p .st6{background:#6b7280}

@@ -121,7 +121,8 @@ def process_player_data(api_data):
                     'Média (pts)': player.get('media_num', 0),
                     'Variação última (C$)': player.get('variacao_num', 0),
                     'Jogos': player.get('jogos_num', 0),
-                    'ID': player.get('atleta_id', '')
+                    'ID': player.get('atleta_id', ''),
+                    'Status': player.get('status_id', '')
                 }
                 
                 players_data.append(jogador_data)
@@ -154,7 +155,8 @@ def process_player_data(api_data):
                      'Média (pts)': player.get('media_num', 0),
                      'Variação última (C$)': player.get('variacao_num', 0),
                      'Jogos': player.get('jogos_num', 0),
-                     'ID': player.get('atleta_id', '')
+                     'ID': player.get('atleta_id', ''),
+                    'Status': player.get('status_id', '')
                  }
                  
                  players_data.append(jogador_data)

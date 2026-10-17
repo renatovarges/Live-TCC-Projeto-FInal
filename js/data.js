@@ -13,6 +13,10 @@
   const API_POS = { 1:'GOL', 2:'LAT', 3:'ZAG', 4:'MEI', 5:'ATA', 6:'TEC' };
   const CSV_POS = { 'goleiro':'GOL', 'lateral':'LAT', 'zagueiro':'ZAG', 'meia':'MEI', 'meio-campo':'MEI', 'atacante':'ATA', 'técnico':'TEC', 'tecnico':'TEC' };
 
+  // status_id do Cartola: 7 = Provável (o padrão mostrado); os demais ficam atrás de uma opção
+  const STATUS = { 2:'Dúvida', 3:'Suspenso', 5:'Contundido', 6:'Nulo', 7:'Provável' };
+  const PROVAVEL = 7;
+
   let all = [];
   let byKey = new Map();
   const info = { source:'', market:'', round:null, updatedAt:null, loading:false };
@@ -75,6 +79,7 @@
       const pos = CSV_POS[plain(r['posição'] || r['posicao'])] || (r['posição'] || r['posicao'] || '').toUpperCase();
       return nome ? make(nome, slug, pos, {
         i: r['id'] ? +r['id'] : null,
+        st: r['status'] ? +r['status'] : undefined,
         pr: parseFloat(r['preço (c$)'] || r['preco']) || 0,
         m: parseFloat(r['média (pts)'] || r['media']) || 0
       }) : null;
@@ -151,6 +156,9 @@
   // Snapshot guardado no estado salvo (leve, independe de a lista ter carregado)
   function snap(p){ return { k:p.k, n:p.n, s:p.s, c:p.c, p:p.p, i:p.i }; }
 
-  window.Data = { load, byClub, search, photoUrls, snap, clubName, info, POS_ORDER, POS_LABEL,
+  // Sem status conhecido (CSV antigo) não dá para filtrar: trata como provável.
+  const isProvavel = p => p.st == null || p.st === PROVAVEL;
+
+  window.Data = { load, STATUS, isProvavel, byClub, search, photoUrls, snap, clubName, info, POS_ORDER, POS_LABEL,
                   get all(){ return all; }, get(k){ return byKey.get(k); } };
 })();

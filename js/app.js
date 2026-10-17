@@ -483,6 +483,7 @@
 
   /* ---------- Escolha de jogadores de um clube ---------- */
   let pickerSlug = null;
+  let pickerShowAll = false; // por padrão só os prováveis; a caixinha libera dúvida, nulo etc.
 
   function openPicker(slug){
     pickerSlug = slug;
@@ -498,20 +499,30 @@
     const head = el('div', 'picker-head');
     head.appendChild(shieldAvatar(pickerSlug, 'sm'));
     head.appendChild(el('h3', '', clubName(pickerSlug)));
+    const players = Data.byClub(pickerSlug);
+    const hidden = players.filter(p => !Data.isProvavel(p)).length;
     head.appendChild(el('span', 'picker-tip', 'Clique nos jogadores para mandá-los para a lista'));
+    if (hidden || pickerShowAll){
+      const lab = el('label', 'picker-opt');
+      const cb = document.createElement('input');
+      cb.type = 'checkbox'; cb.checked = pickerShowAll;
+      cb.addEventListener('change', () => { pickerShowAll = cb.checked; renderPicker(); });
+      lab.append(cb, ' Mostrar dúvida, nulos e outros' + (pickerShowAll ? '' : ' (+' + hidden + ')'));
+      head.appendChild(lab);
+    }
     const done = el('button', 'btn', 'Concluir');
     done.type = 'button'; done.addEventListener('click', closePicker);
     head.appendChild(done);
     box.appendChild(head);
 
-    const players = Data.byClub(pickerSlug);
-    if (!players.length){
-      box.appendChild(el('p', 'picker-empty', Data.info.updatedAt ? 'Nenhum jogador encontrado para este clube.' : 'Carregando jogadores...'));
+    const shown = players.filter(p => pickerShowAll || Data.isProvavel(p));
+    if (!shown.length){
+      box.appendChild(el('p', 'picker-empty', Data.info.updatedAt ? (players.length ? 'Nenhum jogador provável. Marque "Mostrar dúvida, nulos e outros".' : 'Nenhum jogador encontrado para este clube.') : 'Carregando jogadores...'));
       return;
     }
     const body = el('div', 'picker-body');
     Data.POS_ORDER.forEach(pos => {
-      const group = players.filter(p => p.p === pos);
+      const group = shown.filter(p => p.p === pos);
       if (!group.length) return;
       const sec = el('div', 'picker-sec');
       sec.appendChild(el('h4', '', Data.POS_LABEL[pos]));
@@ -521,6 +532,7 @@
         b.type = 'button';
         b.appendChild(avatar(P, 'sm'));
         b.appendChild(el('span', 'nm', P.n));
+        if (!Data.isProvavel(P)) b.appendChild(el('span', 'st st' + P.st, Data.STATUS[P.st] || 'Outro'));
         if (P.pr) b.appendChild(el('span', 'pr', 'C$ ' + P.pr.toFixed(2)));
         b.addEventListener('click', () => {
           if (inRoster(P)) removeFromRoster(P); else addToRoster(P);
