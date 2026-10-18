@@ -292,18 +292,18 @@ Sinisterra,CRU,Atacante,5.85,3.27,0.0,8,114405,5
 Tevis,CRU,Atacante,2.0,0.0,0.0,0,137543,6
 Villarreal,CRU,Atacante,7.96,4.98,0.0,14,131967,6
 Wanderson,CRU,Atacante,3.98,1.95,0.0,18,93478,6
-Wesley,CRU,Atacante,6.94,2.46,-0.03,7,117909,7
+Wesley,CRU,Atacante,6.94,2.46,-0.03,7,117909,6
 Cássio,CRU,Goleiro,6.89,1.32,0.0,5,42234,6
 Léo Aragão,CRU,Goleiro,2.0,0.0,0.0,0,124369,6
 Marcelo Eráclito,CRU,Goleiro,1.0,0.0,0.0,0,142130,6
 Otávio,CRU,Goleiro,4.48,4.15,-0.31,17,117404,7
 Vitor Lamounier,CRU,Goleiro,2.0,0.0,0.0,0,144424,6
-Fagner,CRU,Lateral,5.63,3.81,0.0,20,42500,2
-Gabriel Rojas,CRU,Lateral,5.87,3.02,-0.87,10,97101,7
+Fagner,CRU,Lateral,5.63,3.81,0.0,20,42500,6
+Gabriel Rojas,CRU,Lateral,5.87,3.02,-0.87,10,97101,6
 Kauã Moraes,CRU,Lateral,6.81,4.83,0.0,10,143600,6
 Nicolas Pontes,CRU,Lateral,1.0,0.0,0.0,0,144423,6
 Viña,CRU,Lateral,8.0,6.5,-0.6,2,98974,6
-William,CRU,Lateral,7.71,4.01,-1.58,15,89275,2
+William,CRU,Lateral,7.71,4.01,-1.58,15,89275,7
 Felipe Morais,CRU,Meia,5.82,5.75,-0.02,6,151292,3
 Gerson,CRU,Meia,8.99,4.62,0.53,26,89256,7
 Lucas Romero,CRU,Meia,8.04,4.67,0.0,20,84558,7
@@ -312,14 +312,14 @@ Matheus Henrique,CRU,Meia,5.68,2.23,1.13,27,100742,6
 Matheus Pereira,CRU,Meia,14.48,7.48,0.02,27,96610,7
 Peralta,CRU,Meia,4.0,0.0,0.0,0,112985,5
 Rhuan Gabriel,CRU,Meia,1.39,1.2,0.0,1,146991,6
-Zé Lucas,CRU,Meia,7.31,4.17,0.56,9,141160,6
+Zé Lucas,CRU,Meia,7.31,4.17,0.56,9,141160,7
 Artur Jorge,CRU,Técnico,11.77,6.6,-0.54,22,127273,7
-Fabrício Bruno,CRU,Zagueiro,5.66,1.79,0.18,25,90768,2
+Fabrício Bruno,CRU,Zagueiro,5.66,1.79,0.18,25,90768,6
 Gustavo Inácio,CRU,Zagueiro,1.0,0.0,0.0,0,152258,6
 Jonathan Jesus,CRU,Zagueiro,6.41,4.46,-0.74,19,124912,7
-João Marcelo,CRU,Zagueiro,3.99,2.35,-0.71,15,105047,2
+João Marcelo,CRU,Zagueiro,3.99,2.35,-0.71,15,105047,7
 Kelvin,CRU,Zagueiro,1.0,0.0,0.0,0,151289,6
-Villalba,CRU,Zagueiro,7.31,3.19,0.0,15,106593,6
+Villalba,CRU,Zagueiro,7.31,3.19,0.0,15,106593,7
 Bruno Henrique,FLA,Atacante,5.3,2.56,0.22,21,90285,6
 Douglas Telles,FLA,Atacante,2.0,0.0,0.0,0,145705,6
 Joaquín Freitas,FLA,Atacante,4.31,2.38,-0.06,4,150251,6
@@ -359,16 +359,16 @@ Léo Ortiz,FLA,Zagueiro,9.25,4.27,0.94,23,97867,7
 Léo Pereira,FLA,Zagueiro,9.66,4.75,0.91,23,83528,7
 Vitão,FLA,Zagueiro,6.62,2.37,0.0,9,97900,6
 Cano,FLU,Atacante,4.31,2.28,0.0,8,79631,6
-Canobbio,FLU,Atacante,10.47,6.56,0.66,21,102928,6
+Canobbio,FLU,Atacante,10.47,6.56,0.66,21,102928,7
 Hulk,FLU,Atacante,12.18,6.83,-0.87,22,39148,6
 John Kennedy,FLU,Atacante,10.92,7.3,0.0,17,110759,5
 Keven Samuel,FLU,Atacante,1.0,0.0,0.0,0,143465,6
 Matheus Reis,FLU,Atacante,1.0,0.0,0.0,0,127969,6
 Riquelme Felipe,FLU,Atacante,3.22,1.43,0.0,6,140484,6
 Rodrigo Castillo,FLU,Atacante,7.35,3.68,0.57,17,124424,7
-Serna,FLU,Atacante,6.47,4.16,-0.71,28,132071,7
-Soteldo,FLU,Atacante,3.9,2.02,-0.63,20,87258,2
-Wesley Natã,FLU,Atacante,2.07,2.33,-0.7,3,143463,2
+Serna,FLU,Atacante,6.47,4.16,-0.71,28,132071,6
+Soteldo,FLU,Atacante,3.9,2.02,-0.63,20,87258,7
+Wesley Natã,FLU,Atacante,2.07,2.33,-0.7,3,143463,6
 Fábio,FLU,Goleiro,9.41,4.63,0.18,29,37656,7
 Marcelo Pitaluga,FLU,Goleiro,3.0,0.0,0.0,0,101478,6
 Vitor Eudes,FLU,Goleiro,2.0,0.0,0.0,0,102137,6
@@ -380,19 +380,19 @@ Renê,FLU,Lateral,9.68,6.18,0.0,19,78445,7
 Samuel Xavier,FLU,Lateral,7.03,3.31,-0.72,18,73384,7
 Alisson,FLU,Meia,3.52,0.96,0.0,8,81845,6
 Ganso,FLU,Meia,3.73,1.66,-0.14,21,62977,6
-Hércules,FLU,Meia,6.16,3.21,0.0,24,116447,2
+Hércules,FLU,Meia,6.16,3.21,0.0,24,116447,7
 Lucho Acosta,FLU,Meia,9.55,4.8,-1.55,24,89837,7
 Martinelli,FLU,Meia,5.6,2.65,0.33,21,109573,5
-Nonato,FLU,Meia,7.18,3.18,1.83,16,100987,2
-Otávio,FLU,Meia,2.81,1.17,0.0,8,82463,7
+Nonato,FLU,Meia,7.18,3.18,1.83,16,100987,7
+Otávio,FLU,Meia,2.81,1.17,0.0,8,82463,6
 Ruan Sales,FLU,Meia,2.0,0.0,0.0,0,151347,6
 Savarino,FLU,Meia,9.01,5.4,-3.43,21,98672,6
 Marcão,FLU,Técnico,12.04,7.4,-0.97,8,73476,7
 Freytes,FLU,Zagueiro,4.55,2.49,0.0,18,113034,6
 Ignácio,FLU,Zagueiro,6.07,4.22,-1.12,14,103523,7
-Igor Rabello,FLU,Zagueiro,7.78,5.43,0.0,3,89493,2
+Igor Rabello,FLU,Zagueiro,7.78,5.43,0.0,3,89493,7
 Jemmes,FLU,Zagueiro,6.22,3.26,0.0,18,132553,6
-Millán,FLU,Zagueiro,4.74,2.25,-0.13,9,124219,2
+Millán,FLU,Zagueiro,4.74,2.25,-0.13,9,124219,6
 Thiago Silva,FLU,Zagueiro,7.61,4.26,0.0,5,37715,6
 Amuzu,GRE,Atacante,6.86,3.49,0.36,24,142004,7
 Braithwaite,GRE,Atacante,5.2,0.59,0.01,19,89368,6
@@ -417,10 +417,10 @@ Pedro Gabriel,GRE,Lateral,5.78,3.3,0.0,15,141594,6
 Vitor Ramon,GRE,Lateral,1.0,0.2,0.0,1,148092,6
 Bernardo Zortea,GRE,Meia,1.1,0.88,0.0,5,142260,6
 Danilo Barbosa,GRE,Meia,3.92,1.15,0.16,6,86777,7
-Dodi,GRE,Meia,2.2,-0.04,0.0,9,89883,2
+Dodi,GRE,Meia,2.2,-0.04,0.0,9,89883,6
 Jefinho,GRE,Meia,1.46,1.5,0.0,1,147545,6
 João Borne,GRE,Meia,1.0,0.0,0.0,0,152259,5
-Krovinovic,GRE,Meia,4.59,2.12,-0.12,6,100596,2
+Krovinovic,GRE,Meia,4.59,2.12,-0.12,6,100596,7
 Nardoni,GRE,Meia,5.68,1.81,0.0,17,108162,5
 Riquelme,GRE,Meia,2.42,-1.45,0.0,2,130889,6
 Roger,GRE,Meia,1.5,1.2,0.0,2,147546,6
@@ -433,7 +433,7 @@ Balbuena,GRE,Zagueiro,7.57,4.45,0.0,8,87887,6
 Gustavo Martins,GRE,Zagueiro,6.13,3.72,-0.98,18,111309,7
 Kannemann,GRE,Zagueiro,4.57,2.9,-1.15,6,87342,7
 Luis Eduardo,GRE,Zagueiro,1.45,-0.3,0.0,2,142257,6
-Noriega,GRE,Zagueiro,7.14,3.71,0.0,20,130048,2
+Noriega,GRE,Zagueiro,7.14,3.71,0.0,20,130048,6
 Wagner Leonardo,GRE,Zagueiro,5.23,2.5,0.0,10,104994,6
 Wallace,GRE,Zagueiro,7.28,5.22,0.6,9,130307,3
 Alerrandro,INT,Atacante,7.17,3.52,1.11,23,101715,6
@@ -637,13 +637,13 @@ João Paulo,SAN,Goleiro,6.94,-0.35,0.0,2,85425,6
 João Pedro,SAN,Goleiro,1.0,0.0,0.0,0,132750,6
 Rodrigo Falcão,SAN,Goleiro,1.0,0.0,0.0,0,130309,6
 Davizinho,SAN,Lateral,2.01,1.62,0.0,4,150959,6
-Escobar,SAN,Lateral,9.72,6.04,0.23,21,102975,2
+Escobar,SAN,Lateral,9.72,6.04,0.23,21,102975,6
 Igor Vinícius,SAN,Lateral,9.65,6.39,0.0,18,95466,6
 Rafael Gonzaga,SAN,Lateral,2.79,2.4,0.0,1,149715,6
 Rodinei,SAN,Lateral,5.76,2.05,-0.55,4,73992,7
 Vini Lira,SAN,Lateral,3.79,2.42,0.0,4,141868,5
 Arthur Melo,SAN,Meia,7.22,3.01,0.0,13,90532,5
-Barreal,SAN,Meia,9.75,4.86,-0.04,21,126471,2
+Barreal,SAN,Meia,9.75,4.86,-0.04,21,126471,7
 Gabriel Bontempo,SAN,Meia,5.65,3.9,-0.45,24,141754,7
 Gabriel Menino,SAN,Meia,8.53,4.99,0.0,10,103767,6
 Gustavo Henrique,SAN,Meia,5.09,3.88,0.37,16,141776,7
@@ -651,9 +651,9 @@ João Schmidt,SAN,Meia,4.4,2.05,-0.56,15,77777,6
 Lima,SAN,Meia,2.99,-0.35,0.0,4,96340,6
 Miguelito,SAN,Meia,5.19,4.05,0.0,10,115025,6
 Neymar,SAN,Meia,20.23,10.24,0.0,13,63007,7
-Oliva,SAN,Meia,6.34,3.2,0.25,20,101807,2
+Oliva,SAN,Meia,6.34,3.2,0.25,20,101807,6
 Pepê Fermino,SAN,Meia,1.0,0.0,0.0,0,147736,6
-Philippe Coutinho,SAN,Meia,12.61,6.6,-0.04,5,68899,2
+Philippe Coutinho,SAN,Meia,12.61,6.6,-0.04,5,68899,7
 Rollheiser,SAN,Meia,5.65,3.29,0.09,22,102256,6
 Samuel Pierri,SAN,Meia,1.88,0.45,0.0,2,150757,6
 Thaciano,SAN,Meia,5.28,2.0,0.0,17,87470,6
