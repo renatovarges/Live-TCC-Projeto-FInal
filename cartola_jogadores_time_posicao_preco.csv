@@ -241,9 +241,9 @@ Rafael Thyere,CHA,Zagueiro,2.35,-0.08,-0.4,4,83048,6
 Victor Caetano,CHA,Zagueiro,3.16,1.48,0.0,8,97432,6
 Vinicius,CHA,Zagueiro,1.63,0.1,0.0,2,148124,6
 Gui Negão,COR,Atacante,3.27,1.8,0.0,11,133543,6
-Kaio César,COR,Atacante,9.83,5.77,0.0,17,118844,7
+Kaio César,COR,Atacante,9.83,5.77,0.0,17,118844,6
 Kayke,COR,Atacante,3.64,1.65,0.0,6,121824,5
-Lingard,COR,Atacante,3.67,1.62,0.0,17,81720,6
+Lingard,COR,Atacante,3.67,1.62,0.0,17,81720,7
 Luizinho,COR,Atacante,1.0,0.0,0.0,0,140167,6
 Memphis Depay,COR,Atacante,8.25,2.4,-1.08,13,85048,3
 Nícollas,COR,Atacante,1.0,0.0,0.0,0,150826,6
@@ -253,19 +253,19 @@ Yuri Alberto,COR,Atacante,10.29,4.03,0.04,19,100652,7
 Felipe Longo,COR,Goleiro,2.0,0.0,0.0,0,131753,6
 Hugo Souza,COR,Goleiro,9.71,4.33,0.84,25,101574,7
 Kauê,COR,Goleiro,5.21,4.98,0.0,4,121823,6
-Angileri,COR,Lateral,5.32,4.09,0.0,10,98720,6
+Angileri,COR,Lateral,5.32,4.09,0.0,10,98720,7
 Hugo,COR,Lateral,4.0,0.0,0.0,0,107908,6
 Jacaré,COR,Lateral,2.0,0.0,0.0,0,141873,6
-Matheus Bidu,COR,Lateral,11.21,6.81,-1.13,23,105531,7
+Matheus Bidu,COR,Lateral,11.21,6.81,-1.13,23,105531,6
 Matheuzinho,COR,Lateral,10.46,6.1,-0.61,24,101727,7
 Milans,COR,Lateral,7.2,4.26,0.0,7,123689,6
 Alex Santana,COR,Meia,4.02,0.8,0.0,1,85465,6
-Allan,COR,Meia,3.07,1.66,-0.05,21,96652,2
-André,COR,Meia,6.11,4.14,-1.66,19,145744,6
+Allan,COR,Meia,3.07,1.66,-0.05,21,96652,6
+André,COR,Meia,6.11,4.14,-1.66,19,145744,7
 Bahia,COR,Meia,2.0,0.0,0.0,0,127242,6
 Breno Bidon,COR,Meia,8.48,3.53,0.43,27,117910,7
 Carrillo,COR,Meia,4.13,1.5,-0.22,21,77485,6
-Charles,COR,Meia,4.49,2.25,0.0,4,96342,2
+Charles,COR,Meia,4.49,2.25,0.0,4,96342,6
 Dieguinho,COR,Meia,3.04,1.37,-0.15,16,141995,6
 Garro,COR,Meia,10.22,4.83,0.0,26,117632,7
 Labyad,COR,Meia,4.52,2.05,0.0,11,104036,5
@@ -755,7 +755,7 @@ Marinho,VIT,Atacante,4.6,2.02,0.0,12,68952,6
 Osvaldo,VIT,Atacante,4.07,0.4,0.0,2,42222,6
 Renato Kayzer,VIT,Atacante,5.52,2.28,-0.2,19,92696,6
 Renê,VIT,Atacante,9.15,6.8,0.06,21,130209,7
-Tarzia,VIT,Atacante,4.34,3.16,0.0,22,143153,2
+Tarzia,VIT,Atacante,4.34,3.16,0.0,22,143153,7
 Fintelman,VIT,Goleiro,2.0,0.0,0.0,0,107859,6
 Lucas Arcanjo,VIT,Goleiro,9.3,5.85,-0.85,24,104118,7
 Thiago Couto,VIT,Goleiro,3.0,0.0,0.0,0,97645,6
@@ -779,7 +779,7 @@ Pochettino,VIT,Meia,4.64,2.04,0.1,10,99267,6
 Rúben Ismael,VIT,Meia,4.0,0.0,0.0,0,145387,6
 Walace,VIT,Meia,2.75,1.08,0.0,7,88479,6
 Wendell,VIT,Meia,2.0,0.0,0.0,0,143253,6
-Zé Vitor,VIT,Meia,5.87,4.57,-0.77,18,107256,2
+Zé Vitor,VIT,Meia,5.87,4.57,-0.77,18,107256,6
 Jair Ventura,VIT,Técnico,8.64,5.48,-0.86,27,92180,7
 Brítez,VIT,Zagueiro,4.55,2.4,0.0,8,101995,7
 Cacá,VIT,Zagueiro,4.88,2.44,-0.64,21,102340,3
