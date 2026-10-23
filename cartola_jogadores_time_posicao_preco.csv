@@ -85,7 +85,7 @@ Cuello,CAM,Atacante,8.97,6.26,-0.44,25,98909,7
 Dudu,CAM,Atacante,5.6,2.12,0.0,18,68920,6
 Minda,CAM,Atacante,6.94,3.61,-0.6,18,114040,6
 Thiago Borbas,CAM,Atacante,6.07,5.08,-0.97,6,117314,5
-Everson,CAM,Goleiro,9.67,4.58,0.0,23,72294,5
+Everson,CAM,Goleiro,9.67,4.58,0.0,23,72294,6
 Gabriel Delfim,CAM,Goleiro,4.6,3.43,1.35,7,115674,7
 Guilherme Pires,CAM,Goleiro,1.0,0.0,0.0,0,152261,6
 Pedro Cobra,CAM,Goleiro,1.0,0.0,0.0,0,141126,6
@@ -167,7 +167,6 @@ Paulo Roberto,CFC,Atacante,5.28,3.84,-0.28,10,141339,2
 Pedro Rocha,CFC,Atacante,7.43,4.5,-0.01,29,90302,7
 Renato Marques,CFC,Atacante,2.62,0.77,0.0,8,117403,6
 Rodrigo Rodrigues,CFC,Atacante,3.43,0.55,0.15,2,93371,6
-Ruan Assis,CFC,Atacante,1.0,0.0,0.0,0,124834,6
 Thiago Azaf,CFC,Atacante,1.0,0.0,0.0,0,131279,6
 Benassi,CFC,Goleiro,1.0,0.0,0.0,0,115840,6
 Keiller,CFC,Goleiro,4.0,0.0,0.0,0,93834,6
@@ -241,28 +240,28 @@ Luciano,CHA,Zagueiro,1.0,0.0,0.0,0,130443,6
 Rafael Thyere,CHA,Zagueiro,2.35,-0.08,0.0,4,83048,6
 Victor Caetano,CHA,Zagueiro,3.16,1.48,0.0,8,97432,6
 Vinicius,CHA,Zagueiro,1.63,0.1,0.0,2,148124,6
-Gui Negão,COR,Atacante,3.21,1.65,-0.06,12,133543,6
-Kaio César,COR,Atacante,9.14,5.44,-0.69,18,118844,7
+Gui Negão,COR,Atacante,3.21,1.65,-0.06,12,133543,2
+Kaio César,COR,Atacante,9.14,5.44,-0.69,18,118844,2
 Kayke,COR,Atacante,3.64,1.65,0.0,6,121824,5
-Lingard,COR,Atacante,5.15,2.09,1.48,18,81720,6
+Lingard,COR,Atacante,5.15,2.09,1.48,18,81720,2
 Luizinho,COR,Atacante,1.0,0.0,0.0,0,140167,6
 Memphis Depay,COR,Atacante,8.25,2.4,0.0,13,85048,5
 Nícollas,COR,Atacante,1.0,0.0,0.0,0,150826,6
 Pedro Raul,COR,Atacante,2.84,1.05,0.0,16,98225,6
-Vitinho,COR,Atacante,5.62,3.05,0.39,10,78435,7
+Vitinho,COR,Atacante,5.62,3.05,0.39,10,78435,6
 Yuri Alberto,COR,Atacante,11.01,4.29,0.72,20,100652,7
 Felipe Longo,COR,Goleiro,2.0,0.0,0.0,0,131753,6
 Hugo Souza,COR,Goleiro,8.95,4.32,-0.76,26,101574,7
 Kauê,COR,Goleiro,5.21,4.98,0.0,4,121823,6
-Angileri,COR,Lateral,6.09,4.31,0.77,11,98720,6
+Angileri,COR,Lateral,6.09,4.31,0.77,11,98720,7
 Hugo,COR,Lateral,4.0,0.0,0.0,0,107908,6
 Jacaré,COR,Lateral,2.0,0.0,0.0,0,141873,6
-Matheus Bidu,COR,Lateral,11.35,6.58,0.14,24,105531,7
+Matheus Bidu,COR,Lateral,11.35,6.58,0.14,24,105531,2
 Matheuzinho,COR,Lateral,10.28,5.98,-0.18,25,101727,7
 Milans,COR,Lateral,7.2,4.26,0.0,7,123689,6
-Alex Santana,COR,Meia,4.02,0.8,0.0,1,85465,5
-Allan,COR,Meia,3.07,1.66,0.0,21,96652,7
-André,COR,Meia,6.22,4.01,0.11,20,145744,6
+Alex Santana,COR,Meia,4.02,0.8,0.0,1,85465,6
+Allan,COR,Meia,3.07,1.66,0.0,21,96652,6
+André,COR,Meia,6.22,4.01,0.11,20,145744,7
 Bahia,COR,Meia,2.0,0.0,0.0,0,127242,6
 Breno Bidon,COR,Meia,8.32,3.56,-0.16,28,117910,7
 Carrillo,COR,Meia,4.13,1.5,0.0,21,77485,6
@@ -665,10 +664,10 @@ João Ananias,SAN,Zagueiro,3.43,2.5,0.0,6,145563,6
 Luan Peres,SAN,Zagueiro,4.79,3.02,-0.39,23,84847,7
 Lucas Veríssimo,SAN,Zagueiro,8.15,3.96,0.12,17,93368,5
 André Silva,SAO,Atacante,3.18,0.48,0.0,16,131617,6
-Artur,SAO,Atacante,9.8,5.2,1.08,25,95799,7
-Calleri,SAO,Atacante,11.59,5.57,-1.51,26,89840,7
+Artur,SAO,Atacante,9.8,5.2,1.08,25,95799,5
+Calleri,SAO,Atacante,11.59,5.57,-1.51,26,89840,5
 Ferreira,SAO,Atacante,6.1,3.45,0.0,23,101290,6
-Gustavo Santana,SAO,Atacante,4.13,3.82,-0.76,6,141382,6
+Gustavo Santana,SAO,Atacante,4.13,3.82,-0.76,6,141382,7
 Lucca,SAO,Atacante,2.05,0.23,0.0,4,141609,6
 Luciano,SAO,Atacante,12.64,5.5,-0.41,23,80287,7
 Ryan Francisco,SAO,Atacante,4.35,-0.3,0.0,1,140542,6
@@ -690,7 +689,7 @@ Wendell,SAO,Lateral,7.87,4.18,0.0,19,80570,6
 Bobadilla,SAO,Meia,8.05,3.74,-0.05,19,107873,7
 Cauly,SAO,Meia,6.41,2.95,0.0,15,123360,6
 Danielzinho,SAO,Meia,5.64,2.37,0.0,24,85403,5
-Djhordney,SAO,Meia,1.51,1.36,0.0,8,148215,6
+Djhordney,SAO,Meia,1.51,1.36,0.0,8,148215,7
 Lucas Moura,SAO,Meia,7.32,2.23,0.19,10,70164,6
 Marcos Antônio,SAO,Meia,6.07,2.61,0.4,23,106294,7
 Newton,SAO,Meia,5.17,2.36,0.89,13,104693,7
@@ -741,20 +740,20 @@ Thiago Mendes,VAS,Meia,6.82,4.02,-0.37,26,71123,7
 Pedro Emanuel,VAS,Técnico,10.25,6.25,-0.7,11,128177,7
 Bruno André,VAS,Zagueiro,1.0,0.0,0.0,0,145781,6
 Carlos Cuesta,VAS,Zagueiro,4.47,1.51,0.0,15,97095,6
-Gabriel Pereira,VAS,Zagueiro,3.91,-1.4,-1.09,1,104387,6
+Gabriel Pereira,VAS,Zagueiro,3.91,-1.4,-1.09,1,104387,2
 Lucas Freitas,VAS,Zagueiro,6.03,4.67,0.0,3,115141,6
 Robert Renan,VAS,Zagueiro,5.22,3.14,-0.88,28,117330,7
-Saldivia,VAS,Zagueiro,7.06,4.22,0.0,14,118655,7
+Saldivia,VAS,Zagueiro,7.06,4.22,0.0,14,118655,2
 Walace Falcão,VAS,Zagueiro,1.0,0.0,0.0,0,141184,6
 Alex Bruno,VIT,Atacante,3.12,0.43,0.0,3,107300,6
 Anderson Pato,VIT,Atacante,2.81,1.26,0.0,5,147268,6
 Erick,VIT,Atacante,7.69,4.61,-1.31,26,97810,7
-Fabri,VIT,Atacante,4.42,2.2,-0.7,10,104134,2
+Fabri,VIT,Atacante,4.42,2.2,-0.7,10,104134,6
 Laquintana,VIT,Atacante,3.42,0.5,-0.5,2,103014,6
 Lucas Silva,VIT,Atacante,2.73,1.29,-0.29,7,97911,6
 Marinho,VIT,Atacante,4.6,2.02,0.0,12,68952,6
 Osvaldo,VIT,Atacante,4.07,0.4,0.0,2,42222,6
-Renato Kayzer,VIT,Atacante,5.52,2.28,0.0,19,92696,2
+Renato Kayzer,VIT,Atacante,5.52,2.28,0.0,19,92696,7
 Renê,VIT,Atacante,9.87,6.88,0.72,22,130209,3
 Tarzia,VIT,Atacante,4.01,3.13,-0.33,23,143153,7
 Fintelman,VIT,Goleiro,2.0,0.0,0.0,0,107859,6
@@ -765,7 +764,7 @@ Fabiano Souza,VIT,Lateral,3.85,0.23,0.0,3,141763,5
 Gean,VIT,Lateral,1.0,0.0,0.0,0,143252,6
 Jamerson,VIT,Lateral,6.99,5.09,0.1,17,116461,7
 Luan Cândido,VIT,Lateral,5.93,3.7,-0.44,20,100848,7
-Mateus Silva,VIT,Lateral,7.6,6.06,0.09,10,111879,7
+Mateus Silva,VIT,Lateral,7.6,6.06,0.09,10,111879,2
 Nathan Mendes,VIT,Lateral,7.52,5.02,0.0,12,113157,5
 Ramon,VIT,Lateral,8.07,4.81,0.0,17,101597,5
 Wanderson,VIT,Lateral,1.0,0.0,0.0,0,149807,6
@@ -782,7 +781,7 @@ Walace,VIT,Meia,2.61,0.95,-0.14,8,88479,6
 Wendell,VIT,Meia,2.0,0.0,0.0,0,143253,6
 Zé Vitor,VIT,Meia,5.84,4.41,-0.03,19,107256,6
 Jair Ventura,VIT,Técnico,8.45,5.4,-0.19,28,92180,7
-Brítez,VIT,Zagueiro,4.57,2.3,0.02,9,101995,6
+Brítez,VIT,Zagueiro,4.57,2.3,0.02,9,101995,2
 Cacá,VIT,Zagueiro,4.88,2.44,0.0,21,102340,7
 Camutanga,VIT,Zagueiro,6.71,3.95,0.0,7,96793,6
 Darlan Dutra,VIT,Zagueiro,1.0,0.0,0.0,0,148439,6
