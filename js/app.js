@@ -142,6 +142,7 @@
       const sx = e.clientX, sy = e.clientY;
       const field = node.closest('.field');
       const unit = field ? field.style.getPropertyValue('--u') : '';
+      const kmul = field ? field.style.getPropertyValue('--k') : '';
       let ghost = null;
       node.setPointerCapture(e.pointerId);
 
@@ -151,6 +152,7 @@
           ghost = node.cloneNode(true);
           ghost.classList.add('ghost');
           if (unit) ghost.style.setProperty('--u', unit);
+          if (kmul) ghost.style.setProperty('--k', kmul);
           document.body.appendChild(ghost);
           node.style.opacity = '.3';
         }
@@ -210,6 +212,8 @@
     en.target.style.setProperty('--u', (en.contentRect.width / 100) + 'px');
   }));
 
+  const AVATAR_K = 11, AVATAR_K_COMPARE = 15; // diâmetro do jogador = k × 1% da largura do campo
+
   const FIELD_LINES =
     '<div class="lines" aria-hidden="true"><div class="f-border"></div><div class="f-mid"></div><div class="f-circle"></div>' +
     '<div class="f-pen top"></div><div class="f-goal top"></div><div class="f-spot top"></div>' +
@@ -257,6 +261,8 @@
     }
     const field = el('div', 'field');
     field.dataset.fi = fi;
+    // Lado a lado: jogadores maiores (a tela é vista no celular); o nome mantém o tamanho
+    field.style.setProperty('--k', S.compare ? AVATAR_K_COMPARE : AVATAR_K);
     field.innerHTML = FIELD_LINES;
     const logo = new Image();
     logo.src = 'assets/TCCBRANCOTRANSPARENTE.png'; logo.className = 'tcc-logo'; logo.alt = ''; logo.draggable = false;
