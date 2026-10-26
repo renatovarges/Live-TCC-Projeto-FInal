@@ -83,28 +83,28 @@ Cassierra,CAM,Atacante,6.61,2.5,0.0,21,95362,5
 Cauã Soares,CAM,Atacante,1.39,0.73,0.0,6,147089,6
 Cuello,CAM,Atacante,8.97,6.26,-0.44,25,98909,6
 Dudu,CAM,Atacante,5.6,2.12,0.0,18,68920,6
-Minda,CAM,Atacante,6.94,3.61,-0.6,18,114040,7
+Minda,CAM,Atacante,6.94,3.61,-0.6,18,114040,6
 Thiago Borbas,CAM,Atacante,6.07,5.08,-0.97,6,117314,5
-Everson,CAM,Goleiro,9.67,4.58,0.0,23,72294,2
-Gabriel Delfim,CAM,Goleiro,4.6,3.43,1.35,7,115674,2
+Everson,CAM,Goleiro,9.67,4.58,0.0,23,72294,6
+Gabriel Delfim,CAM,Goleiro,4.6,3.43,1.35,7,115674,7
 Guilherme Pires,CAM,Goleiro,1.0,0.0,0.0,0,152261,6
 Pedro Cobra,CAM,Goleiro,1.0,0.0,0.0,0,141126,6
 Robert,CAM,Goleiro,1.0,0.0,0.0,0,141125,6
 Kauã Pascini,CAM,Lateral,5.12,3.81,0.64,11,147090,6
-Natanael,CAM,Lateral,10.02,5.54,1.26,21,107554,2
-Preciado,CAM,Lateral,7.0,4.06,0.0,12,106302,6
+Natanael,CAM,Lateral,10.02,5.54,1.26,21,107554,7
+Preciado,CAM,Lateral,7.0,4.06,0.0,12,106302,7
 Renan Lodi,CAM,Lateral,10.13,4.99,0.53,25,96591,7
-Alan Franco,CAM,Meia,4.25,1.84,0.0,21,39656,2
+Alan Franco,CAM,Meia,4.25,1.84,0.0,21,39656,7
 Alexsander,CAM,Meia,7.32,3.79,0.89,10,118774,6
 Bernard,CAM,Meia,6.34,3.5,0.0,24,72460,7
-Castaño,CAM,Meia,3.74,0.86,-0.28,8,124961,7
+Castaño,CAM,Meia,3.74,0.86,-0.28,8,124961,6
 Cissé,CAM,Meia,2.31,1.8,-0.46,18,147088,6
 Fred,CAM,Meia,6.66,2.74,0.0,5,77510,5
 Gustavo Scarpa,CAM,Meia,6.41,2.88,0.0,13,87999,6
 Gutte,CAM,Meia,1.0,0.0,0.0,0,151440,6
-Igor Gomes,CAM,Meia,6.07,2.44,2.09,12,100084,6
+Igor Gomes,CAM,Meia,6.07,2.44,2.09,12,100084,7
 Maycon,CAM,Meia,5.51,2.28,0.0,18,94154,7
-Reinier,CAM,Meia,5.45,4.18,-0.04,21,105068,7
+Reinier,CAM,Meia,5.45,4.18,-0.04,21,105068,6
 Tomás Pérez,CAM,Meia,3.43,1.33,0.56,16,126189,6
 Victor Hugo,CAM,Meia,6.38,3.48,-0.14,23,116034,7
 Índio,CAM,Meia,1.0,0.0,0.0,0,141551,6
@@ -155,7 +155,7 @@ Dantas,CAP,Zagueiro,4.84,2.52,0.0,5,123445,5
 Kauan Alemão,CAP,Zagueiro,2.0,0.0,0.0,0,147565,6
 Léo,CAP,Zagueiro,6.13,3.77,0.0,3,85626,6
 Terán,CAP,Zagueiro,5.67,3.91,0.0,14,107985,6
-Breno Lopes,CFC,Atacante,8.23,4.5,0.01,26,93988,2
+Breno Lopes,CFC,Atacante,8.23,4.5,0.01,26,93988,6
 David,CFC,Atacante,0.92,0.0,0.0,1,149991,6
 Fabinho,CFC,Atacante,2.17,1.36,0.0,12,101729,6
 Keno,CFC,Atacante,3.09,0.61,0.0,7,86485,6
@@ -163,7 +163,7 @@ Lavega,CFC,Atacante,4.97,3.24,-0.37,27,117930,7
 Lucas Crepaldi,CFC,Atacante,1.0,0.0,0.0,0,141335,6
 Lucas Ronier,CFC,Atacante,10.77,6.7,0.0,18,123648,5
 Ocampo,CFC,Atacante,4.22,1.15,-0.29,4,103626,6
-Paulo Roberto,CFC,Atacante,5.28,3.84,-0.28,10,141339,2
+Paulo Roberto,CFC,Atacante,5.28,3.84,-0.28,10,141339,7
 Pedro Rocha,CFC,Atacante,7.43,4.5,-0.01,29,90302,7
 Renato Marques,CFC,Atacante,2.62,0.77,0.0,8,117403,6
 Rodrigo Rodrigues,CFC,Atacante,3.43,0.55,0.15,2,93371,6
@@ -172,12 +172,12 @@ Benassi,CFC,Goleiro,1.0,0.0,0.0,0,115840,6
 Keiller,CFC,Goleiro,4.0,0.0,0.0,0,93834,6
 Pedro Morisco,CFC,Goleiro,8.86,4.9,0.94,13,125803,7
 Pedro Rangel,CFC,Goleiro,6.43,4.55,0.0,18,110708,6
-Bruno Melo,CFC,Lateral,4.82,2.77,-0.3,27,84339,6
-Bustos,CFC,Lateral,3.26,0.25,0.36,4,96678,2
-Felipe Jonatan,CFC,Lateral,4.23,1.97,0.0,19,101708,7
+Bruno Melo,CFC,Lateral,4.82,2.77,-0.3,27,84339,7
+Bustos,CFC,Lateral,3.26,0.25,0.36,4,96678,6
+Felipe Jonatan,CFC,Lateral,4.23,1.97,0.0,19,101708,6
 Lucas Taverna,CFC,Lateral,2.69,1.95,0.0,4,141337,5
 Rodrigo Gelado,CFC,Lateral,1.33,-0.4,0.0,2,122390,6
-Tinga,CFC,Lateral,5.21,3.08,-0.29,19,82628,2
+Tinga,CFC,Lateral,5.21,3.08,-0.29,19,82628,7
 Ararat,CFC,Meia,4.0,0.0,0.0,0,148152,6
 Gustavo,CFC,Meia,3.3,0.9,0.0,4,110633,6
 Josué,CFC,Meia,6.44,4.08,0.45,27,84626,7
@@ -320,33 +320,33 @@ Jonathan Jesus,CRU,Zagueiro,6.53,4.41,0.12,20,124912,6
 João Marcelo,CRU,Zagueiro,5.54,2.9,1.55,16,105047,6
 Kelvin,CRU,Zagueiro,1.0,0.0,0.0,0,151289,6
 Villalba,CRU,Zagueiro,6.35,3.02,-0.96,16,106593,6
-Bruno Henrique,FLA,Atacante,5.0,2.44,-0.3,22,90285,2
+Bruno Henrique,FLA,Atacante,5.0,2.44,-0.3,22,90285,6
 Douglas Telles,FLA,Atacante,2.0,0.0,0.0,0,145705,6
 Joaquín Freitas,FLA,Atacante,4.37,2.5,0.06,5,150251,6
 Josmar,FLA,Atacante,2.0,0.0,0.0,0,146814,6
 Luiz Araújo,FLA,Atacante,6.76,2.94,0.0,16,82627,6
-Pedro,FLA,Atacante,15.6,7.9,0.35,29,94583,2
-Plata,FLA,Atacante,12.55,6.91,2.17,18,109096,2
+Pedro,FLA,Atacante,15.6,7.9,0.35,29,94583,7
+Plata,FLA,Atacante,12.55,6.91,2.17,18,109096,7
 Samuel Lino,FLA,Atacante,12.32,8.58,0.04,28,98873,7
 Valencia,FLA,Atacante,5.91,1.5,0.0,1,108602,6
 Andrew,FLA,Goleiro,3.0,0.0,0.0,0,103183,6
 Dyogo Alves,FLA,Goleiro,3.0,0.0,0.0,0,122318,6
 Léo Nannetti,FLA,Goleiro,2.0,0.0,0.0,0,130189,6
 Rossi,FLA,Goleiro,9.17,5.03,-0.16,29,99552,7
-Alex Sandro,FLA,Lateral,8.86,3.23,0.0,19,61987,2
-Ayrton Lucas,FLA,Lateral,8.18,5.03,0.0,17,88393,2
+Alex Sandro,FLA,Lateral,8.86,3.23,0.0,19,61987,7
+Ayrton Lucas,FLA,Lateral,8.18,5.03,0.0,17,88393,6
 Daniel Sales,FLA,Lateral,2.0,0.0,0.0,0,122320,6
-Emerson Royal,FLA,Lateral,8.57,5.61,1.38,14,96870,2
+Emerson Royal,FLA,Lateral,8.57,5.61,1.38,14,96870,6
 Johnny,FLA,Lateral,0.89,0.0,0.0,1,142868,6
-Varela,FLA,Lateral,8.93,4.73,0.5,22,84816,2
-Arrascaeta,FLA,Meia,13.75,5.37,0.0,19,87863,6
-Carrascal,FLA,Meia,11.82,6.97,-0.33,23,105436,7
+Varela,FLA,Lateral,8.93,4.73,0.5,22,84816,7
+Arrascaeta,FLA,Meia,13.75,5.37,0.0,19,87863,7
+Carrascal,FLA,Meia,11.82,6.97,-0.33,23,105436,6
 De la Cruz,FLA,Meia,4.45,0.95,-0.21,13,99228,6
 Erick Pulgar,FLA,Meia,6.3,3.06,-0.3,19,91473,7
 Evertton Araújo,FLA,Meia,2.59,1.17,0.0,18,115914,6
 Jorginho,FLA,Meia,9.28,4.1,0.68,23,84735,7
 Joshua,FLA,Meia,2.6,-0.3,0.0,1,143295,6
-Lucas Paquetá,FLA,Meia,14.23,6.94,-0.44,20,94930,2
+Lucas Paquetá,FLA,Meia,14.23,6.94,-0.44,20,94930,6
 Luiz Felipe,FLA,Meia,1.0,0.0,0.0,0,142275,6
 Pablo Lúcio,FLA,Meia,2.0,0.0,0.0,0,141628,6
 Sayago,FLA,Meia,2.0,0.0,0.0,0,150995,6
@@ -420,7 +420,7 @@ Danilo Barbosa,GRE,Meia,3.37,0.94,-0.55,7,86777,5
 Dodi,GRE,Meia,2.2,-0.04,0.0,9,89883,6
 Jefinho,GRE,Meia,1.46,1.5,0.0,1,147545,6
 João Borne,GRE,Meia,1.0,0.0,0.0,0,152259,5
-Krovinovic,GRE,Meia,5.18,2.59,0.59,7,100596,7
+Krovinovic,GRE,Meia,5.18,2.59,0.59,7,100596,6
 Nardoni,GRE,Meia,5.68,1.81,0.0,17,108162,5
 Riquelme,GRE,Meia,2.42,-1.45,0.0,2,130889,6
 Roger,GRE,Meia,1.5,1.2,0.0,2,147546,6
@@ -429,8 +429,8 @@ Tiaguinho,GRE,Meia,0.93,0.0,0.0,1,140496,6
 Villasanti,GRE,Meia,7.34,4.12,1.17,10,97145,7
 Renato Gaúcho,GRE,Técnico,9.52,5.07,-0.1,18,41929,7
 Athos,GRE,Zagueiro,1.0,0.0,0.0,0,131454,6
-Balbuena,GRE,Zagueiro,7.57,4.45,0.0,8,87887,2
-Gustavo Martins,GRE,Zagueiro,6.31,3.65,0.18,19,111309,2
+Balbuena,GRE,Zagueiro,7.57,4.45,0.0,8,87887,7
+Gustavo Martins,GRE,Zagueiro,6.31,3.65,0.18,19,111309,7
 Kannemann,GRE,Zagueiro,3.56,2.13,-1.01,7,87342,3
 Luis Eduardo,GRE,Zagueiro,1.45,-0.3,0.0,2,142257,6
 Noriega,GRE,Zagueiro,6.53,3.55,-0.61,21,130048,7
@@ -638,7 +638,7 @@ João Paulo,SAN,Goleiro,6.94,-0.35,0.0,2,85425,6
 João Pedro,SAN,Goleiro,1.0,0.0,0.0,0,132750,6
 Rodrigo Falcão,SAN,Goleiro,1.0,0.0,0.0,0,130309,6
 Davizinho,SAN,Lateral,2.01,1.62,0.0,4,150959,6
-Escobar,SAN,Lateral,9.72,6.04,0.0,21,102975,5
+Escobar,SAN,Lateral,9.72,6.04,0.0,21,102975,6
 Igor Vinícius,SAN,Lateral,9.65,6.39,0.0,18,95466,6
 Rafael Gonzaga,SAN,Lateral,2.36,1.2,-0.43,2,149715,6
 Rodinei,SAN,Lateral,5.83,2.48,0.07,5,73992,7
@@ -658,7 +658,7 @@ Philippe Coutinho,SAN,Meia,13.29,7.2,0.68,6,68899,7
 Rollheiser,SAN,Meia,5.9,3.29,0.25,23,102256,6
 Samuel Pierri,SAN,Meia,1.88,0.45,0.0,2,150757,6
 Thaciano,SAN,Meia,5.28,2.0,0.0,17,87470,6
-Willian Arão,SAN,Meia,5.18,3.11,0.0,21,78478,5
+Willian Arão,SAN,Meia,5.18,3.11,0.0,21,78478,6
 Cuca,SAN,Técnico,10.55,6.11,0.41,22,42411,7
 João Alencar,SAN,Zagueiro,2.03,3.0,1.03,1,144255,7
 João Ananias,SAN,Zagueiro,3.43,2.5,0.0,6,145563,6
