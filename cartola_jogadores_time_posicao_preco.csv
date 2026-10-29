@@ -15,14 +15,14 @@ Léo Vieira,BAH,Goleiro,6.82,5.02,0.0,16,71043,5
 Ronaldo,BAH,Goleiro,9.55,6.13,0.11,22,91101,7
 Victor Nascimento,BAH,Goleiro,1.0,0.0,0.0,0,122994,6
 Luciano Juba,BAH,Lateral,11.9,7.34,-0.07,28,107093,7
-Román Gómez,BAH,Lateral,7.78,4.76,0.0,15,132412,2
+Román Gómez,BAH,Lateral,7.78,4.76,0.0,15,132412,6
 Zé Guilherme,BAH,Lateral,4.03,2.65,-0.26,6,123717,6
 Acevedo,BAH,Meia,6.9,4.69,-0.42,28,104783,7
 Caio Alexandre,BAH,Meia,3.47,1.02,0.0,20,106323,6
 David Martins,BAH,Meia,0.65,-0.1,0.0,3,140726,6
-Erick,BAH,Meia,6.05,4.04,-0.18,23,98022,2
+Erick,BAH,Meia,6.05,4.04,-0.18,23,98022,6
 Everton Ribeiro,BAH,Meia,7.62,3.59,0.0,20,51772,6
-Jean Lucas,BAH,Meia,8.61,5.17,0.0,26,98517,2
+Jean Lucas,BAH,Meia,8.61,5.17,0.0,26,98517,7
 Lautaro López,BAH,Meia,4.0,0.0,0.0,0,127628,6
 Michel Araújo,BAH,Meia,3.24,1.21,0.87,19,107173,6
 Rodrigo Nestor,BAH,Meia,6.37,4.02,0.55,24,106822,7
@@ -34,16 +34,16 @@ Fredi Lippert,BAH,Zagueiro,2.0,0.0,0.0,0,141419,6
 Kanu,BAH,Zagueiro,2.32,0.4,-0.33,7,98484,3
 Luiz Gustavo,BAH,Zagueiro,1.0,0.0,0.0,0,130393,6
 Marco Moreno,BAH,Zagueiro,4.99,2.53,-0.53,3,120681,7
-Marcos Victor,BAH,Zagueiro,4.6,3.75,-0.17,9,115537,2
-Arthur Cabral,BOT,Atacante,8.91,5.05,-0.14,23,92171,6
+Marcos Victor,BAH,Zagueiro,4.6,3.75,-0.17,9,115537,7
+Arthur Cabral,BOT,Atacante,8.91,5.05,-0.14,23,92171,7
 Arthur Izaque,BOT,Atacante,1.0,0.0,0.0,0,147788,6
 Danilo Pereira,BOT,Atacante,4.96,2.77,0.0,8,114801,6
-Júnior Santos,BOT,Atacante,4.2,1.72,0.39,18,101002,2
+Júnior Santos,BOT,Atacante,4.2,1.72,0.39,18,101002,6
 Kadir,BOT,Atacante,3.82,1.88,0.0,13,146375,6
 Kauan Toledo,BOT,Atacante,2.61,2.0,0.0,10,142086,6
 Lucas Emanuel,BOT,Atacante,1.45,1.4,0.0,1,151404,6
 Matheus Martins,BOT,Atacante,7.13,4.4,-0.73,22,111831,7
-Tiquinho Soares,BOT,Atacante,5.37,2.52,-1.14,12,84042,7
+Tiquinho Soares,BOT,Atacante,5.37,2.52,-1.14,12,84042,6
 Villalba,BOT,Atacante,3.76,1.53,0.0,14,142877,6
 Cléber Lucas,BOT,Goleiro,1.0,0.0,0.0,0,146833,6
 Cristhian Loor,BOT,Goleiro,2.0,0.0,0.0,0,129930,6
@@ -57,16 +57,16 @@ Marçal,BOT,Lateral,6.56,3.62,-0.7,10,97468,7
 Mateo Ponte,BOT,Lateral,5.27,3.15,0.0,11,124481,6
 Paulinho,BOT,Lateral,3.61,0.23,0.0,3,91626,6
 Vitinho,BOT,Lateral,9.12,4.73,-0.37,26,100898,7
-Allan,BOT,Meia,4.67,2.36,-0.01,14,69140,7
+Allan,BOT,Meia,4.67,2.36,-0.01,14,69140,6
 Arthur Novaes,BOT,Meia,1.0,0.0,0.0,0,147782,6
 Barrera,BOT,Meia,4.93,2.46,0.0,11,142484,5
 Caio Valle,BOT,Meia,1.0,0.0,0.0,0,141752,6
 Danilo,BOT,Meia,12.86,6.58,-0.25,23,107231,5
-Domingos Andrade,BOT,Meia,4.26,1.58,-0.29,4,144976,6
+Domingos Andrade,BOT,Meia,4.26,1.58,-0.29,4,144976,7
 Edenílson,BOT,Meia,5.55,2.73,0.0,18,63289,6
 Huguinho,BOT,Meia,4.28,2.83,-1.01,12,141400,7
 Marquinhos,BOT,Meia,0.85,0.0,0.0,1,146410,6
-Medina,BOT,Meia,6.82,3.86,-0.07,21,109987,2
+Medina,BOT,Meia,6.82,3.86,-0.07,21,109987,7
 Montoro,BOT,Meia,6.21,2.48,-0.42,25,142890,3
 Victor Hugo,BOT,Meia,1.0,0.0,0.0,0,151405,6
 Wallace Davi,BOT,Meia,4.0,0.0,0.0,0,133696,6
@@ -591,7 +591,7 @@ Eduardo Melo,REM,Atacante,2.52,1.68,0.0,4,107700,6
 Filipe Lima,REM,Atacante,1.0,0.0,0.0,0,148109,6
 Gabriel Poveda,REM,Atacante,1.97,0.43,0.0,15,102877,5
 Gabriel Taliari,REM,Atacante,9.24,5.02,0.0,19,95131,7
-Galeano,REM,Atacante,4.47,1.77,0.0,18,108713,2
+Galeano,REM,Atacante,4.47,1.77,0.0,18,108713,6
 Jajá,REM,Atacante,7.61,5.21,0.0,25,105048,7
 Tico,REM,Atacante,0.94,0.25,0.0,2,141991,6
 Ivan,REM,Goleiro,7.59,7.2,0.0,2,88136,6
@@ -605,17 +605,17 @@ Marlon,REM,Lateral,6.67,4.61,0.0,9,86864,7
 Matheus Alexandre,REM,Lateral,4.71,2.18,0.0,12,103347,6
 Mayk,REM,Lateral,6.45,3.4,0.0,15,101820,6
 Catarozzi,REM,Meia,5.41,0.9,0.0,1,112939,6
-David Braga,REM,Meia,3.21,1.84,0.0,14,123016,2
+David Braga,REM,Meia,3.21,1.84,0.0,14,123016,7
 Edson Fernando,REM,Meia,1.76,-1.05,0.0,2,105901,6
 José Welison,REM,Meia,3.85,2.7,0.0,25,86859,7
 Jáderson,REM,Meia,2.35,0.78,0.0,12,98224,5
 PH Gama,REM,Meia,2.0,0.0,0.0,0,143455,6
 Patrick,REM,Meia,5.86,3.69,0.0,26,83433,7
-Picco,REM,Meia,6.23,3.38,0.0,28,113125,2
+Picco,REM,Meia,6.23,3.38,0.0,28,113125,7
 Rafael Soares,REM,Meia,1.0,0.0,0.0,0,148103,6
 Vitor Bueno,REM,Meia,6.75,3.77,0.0,23,87552,6
 Yago Pikachu,REM,Meia,4.66,2.4,0.0,30,80196,6
-Zé Ricardo,REM,Meia,4.69,3.03,0.0,29,102911,2
+Zé Ricardo,REM,Meia,4.69,3.03,0.0,29,102911,6
 Thiago Carpini,REM,Técnico,9.13,5.45,0.0,4,106147,7
 Léo Andrade,REM,Zagueiro,4.79,2.95,0.0,4,100342,6
 Marllon,REM,Zagueiro,5.74,3.3,0.0,28,70666,7
@@ -690,20 +690,20 @@ Wendell,SAO,Lateral,7.47,3.97,-0.4,20,80570,7
 Bobadilla,SAO,Meia,8.73,3.98,0.68,20,107873,7
 Cauly,SAO,Meia,6.41,2.95,0.0,15,123360,6
 Danielzinho,SAO,Meia,5.64,2.37,0.0,24,85403,6
-Djhordney,SAO,Meia,1.67,1.43,0.16,9,148215,7
+Djhordney,SAO,Meia,1.67,1.43,0.16,9,148215,6
 Lucas Moura,SAO,Meia,7.6,2.5,0.28,11,70164,7
 Marcos Antônio,SAO,Meia,5.73,2.54,-0.34,24,106294,5
 Newton,SAO,Meia,4.19,2.21,-0.98,14,104693,7
-Pablo Maia,SAO,Meia,4.12,1.83,-0.12,21,113359,6
+Pablo Maia,SAO,Meia,4.12,1.83,-0.12,21,113359,7
 Pedro Bezerra,SAO,Meia,1.0,0.0,0.0,0,141608,6
 Pedro Ferreira,SAO,Meia,1.41,1.02,-0.13,6,141615,6
 Dorival Júnior,SAO,Técnico,9.45,4.92,-0.83,24,40990,7
 Arboleda,SAO,Zagueiro,8.03,3.95,-1.1,18,91573,7
 Domingos Duarte,SAO,Zagueiro,8.02,6.06,0.0,5,106313,5
 Isac,SAO,Zagueiro,1.0,0.0,0.0,0,131762,6
-Osorio,SAO,Zagueiro,2.99,2.37,0.0,8,150197,2
+Osorio,SAO,Zagueiro,2.99,2.37,0.0,8,150197,6
 Rafael Tolói,SAO,Zagueiro,8.58,5.19,0.0,11,63008,6
-Sabino,SAO,Zagueiro,7.42,4.01,0.0,23,104075,2
+Sabino,SAO,Zagueiro,7.42,4.01,0.0,23,104075,7
 Andrey Fernandes,VAS,Atacante,1.41,1.7,0.0,1,141406,6
 Andrés Gómez,VAS,Atacante,11.34,6.85,-0.42,26,116706,2
 Brenner,VAS,Atacante,6.77,2.82,0.0,16,99789,2
