@@ -116,25 +116,25 @@ Ruan,CAM,Zagueiro,6.2,3.7,0.0,20,100842,5
 Samuel,CAM,Zagueiro,1.0,0.0,0.0,0,130454,6
 Vitor Hugo,CAM,Zagueiro,6.05,3.52,-1.06,17,72605,3
 Vitão,CAM,Zagueiro,4.55,4.05,-0.13,7,141131,7
-Jorge Rivaldo,CAP,Atacante,3.53,1.65,-0.29,7,151120,2
+Jorge Rivaldo,CAP,Atacante,3.53,1.65,-0.29,7,151120,6
 Leozinho,CAP,Atacante,5.81,5.06,-0.41,18,123101,7
 Mendoza,CAP,Atacante,7.58,4.13,-0.48,29,90031,7
 Renan Peixoto,CAP,Atacante,2.67,0.8,0.0,9,105518,6
 Renan Viana,CAP,Atacante,2.0,0.0,0.0,0,115266,6
 Vargas,CAP,Atacante,9.34,5.79,0.0,7,127871,6
-Viveros,CAP,Atacante,12.14,8.78,-0.55,27,143193,2
+Viveros,CAP,Atacante,12.14,8.78,-0.55,27,143193,7
 Carlos Eduardo,CAP,Goleiro,1.0,0.0,0.0,0,143532,6
 Matheus Soares,CAP,Goleiro,1.0,0.0,0.0,0,130842,6
 Mycael,CAP,Goleiro,8.35,5.49,0.76,7,110698,7
 Santos,CAP,Goleiro,7.97,4.21,0.0,22,69012,6
 Arthur Monteiro,CAP,Lateral,1.0,0.0,0.0,0,150952,6
 Batata,CAP,Lateral,1.0,0.0,0.0,0,122316,6
-Benavídez,CAP,Lateral,9.33,5.4,0.0,19,113113,2
+Benavídez,CAP,Lateral,9.33,5.4,0.0,19,113113,6
 Claudinho,CAP,Lateral,5.96,5.08,0.0,9,147192,5
 Esquivel,CAP,Lateral,7.75,4.95,0.85,19,110668,7
 Gilberto,CAP,Lateral,6.68,4.23,-0.11,18,80313,3
-Gilberto Junior,CAP,Lateral,5.56,3.67,0.0,8,146374,2
-Léo Derik,CAP,Lateral,5.81,3.65,0.0,9,120433,6
+Gilberto Junior,CAP,Lateral,5.56,3.67,0.0,8,146374,6
+Léo Derik,CAP,Lateral,5.81,3.65,0.0,9,120433,7
 Vitinho,CAP,Lateral,1.0,0.0,0.0,0,144898,6
 Alejandro García,CAP,Meia,4.0,0.0,0.0,0,128427,6
 Dudu,CAP,Meia,2.13,1.62,-0.04,20,125746,6
@@ -428,9 +428,9 @@ Tiaguinho,GRE,Meia,0.93,0.0,0.0,1,140496,6
 Villasanti,GRE,Meia,7.05,4.24,-0.29,11,97145,7
 Renato Gaúcho,GRE,Técnico,10.47,5.36,0.95,19,41929,7
 Athos,GRE,Zagueiro,1.0,0.0,0.0,0,131454,6
-Balbuena,GRE,Zagueiro,7.69,4.73,0.12,9,87887,2
+Balbuena,GRE,Zagueiro,7.69,4.73,0.12,9,87887,7
 Gustavo Martins,GRE,Zagueiro,6.75,3.74,0.44,20,111309,7
-Kannemann,GRE,Zagueiro,3.56,2.13,0.0,7,87342,2
+Kannemann,GRE,Zagueiro,3.56,2.13,0.0,7,87342,6
 Luis Eduardo,GRE,Zagueiro,1.45,-0.3,0.0,2,142257,6
 Noriega,GRE,Zagueiro,7.87,3.84,1.34,22,130048,7
 Wagner Leonardo,GRE,Zagueiro,5.23,2.5,0.0,10,104994,6
