@@ -517,7 +517,7 @@ Heittor,PAL,Atacante,1.15,0.53,0.0,3,146624,6
 Miguel Bilong,PAL,Atacante,2.0,0.0,0.0,0,151436,6
 Paulinho,PAL,Atacante,8.96,2.67,0.0,7,99818,5
 Ramón Sosa,PAL,Atacante,5.15,2.9,0.0,24,112863,5
-Vitor Roque,PAL,Atacante,13.96,6.09,-0.85,19,114802,6
+Vitor Roque,PAL,Atacante,13.96,6.09,-0.85,19,114802,7
 Bruno Bertinato,PAL,Goleiro,3.0,0.0,0.0,0,140908,6
 Carlos Miguel,PAL,Goleiro,9.47,5.83,0.26,32,104084,7
 Kauan Lima,PAL,Goleiro,1.0,0.0,0.0,0,146663,6
@@ -533,9 +533,9 @@ Arias,PAL,Meia,12.95,6.55,-0.58,27,99815,7
 Emiliano Martínez,PAL,Meia,3.59,1.67,0.0,16,108683,6
 Felipe Anderson,PAL,Meia,6.1,3.03,0.06,24,70592,6
 Larson,PAL,Meia,2.25,0.83,0.3,8,136156,6
-Lucas Evangelista,PAL,Meia,4.5,1.95,-0.34,28,84674,7
+Lucas Evangelista,PAL,Meia,4.5,1.95,-0.34,28,84674,2
 Luis Pacheco,PAL,Meia,1.72,-0.08,0.0,4,146623,6
-Marlon Freitas,PAL,Meia,6.2,2.97,0.22,30,93790,7
+Marlon Freitas,PAL,Meia,6.2,2.97,0.22,30,93790,2
 Maurício,PAL,Meia,7.11,4.7,-1.55,28,105647,6
 Rafael Coutinho,PAL,Meia,1.0,0.0,0.0,0,145413,6
 Victor Gabriel,PAL,Meia,1.0,0.0,0.0,0,144889,6
@@ -706,7 +706,7 @@ Osorio,SAO,Zagueiro,2.99,2.37,0.0,8,150197,7
 Rafael Tolói,SAO,Zagueiro,8.58,5.19,0.0,11,63008,6
 Sabino,SAO,Zagueiro,6.93,3.99,-0.49,24,104075,3
 Andrey Fernandes,VAS,Atacante,1.41,1.7,0.0,1,141406,6
-Andrés Gómez,VAS,Atacante,11.34,6.85,0.0,26,116706,7
+Andrés Gómez,VAS,Atacante,11.34,6.85,0.0,26,116706,2
 Brenner,VAS,Atacante,7.45,3.08,0.68,17,99789,6
 Bruno Duarte,VAS,Atacante,7.61,4.97,-0.64,7,138941,7
 Bruno Lopes,VAS,Atacante,1.57,1.7,0.0,1,133690,6
@@ -714,7 +714,7 @@ Colidio,VAS,Atacante,9.47,6.23,-0.14,11,114323,7
 David,VAS,Atacante,4.31,2.57,-0.72,25,90309,6
 João Vitor,VAS,Atacante,3.49,3.13,0.0,4,147883,6
 Loide Augusto,VAS,Atacante,3.0,0.0,0.0,0,141493,6
-Marino Hinestroza,VAS,Atacante,5.53,2.65,-2.29,17,110598,6
+Marino Hinestroza,VAS,Atacante,5.53,2.65,-2.29,17,110598,2
 Spinelli,VAS,Atacante,5.49,2.84,0.0,17,110144,6
 Daniel Fuzato,VAS,Goleiro,1.59,-1.0,0.0,0,95936,6
 Léo Jardim,VAS,Goleiro,5.41,2.7,-0.34,31,87008,7
