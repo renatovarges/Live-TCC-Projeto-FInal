@@ -6,7 +6,7 @@
   const MAX_FIELDS = 3;
 
   const uid = () => Math.random().toString(36).slice(2, 9);
-  const BENCH_SIZE = 6;
+  const BENCH_SIZE = 4; // 4 reservas (técnico não tem reserva)
   const blankBench = () => Array(BENCH_SIZE).fill(null);
   const newField = name => ({ id: uid(), name, items: [], bench: blankBench() });
 
@@ -28,7 +28,11 @@
     try {
       const s = JSON.parse(localStorage.getItem(KEY));
       if (s && Array.isArray(s.fields) && s.fields.length){
-        s.fields.forEach(f => { f.bench = blankBench().map((_, i) => (f.bench || [])[i] || null); });
+        s.fields.forEach(f => {
+          // migra campos salvos com mais lugares: junta os preenchidos nos primeiros lugares
+          const filled = (f.bench || []).filter(Boolean).slice(0, BENCH_SIZE);
+          f.bench = blankBench().map((_, i) => filled[i] || null);
+        });
         return Object.assign(base, s, {
           list: Object.assign(base.list, s.list),
           boxes: Object.assign(base.boxes, s.boxes),
