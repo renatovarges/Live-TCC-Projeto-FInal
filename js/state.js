@@ -6,11 +6,14 @@
   const MAX_FIELDS = 3;
 
   const uid = () => Math.random().toString(36).slice(2, 9);
+  const BENCH_SIZE = 6;
+  const blankBench = () => Array(BENCH_SIZE).fill(null);
+  const newField = name => ({ id: uid(), name, items: [], bench: blankBench() });
 
   function fresh(){
     return {
       list: Object.fromEntries(POS.map(p => [p, []])),   // jogadores por posição (lateral direita)
-      fields: [{ id: uid(), name: 'Campo 1', items: [] }],
+      fields: [newField('Campo 1')],
       active: 0,
       compare: false,
       rosterHidden: false,
@@ -25,6 +28,7 @@
     try {
       const s = JSON.parse(localStorage.getItem(KEY));
       if (s && Array.isArray(s.fields) && s.fields.length){
+        s.fields.forEach(f => { f.bench = blankBench().map((_, i) => (f.bench || [])[i] || null); });
         return Object.assign(base, s, {
           list: Object.assign(base.list, s.list),
           boxes: Object.assign(base.boxes, s.boxes),
@@ -45,5 +49,5 @@
   }
   function reset(){ Object.assign(S, fresh()); save(); }
 
-  window.State = { S, save, reset, uid, POS, BOXES, MAX_FIELDS };
+  window.State = { S, save, reset, uid, newField, POS, BOXES, MAX_FIELDS };
 })();

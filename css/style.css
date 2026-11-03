@@ -188,3 +188,16 @@ button{font-family:inherit}
 .roster-tab{position:fixed;right:0;top:45%;z-index:60;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:0;border-radius:12px 0 0 12px;padding:14px 8px;font-weight:800;font-size:13px;letter-spacing:1px;cursor:pointer;writing-mode:vertical-rl;box-shadow:-4px 4px 16px rgba(0,0,0,.4)}
 .roster-tab[hidden]{display:none}
 @media (max-width:1280px){.layout.roster-off .roster{display:none}}
+
+/* Reservas coladas embaixo de cada campo */
+.bench{margin-top:6px;padding:6px 4px 8px;border-radius:14px;background:rgba(0,0,0,.2);border:2px solid rgba(255,255,255,.08)}
+.bench-title{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--muted);text-align:center;margin-bottom:4px}
+.bench-row{display:grid;grid-template-columns:repeat(6,1fr);gap:2px}
+.bench-slot{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:calc(var(--u,8px)*.4);padding:4px 0;border-radius:12px;min-width:0;transition:background .15s}
+.bench-slot.filled{cursor:grab}
+.bench-slot.hot{background:rgba(34,197,94,.3)}
+.av.bn{--s:calc(var(--u,8px)*var(--k,11)*.82)}
+.bn-empty{width:calc(var(--u,8px)*var(--k,11)*.82);height:calc(var(--u,8px)*var(--k,11)*.82);border:2px dashed rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:calc(var(--u,8px)*2.4)}
+.bench-slot .name{padding:calc(var(--u,8px)*.35) calc(var(--u,8px)*1);background:rgba(9,32,22,.95);border:1px solid rgba(33,195,92,.7);border-radius:10px;font-size:max(10px,calc(var(--u,8px)*1.55));font-weight:800;line-height:1.2;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bench-slot:hover>.x{opacity:1}
+.bench-title,.field-title,.tab,.box-title{user-select:none}

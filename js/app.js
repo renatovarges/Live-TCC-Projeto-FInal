@@ -73,6 +73,15 @@
     S.active = fi;
   }
 
+  // Reservas do campo: um jogador ocupa um lugar só; arrastar de reserva para reserva troca.
+  function putOnBench(fi, slot, P, from){
+    const bench = S.fields[fi].bench;
+    const prev = bench[slot];
+    bench.forEach((b, i) => { if (b && b.k === P.k) bench[i] = null; });
+    bench[slot] = Data.snap(P);
+    if (from) S.fields[from.fi].bench[from.slot] = (from.fi === fi && from.slot === slot) ? bench[slot] : (prev || null);
+  }
+
   function posIn(container, ev){
     const r = container.getBoundingClientRect();
     return {
@@ -82,7 +91,7 @@
   }
 
   /* ---------- Soltar em qualquer área (HTML5 drag e arraste de itens) ---------- */
-  const ZONES = '.field, #roster, .box, .muro-zone, .reserve-slot';
+  const ZONES = '.field, #roster, .box, .muro-zone, .reserve-slot, .bench-slot';
 
   function handleDrop(zone, payload, ev){
     if (!payload) return;
@@ -91,6 +100,10 @@
       if (isClub) return openPicker(payload.slug);
       const { x, y } = posIn(zone, ev);
       addToField(+zone.dataset.fi, payload.P, x, y);
+      if (payload.fromBench) S.fields[payload.fromBench.fi].bench[payload.fromBench.slot] = null;
+    } else if (zone.matches('.bench-slot')){
+      if (isClub) return;
+      putOnBench(+zone.dataset.fi, +zone.dataset.slot, payload.P, payload.fromBench);
     } else if (zone.matches('#roster')){
       if (isClub) return openPicker(payload.slug);
       addToRoster(payload.P);
@@ -242,6 +255,10 @@
         it.x = x; it.y = y; S.active = tfi;
       } else if (t.closest('#roster')){
         f.items = f.items.filter(i => i !== it);            // devolver para a lista = tirar do campo
+      } else if (it.k === 'p' && t.closest('.bench-slot')){
+        const bs = t.closest('.bench-slot');
+        putOnBench(+bs.dataset.fi, +bs.dataset.slot, it.P);
+        f.items = f.items.filter(i => i !== it);          // de titular para reserva
       } else if (it.k === 'p'){
         const z = t.closest(ZONES);
         if (z) return handleDrop(z, { type: 'player', P: it.P }, ev); // copia para linhas/muro/reservas
@@ -249,6 +266,28 @@
       commit();
     });
     return n;
+  }
+
+  function buildBench(f, fi){
+    const box = el('div', 'bench');
+    box.style.setProperty('--k', S.compare ? AVATAR_K_COMPARE : AVATAR_K);
+    box.appendChild(el('div', 'bench-title', 'RESERVAS'));
+    const row = el('div', 'bench-row');
+    f.bench.forEach((P, slot) => {
+      const sl = el('div', 'bench-slot' + (P ? ' filled' : ''));
+      sl.dataset.fi = fi; sl.dataset.slot = slot;
+      if (P){
+        sl.appendChild(avatar(P, 'bn'));
+        sl.appendChild(el('div', 'name', P.n));
+        sl.appendChild(xBtn('Tirar das reservas', () => { f.bench[slot] = null; commit(); }));
+        makeDraggable(sl, { type: 'player', P, fromBench: { fi, slot } });
+      } else {
+        sl.appendChild(el('div', 'bn-empty', '+'));
+      }
+      row.appendChild(sl);
+    });
+    box.appendChild(row);
+    return box;
   }
 
   function buildField(f, fi){
@@ -270,6 +309,9 @@
     f.items.forEach(it => field.appendChild(buildItem(it, fi)));
     wrap.appendChild(field);
     unitObserver.observe(field);
+    const bench = buildBench(f, fi);
+    wrap.appendChild(bench);
+    unitObserver.observe(bench);
     return wrap;
   }
 
@@ -315,7 +357,7 @@
       const add = el('button', 'tab add', '+ Novo campo');
       add.type = 'button';
       add.addEventListener('click', () => {
-        S.fields.push({ id: uid(), name: 'Campo ' + (S.fields.length + 1), items: [] });
+        S.fields.push(State.newField('Campo ' + (S.fields.length + 1)));
         S.active = S.fields.length - 1;
         save(); renderFields();
       });
@@ -329,7 +371,8 @@
         S.fields.push({
           id: uid(),
           name: 'Campo ' + (S.fields.length + 1),
-          items: JSON.parse(JSON.stringify(src.items)).map(it => Object.assign(it, { id: uid() }))
+          items: JSON.parse(JSON.stringify(src.items)).map(it => Object.assign(it, { id: uid() })),
+          bench: JSON.parse(JSON.stringify(src.bench))
         });
         S.active = S.fields.length - 1;
         save(); renderFields();
@@ -604,8 +647,9 @@
     });
     $('#clearField').addEventListener('click', () => {
       const f = S.fields[S.active];
-      if (!f.items.length) return;
+      if (!f.items.length && !f.bench.some(Boolean)) return;
       f.items = [];
+      f.bench = f.bench.map(() => null);
       commit();
     });
     $('#clearAll').addEventListener('click', () => {
