@@ -6,7 +6,7 @@
   const MAX_FIELDS = 3;
 
   const uid = () => Math.random().toString(36).slice(2, 9);
-  const BENCH_SIZE = 4; // 4 reservas (técnico não tem reserva)
+  const BENCH_SIZE = 5; // 5 reservas (técnico não tem reserva)
   const blankBench = () => Array(BENCH_SIZE).fill(null);
   const newField = name => ({ id: uid(), name, items: [], bench: blankBench() });
 
