@@ -478,7 +478,7 @@ Pedro Kauã,INT,Zagueiro,1.0,0.0,0.0,0,139200,6
 Victor Gabriel,INT,Zagueiro,3.8,2.03,0.0,17,111466,6
 Alesson,MIR,Atacante,8.59,4.72,0.09,27,97321,6
 André Luis,MIR,Atacante,3.28,1.44,0.12,17,81005,6
-Bruno Santos,MIR,Atacante,4.13,3.26,0.0,13,103967,6
+Bruno Santos,MIR,Atacante,4.13,3.26,0.0,13,103967,3
 Carlos Eduardo,MIR,Atacante,4.91,2.4,0.54,19,90917,6
 Edson Carioca,MIR,Atacante,4.27,2.8,0.0,20,104204,6
 Fernandinho,MIR,Atacante,3.39,1.48,0.01,9,91130,6
@@ -547,7 +547,7 @@ Koné,PAL,Zagueiro,2.0,0.0,0.0,0,147792,6
 Murilo,PAL,Zagueiro,7.65,4.44,-0.4,29,97653,7
 Davi Gomes,RBB,Atacante,5.19,4.25,0.0,2,140906,5
 Eduardo Sasha,RBB,Atacante,4.45,1.58,0.0,23,70360,7
-Fernando,RBB,Atacante,6.04,5.07,0.0,18,100695,5
+Fernando,RBB,Atacante,6.04,5.07,0.0,18,100695,6
 Henry Mosquera,RBB,Atacante,6.15,3.52,0.0,21,124239,7
 Herrera,RBB,Atacante,5.36,2.77,0.0,26,123738,7
 Isidro Pitta,RBB,Atacante,4.9,3.06,0.0,28,108133,6
@@ -603,7 +603,6 @@ Marcelinho,REM,Lateral,5.19,4.75,-1.51,28,97795,7
 Marlon,REM,Lateral,6.67,4.75,-0.46,11,86864,7
 Matheus Alexandre,REM,Lateral,4.71,2.18,0.0,12,103347,6
 Mayk,REM,Lateral,5.82,3.12,0.2,17,101820,6
-Catarozzi,REM,Meia,5.41,0.9,0.0,1,112939,6
 David Braga,REM,Meia,3.29,1.74,0.24,16,123016,7
 Edson Fernando,REM,Meia,1.87,0.3,-0.5,4,105901,6
 José Welison,REM,Meia,5.76,3.17,2.0,27,86859,7
@@ -617,7 +616,6 @@ Thiago Carpini,REM,Técnico,8.44,4.99,-0.61,6,106147,7
 Léo Andrade,REM,Zagueiro,4.79,2.95,0.0,4,100342,6
 Marllon,REM,Zagueiro,5.05,3.06,-0.01,30,70666,7
 Matheus Felipe,REM,Zagueiro,3.85,2.03,0.0,3,102310,5
-Tassano,REM,Zagueiro,3.0,0.0,0.0,0,145782,6
 Tchamba,REM,Zagueiro,4.23,2.48,-0.13,22,100804,7
 Zé Ivaldo,REM,Zagueiro,5.11,2.52,-0.39,13,91866,6
 Caballero,SAN,Atacante,3.62,1.67,0.0,8,122781,6
@@ -756,7 +754,6 @@ Renê,VIT,Atacante,9.1,6.71,-0.77,23,130209,7
 Tarzia,VIT,Atacante,4.5,3.24,0.0,24,143153,2
 Fintelman,VIT,Goleiro,2.0,0.0,0.0,0,107859,6
 Lucas Arcanjo,VIT,Goleiro,8.88,5.45,0.34,27,104118,7
-Thiago Couto,VIT,Goleiro,3.0,0.0,0.0,0,97645,6
 Yuri Sena,VIT,Goleiro,1.0,0.0,0.0,0,107075,6
 Fabiano Souza,VIT,Lateral,3.85,0.23,0.0,3,141763,5
 Gean,VIT,Lateral,1.0,0.0,0.0,0,143252,6
@@ -778,7 +775,7 @@ Rúben Ismael,VIT,Meia,3.55,0.0,-0.45,1,145387,6
 Walace,VIT,Meia,3.05,1.18,0.0,9,88479,6
 Wendell,VIT,Meia,2.0,0.0,0.0,0,143253,6
 Zé Vitor,VIT,Meia,5.56,4.19,-0.28,20,107256,6
-Cléber dos Santos,VIT,Técnico,8.64,2.66,0.05,1,141022,6
+Rafael Lacerda,VIT,Técnico,8.2,4.78,0.08,15,106907,7
 Brítez,VIT,Zagueiro,5.47,2.77,0.0,10,101995,2
 Cacá,VIT,Zagueiro,5.27,2.47,0.39,22,102340,7
 Camutanga,VIT,Zagueiro,6.71,3.95,0.0,7,96793,6
