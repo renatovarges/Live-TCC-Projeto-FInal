@@ -267,18 +267,18 @@ André,COR,Meia,6.0,3.66,-0.25,23,145744,6
 Bahia,COR,Meia,2.0,0.0,0.0,0,127242,6
 Breno Bidon,COR,Meia,8.36,3.87,-0.35,31,117910,7
 Carrillo,COR,Meia,3.64,1.3,-0.21,23,77485,6
-Charles,COR,Meia,2.88,1.01,-0.13,8,96342,2
+Charles,COR,Meia,2.88,1.01,-0.13,8,96342,6
 Dieguinho,COR,Meia,2.87,1.28,0.0,18,141995,6
 Garro,COR,Meia,9.63,4.85,-1.61,30,117632,5
 Labyad,COR,Meia,4.52,2.05,0.0,11,104036,5
 Matheus Pereira,COR,Meia,2.45,0.65,-0.38,20,90370,3
-Raniele,COR,Meia,8.1,4.44,0.0,24,95556,5
+Raniele,COR,Meia,8.1,4.44,0.0,24,95556,2
 Clarence Seedorf,COR,Técnico,11.03,6.83,-0.69,4,86787,7
 André Ramalho,COR,Zagueiro,5.96,2.76,0.77,10,92440,3
-Gabriel Paulista,COR,Zagueiro,8.12,3.68,0.0,22,69208,5
+Gabriel Paulista,COR,Zagueiro,8.12,3.68,0.0,22,69208,2
 Gustavo Henrique,COR,Zagueiro,8.84,4.67,-0.26,28,78248,7
 Iago Machado,COR,Zagueiro,1.11,0.6,0.0,2,149993,6
-João Pedro,COR,Zagueiro,7.55,4.27,0.64,6,125488,7
+João Pedro,COR,Zagueiro,7.55,4.27,0.64,6,125488,2
 Yago Melo,COR,Zagueiro,1.0,0.0,0.0,0,146985,6
 Arroyo,CRU,Atacante,8.44,5.04,0.18,28,132264,2
 Bruno Rodrigues,CRU,Atacante,4.63,2.48,1.44,20,92811,6
@@ -652,10 +652,10 @@ Pepê Fermino,SAN,Meia,1.0,0.0,0.0,0,147736,6
 Philippe Coutinho,SAN,Meia,11.47,6.09,0.0,8,68899,7
 Rollheiser,SAN,Meia,5.46,3.23,0.0,25,102256,6
 Samuel Pierri,SAN,Meia,1.88,0.45,0.0,2,150757,6
-Thaciano,SAN,Meia,5.28,2.0,0.0,17,87470,5
-Willian Arão,SAN,Meia,5.18,3.11,0.0,21,78478,5
+Thaciano,SAN,Meia,5.28,2.0,0.0,17,87470,6
+Willian Arão,SAN,Meia,5.18,3.11,0.0,21,78478,2
 Cuca,SAN,Técnico,10.26,6.07,0.0,24,42411,7
-João Alencar,SAN,Zagueiro,3.53,3.67,0.0,3,144255,7
+João Alencar,SAN,Zagueiro,3.53,3.67,0.0,3,144255,2
 João Ananias,SAN,Zagueiro,3.43,2.5,0.0,6,145563,6
 Luan Peres,SAN,Zagueiro,6.0,3.6,0.0,25,84847,7
 Lucas Veríssimo,SAN,Zagueiro,8.15,3.96,0.0,17,93368,5
