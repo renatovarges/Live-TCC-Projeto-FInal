@@ -1,7 +1,7 @@
 Jogador,Time,Posição,Preço (C$),Média (pts),Variação última (C$),Jogos,ID,Status
-Ademir,BAH,Atacante,5.37,2.19,0.0,29,101314,7
+Ademir,BAH,Atacante,5.37,2.19,0.0,29,101314,6
 Alejo Véliz,BAH,Atacante,7.34,4.42,1.25,15,114208,7
-Cristian Olivera,BAH,Atacante,8.19,4.23,0.99,26,113397,6
+Cristian Olivera,BAH,Atacante,8.19,4.23,0.99,26,113397,7
 Dell,BAH,Atacante,1.82,0.65,0.0,4,142265,6
 Erick Pulga,BAH,Atacante,7.75,4.61,-0.63,32,109401,7
 Everaldo,BAH,Atacante,4.97,3.05,0.0,18,78117,6
@@ -85,7 +85,7 @@ Cuello,CAM,Atacante,8.97,6.26,0.0,25,98909,6
 Dudu,CAM,Atacante,6.37,2.32,0.77,19,68920,6
 Gabriel Veneno,CAM,Atacante,1.97,0.5,-0.03,1,146578,6
 Minda,CAM,Atacante,6.66,3.3,0.0,20,114040,6
-Thiago Borbas,CAM,Atacante,6.07,5.08,0.0,6,117314,6
+Thiago Borbas,CAM,Atacante,6.07,5.08,0.0,6,117314,5
 Everson,CAM,Goleiro,8.73,4.46,-0.94,24,72294,6
 Gabriel Delfim,CAM,Goleiro,4.84,3.96,0.0,9,115674,6
 Guilherme Pires,CAM,Goleiro,1.0,0.0,0.0,0,152261,6
@@ -107,9 +107,9 @@ Gustavo Scarpa,CAM,Meia,6.19,2.72,0.07,15,87999,6
 Gutte,CAM,Meia,0.89,0.0,-0.11,1,151440,6
 Igor Gomes,CAM,Meia,4.41,2.28,0.0,14,100084,6
 Maycon,CAM,Meia,5.12,2.26,0.0,20,94154,6
-Reinier,CAM,Meia,5.52,4.01,0.0,23,105068,6
+Reinier,CAM,Meia,5.52,4.01,0.0,23,105068,5
 Tomás Pérez,CAM,Meia,3.4,1.33,-0.03,17,126189,6
-Victor Hugo,CAM,Meia,6.3,3.61,0.0,25,116034,6
+Victor Hugo,CAM,Meia,6.3,3.61,0.0,25,116034,5
 Vinícius Almeida,CAM,Meia,1.0,0.0,0.0,0,152616,6
 Índio,CAM,Meia,1.0,0.0,0.0,0,141551,6
 Eduardo Domínguez,CAM,Técnico,9.87,5.4,-0.03,29,92747,6
@@ -212,11 +212,9 @@ Anderson,CHA,Goleiro,6.18,4.16,-0.65,19,102906,7
 Gabriel Werner,CHA,Goleiro,2.0,0.0,0.0,0,116128,6
 Kainã,CHA,Goleiro,1.0,0.0,0.0,0,124386,6
 Matheus Aurélio,CHA,Goleiro,2.61,1.7,0.0,2,97905,6
-Rafael Santos,CHA,Goleiro,4.94,3.75,0.0,4,68822,6
 Wellington,CHA,Goleiro,1.0,0.0,0.0,0,147468,6
 Bruno Pacheco,CHA,Lateral,6.37,4.38,-0.64,23,90061,7
 Bruno Tubarão,CHA,Lateral,3.01,1.7,0.0,5,93637,7
-Dudu,CHA,Lateral,4.37,1.83,0.0,4,97133,6
 Everton,CHA,Lateral,3.89,1.93,0.0,20,104470,6
 Fernando,CHA,Lateral,3.8,1.52,0.0,12,106950,6
 Gustavo Talles,CHA,Lateral,2.0,0.0,0.0,0,121870,6
@@ -382,7 +380,7 @@ Alisson,FLU,Meia,3.52,0.96,0.0,8,81845,6
 Ganso,FLU,Meia,3.51,1.76,-0.88,25,62977,7
 Hércules,FLU,Meia,6.83,3.78,-1.24,28,116447,7
 Lucho Acosta,FLU,Meia,9.56,4.81,-1.6,28,89837,6
-Martinelli,FLU,Meia,5.6,2.65,0.0,21,109573,5
+Martinelli,FLU,Meia,5.6,2.65,0.0,21,109573,6
 Nonato,FLU,Meia,7.33,3.88,1.13,20,100987,7
 Otávio,FLU,Meia,2.81,1.17,0.0,8,82463,6
 Ruan Sales,FLU,Meia,2.0,0.0,0.0,0,151347,6
@@ -483,7 +481,7 @@ Carlos Eduardo,MIR,Atacante,4.91,2.4,0.54,19,90917,6
 Edson Carioca,MIR,Atacante,4.27,2.8,0.0,20,104204,6
 Fernandinho,MIR,Atacante,3.39,1.48,0.01,9,91130,6
 Gustavo Mosquito,MIR,Atacante,4.76,2.87,0.0,7,97450,6
-Negueba,MIR,Atacante,8.57,5.23,0.0,8,98384,6
+Negueba,MIR,Atacante,8.57,5.23,0.0,8,98384,5
 Zé Roberto,MIR,Atacante,3.77,1.1,0.0,2,80076,6
 Alex Muralha,MIR,Goleiro,4.99,4.35,0.0,2,79066,6
 Georgemy,MIR,Goleiro,3.0,0.0,0.0,0,84268,6
@@ -529,7 +527,7 @@ Khellven,PAL,Lateral,7.17,4.32,-0.02,23,105175,2
 Piquerez,PAL,Lateral,11.05,6.54,0.0,17,102130,2
 Andreas Pereira,PAL,Meia,11.61,4.48,0.81,32,89274,2
 Arias,PAL,Meia,15.47,7.0,2.52,28,99815,2
-Emiliano Martínez,PAL,Meia,3.52,1.57,-0.07,17,108683,6
+Emiliano Martínez,PAL,Meia,3.52,1.57,-0.07,17,108683,2
 Felipe Anderson,PAL,Meia,7.95,3.5,1.85,25,70592,2
 Larson,PAL,Meia,2.25,0.83,0.0,8,136156,6
 Lucas Evangelista,PAL,Meia,4.21,1.91,-0.29,29,84674,7
@@ -541,10 +539,10 @@ Victor Gabriel,PAL,Meia,1.0,0.0,0.0,0,144889,6
 Abel Ferreira,PAL,Técnico,12.76,7.24,0.64,34,110506,7
 Alexander Barboza,PAL,Zagueiro,10.01,6.11,-0.8,23,99274,7
 Benedetti,PAL,Zagueiro,5.81,4.9,0.0,3,133679,6
-Bruno Fuchs,PAL,Zagueiro,7.35,4.46,-1.52,12,104085,2
+Bruno Fuchs,PAL,Zagueiro,7.35,4.46,-1.52,12,104085,7
 Gustavo Gómez,PAL,Zagueiro,9.87,5.53,-0.66,30,71684,2
 Koné,PAL,Zagueiro,2.0,0.0,0.0,0,147792,6
-Murilo,PAL,Zagueiro,7.65,4.44,-0.4,29,97653,7
+Murilo,PAL,Zagueiro,7.65,4.44,-0.4,29,97653,5
 Davi Gomes,RBB,Atacante,5.19,4.25,0.0,2,140906,5
 Eduardo Sasha,RBB,Atacante,4.45,1.58,0.0,23,70360,7
 Fernando,RBB,Atacante,6.04,5.07,0.0,18,100695,6
