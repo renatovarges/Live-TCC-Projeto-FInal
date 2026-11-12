@@ -73,7 +73,7 @@ Wallace Davi,BOT,Meia,4.0,0.0,0.0,0,133696,6
 Ziyech,BOT,Meia,7.24,2.95,0.0,6,99520,7
 Tite,BOT,Técnico,9.38,4.68,0.57,13,45125,7
 Anthony,BOT,Zagueiro,3.0,0.0,0.0,0,130282,6
-Arthur Chaves,BOT,Zagueiro,5.5,0.5,0.0,1,111412,5
+Arthur Chaves,BOT,Zagueiro,5.5,0.5,0.0,1,111412,6
 Ferraresi,BOT,Zagueiro,7.28,4.18,0.24,28,105300,6
 Herick,BOT,Zagueiro,1.0,0.0,0.0,0,151406,6
 Justino,BOT,Zagueiro,4.29,3.09,0.95,11,146430,7
@@ -199,11 +199,10 @@ Maicon,CFC,Zagueiro,3.7,1.79,0.0,15,71227,6
 Rodrigo Moledo,CFC,Zagueiro,4.8,2.72,-0.79,8,63354,2
 Thiago Santos,CFC,Zagueiro,4.5,3.08,-0.25,23,78855,7
 Tiago Cóser,CFC,Zagueiro,3.16,2.37,-0.28,27,109127,7
-Bolasie,CHA,Atacante,4.48,2.66,0.24,25,86292,7
 Franco Rossi,CHA,Atacante,2.72,1.33,-0.22,7,142764,6
 Garcez,CHA,Atacante,5.29,4.19,0.0,17,108131,5
-Kevin Ramírez,CHA,Atacante,3.89,2.8,-0.32,8,94034,6
-Kássio,CHA,Atacante,1.49,1.5,0.0,1,151412,6
+Kevin Ramírez,CHA,Atacante,3.89,2.8,-0.32,8,94034,2
+Kássio,CHA,Atacante,1.49,1.5,0.0,1,151412,2
 Marcinho,CHA,Atacante,5.49,3.85,0.81,30,95332,7
 Rodrigo,CHA,Atacante,0.91,0.2,0.0,2,130444,6
 Rubens,CHA,Atacante,2.38,1.24,0.0,10,116066,6
@@ -278,8 +277,8 @@ Gustavo Henrique,COR,Zagueiro,8.84,4.67,-0.26,28,78248,7
 Iago Machado,COR,Zagueiro,1.11,0.6,0.0,2,149993,6
 João Pedro,COR,Zagueiro,7.55,4.27,0.64,6,125488,2
 Yago Melo,COR,Zagueiro,1.0,0.0,0.0,0,146985,6
-Arroyo,CRU,Atacante,8.44,5.04,0.18,28,132264,2
-Bruno Rodrigues,CRU,Atacante,4.63,2.48,1.44,20,92811,6
+Arroyo,CRU,Atacante,8.44,5.04,0.18,28,132264,6
+Bruno Rodrigues,CRU,Atacante,4.63,2.48,1.44,20,92811,7
 Gabriel Pec,CRU,Atacante,7.94,4.1,0.0,1,106199,5
 João Costa,CRU,Atacante,3.85,1.48,0.0,6,130121,6
 Kaio Jorge,CRU,Atacante,13.1,6.63,0.93,26,103445,7
@@ -306,7 +305,7 @@ Felipe Morais,CRU,Meia,5.82,5.75,0.0,6,151292,5
 Gerson,CRU,Meia,8.48,4.68,-0.09,29,89256,7
 Lucas Romero,CRU,Meia,9.44,5.05,0.17,23,84558,7
 Lucas Silva,CRU,Meia,3.16,0.34,-0.06,18,79701,6
-Matheus Henrique,CRU,Meia,4.72,2.06,0.14,30,100742,2
+Matheus Henrique,CRU,Meia,4.72,2.06,0.14,30,100742,6
 Matheus Pereira,CRU,Meia,13.64,7.43,0.0,29,96610,7
 Peralta,CRU,Meia,4.0,0.0,0.0,0,112985,5
 Rhuan Gabriel,CRU,Meia,1.39,1.2,0.0,1,146991,6
@@ -318,6 +317,7 @@ Jonathan Jesus,CRU,Zagueiro,6.37,4.51,-1.08,22,124912,3
 João Marcelo,CRU,Zagueiro,5.33,3.2,0.0,17,105047,5
 Kelvin,CRU,Zagueiro,1.0,0.0,0.0,0,151289,6
 Villalba,CRU,Zagueiro,7.72,3.43,0.0,17,106593,7
+Vitor Hugo,CRU,Zagueiro,1.0,0.0,0.0,0,152668,6
 Bruno Henrique,FLA,Atacante,5.05,2.27,0.23,25,90285,6
 Douglas Telles,FLA,Atacante,2.0,0.0,0.0,0,145705,6
 Joaquín Freitas,FLA,Atacante,3.6,1.81,-0.17,8,150251,6
@@ -434,7 +434,7 @@ Noriega,GRE,Zagueiro,7.49,4.05,-0.01,24,130048,7
 Wagner Leonardo,GRE,Zagueiro,6.18,2.86,0.0,11,104994,6
 Wallace,GRE,Zagueiro,8.28,6.24,0.0,11,130307,7
 Alerrandro,INT,Atacante,7.49,4.0,0.48,26,101715,7
-Carbonero,INT,Atacante,8.76,4.96,0.41,30,107989,6
+Carbonero,INT,Atacante,8.76,4.96,0.41,30,107989,7
 Eliasson,INT,Atacante,2.56,0.1,0.0,5,101237,6
 Fabricio Prado,INT,Atacante,1.0,0.0,0.0,0,150841,6
 João Bezerra,INT,Atacante,0.7,0.05,-0.36,4,147202,6
@@ -452,7 +452,7 @@ Matheus Cunha,INT,Goleiro,4.12,3.18,0.0,16,111690,6
 Rochet,INT,Goleiro,6.28,3.33,0.0,11,105949,5
 Aguirre,INT,Lateral,6.22,4.0,0.96,24,110510,7
 Alisson,INT,Lateral,1.0,0.0,0.0,0,146632,6
-Bernabei,INT,Lateral,9.63,5.77,0.59,29,110426,7
+Bernabei,INT,Lateral,9.63,5.77,0.59,29,110426,6
 Luiz Felipe,INT,Lateral,1.65,1.45,0.0,2,145660,6
 Matheus Bahia,INT,Lateral,7.59,4.62,-0.26,23,97899,7
 Alan Patrick,INT,Meia,9.2,4.75,0.0,27,68685,5
