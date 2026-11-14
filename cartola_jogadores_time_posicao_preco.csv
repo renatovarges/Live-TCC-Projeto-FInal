@@ -84,7 +84,7 @@ Cauã Soares,CAM,Atacante,1.77,1.06,0.3,8,147089,6
 Cuello,CAM,Atacante,8.97,6.26,0.0,25,98909,6
 Dudu,CAM,Atacante,6.37,2.32,0.77,19,68920,6
 Gabriel Veneno,CAM,Atacante,1.97,0.5,-0.03,1,146578,6
-Minda,CAM,Atacante,6.66,3.3,0.0,20,114040,5
+Minda,CAM,Atacante,6.66,3.3,0.0,20,114040,6
 Thiago Borbas,CAM,Atacante,6.07,5.08,0.0,6,117314,5
 Everson,CAM,Goleiro,8.73,4.46,-0.94,24,72294,6
 Gabriel Delfim,CAM,Goleiro,4.84,3.96,0.0,9,115674,6
@@ -96,7 +96,7 @@ Natanael,CAM,Lateral,8.5,5.24,0.0,23,107554,6
 Preciado,CAM,Lateral,7.45,4.46,-1.06,14,106302,6
 Renan Lodi,CAM,Lateral,9.52,5.03,0.0,27,96591,6
 Wanderson,CAM,Lateral,1.0,0.0,0.0,0,142641,6
-Alan Franco,CAM,Meia,4.9,2.1,0.0,23,39656,5
+Alan Franco,CAM,Meia,4.9,2.1,0.0,23,39656,6
 Alexsander,CAM,Meia,6.33,3.51,0.54,12,118774,6
 Bernard,CAM,Meia,5.2,3.87,0.0,26,72460,6
 Castaño,CAM,Meia,4.03,1.16,0.0,10,124961,6
@@ -217,7 +217,7 @@ Bruno Tubarão,CHA,Lateral,3.01,1.7,0.0,5,93637,6
 Everton,CHA,Lateral,3.89,1.93,0.0,20,104470,6
 Fernando,CHA,Lateral,3.8,1.52,0.0,12,106950,6
 Gustavo Talles,CHA,Lateral,2.0,0.0,0.0,0,121870,6
-Heitor,CHA,Lateral,8.12,6.78,-0.18,5,104649,7
+Heitor,CHA,Lateral,8.12,6.78,-0.18,5,104649,6
 Mancha,CHA,Lateral,3.0,0.0,0.0,0,111279,6
 Borrero,CHA,Meia,3.42,1.12,-0.57,4,106843,7
 Camilo,CHA,Meia,5.57,2.9,0.98,26,104519,7
@@ -232,6 +232,7 @@ Robert,CHA,Meia,3.51,3.0,0.0,1,130414,5
 Rosivan,CHA,Meia,2.35,1.5,0.0,1,123433,6
 Vinícius Balieiro,CHA,Meia,3.62,1.84,0.0,5,110605,5
 Yago Felipe,CHA,Meia,7.66,4.45,-0.26,11,87747,7
+Rodrigo Chipp,CHA,Técnico,8.2,0.0,0.0,0,145440,6
 Vinícius Bergantin,CHA,Técnico,8.2,0.0,0.0,0,100958,7
 Eduardo Doma,CHA,Zagueiro,3.81,1.95,0.3,29,101393,7
 João Paulo,CHA,Zagueiro,4.41,2.49,0.0,9,107453,6
@@ -395,30 +396,30 @@ Thiago Silva,FLU,Zagueiro,7.27,4.25,0.74,7,37715,7
 Amuzu,GRE,Atacante,8.32,4.01,1.56,28,142004,7
 Braithwaite,GRE,Atacante,5.57,1.04,0.66,23,89368,6
 Carlos Vinícius,GRE,Atacante,12.46,4.29,0.0,30,105563,7
-Enamorado,GRE,Atacante,6.31,3.17,-0.3,28,106104,7
+Enamorado,GRE,Atacante,6.31,3.17,-0.3,28,106104,2
 Jeferson,GRE,Atacante,1.0,0.0,0.0,0,142261,6
 Jovane Cabral,GRE,Atacante,6.44,2.92,0.0,5,109097,6
 Matheus Nascimento,GRE,Atacante,3.49,0.6,-0.52,2,109114,6
-Pavón,GRE,Atacante,6.25,4.36,0.0,27,91908,6
+Pavón,GRE,Atacante,6.25,4.36,0.0,27,91908,2
 Tetê,GRE,Atacante,7.62,2.94,-0.14,25,105089,6
 Gabriel Grando,GRE,Goleiro,4.25,1.9,0.48,2,112616,6
 Gabriel Menegon,GRE,Goleiro,1.81,0.0,0.0,1,147544,6
 Thiago Beltrame,GRE,Goleiro,2.08,0.7,0.0,1,116067,6
 Weverton,GRE,Goleiro,9.16,5.56,0.0,29,71631,7
 Caio Paulista,GRE,Lateral,5.8,3.23,-0.11,14,102318,6
-Diego Caito,GRE,Lateral,6.36,4.12,0.0,9,122670,6
+Diego Caito,GRE,Lateral,6.36,4.12,0.0,9,122670,2
 Emanuel,GRE,Lateral,1.0,0.0,0.0,0,152260,6
-João Pedro,GRE,Lateral,3.61,2.18,-0.77,11,89273,7
+João Pedro,GRE,Lateral,3.61,2.18,-0.77,11,89273,2
 Marcos Rocha,GRE,Lateral,6.41,2.45,0.02,6,63013,6
 Marlon,GRE,Lateral,10.45,6.04,0.0,14,91706,7
 Pedro Gabriel,GRE,Lateral,4.93,3.28,-0.85,16,141594,6
 Vitor Ramon,GRE,Lateral,1.0,0.2,0.0,1,148092,6
 Bernardo Zortea,GRE,Meia,1.1,0.88,0.0,5,142260,6
-Danilo Barbosa,GRE,Meia,3.37,0.94,0.0,7,86777,6
-Dodi,GRE,Meia,2.62,0.35,0.16,11,89883,6
+Danilo Barbosa,GRE,Meia,3.37,0.94,0.0,7,86777,2
+Dodi,GRE,Meia,2.62,0.35,0.16,11,89883,2
 Jefinho,GRE,Meia,1.46,1.5,0.0,1,147545,6
 João Borne,GRE,Meia,1.0,0.0,0.0,0,152259,6
-Krovinovic,GRE,Meia,4.22,2.11,-0.27,9,100596,7
+Krovinovic,GRE,Meia,4.22,2.11,-0.27,9,100596,6
 Nardoni,GRE,Meia,5.68,1.81,0.0,17,108162,5
 Riquelme,GRE,Meia,2.42,-1.45,0.0,2,130889,6
 Roger,GRE,Meia,1.5,1.2,0.0,2,147546,6
@@ -698,7 +699,7 @@ Osorio,SAO,Zagueiro,2.99,2.37,0.0,8,150197,7
 Rafael Tolói,SAO,Zagueiro,8.06,5.17,-0.52,12,63008,7
 Sabino,SAO,Zagueiro,6.93,3.99,0.0,24,104075,5
 Andrey Fernandes,VAS,Atacante,1.41,1.7,0.0,1,141406,6
-Andrés Gómez,VAS,Atacante,11.64,6.76,0.3,27,116706,2
+Andrés Gómez,VAS,Atacante,11.64,6.76,0.3,27,116706,6
 Brenner,VAS,Atacante,6.56,2.95,-0.89,18,99789,6
 Bruno Duarte,VAS,Atacante,8.68,5.27,1.07,8,138941,7
 Bruno Lopes,VAS,Atacante,1.57,1.7,0.0,1,133690,6
@@ -713,7 +714,7 @@ Léo Jardim,VAS,Goleiro,5.93,2.71,0.52,32,87008,7
 Pablo,VAS,Goleiro,1.0,0.0,0.0,0,129665,6
 Phillipe Gabriel,VAS,Goleiro,1.0,0.0,0.0,0,130280,6
 Avellar,VAS,Lateral,2.8,3.45,0.0,2,141405,6
-Cuiabano,VAS,Lateral,12.62,7.58,-0.04,22,116065,2
+Cuiabano,VAS,Lateral,12.62,7.58,-0.04,22,116065,6
 Lucas Piton,VAS,Lateral,4.79,2.39,0.0,21,105584,2
 Paulinho,VAS,Lateral,4.0,0.0,0.0,0,126996,6
 Paulo Henrique,VAS,Lateral,6.76,3.06,-0.33,22,93716,7
