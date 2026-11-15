@@ -201,6 +201,7 @@ Thiago Santos,CFC,Zagueiro,4.5,3.08,-0.25,23,78855,7
 Tiago Cóser,CFC,Zagueiro,3.16,2.37,-0.28,27,109127,7
 Franco Rossi,CHA,Atacante,2.72,1.33,-0.22,7,142764,6
 Garcez,CHA,Atacante,5.29,4.19,0.0,17,108131,5
+Gleidson,CHA,Atacante,1.0,0.0,0.0,0,140950,6
 Kevin Ramírez,CHA,Atacante,3.89,2.8,-0.32,8,94034,6
 Kássio,CHA,Atacante,1.49,1.5,0.0,1,151412,6
 Marcinho,CHA,Atacante,5.49,3.85,0.81,30,95332,6
@@ -208,7 +209,7 @@ Rodrigo,CHA,Atacante,0.91,0.2,0.0,2,130444,6
 Rubens,CHA,Atacante,2.38,1.24,0.0,10,116066,6
 Túlio Eduardo,CHA,Atacante,6.05,3.85,-0.36,13,122121,7
 Anderson,CHA,Goleiro,6.18,4.16,-0.65,19,102906,6
-Gabriel Werner,CHA,Goleiro,2.0,0.0,0.0,0,116128,7
+Gabriel Werner,CHA,Goleiro,2.0,0.0,0.0,0,116128,6
 Kainã,CHA,Goleiro,1.0,0.0,0.0,0,124386,6
 Matheus Aurélio,CHA,Goleiro,2.61,1.7,0.0,2,97905,6
 Wellington,CHA,Goleiro,1.0,0.0,0.0,0,147468,6
@@ -219,16 +220,16 @@ Fernando,CHA,Lateral,3.8,1.52,0.0,12,106950,6
 Gustavo Talles,CHA,Lateral,2.0,0.0,0.0,0,121870,6
 Heitor,CHA,Lateral,8.12,6.78,-0.18,5,104649,6
 Mancha,CHA,Lateral,3.0,0.0,0.0,0,111279,6
-Borrero,CHA,Meia,3.42,1.12,-0.57,4,106843,7
+Borrero,CHA,Meia,3.42,1.12,-0.57,4,106843,6
 Camilo,CHA,Meia,5.57,2.9,0.98,26,104519,7
 Da Silva,CHA,Meia,3.0,0.0,0.0,0,121811,6
-David,CHA,Meia,1.22,0.94,-0.7,12,140438,7
+David,CHA,Meia,1.22,0.94,-0.7,12,140438,6
 Giovanni Augusto,CHA,Meia,5.88,4.31,0.34,24,68938,7
 Juan Ferreira,CHA,Meia,1.0,0.0,0.0,0,151294,6
 Max,CHA,Meia,4.22,2.25,0.0,4,107203,6
 Miguel Carvalho,CHA,Meia,4.26,2.15,0.34,6,151600,6
 Rafael Carvalheira,CHA,Meia,5.7,2.72,0.0,14,109336,5
-Robert,CHA,Meia,3.51,3.0,0.0,1,130414,5
+Robert,CHA,Meia,3.51,3.0,0.0,1,130414,6
 Rosivan,CHA,Meia,2.35,1.5,0.0,1,123433,6
 Vinícius Balieiro,CHA,Meia,3.62,1.84,0.0,5,110605,5
 Yago Felipe,CHA,Meia,7.66,4.45,-0.26,11,87747,7
