@@ -84,7 +84,7 @@ Cauã Soares,CAM,Atacante,1.77,1.06,0.3,8,147089,6
 Cuello,CAM,Atacante,8.97,6.26,0.0,25,98909,6
 Dudu,CAM,Atacante,6.37,2.32,0.77,19,68920,6
 Gabriel Veneno,CAM,Atacante,1.97,0.5,-0.03,1,146578,6
-Minda,CAM,Atacante,6.66,3.3,0.0,20,114040,6
+Minda,CAM,Atacante,6.66,3.3,0.0,20,114040,5
 Thiago Borbas,CAM,Atacante,6.07,5.08,0.0,6,117314,5
 Everson,CAM,Goleiro,8.73,4.46,-0.94,24,72294,6
 Gabriel Delfim,CAM,Goleiro,4.84,3.96,0.0,9,115674,6
@@ -96,7 +96,7 @@ Natanael,CAM,Lateral,8.5,5.24,0.0,23,107554,6
 Preciado,CAM,Lateral,7.45,4.46,-1.06,14,106302,6
 Renan Lodi,CAM,Lateral,9.52,5.03,0.0,27,96591,6
 Wanderson,CAM,Lateral,1.0,0.0,0.0,0,142641,6
-Alan Franco,CAM,Meia,4.9,2.1,0.0,23,39656,6
+Alan Franco,CAM,Meia,4.9,2.1,0.0,23,39656,5
 Alexsander,CAM,Meia,6.33,3.51,0.54,12,118774,6
 Bernard,CAM,Meia,5.2,3.87,0.0,26,72460,6
 Castaño,CAM,Meia,4.03,1.16,0.0,10,124961,6
@@ -209,7 +209,7 @@ Rodrigo,CHA,Atacante,0.91,0.2,0.0,2,130444,6
 Rubens,CHA,Atacante,2.38,1.24,0.0,10,116066,6
 Túlio Eduardo,CHA,Atacante,6.05,3.85,-0.36,13,122121,7
 Anderson,CHA,Goleiro,6.18,4.16,-0.65,19,102906,6
-Gabriel Werner,CHA,Goleiro,2.0,0.0,0.0,0,116128,6
+Gabriel Werner,CHA,Goleiro,2.0,0.0,0.0,0,116128,7
 Kainã,CHA,Goleiro,1.0,0.0,0.0,0,124386,6
 Matheus Aurélio,CHA,Goleiro,2.61,1.7,0.0,2,97905,6
 Wellington,CHA,Goleiro,1.0,0.0,0.0,0,147468,6
@@ -218,15 +218,15 @@ Bruno Tubarão,CHA,Lateral,3.01,1.7,0.0,5,93637,6
 Everton,CHA,Lateral,3.89,1.93,0.0,20,104470,6
 Fernando,CHA,Lateral,3.8,1.52,0.0,12,106950,6
 Gustavo Talles,CHA,Lateral,2.0,0.0,0.0,0,121870,6
-Heitor,CHA,Lateral,8.12,6.78,-0.18,5,104649,6
+Heitor,CHA,Lateral,8.12,6.78,-0.18,5,104649,7
 Mancha,CHA,Lateral,3.0,0.0,0.0,0,111279,6
-Borrero,CHA,Meia,3.42,1.12,-0.57,4,106843,6
+Borrero,CHA,Meia,3.42,1.12,-0.57,4,106843,7
 Camilo,CHA,Meia,5.57,2.9,0.98,26,104519,7
 Da Silva,CHA,Meia,3.0,0.0,0.0,0,121811,6
 David,CHA,Meia,1.22,0.94,-0.7,12,140438,6
 Giovanni Augusto,CHA,Meia,5.88,4.31,0.34,24,68938,7
 Juan Ferreira,CHA,Meia,1.0,0.0,0.0,0,151294,6
-Max,CHA,Meia,4.22,2.25,0.0,4,107203,6
+Max,CHA,Meia,4.22,2.25,0.0,4,107203,7
 Miguel Carvalho,CHA,Meia,4.26,2.15,0.34,6,151600,6
 Rafael Carvalheira,CHA,Meia,5.7,2.72,0.0,14,109336,5
 Robert,CHA,Meia,3.51,3.0,0.0,1,130414,6
@@ -267,7 +267,7 @@ Breno Bidon,COR,Meia,8.36,3.87,-0.35,31,117910,7
 Carrillo,COR,Meia,3.64,1.3,-0.21,23,77485,6
 Charles,COR,Meia,2.88,1.01,-0.13,8,96342,6
 Dieguinho,COR,Meia,2.87,1.28,0.0,18,141995,6
-Garro,COR,Meia,9.63,4.85,-1.61,30,117632,5
+Garro,COR,Meia,9.63,4.85,-1.61,30,117632,6
 Labyad,COR,Meia,4.52,2.05,0.0,11,104036,5
 Matheus Pereira,COR,Meia,2.45,0.65,-0.38,20,90370,3
 Raniele,COR,Meia,8.1,4.44,0.0,24,95556,2
@@ -652,7 +652,7 @@ Philippe Coutinho,SAN,Meia,11.47,6.09,0.0,8,68899,7
 Rollheiser,SAN,Meia,5.46,3.23,0.0,25,102256,6
 Samuel Pierri,SAN,Meia,1.88,0.45,0.0,2,150757,6
 Thaciano,SAN,Meia,5.28,2.0,0.0,17,87470,6
-Willian Arão,SAN,Meia,5.18,3.11,0.0,21,78478,7
+Willian Arão,SAN,Meia,5.18,3.11,0.0,21,78478,6
 Cuca,SAN,Técnico,10.26,6.07,0.0,24,42411,7
 João Alencar,SAN,Zagueiro,3.53,3.67,0.0,3,144255,6
 João Ananias,SAN,Zagueiro,3.43,2.5,0.0,6,145563,6
