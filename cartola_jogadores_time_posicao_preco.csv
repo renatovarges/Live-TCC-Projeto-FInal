@@ -435,7 +435,7 @@ Noriega,GRE,Zagueiro,7.49,4.05,-0.01,24,130048,7
 Wagner Leonardo,GRE,Zagueiro,6.18,2.86,0.0,11,104994,6
 Wallace,GRE,Zagueiro,8.28,6.24,0.0,11,130307,7
 Alerrandro,INT,Atacante,7.49,4.0,0.48,26,101715,7
-Carbonero,INT,Atacante,8.76,4.96,0.41,30,107989,7
+Carbonero,INT,Atacante,8.76,4.96,0.41,30,107989,6
 Eliasson,INT,Atacante,2.56,0.1,0.0,5,101237,6
 Fabricio Prado,INT,Atacante,1.0,0.0,0.0,0,150841,6
 João Bezerra,INT,Atacante,0.7,0.05,-0.36,4,147202,6
@@ -456,7 +456,7 @@ Alisson,INT,Lateral,1.0,0.0,0.0,0,146632,6
 Bernabei,INT,Lateral,9.63,5.77,0.59,29,110426,6
 Luiz Felipe,INT,Lateral,1.65,1.45,0.0,2,145660,6
 Matheus Bahia,INT,Lateral,7.59,4.62,-0.26,23,97899,7
-Alan Patrick,INT,Meia,9.2,4.75,0.0,27,68685,5
+Alan Patrick,INT,Meia,9.2,4.75,0.0,27,68685,7
 Allex,INT,Meia,2.25,1.25,0.0,11,124270,6
 Benjamin Arhin,INT,Meia,1.73,-0.3,0.0,1,146701,6
 Bruno Gomes,INT,Meia,6.69,3.84,0.02,32,106202,7
@@ -465,8 +465,8 @@ Calebe,INT,Meia,3.52,0.5,-0.54,5,109461,6
 Gabriel Vinicius,INT,Meia,1.0,0.0,0.0,0,150842,6
 João Kempes,INT,Meia,2.0,0.0,0.0,0,147201,6
 Paulinho,INT,Meia,3.74,1.83,0.0,25,126182,6
-Ronaldo,INT,Meia,3.36,1.94,-0.32,16,92981,6
-Thiago Maia,INT,Meia,4.44,2.35,-0.19,18,89637,7
+Ronaldo,INT,Meia,3.36,1.94,-0.32,16,92981,7
+Thiago Maia,INT,Meia,4.44,2.35,-0.19,18,89637,6
 Villagra,INT,Meia,5.19,2.15,0.48,24,105157,7
 Eduardo Baptista,INT,Técnico,9.97,6.58,0.24,5,87211,7
 Félix Torres,INT,Zagueiro,4.5,3.56,0.0,20,97642,6
@@ -699,7 +699,7 @@ Osorio,SAO,Zagueiro,2.99,2.37,0.0,8,150197,7
 Rafael Tolói,SAO,Zagueiro,8.06,5.17,-0.52,12,63008,7
 Sabino,SAO,Zagueiro,6.93,3.99,0.0,24,104075,5
 Andrey Fernandes,VAS,Atacante,1.41,1.7,0.0,1,141406,6
-Andrés Gómez,VAS,Atacante,11.64,6.76,0.3,27,116706,6
+Andrés Gómez,VAS,Atacante,11.64,6.76,0.3,27,116706,7
 Brenner,VAS,Atacante,6.56,2.95,-0.89,18,99789,6
 Bruno Duarte,VAS,Atacante,8.68,5.27,1.07,8,138941,7
 Bruno Lopes,VAS,Atacante,1.57,1.7,0.0,1,133690,6
@@ -714,12 +714,12 @@ Léo Jardim,VAS,Goleiro,5.93,2.71,0.52,32,87008,7
 Pablo,VAS,Goleiro,1.0,0.0,0.0,0,129665,6
 Phillipe Gabriel,VAS,Goleiro,1.0,0.0,0.0,0,130280,6
 Avellar,VAS,Lateral,2.8,3.45,0.0,2,141405,6
-Cuiabano,VAS,Lateral,12.62,7.58,-0.04,22,116065,6
-Lucas Piton,VAS,Lateral,4.79,2.39,0.0,21,105584,2
+Cuiabano,VAS,Lateral,12.62,7.58,-0.04,22,116065,7
+Lucas Piton,VAS,Lateral,4.79,2.39,0.0,21,105584,6
 Paulinho,VAS,Lateral,4.0,0.0,0.0,0,126996,6
-Paulo Henrique,VAS,Lateral,6.76,3.06,-0.33,22,93716,7
-Puma Rodríguez,VAS,Lateral,8.64,4.89,0.8,23,99213,6
-Adson,VAS,Meia,5.6,3.12,0.0,16,111682,2
+Paulo Henrique,VAS,Lateral,6.76,3.06,-0.33,22,93716,2
+Puma Rodríguez,VAS,Lateral,8.64,4.89,0.8,23,99213,2
+Adson,VAS,Meia,5.6,3.12,0.0,16,111682,6
 Barros,VAS,Meia,8.61,4.64,0.0,18,122485,5
 Euder,VAS,Meia,1.0,0.0,0.0,0,130252,6
 Jair,VAS,Meia,5.2,2.6,-1.26,9,81091,6
