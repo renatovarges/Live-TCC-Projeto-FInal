@@ -61,7 +61,7 @@ Allan,BOT,Meia,4.67,2.36,0.0,14,69140,7
 Arthur Novaes,BOT,Meia,1.0,0.0,0.0,0,147782,6
 Barrera,BOT,Meia,4.93,2.46,0.0,11,142484,5
 Caio Valle,BOT,Meia,1.0,0.0,0.0,0,141752,6
-Danilo,BOT,Meia,12.86,6.58,0.0,23,107231,5
+Danilo,BOT,Meia,12.86,6.58,0.0,23,107231,6
 Domingos Andrade,BOT,Meia,3.44,1.08,0.0,6,144976,6
 Edenílson,BOT,Meia,5.78,3.17,-1.37,21,63289,7
 Huguinho,BOT,Meia,4.76,2.98,-0.01,15,141400,3
@@ -163,10 +163,10 @@ Breno Lopes,CFC,Atacante,8.57,4.31,0.23,29,93988,7
 David,CFC,Atacante,0.92,0.0,0.0,1,149991,6
 Fabinho,CFC,Atacante,2.17,1.36,0.0,12,101729,6
 Keno,CFC,Atacante,3.09,0.61,0.0,7,86485,6
-Lavega,CFC,Atacante,4.83,3.14,0.0,29,117930,7
+Lavega,CFC,Atacante,4.83,3.14,0.0,29,117930,6
 Lucas Crepaldi,CFC,Atacante,1.0,0.0,0.0,0,141335,6
 Lucas Ronier,CFC,Atacante,10.77,6.7,0.0,18,123648,5
-Ocampo,CFC,Atacante,3.11,0.55,-0.47,6,103626,6
+Ocampo,CFC,Atacante,3.11,0.55,-0.47,6,103626,2
 Paulo Roberto,CFC,Atacante,4.96,3.44,0.23,12,141339,6
 Pedro Rocha,CFC,Atacante,7.3,4.53,-0.19,32,90302,7
 Renato Marques,CFC,Atacante,2.62,0.77,0.0,8,117403,6
@@ -176,9 +176,9 @@ Benassi,CFC,Goleiro,1.0,0.0,0.0,0,115840,6
 Keiller,CFC,Goleiro,4.0,0.0,0.0,0,93834,6
 Pedro Morisco,CFC,Goleiro,8.24,4.89,0.0,15,125803,7
 Pedro Rangel,CFC,Goleiro,6.94,4.6,0.51,19,110708,6
-Bruno Melo,CFC,Lateral,4.82,2.53,0.09,30,84339,7
+Bruno Melo,CFC,Lateral,4.82,2.53,0.09,30,84339,2
 Bustos,CFC,Lateral,2.35,0.15,0.0,6,96678,6
-Felipe Jonatan,CFC,Lateral,4.23,1.97,0.0,19,101708,6
+Felipe Jonatan,CFC,Lateral,4.23,1.97,0.0,19,101708,7
 Lucas Taverna,CFC,Lateral,2.69,1.95,0.0,4,141337,6
 Rodrigo Gelado,CFC,Lateral,1.33,-0.4,0.0,2,122390,6
 Tinga,CFC,Lateral,6.0,3.11,0.53,22,82628,7
@@ -190,12 +190,12 @@ Matheus Dias,CFC,Meia,1.0,0.0,0.0,0,130283,6
 Nicolás Fonseca,CFC,Meia,3.0,0.55,0.26,7,117926,3
 Richard,CFC,Meia,3.31,0.83,-0.09,3,86711,6
 Sebastián Gómez,CFC,Meia,4.05,2.49,0.17,29,104811,7
-Vini Paulista,CFC,Meia,3.66,2.16,-0.05,27,112576,6
+Vini Paulista,CFC,Meia,3.66,2.16,-0.05,27,112576,2
 Vitor Tissi,CFC,Meia,1.65,1.3,0.0,8,141344,6
 Guilherme Bossle,CFC,Técnico,7.66,2.84,0.0,2,107807,7
 Gabriel Ibson,CFC,Zagueiro,1.0,0.0,0.0,0,151825,6
 Jacy,CFC,Zagueiro,5.7,3.92,-0.05,29,97878,3
-Maicon,CFC,Zagueiro,3.7,1.79,0.0,15,71227,7
+Maicon,CFC,Zagueiro,3.7,1.79,0.0,15,71227,2
 Rodrigo Moledo,CFC,Zagueiro,4.8,2.72,0.0,8,63354,5
 Thiago Santos,CFC,Zagueiro,4.06,2.94,-0.44,24,78855,7
 Tiago Cóser,CFC,Zagueiro,3.54,2.36,0.38,28,109127,7
@@ -213,32 +213,32 @@ Gabriel Werner,CHA,Goleiro,4.02,5.8,2.02,1,116128,7
 Kainã,CHA,Goleiro,1.0,0.0,0.0,0,124386,6
 Matheus Aurélio,CHA,Goleiro,2.61,1.7,0.0,2,97905,6
 Wellington,CHA,Goleiro,1.0,0.0,0.0,0,147468,6
-Bruno Pacheco,CHA,Lateral,6.37,4.38,0.0,23,90061,7
-Bruno Tubarão,CHA,Lateral,2.95,1.62,-0.06,6,93637,6
+Bruno Pacheco,CHA,Lateral,6.37,4.38,0.0,23,90061,6
+Bruno Tubarão,CHA,Lateral,2.95,1.62,-0.06,6,93637,7
 Everton,CHA,Lateral,3.85,1.97,-0.04,21,104470,6
-Fernando,CHA,Lateral,3.86,1.63,0.06,13,106950,6
+Fernando,CHA,Lateral,3.86,1.63,0.06,13,106950,7
 Gustavo Talles,CHA,Lateral,2.0,0.0,0.0,0,121870,6
 Heitor,CHA,Lateral,8.12,6.78,0.0,5,104649,7
 Mancha,CHA,Lateral,2.69,0.0,-0.31,1,111279,6
-Borrero,CHA,Meia,3.22,1.06,-0.2,5,106843,7
+Borrero,CHA,Meia,3.22,1.06,-0.2,5,106843,6
 Camilo,CHA,Meia,4.73,2.83,-0.84,27,104519,7
 Da Silva,CHA,Meia,3.0,0.0,0.0,0,121811,6
-David,CHA,Meia,1.13,0.84,-0.09,13,140438,6
+David,CHA,Meia,1.13,0.84,-0.09,13,140438,7
 Giovanni Augusto,CHA,Meia,5.68,4.29,-0.2,25,68938,3
 Juan Ferreira,CHA,Meia,1.0,0.0,0.0,0,151294,6
 Max,CHA,Meia,4.82,2.66,0.6,5,107203,7
-Miguel Carvalho,CHA,Meia,4.08,2.06,-0.18,7,151600,7
+Miguel Carvalho,CHA,Meia,4.08,2.06,-0.18,7,151600,6
 Rafael Carvalheira,CHA,Meia,5.7,2.72,0.0,14,109336,5
 Robert,CHA,Meia,3.19,1.5,-0.32,2,130414,6
 Rosivan,CHA,Meia,2.35,1.5,0.0,1,123433,6
 Vinícius Balieiro,CHA,Meia,3.62,1.84,0.0,5,110605,5
-Yago Felipe,CHA,Meia,7.66,4.45,0.0,11,87747,7
+Yago Felipe,CHA,Meia,7.66,4.45,0.0,11,87747,6
 Vinícius Bergantin,CHA,Técnico,8.45,2.88,0.25,1,100958,7
 Eduardo Doma,CHA,Zagueiro,3.5,1.88,-0.31,30,101393,7
 João Paulo,CHA,Zagueiro,4.41,2.49,0.0,9,107453,6
 Kauan,CHA,Zagueiro,2.8,2.9,-1.45,13,130806,7
 Luciano,CHA,Zagueiro,1.0,0.0,0.0,0,130443,6
-Victor Caetano,CHA,Zagueiro,3.16,1.48,0.0,8,97432,6
+Victor Caetano,CHA,Zagueiro,3.16,1.48,0.0,8,97432,7
 Vinicius,CHA,Zagueiro,1.63,0.1,0.0,2,148124,6
 Gui Negão,COR,Atacante,3.1,1.52,0.0,13,133543,6
 Kaio César,COR,Atacante,13.66,6.69,4.25,22,118844,6
@@ -500,7 +500,7 @@ Eduardo,MIR,Meia,5.74,3.36,0.0,25,68708,7
 Gustavo Cazonatti,MIR,Meia,3.42,2.33,0.0,6,95541,6
 Japa,MIR,Meia,5.51,3.71,0.0,8,122660,6
 Neto Moura,MIR,Meia,4.4,2.31,0.0,20,87742,3
-Shaylon,MIR,Meia,5.29,2.24,0.0,21,97520,7
+Shaylon,MIR,Meia,5.29,2.24,0.0,21,97520,6
 Wallisson,MIR,Meia,4.88,2.62,0.0,21,101405,6
 Rafael Guanaes,MIR,Técnico,7.58,4.45,0.0,30,104027,7
 Gabriel Knesowitsch,MIR,Zagueiro,1.99,0.66,0.0,8,117061,6
