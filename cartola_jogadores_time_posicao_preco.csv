@@ -20,9 +20,9 @@ Zé Guilherme,BAH,Lateral,4.03,2.65,0.0,6,123717,6
 Acevedo,BAH,Meia,7.2,4.57,0.03,31,104783,7
 Caio Alexandre,BAH,Meia,3.24,0.97,0.1,23,106323,6
 David Martins,BAH,Meia,0.65,-0.1,0.0,3,140726,6
-Erick,BAH,Meia,6.38,4.03,0.08,26,98022,2
+Erick,BAH,Meia,6.38,4.03,0.08,26,98022,7
 Everton Ribeiro,BAH,Meia,7.7,3.31,0.16,23,51772,6
-Jean Lucas,BAH,Meia,8.75,4.88,-0.04,29,98517,2
+Jean Lucas,BAH,Meia,8.75,4.88,-0.04,29,98517,6
 Lautaro López,BAH,Meia,4.0,0.0,0.0,0,127628,6
 Michel Araújo,BAH,Meia,3.04,1.5,-0.25,22,107173,6
 Rodrigo Nestor,BAH,Meia,6.06,4.27,-0.34,27,106822,7
@@ -85,7 +85,7 @@ Cuello,CAM,Atacante,8.97,6.26,0.0,25,98909,6
 Dudu,CAM,Atacante,6.37,2.32,0.0,19,68920,6
 Gabriel Veneno,CAM,Atacante,1.97,0.5,0.0,1,146578,6
 Minda,CAM,Atacante,6.66,3.3,0.0,20,114040,5
-Thiago Borbas,CAM,Atacante,6.07,5.08,0.0,6,117314,5
+Thiago Borbas,CAM,Atacante,6.07,5.08,0.0,6,117314,6
 Everson,CAM,Goleiro,8.73,4.46,0.0,24,72294,6
 Gabriel Delfim,CAM,Goleiro,4.84,3.96,0.0,9,115674,6
 Guilherme Pires,CAM,Goleiro,1.0,0.0,0.0,0,152261,6
@@ -109,7 +109,7 @@ Igor Gomes,CAM,Meia,4.41,2.28,0.0,14,100084,6
 Maycon,CAM,Meia,5.12,2.26,0.0,20,94154,5
 Reinier,CAM,Meia,5.52,4.01,0.0,23,105068,5
 Tomás Pérez,CAM,Meia,3.4,1.33,0.0,17,126189,6
-Victor Hugo,CAM,Meia,6.3,3.61,0.0,25,116034,5
+Victor Hugo,CAM,Meia,6.3,3.61,0.0,25,116034,6
 Vinícius Almeida,CAM,Meia,1.0,0.0,0.0,0,152616,6
 Índio,CAM,Meia,1.0,0.0,0.0,0,141551,6
 Eduardo Domínguez,CAM,Técnico,9.87,5.4,0.0,29,92747,6
@@ -166,7 +166,7 @@ Keno,CFC,Atacante,3.09,0.61,0.0,7,86485,6
 Lavega,CFC,Atacante,4.83,3.14,0.0,29,117930,6
 Lucas Crepaldi,CFC,Atacante,1.0,0.0,0.0,0,141335,6
 Lucas Ronier,CFC,Atacante,10.77,6.7,0.0,18,123648,5
-Ocampo,CFC,Atacante,3.11,0.55,-0.47,6,103626,2
+Ocampo,CFC,Atacante,3.11,0.55,-0.47,6,103626,6
 Paulo Roberto,CFC,Atacante,4.96,3.44,0.23,12,141339,6
 Pedro Rocha,CFC,Atacante,7.3,4.53,-0.19,32,90302,7
 Renato Marques,CFC,Atacante,2.62,0.77,0.0,8,117403,6
@@ -176,7 +176,7 @@ Benassi,CFC,Goleiro,1.0,0.0,0.0,0,115840,6
 Keiller,CFC,Goleiro,4.0,0.0,0.0,0,93834,6
 Pedro Morisco,CFC,Goleiro,8.24,4.89,0.0,15,125803,7
 Pedro Rangel,CFC,Goleiro,6.94,4.6,0.51,19,110708,6
-Bruno Melo,CFC,Lateral,4.82,2.53,0.09,30,84339,2
+Bruno Melo,CFC,Lateral,4.82,2.53,0.09,30,84339,7
 Bustos,CFC,Lateral,2.35,0.15,0.0,6,96678,6
 Felipe Jonatan,CFC,Lateral,4.23,1.97,0.0,19,101708,7
 Lucas Taverna,CFC,Lateral,2.69,1.95,0.0,4,141337,6
@@ -190,15 +190,16 @@ Matheus Dias,CFC,Meia,1.0,0.0,0.0,0,130283,6
 Nicolás Fonseca,CFC,Meia,3.0,0.55,0.26,7,117926,3
 Richard,CFC,Meia,3.31,0.83,-0.09,3,86711,6
 Sebastián Gómez,CFC,Meia,4.05,2.49,0.17,29,104811,7
-Vini Paulista,CFC,Meia,3.66,2.16,-0.05,27,112576,2
+Vini Paulista,CFC,Meia,3.66,2.16,-0.05,27,112576,6
 Vitor Tissi,CFC,Meia,1.65,1.3,0.0,8,141344,6
 Guilherme Bossle,CFC,Técnico,7.66,2.84,0.0,2,107807,7
 Gabriel Ibson,CFC,Zagueiro,1.0,0.0,0.0,0,151825,6
 Jacy,CFC,Zagueiro,5.7,3.92,-0.05,29,97878,3
-Maicon,CFC,Zagueiro,3.7,1.79,0.0,15,71227,2
+Maicon,CFC,Zagueiro,3.7,1.79,0.0,15,71227,7
 Rodrigo Moledo,CFC,Zagueiro,4.8,2.72,0.0,8,63354,5
 Thiago Santos,CFC,Zagueiro,4.06,2.94,-0.44,24,78855,7
 Tiago Cóser,CFC,Zagueiro,3.54,2.36,0.38,28,109127,7
+Vitor Martinelli,CFC,Zagueiro,1.0,0.0,0.0,0,141343,6
 Franco Rossi,CHA,Atacante,2.72,1.33,0.0,7,142764,6
 Garcez,CHA,Atacante,5.29,4.19,0.0,17,108131,5
 Gleidson,CHA,Atacante,1.0,0.0,0.0,0,140950,6
@@ -213,10 +214,10 @@ Gabriel Werner,CHA,Goleiro,4.02,5.8,2.02,1,116128,7
 Kainã,CHA,Goleiro,1.0,0.0,0.0,0,124386,6
 Matheus Aurélio,CHA,Goleiro,2.61,1.7,0.0,2,97905,6
 Wellington,CHA,Goleiro,1.0,0.0,0.0,0,147468,6
-Bruno Pacheco,CHA,Lateral,6.37,4.38,0.0,23,90061,6
+Bruno Pacheco,CHA,Lateral,6.37,4.38,0.0,23,90061,7
 Bruno Tubarão,CHA,Lateral,2.95,1.62,-0.06,6,93637,7
 Everton,CHA,Lateral,3.85,1.97,-0.04,21,104470,6
-Fernando,CHA,Lateral,3.86,1.63,0.06,13,106950,7
+Fernando,CHA,Lateral,3.86,1.63,0.06,13,106950,6
 Gustavo Talles,CHA,Lateral,2.0,0.0,0.0,0,121870,6
 Heitor,CHA,Lateral,8.12,6.78,0.0,5,104649,7
 Mancha,CHA,Lateral,2.69,0.0,-0.31,1,111279,6
