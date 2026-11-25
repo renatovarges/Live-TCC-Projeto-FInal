@@ -174,8 +174,8 @@ Rodrigo Rodrigues,CFC,Atacante,3.43,0.55,0.0,2,93371,6
 Thiago Azaf,CFC,Atacante,1.0,0.0,0.0,0,131279,6
 Benassi,CFC,Goleiro,1.0,0.0,0.0,0,115840,6
 Keiller,CFC,Goleiro,4.0,0.0,0.0,0,93834,6
-Pedro Morisco,CFC,Goleiro,9.23,5.3,0.99,16,125803,6
-Pedro Rangel,CFC,Goleiro,6.94,4.6,0.0,19,110708,7
+Pedro Morisco,CFC,Goleiro,9.23,5.3,0.99,16,125803,7
+Pedro Rangel,CFC,Goleiro,6.94,4.6,0.0,19,110708,6
 Bruno Melo,CFC,Lateral,5.38,2.61,0.56,31,84339,7
 Bustos,CFC,Lateral,2.35,0.15,0.0,6,96678,6
 Felipe Jonatan,CFC,Lateral,5.12,2.2,0.89,20,101708,6
@@ -421,7 +421,7 @@ Dodi,GRE,Meia,2.87,0.89,-0.29,13,89883,7
 Jefinho,GRE,Meia,1.46,1.5,0.0,1,147545,6
 João Borne,GRE,Meia,1.0,0.0,0.0,0,152259,6
 Krovinovic,GRE,Meia,4.46,2.1,0.0,10,100596,6
-Nardoni,GRE,Meia,5.68,1.81,0.0,17,108162,5
+Nardoni,GRE,Meia,5.68,1.81,0.0,17,108162,6
 Riquelme,GRE,Meia,2.42,-1.45,0.0,2,130889,6
 Roger,GRE,Meia,1.5,1.2,0.0,2,147546,6
 Tiaguinho,GRE,Meia,0.93,0.0,0.0,1,140496,6
@@ -576,7 +576,7 @@ Marcelinho,RBB,Meia,3.16,2.18,0.0,5,126120,6
 Matheus Fernandes,RBB,Meia,3.93,2.26,0.0,19,94067,6
 Patrick,RBB,Meia,3.36,0.4,0.0,2,122990,6
 Praxedes,RBB,Meia,4.0,0.0,0.0,0,107744,6
-Rodriguinho,RBB,Meia,5.87,3.63,0.0,15,118563,5
+Rodriguinho,RBB,Meia,5.87,3.63,0.0,15,118563,6
 Yuri Alves,RBB,Meia,1.55,1.05,0.0,4,141536,6
 Vagner Mancini,RBB,Técnico,8.95,5.44,0.63,33,39850,7
 Alix Vinicius,RBB,Zagueiro,6.17,3.09,1.28,24,111246,6
