@@ -273,11 +273,11 @@ Labyad,COR,Meia,4.52,2.05,0.0,11,104036,5
 Matheus Pereira,COR,Meia,2.45,0.65,0.0,20,90370,6
 Raniele,COR,Meia,7.77,4.39,0.0,25,95556,6
 Clarence Seedorf,COR,Técnico,11.95,7.56,0.0,5,86787,7
-André Ramalho,COR,Zagueiro,5.96,2.76,0.0,10,92440,6
-Gabriel Paulista,COR,Zagueiro,8.12,3.68,0.0,22,69208,7
+André Ramalho,COR,Zagueiro,5.96,2.76,0.0,10,92440,2
+Gabriel Paulista,COR,Zagueiro,8.12,3.68,0.0,22,69208,5
 Gustavo Henrique,COR,Zagueiro,9.05,4.73,0.0,29,78248,7
 Iago Machado,COR,Zagueiro,1.11,0.6,0.0,2,149993,6
-João Pedro,COR,Zagueiro,7.85,4.5,0.0,7,125488,6
+João Pedro,COR,Zagueiro,7.85,4.5,0.0,7,125488,2
 Yago Melo,COR,Zagueiro,1.0,0.0,0.0,0,146985,6
 Arroyo,CRU,Atacante,8.44,5.04,0.0,28,132264,6
 Bruno Rodrigues,CRU,Atacante,3.94,2.56,-0.69,21,92811,6
@@ -378,7 +378,6 @@ Jhonny,FLU,Lateral,1.0,0.0,0.0,0,116825,6
 Júlio Fidelis,FLU,Lateral,4.17,4.38,0.0,4,127932,6
 Renê,FLU,Lateral,9.9,5.64,-0.03,25,78445,6
 Samuel Xavier,FLU,Lateral,7.71,3.54,0.0,20,73384,6
-Alisson,FLU,Meia,3.52,0.96,0.0,8,81845,6
 Ganso,FLU,Meia,3.54,1.66,0.04,27,62977,6
 Hércules,FLU,Meia,6.62,3.81,-1.04,30,116447,6
 Lucho Acosta,FLU,Meia,9.73,4.58,0.34,30,89837,6
@@ -454,9 +453,9 @@ Matheus Cunha,INT,Goleiro,4.12,3.18,0.0,16,111690,6
 Rochet,INT,Goleiro,6.28,3.33,0.0,11,105949,6
 Aguirre,INT,Lateral,6.01,4.11,-0.68,26,110510,6
 Alisson,INT,Lateral,1.0,0.0,0.0,0,146632,6
-Bernabei,INT,Lateral,9.63,5.77,0.0,29,110426,5
+Bernabei,INT,Lateral,9.63,5.77,0.0,29,110426,2
 Luiz Felipe,INT,Lateral,1.65,1.45,0.0,2,145660,6
-Matheus Bahia,INT,Lateral,7.11,4.55,-0.48,24,97899,7
+Matheus Bahia,INT,Lateral,7.11,4.55,-0.48,24,97899,2
 Alan Patrick,INT,Meia,7.2,4.55,0.0,28,68685,7
 Allex,INT,Meia,2.06,1.15,0.0,12,124270,6
 Benjamin Arhin,INT,Meia,1.73,-0.3,0.0,1,146701,6
